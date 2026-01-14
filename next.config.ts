@@ -1,11 +1,13 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  output: 'export',      // Enables the 'out' folder required by your GitHub Action
+  output: 'export',
   images: {
-    unoptimized: true,   // Required because GitHub Pages is a static host
+    unoptimized: true,
   },
-  /* You can add other config options here */
+  // Add these two lines below:
+  basePath: '/dillion-bird',
+  assetPrefix: '/dillion-bird',
 };
 
 export default nextConfig;

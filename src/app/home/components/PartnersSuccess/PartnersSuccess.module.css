@@ -1,0 +1,295 @@
+.section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 2vw;
+  background-color: #ffffff;
+  font-family: var(--font-nunito-sans), system-ui, -apple-system, sans-serif;
+  gap: 0.5rem;
+  min-height: auto;
+}
+
+/* Content Section - Left */
+.content {
+  flex: 0 0 35%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.8rem;
+  order: 1;
+}
+
+.title {
+  font-family: var(--font-nunito-sans), system-ui;
+  font-weight: 800;
+  font-size: 40px;
+  line-height: 1.1;
+  color: #1a1a1a;
+  margin: 0 0 0.3rem 0;
+  text-align: left;
+  max-width: 100%;
+}
+
+.text {
+  font-family: var(--font-nunito-sans), system-ui;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #666666;
+  margin: 0 0 0.3rem 0;
+  max-width: 450px;
+  text-align: left;
+  width: 90%;
+}
+
+.buttonContainer {
+  width: fit-content;
+  display: inline-block;
+  margin: 0.3rem 0 0.8rem 0;
+}
+
+/* Logos Container */
+.logosContainer {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+  flex-wrap: nowrap;
+  padding-top: 0.3rem;
+}
+
+.logoWrapper {
+  position: relative;
+  width: 140px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.logoWrapper:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  right: -12px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0.5px;
+  height: 50px;
+  background: #e5e5e5;
+  opacity: 0.5;
+}
+
+.logoImage {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.logoWrapper:hover .logoImage {
+  opacity: 1;
+}
+
+/* Single Image Section - Right */
+.imageWrapper {
+  flex: 0 0 55%;
+  order: 2;
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  height: 1000px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image {
+  object-fit: contain;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* Tablet (1024px and below) */
+/* Tablet (1024px and below) */
+@media (max-width: 1024px) {
+  .section {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 4vw;
+    gap: 0.5rem;
+  }
+
+  .content {
+    flex: 1;
+    width: 100%;
+    order: 1;
+    align-items: center;
+    gap: 0.8rem;
+  }
+
+  .imageWrapper {
+    flex: 1;
+    width: 100%;
+    order: 2;
+    max-width: 100%;
+    height: 600px;
+  }
+
+  .title {
+    font-size: 32px;
+    text-align: center;
+  }
+
+  .text {
+    font-size: 15px;
+    text-align: center;
+    width: 100%;
+    max-width: 650px;
+    margin: 0;
+  }
+
+  .logosContainer {
+    justify-content: center;
+    gap: 0;
+    padding-top: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .logoWrapper {
+    width: 160px;
+    height: 90px;
+    margin: 0 5.5rem;
+  }
+
+  .logoWrapper:not(:last-child)::after {
+    right: -45px; /* ADJUSTED - centered between large logos */
+    height: 60px;
+  }
+}
+
+
+/* Mobile (768px and below) */
+@media (max-width: 768px) {
+  .section {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 5vw;
+    gap: 1.5rem;
+  }
+
+  .content {
+    flex: 1;
+    width: 100%;
+    order: 1;
+    align-items: center;
+    gap: 0.7rem;
+  }
+
+  .title {
+    font-size: 28px;
+    text-align: center;
+    margin: 0;
+  }
+
+  .text {
+    font-size: 14px;
+    text-align: center;
+    width: 100%;
+    max-width: 340px;
+    margin: 0;
+    line-height: 1.6;
+  }
+
+  .buttonContainer {
+    margin: 0.5rem 0 0;
+  }
+
+  .logosContainer {
+    gap: 0;
+    padding-top: 1.3rem;
+    margin-bottom: 1.3rem;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .logoWrapper {
+    width: 100px; /* REDUCED from 130px - fits in frame */
+    height: 40px; /* REDUCED from 55px - fits in frame */
+    margin: 0 1.2rem; /* REDUCED from 2rem - brings logos closer together */
+  }
+
+  .logoWrapper:not(:last-child)::after {
+    right: -10px; /* CENTERED - positioned between logos */
+    height: 35px;
+  }
+
+  .imageWrapper {
+    flex: 1;
+    width: 100%;
+    order: 2;
+    max-width: 100%;
+    height: 450px;
+  }
+}
+
+/* Small Mobile (480px and below) */
+@media (max-width: 480px) {
+  .section {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 4vw;
+    gap: 1rem;
+  }
+
+  .content {
+    width: 100%;
+    gap: 0.6rem;
+  }
+
+  .title {
+    font-size: 24px;
+    margin: 0;
+    text-align: center;
+  }
+
+  .text {
+    font-size: 13px;
+    text-align: center;
+    width: 100%;
+    max-width: 300px;
+    margin: 0;
+    line-height: 1.6;
+  }
+
+  .buttonContainer {
+    margin: 0.3rem 0 0;
+  }
+
+  .logosContainer {
+    gap: 0;
+    padding-top: 1rem;
+    margin-bottom: 1rem;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .logoWrapper {
+    width: 90px; /* REDUCED - fits better in frame */
+    height: 35px; /* REDUCED - fits better in frame */
+    margin: 0 1rem; /* REDUCED - brings logos inside frame */
+  }
+
+  .logoWrapper:not(:last-child)::after {
+    right: -8px; /* CENTERED between logos */
+    height: 30px;
+  }
+
+  .imageWrapper {
+    width: 100%;
+    height: 380px;
+  }
+}

@@ -1,0 +1,174 @@
+/* src/app/about/components/OurGCCLegacy/OurGCCLegacy.module.css */
+
+.section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 6rem 5vw;
+    background-color: #ffffff;
+    font-family: var(--font-nunito-sans), system-ui, -apple-system, sans-serif;
+    gap: 3rem;
+  }
+  
+  /* Content Section - Left */
+  .content {
+    flex: 0 0 35%; /* ADJUST THIS: Increase = wider content = fewer lines, Decrease = narrower = more lines */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    order: 1;
+  }
+  
+  .heading {
+    margin: 0 0 2rem 0;
+    line-height: 1.1;
+  }
+  
+  .headingBlack {
+    font-family: var(--font-nunito-sans), system-ui;
+    font-weight: 800;
+    font-size: 64px;
+    color: #1a1a1a;
+    display: block;
+    white-space: nowrap;
+  }
+  
+  .headingBlue {
+    font-family: var(--font-nunito-sans), system-ui;
+    font-weight: 800;
+    font-size: 64px;
+    color: #2563eb;
+    display: block;
+  }
+  
+  .textContent {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .paragraph {
+    font-family: var(--font-nunito-sans), system-ui;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 1.6;
+    color: #666666;
+    margin: 0;
+    text-align: left;
+  }
+  
+  /* Image Section - Right */
+  .imageWrapper {
+    flex: 0 0 48%;
+    order: 2;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .image {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    border-radius: 0px;
+    display: block;
+  }
+  
+  /* Tablet */
+  @media (max-width: 1024px) and (min-width: 769px) {
+    .section {
+      flex-direction: column;
+      align-items: center;
+      padding: 4rem 4vw;
+      gap: 3rem;
+    }
+  
+    .content {
+      flex: 1;
+      width: 100%; /* ADJUST THIS for tablet line counts */
+      order: 1;
+      align-items: center;
+    }
+  
+    .heading {
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+  
+    .headingBlack,
+    .headingBlue {
+      font-size: 48px;
+    }
+  
+    .paragraph {
+      font-size: 16px;
+      text-align: center;
+    }
+  
+    .imageWrapper {
+      flex: 1;
+      width: 100%;
+      order: 2;
+    }
+  }
+  
+  /* Mobile */
+  @media (max-width: 768px) {
+    .section {
+      flex-direction: column;
+      align-items: center;
+      padding: 3rem 5vw;
+      gap: 2rem;
+    }
+  
+    .content {
+      flex: 1;
+      width: 70%; /* ADJUST THIS for mobile line counts */
+      order: 1;
+      align-items: center;
+    }
+  
+    .heading {
+      text-align: center;
+      margin-bottom: 1.2rem;
+    }
+  
+    .headingBlack,
+    .headingBlue {
+      font-size: 40px;
+    }
+  
+    .paragraph {
+      font-size: 14px;
+      text-align: center;
+    }
+  
+    .imageWrapper {
+      flex: 1;
+      width: 100%;
+      order: 2;
+    }
+  }
+  
+  /* Small Mobile */
+  @media (max-width: 480px) {
+    .section {
+      padding: 2rem 4vw;
+      gap: 1.5rem;
+    }
+  
+    .content {
+      width: 85%;
+    }
+  
+    .headingBlack,
+    .headingBlue {
+      font-size: 32px;
+    }
+  
+    .paragraph {
+      font-size: 13px;
+    }
+  }
+  

@@ -1,0 +1,197 @@
+.footer {
+    background: #ffffff;
+    border-top: 1px solid #eaeaea;
+  }
+  
+  /* ---------------- CONTAINER ---------------- */
+  .container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 48px 24px;
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 0.8fr 1.2fr;
+    gap: 40px;
+  }
+  
+  /* ---------------- BRAND ---------------- */
+  .brandSection {
+    max-width: 400px;
+  }
+  
+  .logoRow {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .brandName {
+    font-family: var(--font-montserrat);
+    font-weight: 800;
+    font-size: 20px;
+    color: #0f172a;
+  }
+  
+  .description {
+    margin-top: 12px;
+    font-family: var(--font-nunito);
+    font-size: 14px;
+    line-height: 22px;
+    color: #64748b;
+  }
+  
+  .socials {
+    margin-top: 16px;
+    display: flex;
+    gap: 16px;
+  }
+  
+  /* ---------------- LINKS ---------------- */
+  .linksSection ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  /* ✅ FIX: Headings are NOT links */
+  .sectionTitle {
+    margin-bottom: 16px;
+    font-family: var(--font-nunito);
+    font-weight: 700;
+    font-size: 14px;
+    color: #0f172a;
+    text-transform: none;
+  }
+  
+  /* Only list items are clickable */
+  .linksSection li {
+    margin-bottom: 10px;
+  }
+  
+  .linksSection li a {
+    font-family: var(--font-nunito);
+    font-size: 14px;
+    color: #64748b;
+    text-decoration: none;
+  }
+  
+  .linksSection li a:hover {
+    color: #3b82f6;
+  }
+  
+  /* ---------------- NEWSLETTER ---------------- */
+  .newsletter {
+    max-width: 420px;
+  }
+  
+  .inputRow {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+  }
+  
+  .inputRow input {
+    flex: 1;
+    padding: 10px 14px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    font-family: var(--font-nunito);
+    font-size: 14px;
+    min-width: 260px;          /* KEY FIX */
+    white-space: nowrap;        /* KEY FIX */
+  }
+  
+  .inputRow button {
+    background: #3b82f6;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 18px;
+    font-family: var(--font-nunito);
+    font-weight: 800;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  
+  .note {
+    margin-top: 12px;
+    font-family: var(--font-nunito);
+    font-size: 16px;
+    color: #64748b;
+  }
+  
+  /* ---------------- BOTTOM BAR ---------------- */
+  .bottomBar {
+    background: #3b82f6;
+    color: #ffffff;
+    padding: 14px 0;                 /* REMOVE horizontal padding */
+    font-family: var(--font-nunito);
+    font-size: 14px;
+  }
+  
+  .bottomContainer {
+    max-width: 1200px;               /* SAME as top footer */
+    margin: 0 auto;
+    padding: 0 24px;                 /* Controlled spacing */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .bottomLinks {
+    display: flex;
+    gap: 12px;
+  }
+  
+  .bottomLinks a {
+    color: #ffffff;
+    text-decoration: none;
+  }
+  
+  
+  /* ---------------- TAB VIEW ---------------- */
+  @media (max-width: 1024px) {
+    .container {
+      grid-template-columns: 1fr 1fr;
+    }
+  
+    .sectionTitle {
+      text-transform: uppercase;
+    }
+  }
+  
+  /* ---------------- MOBILE VIEW ---------------- */
+  @media (max-width: 640px) {
+    .container {
+      grid-template-columns: 1fr;
+    }
+  
+    .sectionTitle {
+      text-transform: uppercase;
+    }
+  
+    .inputRow {
+      flex-direction: row;
+    }
+  
+    .note {
+      font-size: 14px;
+    }
+
+    
+    .bottomContainer {
+        flex-direction: column;
+        gap: 8px;
+        text-align: center;
+      }
+  
+    .bottomBar {
+      flex-direction: column;
+      gap: 8px;
+      text-align: center;
+    }
+  }
+
+    
+
+  

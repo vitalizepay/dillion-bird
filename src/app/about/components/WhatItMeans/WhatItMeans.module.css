@@ -1,0 +1,176 @@
+/* src/app/about/components/WhatItMeans/WhatItMeans.module.css */
+
+.section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 6rem 5vw;
+    background-color: #ffffff;
+    font-family: var(--font-nunito-sans), system-ui, -apple-system, sans-serif;
+    gap: 4rem;
+  }
+  
+  /* Image - Left */
+  .imageWrapper {
+    flex: 0 0 50%;
+    order: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .image {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    display: block;
+  }
+  
+  /* Content - Right */
+  .content {
+    flex: 0 0 35%;
+    order: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2rem;
+  }
+  
+  .heading {
+    font-family: var(--font-nunito-sans), system-ui;
+    font-weight: 800;
+    font-size: 40px;
+    line-height: 1.2;
+    color: #1a1a1a;
+    margin: 0;
+    text-align: left;
+  }
+  
+  .description {
+    font-family: var(--font-nunito-sans), system-ui;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 1.6;
+    color: #666666;
+    margin: 0;
+    text-align: left;
+  }
+  
+  .highlight {
+    font-family: var(--font-nunito-sans), system-ui;
+    font-weight: 700; /* Nunito Sans Bold */
+    font-size: 20px;
+    color: #666666; /* Same grey as content, not blue */
+    font-style: normal;
+  }
+  .buttonContainer {
+    width: fit-content;
+    display: inline-block;
+    margin-top: 1rem;
+  }
+  
+  /* Tablet (1024px and below) */
+  @media (max-width: 1024px) {
+    .section {
+      flex-direction: column;
+      align-items: center;
+      padding: 4rem 4vw;
+      gap: 3rem;
+    }
+  
+    .imageWrapper {
+      flex: 1;
+      width: 100%;
+      order: 2;
+    }
+  
+    .content {
+      flex: 1;
+      width: 100%;
+      max-width: 680px; 
+      order: 1;
+      align-items: center;
+    }
+  
+    .heading {
+      font-size: 28px; /* Nunito Sans Extrabold 28 */
+      text-align: center;
+    }
+  
+    .description {
+      font-size: 18px; /* Nunito Sans Medium 18 */
+      text-align: center;
+    }
+
+    .highlight {
+        font-weight: 700; /* Nunito Sans Bold */
+        font-size: 18px; /* Bold 18 on tablet */
+        color: #666666; /* Grey color */
+    }
+  }
+  
+ /* Mobile (768px and below) */
+@media (max-width: 768px) {
+    .section {
+      padding: 3rem 5vw;
+      gap: 2rem;
+    }
+  
+    .imageWrapper {
+      order: 2;
+    }
+  
+    .content {
+      gap: 1.5rem;
+      max-width: 350px; /* Narrower to force 7 lines */
+      order: 1;
+    }
+  
+    .heading {
+      font-weight: 800; /* Nunito Sans Extrabold */
+      font-size: 24px;
+      text-align: center;
+    }
+  
+    .description {
+      font-weight: 500; /* Nunito Sans Medium */
+      font-size: 16px;
+      text-align: center;
+    }
+  
+    .highlight {
+      font-weight: 700; /* Nunito Sans Bold */
+      font-size: 16px;
+      color: #666666;
+    }
+  }
+  
+  /* Small Mobile (480px and below) */
+  @media (max-width: 480px) {
+    .section {
+      padding: 2rem 4vw;
+      gap: 1.5rem;
+    }
+  
+    .content {
+      gap: 1.2rem;
+      max-width: 350px;
+    }
+  
+    .heading {
+      font-weight: 800;
+      font-size: 22px;
+    }
+  
+    .description {
+      font-weight: 500;
+      font-size: 15px;
+    }
+  
+    .highlight {
+      font-weight: 700;
+      font-size: 15px;
+      color: #666666;
+    }
+  }
+  

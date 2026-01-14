@@ -1,0 +1,142 @@
+/* src/app/home/components/HomeWhoWeAre/HomeWhoWeAre.module.css */
+
+.section {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 6rem 5vw;
+    background-color: #ffffff;
+    font-family: var(--font-nunito-sans), system-ui, -apple-system, sans-serif;
+  }
+  
+  /* Image Section */
+  .imageWrapper {
+    position: relative;
+    flex: 0 0 48%;
+    order: 1;
+    margin-right: 7.0rem;
+  }
+  
+  .image {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+  
+  /* Content Section */
+  .content {
+    flex: 0 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    order: 2;
+  }
+  
+  .title {
+    font-family: var(--font-nunito-sans), system-ui;
+    font-weight: 800;
+    font-size: 40px;
+    line-height: 1.2;
+    color: #1a1a1a;
+    margin: 0 0 1.5rem 0;
+    text-align: left;
+  }
+  
+  .text {
+    font-family: var(--font-nunito-sans), system-ui;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 1.65;
+    color: #666666;
+    margin: 0 0 2rem 0;
+    max-width: 530px;
+    text-align: left;
+  }
+  
+  .buttonContainer {
+    width: fit-content;
+    display: inline-block;
+  }
+  
+  /* Tablet (1024px and below) */
+  @media (max-width: 1024px) {
+    .section {
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 4rem 4vw;
+    }
+  
+    .imageWrapper {
+      flex: 1;
+      width: 100%;
+      order: 2;
+      margin-right: 0;
+      margin-top: 2rem;
+    }
+  
+    .content {
+      flex: 1;
+      width: 100%;
+      order: 1;
+      align-items: center;
+    }
+  
+    .title {
+      font-size: 32px;
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+  
+    .text {
+      font-size: 16px;
+      line-height: 1.65;
+      text-align: center;
+      max-width: 100%;
+      margin: 0 auto 2rem auto;
+    }
+  
+    .buttonContainer {
+      width: auto;
+      display: flex;
+      justify-content: center;
+    }
+  }
+  
+  /* Mobile (768px and below) */
+  @media (max-width: 768px) {
+    .section {
+      padding: 3rem 5vw;
+    }
+  
+    .imageWrapper {
+      order: 2;
+      margin-top: 2rem;
+    }
+  
+    .content {
+      order: 1;
+    }
+  
+    .title {
+      font-size: 28px;
+      text-align: center;
+      margin-bottom: 1.2rem;
+    }
+  
+    .text {
+      font-size: 16px;
+      text-align: center;
+      max-width: 100%;
+      margin: 0 auto 1.5rem auto;
+    }
+  
+    .buttonContainer {
+      width: auto;
+      display: flex;
+      justify-content: center;
+      margin-bottom: 2rem;
+    }
+  }
+  

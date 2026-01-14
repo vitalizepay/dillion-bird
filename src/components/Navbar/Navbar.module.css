@@ -1,0 +1,384 @@
+/* src/app/components/Navbar/Navbar.module.css */
+
+/* ================= HEADER ================= */
+.header {
+  background: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  height: 72px;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* ================= LOGO ================= */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.logo span {
+  font-family: var(--font-montserrat);
+  font-weight: 700;
+  font-size: 20px;
+  color: #111827;
+}
+
+/* ================= DESKTOP NAV ================= */
+.desktopNav {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  font-family: var(--font-nunito);
+  font-size: 16px;
+  font-weight: 600;
+}
+
+/* Nav links */
+.navLink {
+  color: #1a1a1a;
+  text-decoration: none;
+  position: relative;
+  transition: color 0.3s ease;
+  cursor: pointer;
+}
+
+.navLink:hover {
+  color: #2563eb;
+}
+
+.navLink.active {
+  color: #2563eb;
+  font-weight: 700;
+}
+
+/* ================= DROPDOWN ================= */
+.dropdownWrapper {
+  position: relative;
+}
+
+/* 🔥 HOVER BRIDGE — PREVENTS CLOSING */
+.dropdownWrapper::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 14px;
+}
+
+.trigger {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  color: #1a1a1a;
+  transition: color 0.3s ease;
+}
+
+.trigger:hover {
+  color: #2563eb;
+}
+
+.trigger.active {
+  color: #2563eb;
+  font-weight: 700;
+}
+
+.trigger.active svg {
+  fill: #2563eb;
+}
+
+.trigger svg {
+  width: 14px;
+  height: 14px;
+  fill: #9ca3af;
+  transition: transform 0.2s ease, fill 0.3s ease;
+}
+
+.rotate {
+  transform: rotate(180deg);
+}
+
+.menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  min-width: 280px;
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 12px 0;
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.08);
+  display: none;
+  z-index: 50;
+}
+
+/* Keep dropdown open */
+.dropdownWrapper:hover .menu {
+  display: block;
+}
+
+/* Dropdown menu items */
+.menuItem {
+  display: block;
+  padding: 12px 18px;
+  font-size: 14px;
+  color: #6b7280;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.menuItem:hover {
+  background: #f9fafb;
+  color: #2563eb;
+}
+
+/* ================= PHONE ================= */
+.phone {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--font-nunito);
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.phoneText {
+  color: #2563eb;
+}
+
+.divider {
+  width: 1px;
+  height: 18px;
+  background: #e5e7eb;
+}
+
+/* ================= HAMBURGER ================= */
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+/* ================= MOBILE ================= */
+.mobileOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  z-index: 100;
+}
+
+.mobilePanel {
+  background: #f1f6fd;
+  height: 100%;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.mobileHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+.closeBtn {
+  background: none;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+/* Mobile Nav */
+.mobileNav {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  font-family: var(--font-nunito);
+  font-size: 16px;
+  font-weight: 500;
+}
+
+/* Mobile links */
+.mobileLink {
+  color: #1a1a1a;
+  text-decoration: none;
+  display: block;
+  padding: 8px 0;
+  transition: color 0.3s ease;
+}
+
+.mobileLink:hover {
+  color: #2563eb;
+}
+
+.mobileLink.active {
+  color: #2563eb;
+  font-weight: 700;
+}
+
+/* Mobile accordion item */
+.mobileItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  color: #1a1a1a;
+  transition: color 0.3s ease;
+}
+
+.mobileItem:hover {
+  color: #2563eb;
+}
+
+.mobileItem.active {
+  color: #2563eb;
+  font-weight: 700;
+}
+
+.mobileItem.active svg {
+  fill: #2563eb;
+}
+
+/* Mobile arrow */
+.mobileArrow {
+  width: 14px;
+  height: 14px;
+  fill: #9ca3af;
+  flex-shrink: 0;
+  transition: transform 0.2s ease, fill 0.3s ease;
+}
+
+/* Mobile submenu */
+.mobileSubmenu {
+  margin-top: 10px;
+  padding-left: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  font-size: 14px;
+  color: #6b7280;
+}
+
+.mobileSubmenu a {
+  color: #6b7280;
+  text-decoration: none;
+  display: block;
+  padding: 8px 0;
+  transition: color 0.3s ease;
+}
+
+.mobileSubmenu a:hover {
+  color: #2563eb;
+}
+
+/* Mobile Phone */
+.mobilePhone {
+  margin-top: 44px;
+  background: #ffffff;
+  padding: 16px 18px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 1024px) {
+  .desktopNav,
+  .phone {
+    display: none;
+  }
+
+  .hamburger {
+    display: block;
+  }
+}
+
+@media (max-width: 768px) {
+  .inner {
+    height: 64px;
+    padding: 0 16px;
+  }
+
+  .logo span {
+    font-size: 18px;
+  }
+
+  .hamburger {
+    font-size: 20px;
+  }
+
+  .mobilePanel {
+    padding: 16px;
+  }
+
+  .mobileHeader {
+    margin-bottom: 24px;
+  }
+
+  .mobileNav {
+    gap: 20px;
+    font-size: 14px;
+  }
+
+  .mobilePhone {
+    margin-top: 32px;
+    padding: 12px 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .inner {
+    height: 56px;
+    padding: 0 12px;
+  }
+
+  .logo span {
+    font-size: 16px;
+  }
+
+  .mobilePanel {
+    padding: 12px;
+  }
+
+  .mobileHeader {
+    margin-bottom: 20px;
+  }
+
+  .mobileNav {
+    gap: 16px;
+    font-size: 14px;
+  }
+
+  .mobileItem span {
+    font-weight: 500;
+  }
+
+  .mobileSubmenu {
+    padding-left: 12px;
+    gap: 10px;
+    font-size: 13px;
+  }
+
+  .mobilePhone {
+    margin-top: 24px;
+    padding: 10px 12px;
+  }
+}

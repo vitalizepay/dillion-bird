@@ -1,0 +1,204 @@
+/* src/app/about/components/DrivingPhilosophy/DrivingPhilosophy.module.css */
+
+.section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 6rem 5vw;
+    background-color: #ffffff;
+    font-family: var(--font-nunito-sans), system-ui, -apple-system, sans-serif;
+    gap: 3rem;
+  }
+  
+  /* Content Section - Left */
+  .content {
+    flex: 0 0 48%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    order: 1;
+    gap: 2rem;
+  }
+  
+  .heading {
+    font-family: var(--font-nunito-sans), system-ui;
+    font-weight: 800;
+    font-size: 40px;
+    line-height: 1.2;
+    color: #1a1a1a;
+    margin: 0;
+    text-align: left;
+  }
+  
+  .description {
+    font-family: var(--font-nunito-sans), system-ui;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 1.6;
+    color: #666666;
+    margin: 0;
+    text-align: left;
+  }
+  
+  /* Image Section - Right */
+  .imageWrapper {
+    flex: 0 0 48%;
+    order: 2;
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 1rem;
+  }
+  
+  .blueAccent {
+    width: auto;
+    height: 50%;
+    object-fit: contain;
+    flex-shrink: 0;
+    align-self: flex-start;
+  }
+  
+  .image {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    display: block;
+    flex: 1;
+  }
+  
+  /* Tablet (1024px and below) */
+    
+  
+  @media (max-width: 1024px) {
+    .section {
+      flex-direction: column;
+      align-items: center;
+      padding: 4rem 5vw;
+      gap: 2.5rem;
+    }
+  
+    .content {
+      flex: 1;
+      width: 80%;
+      max-width: 1000px;
+      order: 1;
+      align-items: center;
+      align-self: center;
+    }
+  
+    .heading {
+      font-size: 28px;
+      text-align: center;
+      width: 100%;
+    }
+  
+    .description {
+      font-size: 18px;
+      text-align: center;
+    }
+  
+    .imageWrapper {
+      flex: 1;
+      width: 100%;
+      max-width: 900px;
+      order: 2;
+      position: relative;
+      align-self: center;
+      margin: 0;
+      padding-left: 1.5rem; /* Space for blue bar */
+    }
+  
+    .blueAccent {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 16px;
+      height: 300px; /* Fixed height - half of chess visible portion */
+      object-fit: fill;
+      z-index: 2;
+    }
+  
+    .image {
+      max-width: 100%;
+      width: 100%;
+      height: auto;
+      position: relative;
+      z-index: 1;
+    }
+  }
+  
+  
+  
+  /* Mobile (768px and below) */
+  @media (max-width: 768px) {
+    .section {
+      padding: 3rem 5vw;
+      gap: 2rem;
+    }
+  
+    .content {
+      max-width: 500px;
+      gap: 1.5rem;
+    }
+  
+    .heading {
+      font-size: 24px;
+    }
+  
+    .description {
+      font-size: 16px;
+    }
+  
+    .imageWrapper {
+        flex: 1;
+        width: 100%;
+        max-width: 900px;
+        order: 2;
+        position: relative;
+        align-self: center;
+        margin: 0;
+        padding-left: 0.5rem; /* Space for blue bar */
+      }
+  
+    .blueAccent {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 20px;
+        height: 400px; /* Fixed height - half of chess visible portion */
+        object-fit: fill;
+        z-index: 2;
+      }
+  }
+  
+  /* Small Mobile (480px and below) */
+  @media (max-width: 480px) {
+    .section {
+      padding: 2rem 4vw;
+      gap: 1.5rem;
+    }
+  
+    .content {
+      max-width: 400px;
+      gap: 1.2rem;
+    }
+  
+    .heading {
+      font-size: 22px;
+    }
+  
+    .description {
+      font-size: 15px;
+    }
+  
+    .imageWrapper {
+      gap: 0.5rem;
+    }
+  
+    .blueAccent {
+      height: 50%;
+      max-width: 3px;
+    }
+  }
+  

@@ -1,0 +1,152 @@
+/* src/app/home/components/OurExpertise/OurExpertise.module.css */
+
+.section {
+    padding: 6rem 5vw;
+    background-color: #ffffff;
+    font-family: var(--font-nunito-sans), system-ui;
+  }
+  
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 3rem;
+  }
+  
+  .sectionTitle {
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 1.2;
+    color: #1a1a1a;
+    margin: 0;
+  }
+  
+  .arrows {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .arrowBtn {
+    width: 44px;
+    height: 44px;
+    border: 2px solid #d0d0d0;
+    background: #ffffff;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 18px;
+    color: #666666;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    padding: 0;
+  }
+  
+  .arrowBtn:hover {
+    border-color: #2f80ed;
+    color: #2f80ed;
+    background: #f5f5f5;
+  }
+  
+  .carousel {
+    overflow: hidden;
+    width: 100%;
+    border-radius: 8px;
+  }
+  
+  .cardsContainer {
+    display: flex;
+    gap: 2rem;
+    transition: transform 0.5s ease-in-out;
+  }
+  
+  .cardWrapper {
+    flex: 0 0 calc(25% - 1.5rem);
+    min-width: 0;
+  }
+  
+  /* DESKTOP - 4 visible */
+  @media (min-width: 1025px) {
+    .section {
+      padding: 6rem 5vw;
+    }
+  
+    .carousel {
+      overflow: hidden;
+    }
+  
+    .cardsContainer {
+      gap: 2rem;
+    }
+  
+    .cardWrapper {
+      flex: 0 0 calc(25% - 1.5rem);
+    }
+  }
+  
+  /* TABLET - 3 visible + 1 cutoff */
+  @media (max-width: 1024px) {
+    .section {
+      padding: 4rem 4vw 4rem 4vw;
+    }
+  
+    .header {
+      margin-bottom: 2.5rem;
+    }
+  
+    .sectionTitle {
+      font-size: 32px;
+    }
+  
+    .arrows {
+      display: none;
+    }
+  
+    .carousel {
+      overflow: hidden;
+      margin-right: -20vw;
+      padding-right: 20vw;
+    }
+  
+    .cardsContainer {
+      gap: 1.5rem;
+    }
+  
+    .cardWrapper {
+      flex: 0 0 calc(33.333% - 1rem);
+    }
+  }
+  
+  /* MOBILE - 1 visible + 1 cutoff */
+  @media (max-width: 768px) {
+    .section {
+      padding: 3rem 5vw 3rem 5vw;
+    }
+  
+    .header {
+      margin-bottom: 2rem;
+    }
+  
+    .sectionTitle {
+      font-size: 28px;
+    }
+  
+    .arrows {
+      display: none;
+    }
+  
+    .carousel {
+      overflow: hidden;
+      margin-right: -20vw;
+      padding-right: 20vw;
+    }
+  
+    .cardsContainer {
+      gap: 1rem;
+    }
+  
+    .cardWrapper {
+      flex: 0 0 100%;
+    }
+  }
+  

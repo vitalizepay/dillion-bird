@@ -20,35 +20,42 @@ const nunito = Nunito_Sans({
 export const metadata: Metadata = {
   title: 'Dillon & Bird | Strategic Consulting Partners in the GCC',
   description: 'Dillon & Bird is a premium consulting firm driving unprecedented growth and innovation across the GCC. Strategic partnerships, management consulting, and corporate services.',
-  keywords: 'consulting, GCC, strategic partnerships, business consulting, management consulting',
+  keywords: 'GCC consulting, Dubai business, strategic partnerships, management consulting, UAE company formation',
   authors: [{ name: 'Dillon & Bird' }],
   metadataBase: new URL('https://dilionbird.com'),
   
-  // Open Graph (Facebook, LinkedIn, WhatsApp)
+  // Open Graph
   openGraph: {
     type: 'website',
     locale: 'en_US',
     url: 'https://dilionbird.com',
     title: 'Dillon & Bird | Strategic Consulting Partners in the GCC',
     description: 'Dillon & Bird is a premium consulting firm driving unprecedented growth and innovation across the GCC. Strategic partnerships, management consulting, and corporate services.',
+    siteName: 'Dillon & Bird',
     images: [
       {
-        url: '/logo.png',
-        width: 200,
-        height: 200,
-        alt: 'Dillon & Bird Logo',
+        url: 'https://storage.googleapis.com/gpt-engineer-file-uploads/RMEudFFF1oX2REUOr0q3qvNIpyJ3/social-images/social-1767890819384-DnB.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Dillon & Bird',
+        type: 'image/jpeg',
       },
     ],
-    siteName: 'Dillon & Bird',
   },
 
   // Twitter
   twitter: {
-    card: 'summary',
+    card: 'summary_large_image',
+    site: '@DillonAndBird',
     title: 'Dillon & Bird | Strategic Consulting Partners in the GCC',
     description: 'Dillon & Bird is a premium consulting firm driving unprecedented growth and innovation across the GCC. Strategic partnerships, management consulting, and corporate services.',
-    images: ['/logo.png'],
-    creator: '@dilionbird',
+    images: ['https://storage.googleapis.com/gpt-engineer-file-uploads/RMEudFFF1oX2REUOr0q3qvNIpyJ3/social-images/social-1767890819384-DnB.jpg'],
+    creator: '@DillonAndBird',
+  },
+
+  // Favicon
+  icons: {
+    icon: 'https://storage.googleapis.com/gpt-engineer-file-uploads/RMEudFFF1oX2REUOr0q3qvNIpyJ3/uploads/1767890738872-DnB.jpg',
   },
 };
 
@@ -61,7 +68,7 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </head>
       <body className={`${montserrat.variable} ${nunito.variable}`}>
         <Navbar />

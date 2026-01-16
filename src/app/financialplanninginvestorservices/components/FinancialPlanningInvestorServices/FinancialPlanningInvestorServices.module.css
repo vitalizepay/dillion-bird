@@ -1,0 +1,188 @@
+.section {
+    padding: 6rem 5vw;
+    background-color: #ffffff;
+    font-family: var(--font-nunito-sans), system-ui, -apple-system, sans-serif;
+    gap: 5rem;
+  }
+  
+  .mainHeading {
+    font-family: var(--font-nunito-sans), system-ui;
+    font-weight: 800;
+    font-size: 40px;
+    line-height: 1.2;
+    color: #1a1a1a;
+    margin: 0 0 7rem 0;
+    text-align: left;
+  }
+  
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem 20rem;
+    max-width: 2500px;
+  }
+  
+  .card {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 2rem;
+    align-items: start;
+  }
+  
+  .numberWrapper {
+    width: 80px;
+  }
+  
+  .numberImage {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    display: block;
+  }
+  
+  .textWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: -1.0rem;
+    min-width: none;
+  }
+  
+  .cardHeading {
+    font-family: var(--font-nunito-sans), system-ui;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 1.3;
+    color: #1a1a1a;
+    margin: 0;
+  }
+  
+  .cardDescription {
+    font-family: var(--font-nunito-sans), system-ui;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 1.6;
+    color: #666666;
+    margin: 0;
+    margin-top: 1.5rem;
+    max-width: 1200px;
+  }
+  
+  /* Tablet (1024px and below) */
+  @media (max-width: 1024px) {
+    .section {
+      padding: 4rem 4vw;
+    }
+  
+    .mainHeading {
+      font-weight: 800;
+      font-size: 28px;
+      margin-bottom: 3rem;
+      text-align: center;
+    }
+  
+    .grid {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+  
+    .card {
+      grid-template-columns: 70px 1fr;
+      gap: 1.5rem;
+    }
+  
+    .numberWrapper {
+      width: 70px;
+    }
+  
+    .textWrapper {
+      gap: 0.8rem;
+    }
+  
+    .cardHeading {
+      font-weight: 700;
+      font-size: 24px;
+    }
+  
+    .cardDescription {
+      font-weight: 500;
+      font-size: 18px;
+      max-width: 600px;
+    }
+  }
+  
+  /* Mobile (768px and below) */
+  @media (max-width: 768px) {
+    .section {
+      padding: 3rem 5vw;
+    }
+  
+    .mainHeading {
+      font-weight: 800;
+      font-size: 24px;
+      margin-bottom: 2.5rem;
+      text-align: center;
+      max-width: 350px;
+    }
+  
+    .grid {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+  
+    .card {
+      grid-template-columns: 60px 1fr;
+      gap: 1.2rem;
+    }
+  
+    .numberWrapper {
+      width: 60px;
+    }
+  
+    .textWrapper {
+      gap: 0.7rem;
+    }
+  
+    .cardHeading {
+      font-weight: 700;
+      font-size: 20px;
+    }
+  
+    .cardDescription {
+      font-weight: 500;
+      font-size: 16px;
+      max-width: 250px;
+    }
+  }
+  
+  /* Small Mobile (480px and below) */
+  @media (max-width: 480px) {
+    .section {
+      padding: 2rem 4vw;
+    }
+  
+    .mainHeading {
+      font-size: 22px;
+      margin-bottom: 2rem;
+    }
+  
+    .card {
+      grid-template-columns: 55px 1fr;
+      gap: 1rem;
+    }
+  
+    .numberWrapper {
+      width: 55px;
+    }
+  
+    .cardHeading {
+      font-size: 18px;
+    }
+  
+    .cardDescription {
+      font-size: 15px;
+    }
+  }
+  

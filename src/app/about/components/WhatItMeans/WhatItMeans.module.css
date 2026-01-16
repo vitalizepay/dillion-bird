@@ -46,6 +46,15 @@
     text-align: left;
   }
   
+  /* Show desktop heading only on desktop */
+  .headingDesktop {
+    display: block;
+  }
+  
+  .headingMobile {
+    display: none;
+  }
+  
   .description {
     font-family: var(--font-nunito-sans), system-ui;
     font-weight: 500;
@@ -58,11 +67,12 @@
   
   .highlight {
     font-family: var(--font-nunito-sans), system-ui;
-    font-weight: 700; /* Nunito Sans Bold */
+    font-weight: 700;
     font-size: 20px;
-    color: #666666; /* Same grey as content, not blue */
+    color: #666666;
     font-style: normal;
   }
+  
   .buttonContainer {
     width: fit-content;
     display: inline-block;
@@ -87,30 +97,36 @@
     .content {
       flex: 1;
       width: 100%;
-      max-width: 680px; 
+      max-width: 680px;
       order: 1;
       align-items: center;
     }
   
-    .heading {
-      font-size: 28px; /* Nunito Sans Extrabold 28 */
+    /* Hide desktop heading, show mobile heading */
+    .headingDesktop {
+      display: none;
+    }
+  
+    .headingMobile {
+      display: block;
+      font-size: 28px;
       text-align: center;
     }
   
     .description {
-      font-size: 18px; /* Nunito Sans Medium 18 */
+      font-size: 18px;
       text-align: center;
     }
-
+  
     .highlight {
-        font-weight: 700; /* Nunito Sans Bold */
-        font-size: 18px; /* Bold 18 on tablet */
-        color: #666666; /* Grey color */
+      font-weight: 700;
+      font-size: 18px;
+      color: #666666;
     }
   }
   
- /* Mobile (768px and below) */
-@media (max-width: 768px) {
+  /* Mobile (768px and below) */
+  @media (max-width: 768px) {
     .section {
       padding: 3rem 5vw;
       gap: 2rem;
@@ -122,24 +138,20 @@
   
     .content {
       gap: 1.5rem;
-      max-width: 350px; /* Narrower to force 7 lines */
+      max-width: 350px;
       order: 1;
     }
   
-    .heading {
-      font-weight: 800; /* Nunito Sans Extrabold */
+    .headingMobile {
       font-size: 24px;
-      text-align: center;
     }
   
     .description {
-      font-weight: 500; /* Nunito Sans Medium */
       font-size: 16px;
-      text-align: center;
     }
   
     .highlight {
-      font-weight: 700; /* Nunito Sans Bold */
+      font-weight: 700;
       font-size: 16px;
       color: #666666;
     }
@@ -157,13 +169,11 @@
       max-width: 350px;
     }
   
-    .heading {
-      font-weight: 800;
+    .headingMobile {
       font-size: 22px;
     }
   
     .description {
-      font-weight: 500;
       font-size: 15px;
     }
   

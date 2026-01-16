@@ -24,7 +24,8 @@ export default function WhatItMeans() {
 
       {/* Content - Right/Bottom */}
       <div className={styles.content}>
-        <h2 className={styles.heading}>What It Means For You</h2>
+        <h2 className={`${styles.heading} ${styles.headingDesktop}`}>What It Means For You</h2>
+        <h2 className={`${styles.heading} ${styles.headingMobile}`}>What it means for you</h2>
         
         <p className={styles.description}>
           Gain a partner deeply invested in your growth within the GCC. Benefit from our integrated 

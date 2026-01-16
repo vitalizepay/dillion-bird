@@ -34,8 +34,8 @@ function Navbar() {
           {/* ================= DESKTOP NAV ================= */}
           <nav className={styles.desktopNav}>
             <Link 
-              href="/who-we-are" 
-              className={`${styles.navLink} ${isActive('/who-we-are') ? styles.active : ''}`}
+              href="/about" 
+              className={`${styles.navLink} ${isActive('/about') ? styles.active : ''}`}
             >
               Who We Are
             </Link>
@@ -47,7 +47,17 @@ function Navbar() {
               onMouseLeave={() => setServicesArrow(false)}
             >
               <button 
-                className={`${styles.trigger} ${isActive('/what-we-do') ? styles.active : ''}`}
+                className={`${styles.trigger} ${
+                  pathname.startsWith('/partnership') ||
+                  pathname.startsWith('/managementconsulting') ||
+                  pathname.startsWith('/corporateservices') ||
+                  pathname.startsWith('/companyformation') ||
+                  pathname.startsWith('/accountingfinancialservices') ||
+                  pathname.startsWith('/financialplanninginvestorservices') ||
+                  pathname.startsWith('/technologyconsulting')
+                    ? styles.active 
+                    : ''
+                }`}
               >
                 <span>What We Do</span>
                 <svg
@@ -59,25 +69,25 @@ function Navbar() {
               </button>
 
               <div className={styles.menu}>
-                <Link href="/what-we-do/partnerships" className={styles.menuItem}>
+                <Link href="/partnership" className={styles.menuItem}>
                   Partnerships
                 </Link>
-                <Link href="/what-we-do/management-consulting" className={styles.menuItem}>
+                <Link href="/managementconsulting" className={styles.menuItem}>
                   Management Consulting
                 </Link>
-                <Link href="/what-we-do/corporate-services" className={styles.menuItem}>
+                <Link href="/corporateservices" className={styles.menuItem}>
                   Corporate Services
                 </Link>
-                <Link href="/what-we-do/company-formation" className={styles.menuItem}>
+                <Link href="/companyformation" className={styles.menuItem}>
                   Company Formation
                 </Link>
-                <Link href="/what-we-do/accounting" className={styles.menuItem}>
+                <Link href="/accountingfinancialservices" className={styles.menuItem}>
                   Accounting & Financial Services
                 </Link>
-                <Link href="/what-we-do/financial-planning" className={styles.menuItem}>
+                <Link href="/financialplanninginvestorservices" className={styles.menuItem}>
                   Financial Planning & Investor Services
                 </Link>
-                <Link href="/what-we-do/technology" className={styles.menuItem}>
+                <Link href="/technologyconsulting" className={styles.menuItem}>
                   Technology Consulting
                 </Link>
               </div>
@@ -90,7 +100,11 @@ function Navbar() {
               onMouseLeave={() => setBlogsArrow(false)}
             >
               <button 
-                className={`${styles.trigger} ${isActive('/blogs') ? styles.active : ''}`}
+                className={`${styles.trigger} ${
+                  pathname.startsWith('/casestudies')
+                    ? styles.active 
+                    : ''
+                }`}
               >
                 <span>Blogs</span>
                 <svg
@@ -102,10 +116,10 @@ function Navbar() {
               </button>
 
               <div className={styles.menu}>
-                <Link href="/blogs/technology-startup" className={styles.menuItem}>
+                <Link href="/casestudies/technologystartup" className={styles.menuItem}>
                   Technology Startup
                 </Link>
-                <Link href="/blogs/retail-business" className={styles.menuItem}>
+                <Link href="/casestudies/retailbusiness" className={styles.menuItem}>
                   Retail Business
                 </Link>
               </div>
@@ -123,7 +137,7 @@ function Navbar() {
           <div className={styles.phone}>
             <Image src="/uae-flag.svg" alt="UAE Flag" width={22} height={14} />
             <span className={styles.divider}></span>
-            <span className={styles.phoneText}>+971 123 456 789</span>
+            <span className={styles.phoneText}>+971 585 570 593</span>
           </div>
 
           {/* ================= HAMBURGER ================= */}
@@ -158,8 +172,8 @@ function Navbar() {
             {/* Nav */}
             <nav className={styles.mobileNav}>
               <Link 
-                href="/who-we-are"
-                className={`${styles.mobileLink} ${isActive('/who-we-are') ? styles.active : ''}`}
+                href="/about"
+                className={`${styles.mobileLink} ${isActive('/about') ? styles.active : ''}`}
                 onClick={() => setMobileOpen(false)}
               >
                 Who We Are
@@ -167,7 +181,17 @@ function Navbar() {
 
               {/* WHAT WE DO */}
               <div
-                className={`${styles.mobileItem} ${isActive('/what-we-do') ? styles.active : ''}`}
+                className={`${styles.mobileItem} ${
+                  pathname.startsWith('/partnership') ||
+                  pathname.startsWith('/managementconsulting') ||
+                  pathname.startsWith('/corporateservices') ||
+                  pathname.startsWith('/companyformation') ||
+                  pathname.startsWith('/accountingfinancialservices') ||
+                  pathname.startsWith('/financialplanninginvestorservices') ||
+                  pathname.startsWith('/technologyconsulting')
+                    ? styles.active 
+                    : ''
+                }`}
                 onClick={() => toggleAccordion('services')}
               >
                 <span>What We Do</span>
@@ -183,25 +207,25 @@ function Navbar() {
 
               {mobileAccordion === 'services' && (
                 <div className={styles.mobileSubmenu}>
-                  <Link href="/what-we-do/partnerships" onClick={() => setMobileOpen(false)}>
+                  <Link href="/partnership" onClick={() => setMobileOpen(false)}>
                     Partnerships
                   </Link>
-                  <Link href="/what-we-do/management-consulting" onClick={() => setMobileOpen(false)}>
+                  <Link href="/managementconsulting" onClick={() => setMobileOpen(false)}>
                     Management Consulting
                   </Link>
-                  <Link href="/what-we-do/corporate-services" onClick={() => setMobileOpen(false)}>
+                  <Link href="/corporateservices" onClick={() => setMobileOpen(false)}>
                     Corporate Services
                   </Link>
-                  <Link href="/what-we-do/company-formation" onClick={() => setMobileOpen(false)}>
+                  <Link href="/companyformation" onClick={() => setMobileOpen(false)}>
                     Company Formation
                   </Link>
-                  <Link href="/what-we-do/accounting" onClick={() => setMobileOpen(false)}>
+                  <Link href="/accountingfinancialservices" onClick={() => setMobileOpen(false)}>
                     Accounting & Financial Services
                   </Link>
-                  <Link href="/what-we-do/financial-planning" onClick={() => setMobileOpen(false)}>
+                  <Link href="/financialplanninginvestorservices" onClick={() => setMobileOpen(false)}>
                     Financial Planning & Investor Services
                   </Link>
-                  <Link href="/what-we-do/technology" onClick={() => setMobileOpen(false)}>
+                  <Link href="/technologyconsulting" onClick={() => setMobileOpen(false)}>
                     Technology Consulting
                   </Link>
                 </div>
@@ -209,7 +233,11 @@ function Navbar() {
 
               {/* BLOGS */}
               <div
-                className={`${styles.mobileItem} ${isActive('/blogs') ? styles.active : ''}`}
+                className={`${styles.mobileItem} ${
+                  pathname.startsWith('/casestudies')
+                    ? styles.active 
+                    : ''
+                }`}
                 onClick={() => toggleAccordion('blogs')}
               >
                 <span>Blogs</span>
@@ -225,10 +253,10 @@ function Navbar() {
 
               {mobileAccordion === 'blogs' && (
                 <div className={styles.mobileSubmenu}>
-                  <Link href="/blogs/technology-startup" onClick={() => setMobileOpen(false)}>
+                  <Link href="/casestudies/technologystartup" onClick={() => setMobileOpen(false)}>
                     Technology Startup
                   </Link>
-                  <Link href="/blogs/retail-business" onClick={() => setMobileOpen(false)}>
+                  <Link href="/casestudies/retailbusiness" onClick={() => setMobileOpen(false)}>
                     Retail Business
                   </Link>
                 </div>
@@ -247,7 +275,7 @@ function Navbar() {
             <div className={styles.mobilePhone}>
               <Image src="/uae-flag.svg" alt="UAE Flag" width={26} height={18} />
               <span className={styles.divider}></span>
-              <span className={styles.phoneText}>+971 123 456 789</span>
+              <span className={styles.phoneText}>+971 585 570 593</span>
             </div>
           </div>
         </div>

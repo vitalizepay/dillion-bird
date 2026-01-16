@@ -31,13 +31,13 @@ export default function Footer() {
         <div className={styles.linksSection}>
           <h4 className={styles.sectionTitle}>Our Services</h4>
           <ul>
-            <li><Link href="/services/partnerships">Partnerships</Link></li>
-            <li><Link href="/services/management-consulting">Management Consulting</Link></li>
-            <li><Link href="/services/corporate-services">Corporate Services</Link></li>
-            <li><Link href="/services/company-formation">Company Formation</Link></li>
-            <li><Link href="/services/accounting">Accounting & Financial Services</Link></li>
-            <li><Link href="/services/financial-planning">Financial Planning & Investor Services</Link></li>
-            <li><Link href="/services/technology">Technology Consulting</Link></li>
+            <li><Link href="/partnership">Partnerships</Link></li>
+            <li><Link href="/managementconsulting">Management Consulting</Link></li>
+            <li><Link href="/corporateservices">Corporate Services</Link></li>
+            <li><Link href="/companyformation">Company Formation</Link></li>
+            <li><Link href="/accountingfinancialservices">Accounting & Financial Services</Link></li>
+            <li><Link href="/financialplanninginvestorservices">Financial Planning & Investor Services</Link></li>
+            <li><Link href="/technologyconsulting">Technology Consulting</Link></li>
           </ul>
         </div>
 
@@ -46,8 +46,9 @@ export default function Footer() {
           <h4 className={styles.sectionTitle}>Company</h4>
           <ul>
             <li><Link href="/about">Who We Are</Link></li>
-            <li><Link href="/what-we-do">What We Do</Link></li>
-            <li><Link href="/blogs">Blogs</Link></li>
+            <li><Link href="/casestudies/technologystartup">Technology Startup</Link></li>
+            <li><Link href="/casestudies/retailbusiness">Retail Business</Link></li>
+            <li><Link href="/contact">Contact</Link></li>
           </ul>
         </div>
 
@@ -68,19 +69,19 @@ export default function Footer() {
       </div>
 
       {/* BOTTOM BAR */}
-        <div className={styles.bottomBar}>
+      <div className={styles.bottomBar}>
         <div className={styles.bottomContainer}>
-            <span>© 2024 Consulting Firm. All rights reserved.</span>
+          <span>© 2024 Consulting Firm. All rights reserved.</span>
 
-            <div className={styles.bottomLinks}>
+          <div className={styles.bottomLinks}>
             <Link href="/privacy-policy">Privacy Policy</Link>
             <span>|</span>
             <Link href="/terms">Terms & Conditions</Link>
             <span>|</span>
             <Link href="/cookies">Cookie Policy</Link>
-            </div>
+          </div>
         </div>
-        </div>
+      </div>
     </footer>
   );
 }

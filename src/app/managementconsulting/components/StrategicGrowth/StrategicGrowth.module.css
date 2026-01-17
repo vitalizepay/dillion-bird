@@ -5,7 +5,7 @@
     padding: 6rem 4vw;
     background-color: #ffffff;
     font-family: var(--font-nunito-sans), system-ui, -apple-system, sans-serif;
-    gap: 3.0rem;
+    gap: 2.0rem;
   }
   
   /* Content Section - Left */
@@ -58,7 +58,7 @@
   
   /* Image Section - Right */
   .imageWrapper {
-    flex: 0 0 48%;
+    flex: 0 0 35%;
     order: 2;
     position: relative;
     display: flex;

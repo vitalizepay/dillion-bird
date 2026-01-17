@@ -1,17 +1,17 @@
-/* src/app/about/components/VisionMission/VisionMission.module.css */
-
 .section {
   position: relative;
   width: 100%;
   min-height: 900px;
   background-image: url('/vision-mission-bg.png');
-  background-size: 100% 100%;
+  background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 6rem 5vw;
+  padding: 6rem 6vw;
+  overflow: hidden;
+  box-sizing: border-box;
 }
 
 .overlay {
@@ -30,10 +30,12 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 6rem;
-  max-width: 1500px;
+  max-width: 1600px;
   width: 100%;
   align-items: stretch;
-  padding: 0 2rem;
+  padding: 0;
+  margin: 0 auto;
+  box-sizing: border-box;
 }
 
 /* ================= VISION BOX (LEFT - TEXT FIRST, IMAGE BELOW) ================= */
@@ -42,9 +44,8 @@
   flex-direction: column;
   gap: 0;
   height: 100%;
-  margin-right: auto;
-  transform: translateX(-7rem);
   width: 100%;
+  min-width: 0;
 }
 
 /* ================= MISSION BOX (RIGHT - IMAGE FIRST, TEXT BELOW) ================= */
@@ -53,9 +54,8 @@
   flex-direction: column;
   gap: 0;
   height: 100%;
-  margin-left: auto;
-  transform: translateX(-6rem);
   width: 100%;
+  min-width: 0;
 }
 
 /* ================= SHARED STYLES ================= */
@@ -64,6 +64,7 @@
   flex: 1;
   overflow: hidden;
   border-radius: 0;
+  min-height: 400px;
 }
 
 .boxImage {
@@ -76,14 +77,14 @@
 .textContent {
   display: flex;
   flex-direction: column;
-  gap: 1.2rem;
-  padding: 2rem 0;
+  gap: 1.5rem;
+  padding: 2.5rem 0;
 }
 
 /* Vision text content (appears first) */
 .visionBox .textContent {
   order: 1;
-  padding: 0 0 2rem 0;
+  padding: 0 0 2.5rem 0;
 }
 
 .visionBox .imageWrapper {
@@ -97,15 +98,16 @@
 
 .missionBox .textContent {
   order: 2;
-  padding: 2rem 0 0 0;
+  padding: 2.5rem 0 0 0;
 }
 
 /* Label and Blue Line - Side by Side */
 .labelWrapper {
   display: flex;
   align-items: center;
-  gap: 1rem;
-  margin-bottom: 0.5rem;
+  gap: 1.5rem;
+  margin-bottom: 1rem;
+  width: 100%;
 }
 
 .label {
@@ -119,13 +121,9 @@
 }
 
 .blueLine {
-  width: auto;
-  height: auto;
-  max-width: none;
-  max-height: none;
-  display: block;
+  height: 10px;
   flex: 1;
-  object-fit: contain;
+  display: block;
 }
 
 .heading {
@@ -134,8 +132,14 @@
   font-size: 40px;
   line-height: 1.2;
   color: #ffffff;
-  margin: 0;
+  margin: 0 0 1rem 0;
   white-space: nowrap;
+}
+
+/* Mission heading - allow 2 lines */
+.missionBox .heading {
+  white-space: normal;
+  max-width: 600px;
 }
 
 .description {
@@ -143,13 +147,8 @@
   font-weight: 500;
   font-size: 20px;
   line-height: 1.6;
-  color: #9ca3af; /* Changed to grey color */
+  color: #9ca3af;
   margin: 0;
-}
-
-/* Mission description - narrower to force "expertise" to line 3 */
-.missionBox .description {
-  max-width: 85%;
 }
 
 /* ================= RESPONSIVE DESIGN ================= */
@@ -159,27 +158,20 @@
   .section {
     min-height: auto;
     padding: 4rem 4vw;
-    background-size: cover;
   }
 
   .container {
     grid-template-columns: 1fr;
     gap: 4rem;
-    align-items: start;
     max-width: 100%;
-    padding: 0;
   }
 
   .visionBox,
   .missionBox {
     gap: 0;
     height: auto;
-    transform: none;
-    margin: 0;
-    width: 100%;
   }
 
-  /* BOTH boxes: Text first, Image second */
   .visionBox .textContent,
   .missionBox .textContent {
     order: 1;
@@ -189,44 +181,25 @@
   .visionBox .imageWrapper,
   .missionBox .imageWrapper {
     order: 2;
-    flex: 0 0 auto;
     height: 400px;
-    width: 100%;
-  }
-
-  .boxImage {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  .textContent {
-    gap: 1rem;
-  }
-
-  .labelWrapper {
-    gap: 1rem;
+    min-height: 400px;
   }
 
   .label {
-    font-weight: 700; /* Nunito Sans Bold */
     font-size: 18px;
   }
 
   .heading {
-    font-weight: 800; /* Nunito Sans Extrabold */
     font-size: 28px;
     white-space: normal;
   }
-
-  .description {
-    font-weight: 500; /* Nunito Sans Medium */
-    font-size: 18px;
-    color: #9ca3af; /* Grey color */
+  
+  .missionBox .heading {
+    max-width: 100%;
   }
 
-  .missionBox .description {
-    max-width: 100%;
+  .description {
+    font-size: 18px;
   }
 }
 
@@ -234,78 +207,39 @@
 @media (max-width: 768px) {
   .section {
     padding: 3rem 5vw;
-    background-size: cover;
-    overflow-x: hidden; /* Prevent horizontal overflow */
   }
 
   .container {
     gap: 3rem;
-    padding: 0;
-    max-width: 100%;
-    overflow: visible;
   }
 
   .visionBox,
   .missionBox {
-    gap: 1.5rem; /* Add gap between text and image */
-    height: auto;
-    transform: none !important; /* Force remove transform */
-    margin: 0 !important; /* Force remove margin */
-    width: 100%;
-    overflow: hidden; /* Prevent overflow */
-  }
-
-  /* BOTH boxes: Text first, Image second */
-  .visionBox .textContent,
-  .missionBox .textContent {
-    order: 1;
-    padding: 0;
-    width: 100%;
+    gap: 1.5rem;
   }
 
   .visionBox .imageWrapper,
   .missionBox .imageWrapper {
-    order: 2;
-    flex: none;
-    height: 280px; /* Fixed height */
-    width: 100%;
-    margin: 0;
-  }
-
-  .boxImage {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  .textContent {
-    gap: 0.8rem;
-  }
-
-  .labelWrapper {
-    gap: 0.8rem;
+    height: 280px;
+    min-height: 280px;
   }
 
   .label {
-    font-weight: 700;
     font-size: 16px;
   }
 
   .heading {
-    font-weight: 800;
     font-size: 24px;
-    white-space: normal;
+  }
+
+  .blueLine{
+    width: 8px;
+    flex: 1;
+    display: block;
   }
 
   .description {
-    font-weight: 500;
     font-size: 16px;
-    color: #9ca3af;
-    max-width: 100%;
-  }
-
-  .missionBox .description {
-    max-width: 100%;
   }
 }
 
@@ -313,57 +247,20 @@
 @media (max-width: 480px) {
   .section {
     padding: 2rem 4vw;
-    overflow-x: hidden;
   }
 
   .container {
     gap: 2.5rem;
-    padding: 0;
   }
 
   .visionBox,
   .missionBox {
     gap: 1.2rem;
-    transform: none !important;
-    margin: 0 !important;
-    width: 100%;
-    overflow: hidden;
-  }
-
-  .visionBox .textContent,
-  .missionBox .textContent {
-    order: 1;
-    padding: 0;
   }
 
   .visionBox .imageWrapper,
   .missionBox .imageWrapper {
-    order: 2;
     height: 220px;
-    width: 100%;
-  }
-
-  .textContent {
-    gap: 0.7rem;
-  }
-
-  .labelWrapper {
-    gap: 0.7rem;
-  }
-
-  .label {
-    font-weight: 700;
-    font-size: 16px;
-  }
-
-  .heading {
-    font-weight: 800;
-    font-size: 24px;
-  }
-
-  .description {
-    font-weight: 500;
-    font-size: 16px;
-    color: #9ca3af;
+    min-height: 220px;
   }
 }

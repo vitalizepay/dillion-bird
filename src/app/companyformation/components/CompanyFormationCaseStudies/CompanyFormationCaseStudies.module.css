@@ -24,6 +24,9 @@
   .card {
     overflow: hidden;
     position: relative;
+    text-decoration: none;  /* ← Add this */
+    color: inherit;         /* ← Add this */
+    cursor: pointer;        /* ← Add this */
   }
   
   .imageWrapper {

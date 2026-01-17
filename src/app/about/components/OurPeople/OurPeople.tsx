@@ -22,16 +22,16 @@ const baseTeamMembers: TeamMember[] = [
   },
   {
     id: 2,
-    name: 'Sarah Ahmed',
-    position: 'Chief Executive Officer',
-    image: '/team-a.png',
+    name: 'Dinesh',
+    position: 'Chief Financial Officer',
+    image: '/team-dinesh.jpg',
     linkedIn: 'https://linkedin.com/in/sarah',
   },
   {
     id: 3,
-    name: 'Fatima Al-Rashid',
-    position: 'Chief Financial Officer',
-    image: '/team-b.png',
+    name: 'Senthinathan',
+    position: 'Chief Technology Officer',
+    image: '/team-c.png',
     linkedIn: 'https://linkedin.com/in/fatima',
   },
   {

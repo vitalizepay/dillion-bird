@@ -20,7 +20,7 @@ export default function TechnologyConsultingWhatItMeans() {
         <h2 className={`${styles.heading} ${styles.headingMobile}`}>What it means for you</h2>
         
         <p className={styles.description}>
-           Enhance your operational efficiency and drive innovation through the strategic adoption of smart technologies. Our consulting services provide you with the expertise to implement the right technology solutions for a competitive edge in the GCC market.
+        Free up valuable time and resources by entrusting your non-core operations to our expert team. Our comprehensive corporate services ensure efficiency, compliance, and allow you to focus on your strategic priorities and core business activities within the GCC.
         </p>
 
         <div className={styles.buttonContainer}>

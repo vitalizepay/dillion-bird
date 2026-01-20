@@ -1,28 +1,28 @@
-/* HomeHero.module.css */
-
 .hero {
   position: relative;
   width: 100%;
-  min-height: 100vh;
+  height: 100vh;
   background: #ffffff;
   overflow: hidden;
 }
 
 .container {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
   width: 100%;
-  height: 100vh;
-  align-items: center;
-  gap: 0;
+  height: 100%;
+  position: relative;
 }
 
 /* ============== LEFT CONTENT COLUMN ============== */
 .leftContent {
-  padding: 80px 48px 80px 96px;
   z-index: 2;
-  position: relative;
-  max-width: 620px;
+  position: absolute;
+  left: 5vw;
+  top: 45%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  max-width: 700px;
 }
 
 .brand {
@@ -31,17 +31,17 @@
   font-size: 18px;
   font-weight: 700;
   line-height: 28px;
-  margin-bottom: 32px;
-  letter-spacing: 0;
+  margin-bottom: 24px;
 }
 
 .heading {
-  font-size: 64px;
-  line-height: 74px;
-  font-weight: 900;
+  font-size: 50px;
+  line-height: 55px;
+  font-weight: 800;
   color: #0f172a;
-  margin: 0 0 30px 0;
+  margin: 0 0 32px 0;
   letter-spacing: -0.5px;
+  max-width: 900px;
 }
 
 .strategic {
@@ -49,7 +49,7 @@
   font-weight: 700;
   line-height: 28px;
   color: #0f172a;
-  margin: 0 0 20px 0;
+  margin: 50px 0 20px 0;
 }
 
 .description {
@@ -57,7 +57,7 @@
   line-height: 26px;
   color: #64748b;
   margin: 0 0 32px 0;
-  max-width: 480px;
+  max-width: 500px;
 }
 
 .cta {
@@ -70,6 +70,7 @@
   font-weight: 700;
   cursor: pointer;
   transition: all 0.3s ease;
+  align-self: flex-start;
 }
 
 .cta:hover {
@@ -78,94 +79,143 @@
 
 /* ============== RIGHT IMAGE COLUMN ============== */
 .rightImage {
-  position: relative;
-  width: 100%;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 75%;
   height: 100%;
-  overflow: hidden;
 }
 
 .image {
-  object-fit: cover;
-  object-position: center;
-  opacity: 0.45;
+  object-fit: contain;
+  object-position: bottom right;
 }
 
 /* ============== TABLET ============== */
-@media (max-width: 1024px) {
-  .container {
-    grid-template-columns: 1fr;
+@media (max-width: 1024px) and (min-width: 769px) {
+  .hero {
     height: auto;
   }
 
+  .container {
+    flex-direction: column;
+    padding: 4rem 4vw 0 4vw;
+    position: relative;
+  }
+
   .leftContent {
-    padding: 60px 40px;
+    position: relative;
+    left: 0;
+    top: 0;
+    transform: none;
+    width: 100%;
     max-width: 100%;
+    text-align: center;
+    align-items: center;
+    z-index: 3;
   }
 
   .heading {
     font-size: 48px;
     line-height: 56px;
+    margin-bottom: 20px;
   }
 
   .strategic {
-    font-size: 16px;
+    font-size: 24px;
+    margin-bottom: 20px;
+    max-width: 500px;
+  }
+
+  .description {
+    margin-bottom: 18px;
+    font-size: 18px;
+  }
+
+  .cta {
+    align-self: center;
+    margin-bottom: -30.0rem;
   }
 
   .rightImage {
-    height: 400px;
+    position: relative;
+    width: 100%;
+    height: 70vh;
+    min-height: 700px;
+  }
+  
+  .image {
+    object-position: bottom center;
+    object-fit: contain;
+
   }
 }
+
+
+
 
 /* ============== MOBILE ============== */
 @media (max-width: 768px) {
   .hero {
-    min-height: auto;
-  }
-
-  .container {
-    grid-template-columns: 1fr;
     height: auto;
   }
 
+  .container {
+    padding: 3rem 5vw 0 5vw;
+    flex-direction: column;
+  }
+
   .leftContent {
-    padding: 60px 24px;
-    text-align: center;
+    position: relative;
+    left: 0;
+    top: 0;
+    transform: none;
+    width: 100%;
     max-width: 100%;
+    text-align: center;
+    align-items: center;
   }
 
   .brand {
     font-size: 16px;
-    margin-bottom: 24px;
+    margin-bottom: 20px;
   }
 
   .heading {
     font-size: 32px;
     line-height: 40px;
-    margin-bottom: 24px;
+    margin-bottom: 20px;
   }
 
   .strategic {
     font-size: 15px;
-    line-height: 24px;
-    margin-bottom: 16px;
+    margin-bottom: 12px;
+    max-width: 190px;
   }
 
   .description {
     font-size: 14px;
-    line-height: 22px;
-    margin-bottom: 24px;
-    max-width: 100%;
+    margin-bottom: 16px;
+    max-width: 300px;
   }
 
   .cta {
-    width: 100%;
+    width: auto;
+    align-self: center;
+    margin-bottom: -30rem;
   }
 
   .rightImage {
-    height: 300px;
+    position: relative;
+    width: 100vw;
+    margin-left: -5vw;
+    margin-right: -5vw;
+    height: 70vh;
+    min-height: 600px;
   }
-
+  
   .image {
-    opacity: 0.3;
+    object-position: bottom center;
+    object-fit: contain;
   }
 }

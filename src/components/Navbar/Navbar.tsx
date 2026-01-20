@@ -106,7 +106,7 @@ function Navbar() {
                     : ''
                 }`}
               >
-                <span>Blogs</span>
+                <span>Case Studies</span>
                 <svg
                   className={blogsArrow ? styles.rotate : ''}
                   viewBox="0 0 24 24"
@@ -240,7 +240,7 @@ function Navbar() {
                 }`}
                 onClick={() => toggleAccordion('blogs')}
               >
-                <span>Blogs</span>
+                <span>Case Studies</span>
                 <svg
                   className={`${styles.mobileArrow} ${
                     mobileAccordion === 'blogs' ? styles.rotate : ''

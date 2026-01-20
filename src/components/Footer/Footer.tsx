@@ -16,9 +16,7 @@ export default function Footer() {
           </div>
 
           <p className={styles.description}>
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s
+            Dillon & Bird Partners is a UAE-based strategy consulting firm advising founders and enterprises on business strategy, market entry, structuring, and scalable growth across the GCC.
           </p>
 
           <div className={styles.socials}>

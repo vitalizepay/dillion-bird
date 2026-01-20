@@ -69,7 +69,7 @@ export default function Footer() {
       {/* BOTTOM BAR */}
       <div className={styles.bottomBar}>
         <div className={styles.bottomContainer}>
-          <span>© 2024 Consulting Firm. All rights reserved.</span>
+          <span>© 2026. Dillon and Bird Consulting Partners. All rights reserved.</span>
 
           <div className={styles.bottomLinks}>
             <Link href="/privacy-policy">Privacy Policy</Link>

@@ -38,6 +38,16 @@
     line-height: 22px;
     color: #64748b;
   }
+
+  .address {
+    font-family: var(--font-nunito-sans), system-ui;
+    font-weight: 700;  /* Bold */
+    font-size: 14px;
+    line-height: 1.6;
+    margin: 0 0 1.5rem 0;
+    color: #64748b;
+  }
+  
   
   .socials {
     margin-top: 16px;

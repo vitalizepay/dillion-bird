@@ -37,6 +37,10 @@ export default function FAQ() {
     <section className={styles.section}>
       {/* Header */}
       <div className={styles.header}>
+        <h3 className={styles.addressHeading}>Office Address</h3>
+        <p className={styles.address}>
+          Meydan Hotel, Grandstand Building, 6th Floor, Al Meydan Road, Nad Al Sheba 1, Dubai, UAE
+        </p>
         <h2 className={styles.title}>Frequently Asked Questions</h2>
         <p className={styles.subtitle}>Answer to Common Enquiries About Our Service</p>
       </div>

@@ -16,14 +16,14 @@ const baseTeamMembers: TeamMember[] = [
   {
     id: 1,
     name: 'Praveen',
-    position: 'Co-Founder & Chairman',
+    position: 'Managing Partner',
     image: '/team-praveen.png',
     linkedIn: 'https://linkedin.com/in/praveen',
   },
   {
     id: 2,
     name: 'Dinesh',
-    position: 'Chief Financial Officer',
+    position: 'Managing Partner',
     image: '/team-dinesh.jpg',
     linkedIn: 'https://linkedin.com/in/sarah',
   },
@@ -31,16 +31,10 @@ const baseTeamMembers: TeamMember[] = [
     id: 3,
     name: 'Senthinathan',
     position: 'Senior Consultant Cloud and AI',
-    image: '/team-c.png',
+    image: '/team-senthil.jpeg',
     linkedIn: 'https://linkedin.com/in/fatima',
   },
-  {
-    id: 4,
-    name: 'Mohammed Hassan',
-    position: 'Chief Technology Officer',
-    image: '/team-c.png',
-    linkedIn: 'https://linkedin.com/in/mohammed',
-  },
+  
 ];
 
 const teamMembers = [...baseTeamMembers, ...baseTeamMembers, ...baseTeamMembers];

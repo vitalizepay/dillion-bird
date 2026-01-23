@@ -19,6 +19,10 @@ export default function Footer() {
             Dillon & Bird Partners is a UAE-based strategy consulting firm advising founders and enterprises on business strategy, market entry, structuring, and scalable growth across the GCC.
           </p>
 
+          <p className={styles.description}>
+            Address: Meydan Hotel, Grandstand Building, 6th Floor, Al Meydan Road, Nad Al Sheba 1, Dubai, UAE
+          </p>
+
           <div className={styles.socials}>
             <Image src="/linkedin.svg" alt="LinkedIn" width={18} height={18} />
             <Image src="/instagram.svg" alt="Instagram" width={18} height={18} />

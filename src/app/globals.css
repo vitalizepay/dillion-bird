@@ -9,3 +9,34 @@ body {
   color: #111827;
   background: #ffffff;
 }
+
+/* ========== SAFE MOBILE FIX ========== */
+html {
+  overflow-x: hidden;
+}
+
+body {
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+/* Only fix container-level overflow, not content */
+@media (max-width: 768px) {
+  main {
+    overflow-x: hidden;
+    width: 100%;
+  }
+  
+  section {
+    overflow-x: hidden;
+    width: 100%;
+  }
+  
+  /* Fix full-width elements breaking out */
+  .imageWrapper,
+  .rightImage {
+    max-width: 100vw !important;
+  }
+}

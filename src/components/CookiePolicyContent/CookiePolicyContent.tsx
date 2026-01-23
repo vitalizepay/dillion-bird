@@ -64,7 +64,7 @@ export default function CookiePolicyContent() {
             If you have questions about our use of cookies, please contact us at:
           </p>
           <p className={styles.paragraph}>
-            Email: privacy@dillonbird.com<br />
+            Email: info@dillonbird.com<br />
             Address: Meydan Hotel, Grandstand Building, 6th Floor, Al Meydan Road, Nad Al Sheba 1, Dubai, UAE
           </p>
         </div>

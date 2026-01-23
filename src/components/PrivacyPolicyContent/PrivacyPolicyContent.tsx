@@ -75,7 +75,7 @@ export default function PrivacyPolicyContent() {
             If you have any questions about this Privacy Policy or wish to exercise your rights, please contact us at:
           </p>
           <p className={styles.paragraph}>
-            Email: privacy@dillonbird.com<br />
+            Email: info@dillonbird.com<br />
             Address: Meydan Hotel, Grandstand Building, 6th Floor, Al Meydan Road, Nad Al Sheba 1, Dubai, UAE
           </p>
         </div>

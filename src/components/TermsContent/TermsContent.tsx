@@ -61,7 +61,7 @@ export default function TermsContent() {
             For questions regarding these Terms and Conditions, please contact us at:
           </p>
           <p className={styles.paragraph}>
-            Email: legal@dillonbird.com<br />
+            Email: info@dillonbird.com<br />
             Address: Meydan Hotel, Grandstand Building, 6th Floor, Al Meydan Road, Nad Al Sheba 1, Dubai, UAE
           </p>
         </div>

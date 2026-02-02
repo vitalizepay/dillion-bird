@@ -30,8 +30,15 @@ const baseTeamMembers: TeamMember[] = [
   {
     id: 3,
     name: 'Senthinathan',
-    position: 'Senior Consultant Cloud and AI',
+    position: 'Senior Cloud and AI Consultant',
     image: '/team-senthil.jpeg',
+    linkedIn: 'https://linkedin.com/in/fatima',
+  },
+  {
+    id: 4,
+    name: 'Thilagaran Vasagam',
+    position: 'Senior Tax and Audit Consultant',
+    image: '/team-tilak.jpg',
     linkedIn: 'https://linkedin.com/in/fatima',
   },
   

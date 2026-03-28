@@ -10,6 +10,25 @@ body {
   background: #ffffff;
 }
 
+/* globals.css */
+:root {
+  --navy: #0a2342;
+  --navy-mid: #0d3060;
+  --navy-deep: #071830;
+  --blue: #1565c0;
+  --blue-hi: #1976d2;
+  --blue-line: #2196f3;
+  --blue-pale: #e8f1fb;
+  --white: #fff;
+  --off: #f7f9fc;
+  --g200: #dde3ed;
+  --g400: #9aaabf;
+  --g600: #4a5e7a;
+  --g800: #1e2d42;
+  --gold: #c8a84b;
+  --nav-h: 64px;
+}
+
 /* ========== SAFE MOBILE FIX ========== */
 html {
   overflow-x: hidden;

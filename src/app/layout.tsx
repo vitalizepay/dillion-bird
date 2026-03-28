@@ -55,7 +55,7 @@ export const metadata: Metadata = {
 
   // Favicon
   icons: {
-    icon: 'https://storage.googleapis.com/gpt-engineer-file-uploads/RMEudFFF1oX2REUOr0q3qvNIpyJ3/uploads/1767890738872-DnB.jpg',
+    icon: '/t-logo.png',
   },
 };
 

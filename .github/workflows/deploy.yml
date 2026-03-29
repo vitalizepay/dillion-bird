@@ -4,28 +4,33 @@ on:
   push:
     branches: [main]
 
+# Opt into the Node 24 runner environment globally
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6 # Updated to v6 for Node 24 native support
 
       - name: Setup Node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6 # Updated to v6
         with:
-          node-version: 20
+          node-version: 24
           cache: 'npm'
 
       - name: Install dependencies
         run: npm install
 
       - name: Build Project
-        # This is the critical change:
+        # Injecting all your secret keys for the build phase
         env:
           NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
           NEXT_PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.NEXT_PUBLIC_SUPABASE_ANON_KEY }}
+          NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY: ${{ secrets.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY }}
         run: npm run build
 
       - name: Upload artifact

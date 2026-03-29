@@ -45,7 +45,7 @@ export default function CFWhy() {
             your company for long-term success — tax efficiency, scalability, and investor readiness
             baked in from day one.
           </p>
-          <Link href="#contact" className={styles.btn}>Get My Free Consultation →</Link>
+          <a href="#contact" className={styles.btn}>Get My Free Consultation →</a>
         </div>
 
         {/* RIGHT */}

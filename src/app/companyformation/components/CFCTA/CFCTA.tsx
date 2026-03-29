@@ -18,9 +18,9 @@ export default function AuditCTA() {
 
       {/* RIGHT — action buttons */}
       <div className={styles.acts}>
-        <Link href="#contact" className={styles.btnPrimary}>
+        <a href="#contact" className={styles.btnPrimary}>
           Get Free Consultation →
-        </Link>
+        </a>
         <a
           href="https://wa.me/971585570593"
           target="_blank"

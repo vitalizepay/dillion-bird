@@ -11,7 +11,7 @@ const faqs = [
 ];
 
 export default function AuditFAQ() {
-  const [open, setOpen] = useState<number | null>(0);
+  const [open, setOpen] = useState<number | null>(null);
   return (
     <section className={styles.sec} id="faq">
       <div className={styles.header}>

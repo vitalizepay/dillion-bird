@@ -6,6 +6,7 @@ import CFProcess from './components/CFProcess/CFProcess';
 import CFTestimonial from './components/CFTestimonial/CFTestimonial';
 import CFWhy from './components/CFWhy/CFWhy';
 import CFFAQ from './components/CFFAQ/CFFAQ';
+import CFCTA from './components/CFCTA/CFCTA'
 
 export const metadata: Metadata = {
   title: 'Company Formation UAE — Start in 5 Days | Dillon & Bird',
@@ -22,6 +23,7 @@ export default function CompanyFormationPage() {
       <CFTestimonial />
       <CFWhy />
       <CFFAQ />
+      <CFCTA />
     </>
   );
 }

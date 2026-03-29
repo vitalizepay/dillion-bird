@@ -45,7 +45,7 @@
 /* White solid button */
 .btnPrimary {
   background: #fff;
-  color: #111;
+  color: #2196f3;
   padding: 14px 30px;
   font-size: 13px;
   font-weight: 700;
@@ -78,8 +78,7 @@
   transition: border-color .15s, background .15s;
 }
 .btnOutline:hover {
-  border-color: #fff;
-  background: rgba(255,255,255,0.1);
+  background: #1976d2; border-color: #1976d2;
 }
 
 @media (max-width: 600px) {

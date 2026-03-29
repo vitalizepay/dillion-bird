@@ -63,7 +63,7 @@
   border-radius: 0;         /* ← square like original */
   transition: background .2s, border-color .2s;
 }
-.step:hover .dot { background: #111111; border-color: #111111; }
+
 
 .dotN {
   font-size: 17px;
@@ -71,8 +71,10 @@
   color: #2196f3;
   transition: color .2s;
 }
-.step:hover .dotN { color: #fff; }
 
+
+.step:hover .dot { background: #2196f3; }
+.step:hover .dotN { color: #fff; }
 .stepName {
   font-size: 13px;
   font-weight: 700;

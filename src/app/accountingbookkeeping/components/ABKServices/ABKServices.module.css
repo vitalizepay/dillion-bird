@@ -1,0 +1,136 @@
+.sec {
+    padding: 84px 60px;
+    background: #f7f9fc;
+  }
+  
+  /* ── Header ── */
+  .hdr {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: start;
+    margin-bottom: 40px;
+  }
+  
+  .hdrLeft { display: flex; flex-direction: column; }
+  
+  .eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .rule {
+    display: inline-block;
+    width: 36px;
+    height: 3px;
+    background: #2196f3;
+    flex-shrink: 0;
+  }
+  .eyebrow span:last-child {
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: #2196f3;
+  }
+  
+  .h2 {
+    font-size: clamp(26px, 3vw, 42px);
+    font-weight: 800;
+    line-height: 1.12;
+    color: #111;
+  }
+  .h2 em {
+    font-style: italic;
+    font-weight: 600;
+    color: #2196f3;
+  }
+  
+  .hdrRight {
+    font-size: 14px;
+    line-height: 1.8;
+    color: #555;
+    padding-top: 56px; /* aligns with h2 visually */
+    max-width: 500px;
+    margin-left: 140px;
+  }
+  
+  /* ── Intro ── */
+  .intro {
+    font-size: 14px;
+    line-height: 1.8;
+    color: #555;
+    max-width: 560px;
+    margin-bottom: 48px;
+  }
+  
+  /* ── Grid ── */
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-top: 1px solid #dde2ee;
+    border-left: 1px solid #dde2ee;
+  }
+  
+  .card {
+    padding: 36px 32px 32px;
+    border-right: 1px solid #dde2ee;
+    border-bottom: 1px solid #dde2ee;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    position: relative;
+    transition: background .2s, box-shadow .2s;
+    outline: 2px solid transparent; /* reserves space so layout doesn't shift */
+    outline-offset: -2px;
+  }
+  
+  .card:hover {
+    background: #f0f7ff;
+    outline: 2px solid #90caf9;
+    outline-offset: -2px;
+    z-index: 1;
+  }
+  
+  .cardN {
+    font-size: 36px;
+    font-weight: 800;
+    color: #e8edf5;
+    line-height: 1;
+    margin-bottom: 20px;
+    letter-spacing: -.02em;
+  }
+  
+  .cardIco {
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .cardTitle {
+    font-size: 15px;
+    font-weight: 700;
+    color: #111;
+    margin-bottom: 10px;
+    line-height: 1.3;
+  }
+  
+  .cardDesc {
+    font-size: 13px;
+    line-height: 1.76;
+    color: #555;
+  }
+  
+  /* ── Responsive ── */
+  @media (max-width: 960px) {
+    .hdr { grid-template-columns: 1fr; gap: 16px; }
+    .hdrRight { padding-top: 0; }
+    .sec { padding: 60px 28px; }
+  }
+  
+  @media (max-width: 640px) {
+    .grid { grid-template-columns: 1fr; }
+    .sec { padding: 44px 20px; }
+  }

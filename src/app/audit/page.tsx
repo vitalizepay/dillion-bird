@@ -11,6 +11,7 @@ import AuditWhyDB from './components/AuditWhyDB/AuditWhyDB';
 import AuditCaseStudies from './components/AuditCaseStudies/AuditCaseStudies';
 import AuditFAQ from './components/AuditFAQ/AuditFAQ';
 import AuditCTA from './components/AuditCTA/AuditCTA';
+import AuditCrossLinks from './components/AuditCrossLinks/AuditCrossLinks';
 
 export const metadata: Metadata = {
   title: 'Audit Services | Dillon & Bird',
@@ -39,6 +40,7 @@ export default function AuditPage() {
       <AuditCaseStudies />
       <AuditFAQ />
       <AuditCTA />
+      <AuditCrossLinks />
     </>
   );
 }

@@ -28,7 +28,8 @@ function Navbar() {
     pathname.startsWith('/accountingfinancialservices') ||
     pathname.startsWith('/financialplanninginvestorservices') ||
     pathname.startsWith('/technologyconsulting') ||
-    pathname.startsWith('/audit'); // ← added
+    pathname.startsWith('/audit') ||
+    pathname.startsWith('/accountingbookkeeping');
 
   return (
     <>
@@ -70,7 +71,8 @@ function Navbar() {
                 <Link href="/accountingfinancialservices" className={styles.menuItem}>Accounting & Financial Services</Link>
                 <Link href="/financialplanninginvestorservices" className={styles.menuItem}>Financial Planning & Investor Services</Link>
                 <Link href="/technologyconsulting" className={styles.menuItem}>Technology Consulting</Link>
-                <Link href="/audit" className={styles.menuItem}>Audit Services</Link> {/* ← added */}
+                <Link href="/audit" className={styles.menuItem}>Audit Services</Link>
+                <Link href="/accountingbookkeeping" className={styles.menuItem}>Accounting & Book Keeping</Link>  {/* ← added */}
               </div>
             </div>
 
@@ -161,6 +163,7 @@ function Navbar() {
                   <Link href="/financialplanninginvestorservices" onClick={() => setMobileOpen(false)}>Financial Planning & Investor Services</Link>
                   <Link href="/technologyconsulting" onClick={() => setMobileOpen(false)}>Technology Consulting</Link>
                   <Link href="/audit" onClick={() => setMobileOpen(false)}>Audit Services</Link> {/* ← added */}
+                  <Link href="/accountingbookkeeping" onClick={() => setMobileOpen(false)}>Accounting & Book Keeping</Link> {/* ← added */}
                 </div>
               )}
 

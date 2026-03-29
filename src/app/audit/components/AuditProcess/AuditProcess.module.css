@@ -6,17 +6,24 @@
 .h2 { font-size: clamp(26px, 3vw, 42px); font-weight: 800; line-height: 1.12; color: #111; }
 .h2 em { font-style: italic; font-weight: 600; color: #2196f3; }
 
-.grid { display: grid; grid-template-columns: repeat(4, 1fr); position: relative; }
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  position: relative;
+}
+
 .line {
   position: absolute;
   top: 24px;
-  left: calc(12.5% + 20px);
-  right: calc(12.5% + 20px);
+  left: 24px;
+  right: 24px;
   height: 1px;
   background: #e0e0e0;
   z-index: 0;
 }
+
 .step { padding-right: 20px; position: relative; z-index: 1; }
+
 .dot {
   width: 48px; height: 48px;
   border: 2px solid #2196f3;
@@ -24,7 +31,10 @@
   display: flex; align-items: center; justify-content: center;
   margin-bottom: 18px;
   transition: background .2s, border-color .2s;
+  position: relative;
+  z-index: 1;
 }
+
 .step:hover .dot { background: #2196f3; }
 .dotN { font-size: 16px; font-weight: 800; color: #2196f3; transition: color .2s; }
 .step:hover .dotN { color: #fff; }

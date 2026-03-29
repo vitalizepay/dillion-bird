@@ -1,0 +1,137 @@
+.sec {
+    padding: 84px 60px;
+    background: #fff;
+    text-align: center;
+  }
+  
+  /* ── Header ── */
+  .header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 60px;
+  }
+  
+  .eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 16px;
+  }
+  .rule {
+    display: inline-block;
+    width: 36px;
+    height: 3px;
+    background: #2196f3;
+    flex-shrink: 0;
+  }
+  .eyebrow span:last-child {
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: #2196f3;
+  }
+  
+  .h2 {
+    font-size: clamp(26px, 3vw, 42px);
+    font-weight: 800;
+    line-height: 1.12;
+    color: #111;
+  }
+  .h2 em {
+    font-style: italic;
+    font-weight: 600;
+    color: #2196f3;
+  }
+  
+  /* ── Steps row ── */
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    text-align: left;
+    position: relative;
+  }
+  
+  /* Single continuous line running behind all number boxes */
+  .steps::before {
+    content: '';
+    position: absolute;
+    top: 28px; /* half of 56px dot */
+    left: 28px;
+    right: 28px;
+    height: 1px;
+    background: #c8d0e0;
+    z-index: 0;
+  }
+  
+  .step {
+    display: flex;
+    flex-direction: column;
+    padding-right: 32px;
+    position: relative;
+  }
+  .step:last-child { padding-right: 0; }
+  
+  .step:hover .dot { background: #2196f3; }
+  .step:hover .dotN { color: #fff; }
+  
+
+  /* Number box */
+  .topRow {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .dot {
+    width: 56px;
+    height: 56px;
+    border: 2px solid #2196f3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    background: #fff;
+    transition: background .2s;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .dotN {
+    font-size: 18px;
+    font-weight: 700;
+    color: #2196f3;
+    transition: color .2s;
+  }
+  
+  /* Individual per-step lines removed — handled by ::before */
+  .line { display: none; }
+  
+  /* Text */
+  .stepName {
+    font-size: 14.5px;
+    font-weight: 700;
+    color: #111;
+    margin-bottom: 8px;
+  }
+  .stepDesc {
+    font-size: 12.5px;
+    line-height: 1.76;
+    color: #555;
+  }
+  
+  /* ── Responsive ── */
+  @media (max-width: 900px) {
+    .steps { grid-template-columns: 1fr 1fr; gap: 36px 24px; }
+    .steps::before { display: none; }
+    .step { padding-right: 0; }
+    .sec { padding: 60px 28px; }
+  }
+  @media (max-width: 560px) {
+    .steps { grid-template-columns: 1fr; }
+    .sec { padding: 44px 20px; }
+  }

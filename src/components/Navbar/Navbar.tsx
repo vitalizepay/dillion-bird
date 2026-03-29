@@ -17,24 +17,32 @@ function Navbar() {
     setMobileAccordion(mobileAccordion === key ? null : key);
   };
 
-  // Check if link is active
   const isActive = (href: string) => pathname === href;
+
+  const isServicesActive =
+    pathname.startsWith('/partnership') ||
+    pathname.startsWith('/managementconsulting') ||
+    pathname.startsWith('/corporateservices') ||
+    pathname.startsWith('/businesssite') ||
+    pathname.startsWith('/companyformation') ||
+    pathname.startsWith('/accountingfinancialservices') ||
+    pathname.startsWith('/financialplanninginvestorservices') ||
+    pathname.startsWith('/technologyconsulting') ||
+    pathname.startsWith('/audit'); // ← added
 
   return (
     <>
-      {/* ================= HEADER ================= */}
       <header className={styles.header}>
         <div className={styles.inner}>
-          {/* Logo */}
           <Link href="/" className={styles.logo}>
             <Image src="/logo.svg" alt="Dillon & Bird" width={28} height={28} />
             <span>Dillon & Bird</span>
           </Link>
 
-          {/* ================= DESKTOP NAV ================= */}
+          {/* DESKTOP NAV */}
           <nav className={styles.desktopNav}>
-            <Link 
-              href="/about" 
+            <Link
+              href="/about"
               className={`${styles.navLink} ${isActive('/about') ? styles.active : ''}`}
             >
               Who We Are
@@ -46,132 +54,81 @@ function Navbar() {
               onMouseEnter={() => setServicesArrow(true)}
               onMouseLeave={() => setServicesArrow(false)}
             >
-              <button 
-                className={`${styles.trigger} ${
-                  pathname.startsWith('/partnership') ||
-                  pathname.startsWith('/managementconsulting') ||
-                  pathname.startsWith('/corporateservices') ||
-                  pathname.startsWith('/companyformation') ||
-                  pathname.startsWith('/accountingfinancialservices') ||
-                  pathname.startsWith('/financialplanninginvestorservices') ||
-                  pathname.startsWith('/technologyconsulting')
-                    ? styles.active 
-                    : ''
-                }`}
-              >
+              <button className={`${styles.trigger} ${isServicesActive ? styles.active : ''}`}>
                 <span>What We Do</span>
-                <svg
-                  className={servicesArrow ? styles.rotate : ''}
-                  viewBox="0 0 24 24"
-                >
+                <svg className={servicesArrow ? styles.rotate : ''} viewBox="0 0 24 24">
                   <path d="M7 10l5 5 5-5z" />
                 </svg>
               </button>
 
               <div className={styles.menu}>
-                <Link href="/partnership" className={styles.menuItem}>
-                  Partnerships
-                </Link>
-                <Link href="/managementconsulting" className={styles.menuItem}>
-                  Management Consulting
-                </Link>
-                <Link href="/corporateservices" className={styles.menuItem}>
-                  Corporate Services
-                </Link>
-                <Link href="/companyformation" className={styles.menuItem}>
-                  Company Formation
-                </Link>
-                <Link href="/accountingfinancialservices" className={styles.menuItem}>
-                  Accounting & Financial Services
-                </Link>
-                <Link href="/financialplanninginvestorservices" className={styles.menuItem}>
-                  Financial Planning & Investor Services
-                </Link>
-                <Link href="/technologyconsulting" className={styles.menuItem}>
-                  Technology Consulting
-                </Link>
+                <Link href="/partnership" className={styles.menuItem}>Partnerships</Link>
+                <Link href="/managementconsulting" className={styles.menuItem}>Management Consulting</Link>
+                <Link href="/corporateservices" className={styles.menuItem}>Corporate Services</Link>
+                <Link href="/companyformation" className={styles.menuItem}>Company Formation</Link>
+                <Link href="/businesssite" className={styles.menuItem}>Business Site</Link>
+                <Link href="/accountingfinancialservices" className={styles.menuItem}>Accounting & Financial Services</Link>
+                <Link href="/financialplanninginvestorservices" className={styles.menuItem}>Financial Planning & Investor Services</Link>
+                <Link href="/technologyconsulting" className={styles.menuItem}>Technology Consulting</Link>
+                <Link href="/audit" className={styles.menuItem}>Audit Services</Link> {/* ← added */}
               </div>
             </div>
 
-            {/* BLOGS */}
+            {/* CASE STUDIES */}
             <div
               className={styles.dropdownWrapper}
               onMouseEnter={() => setBlogsArrow(true)}
               onMouseLeave={() => setBlogsArrow(false)}
             >
-              <button 
-                className={`${styles.trigger} ${
-                  pathname.startsWith('/casestudies')
-                    ? styles.active 
-                    : ''
-                }`}
+              <button
+                className={`${styles.trigger} ${pathname.startsWith('/casestudies') ? styles.active : ''}`}
               >
                 <span>Case Studies</span>
-                <svg
-                  className={blogsArrow ? styles.rotate : ''}
-                  viewBox="0 0 24 24"
-                >
+                <svg className={blogsArrow ? styles.rotate : ''} viewBox="0 0 24 24">
                   <path d="M7 10l5 5 5-5z" />
                 </svg>
               </button>
 
               <div className={styles.menu}>
-                <Link href="/casestudies/technologystartup" className={styles.menuItem}>
-                  Technology Startup
-                </Link>
-                <Link href="/casestudies/retailbusiness" className={styles.menuItem}>
-                  Retail Business
-                </Link>
+                <Link href="/casestudies/technologystartup" className={styles.menuItem}>Technology Startup</Link>
+                <Link href="/casestudies/retailbusiness" className={styles.menuItem}>Retail Business</Link>
               </div>
             </div>
 
-            <Link 
-              href="/contact" 
+            <Link
+              href="/contact"
               className={`${styles.navLink} ${isActive('/contact') ? styles.active : ''}`}
             >
               Let's Connect
             </Link>
           </nav>
 
-          {/* ================= PHONE ================= */}
+          {/* PHONE */}
           <div className={styles.phone}>
             <Image src="/uae-flag.svg" alt="UAE Flag" width={22} height={14} />
             <span className={styles.divider}></span>
             <span className={styles.phoneText}>+971 585 570 593</span>
           </div>
 
-          {/* ================= HAMBURGER ================= */}
-          <button
-            className={styles.hamburger}
-            onClick={() => setMobileOpen(true)}
-          >
-            ☰
-          </button>
+          {/* HAMBURGER */}
+          <button className={styles.hamburger} onClick={() => setMobileOpen(true)}>☰</button>
         </div>
       </header>
 
-      {/* ================= MOBILE / TABLET ================= */}
+      {/* MOBILE */}
       {mobileOpen && (
         <div className={styles.mobileOverlay}>
           <div className={styles.mobilePanel}>
-            {/* Header */}
             <div className={styles.mobileHeader}>
               <Link href="/" className={styles.logo} onClick={() => setMobileOpen(false)}>
                 <Image src="/logo.svg" alt="Dillon & Bird" width={24} height={24} />
                 <span>Dillon & Bird</span>
               </Link>
-
-              <button
-                className={styles.closeBtn}
-                onClick={() => setMobileOpen(false)}
-              >
-                ✕
-              </button>
+              <button className={styles.closeBtn} onClick={() => setMobileOpen(false)}>✕</button>
             </div>
 
-            {/* Nav */}
             <nav className={styles.mobileNav}>
-              <Link 
+              <Link
                 href="/about"
                 className={`${styles.mobileLink} ${isActive('/about') ? styles.active : ''}`}
                 onClick={() => setMobileOpen(false)}
@@ -181,24 +138,12 @@ function Navbar() {
 
               {/* WHAT WE DO */}
               <div
-                className={`${styles.mobileItem} ${
-                  pathname.startsWith('/partnership') ||
-                  pathname.startsWith('/managementconsulting') ||
-                  pathname.startsWith('/corporateservices') ||
-                  pathname.startsWith('/companyformation') ||
-                  pathname.startsWith('/accountingfinancialservices') ||
-                  pathname.startsWith('/financialplanninginvestorservices') ||
-                  pathname.startsWith('/technologyconsulting')
-                    ? styles.active 
-                    : ''
-                }`}
+                className={`${styles.mobileItem} ${isServicesActive ? styles.active : ''}`}
                 onClick={() => toggleAccordion('services')}
               >
                 <span>What We Do</span>
                 <svg
-                  className={`${styles.mobileArrow} ${
-                    mobileAccordion === 'services' ? styles.rotate : ''
-                  }`}
+                  className={`${styles.mobileArrow} ${mobileAccordion === 'services' ? styles.rotate : ''}`}
                   viewBox="0 0 24 24"
                 >
                   <path d="M7 10l5 5 5-5z" />
@@ -207,44 +152,26 @@ function Navbar() {
 
               {mobileAccordion === 'services' && (
                 <div className={styles.mobileSubmenu}>
-                  <Link href="/partnership" onClick={() => setMobileOpen(false)}>
-                    Partnerships
-                  </Link>
-                  <Link href="/managementconsulting" onClick={() => setMobileOpen(false)}>
-                    Management Consulting
-                  </Link>
-                  <Link href="/corporateservices" onClick={() => setMobileOpen(false)}>
-                    Corporate Services
-                  </Link>
-                  <Link href="/companyformation" onClick={() => setMobileOpen(false)}>
-                    Company Formation
-                  </Link>
-                  <Link href="/accountingfinancialservices" onClick={() => setMobileOpen(false)}>
-                    Accounting & Financial Services
-                  </Link>
-                  <Link href="/financialplanninginvestorservices" onClick={() => setMobileOpen(false)}>
-                    Financial Planning & Investor Services
-                  </Link>
-                  <Link href="/technologyconsulting" onClick={() => setMobileOpen(false)}>
-                    Technology Consulting
-                  </Link>
+                  <Link href="/partnership" onClick={() => setMobileOpen(false)}>Partnerships</Link>
+                  <Link href="/managementconsulting" onClick={() => setMobileOpen(false)}>Management Consulting</Link>
+                  <Link href="/corporateservices" onClick={() => setMobileOpen(false)}>Corporate Services</Link>
+                  <Link href="/companyformation" onClick={() => setMobileOpen(false)}>Company Formation</Link>
+                  <Link href="/businesssite" onClick={() => setMobileOpen(false)}>Business Site</Link>
+                  <Link href="/accountingfinancialservices" onClick={() => setMobileOpen(false)}>Accounting & Financial Services</Link>
+                  <Link href="/financialplanninginvestorservices" onClick={() => setMobileOpen(false)}>Financial Planning & Investor Services</Link>
+                  <Link href="/technologyconsulting" onClick={() => setMobileOpen(false)}>Technology Consulting</Link>
+                  <Link href="/audit" onClick={() => setMobileOpen(false)}>Audit Services</Link> {/* ← added */}
                 </div>
               )}
 
-              {/* BLOGS */}
+              {/* CASE STUDIES */}
               <div
-                className={`${styles.mobileItem} ${
-                  pathname.startsWith('/casestudies')
-                    ? styles.active 
-                    : ''
-                }`}
+                className={`${styles.mobileItem} ${pathname.startsWith('/casestudies') ? styles.active : ''}`}
                 onClick={() => toggleAccordion('blogs')}
               >
                 <span>Case Studies</span>
                 <svg
-                  className={`${styles.mobileArrow} ${
-                    mobileAccordion === 'blogs' ? styles.rotate : ''
-                  }`}
+                  className={`${styles.mobileArrow} ${mobileAccordion === 'blogs' ? styles.rotate : ''}`}
                   viewBox="0 0 24 24"
                 >
                   <path d="M7 10l5 5 5-5z" />
@@ -253,16 +180,12 @@ function Navbar() {
 
               {mobileAccordion === 'blogs' && (
                 <div className={styles.mobileSubmenu}>
-                  <Link href="/casestudies/technologystartup" onClick={() => setMobileOpen(false)}>
-                    Technology Startup
-                  </Link>
-                  <Link href="/casestudies/retailbusiness" onClick={() => setMobileOpen(false)}>
-                    Retail Business
-                  </Link>
+                  <Link href="/casestudies/technologystartup" onClick={() => setMobileOpen(false)}>Technology Startup</Link>
+                  <Link href="/casestudies/retailbusiness" onClick={() => setMobileOpen(false)}>Retail Business</Link>
                 </div>
               )}
 
-              <Link 
+              <Link
                 href="/contact"
                 className={`${styles.mobileLink} ${isActive('/contact') ? styles.active : ''}`}
                 onClick={() => setMobileOpen(false)}
@@ -271,7 +194,6 @@ function Navbar() {
               </Link>
             </nav>
 
-            {/* Phone */}
             <div className={styles.mobilePhone}>
               <Image src="/uae-flag.svg" alt="UAE Flag" width={26} height={18} />
               <span className={styles.divider}></span>

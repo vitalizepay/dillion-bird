@@ -4,6 +4,7 @@ import { Montserrat, Nunito_Sans } from "next/font/google";
 import Navbar from "@/components/Navbar/Navbar";
 import Footer from "@/components/Footer/Footer";
 import CTASection from "@/components/CTASection/CTASection";
+import Script from "next/script";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -23,8 +24,6 @@ export const metadata: Metadata = {
   keywords: 'GCC consulting, Dubai business, strategic partnerships, management consulting, UAE company formation',
   authors: [{ name: 'Dillon & Bird' }],
   metadataBase: new URL('https://dilionbird.com'),
-  
-  // Open Graph
   openGraph: {
     type: 'website',
     locale: 'en_US',
@@ -42,8 +41,6 @@ export const metadata: Metadata = {
       },
     ],
   },
-
-  // Twitter
   twitter: {
     card: 'summary_large_image',
     site: '@DillonAndBird',
@@ -52,8 +49,6 @@ export const metadata: Metadata = {
     images: ['https://storage.googleapis.com/gpt-engineer-file-uploads/RMEudFFF1oX2REUOr0q3qvNIpyJ3/social-images/social-1767890819384-DnB.jpg'],
     creator: '@DillonAndBird',
   },
-
-  // Favicon
   icons: {
     icon: '/t-logo.png',
   },
@@ -69,8 +64,28 @@ export default function RootLayout({
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        {/* Google Tag Manager — as high as possible in <head> */}
+        <Script id="gtm-head" strategy="beforeInteractive">
+          {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-KSSC8DJ9');`}
+        </Script>
       </head>
       <body className={`${montserrat.variable} ${nunito.variable}`}>
+
+        {/* Google Tag Manager (noscript) — immediately after <body> */}
+        <noscript>
+          <iframe
+            src="https://www.googletagmanager.com/ns.html?id=GTM-KSSC8DJ9"
+            height="0"
+            width="0"
+            style={{ display: 'none', visibility: 'hidden' }}
+          />
+        </noscript>
+
         <Navbar />
         <main>{children}</main>
         <CTASection />

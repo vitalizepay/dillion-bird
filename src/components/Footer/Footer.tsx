@@ -36,7 +36,7 @@ export default function Footer() {
             <li><Link href="/partnership">Partnerships</Link></li>
             <li><Link href="/managementconsulting">Management Consulting</Link></li>
             <li><Link href="/corporateservices">Corporate Services</Link></li>
-            <li><Link href="/companyformation">Company Formation</Link></li>
+            <li><Link href="/businesssite">Business Site</Link></li>
             <li><Link href="/accountingfinancialservices">Accounting & Financial Services</Link></li>
             <li><Link href="/financialplanninginvestorservices">Financial Planning & Investor Services</Link></li>
             <li><Link href="/technologyconsulting">Technology Consulting</Link></li>

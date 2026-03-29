@@ -1,0 +1,288 @@
+.hero {
+    display: grid;
+    grid-template-columns: 1fr 420px;
+    min-height: calc(100vh - 64px);
+    background: #fff;
+    align-items: start; /* ← was default stretch, left was centering in tall grid */
+  }
+  
+  .heroL {
+    padding: 56px 56px 64px 60px; /* ← reduced top padding, was 72px */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* ← was center, causing it to sit mid-column */
+    border-right: 1px solid #eef0f5;
+    position: sticky;       /* ← sticks while right side scrolls */
+    top: 64px;              /* ← offset by navbar height */
+    max-height: calc(100vh - 64px);
+    overflow-y: auto;
+  }
+  
+  .heroR {
+    padding: 40px 40px 52px; /* ← slightly reduced top padding */
+    background: #f7f9fc;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    border-left: 1px solid #eef0f5;
+    min-height: calc(100vh - 64px);
+  }
+  
+  /* Badge */
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #e3f2fd;
+    border: 1px solid #bbdefb;
+    padding: 6px 14px;
+    margin-bottom: 24px;
+    width: fit-content;
+  }
+  .badge span {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: #2196f3;
+  }
+  .badgeDot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #2196f3;
+    animation: blink 2.5s ease-in-out infinite;
+  }
+  @keyframes blink { 0%, 100% { opacity: 1 } 50% { opacity: .25 } }
+  @media (prefers-reduced-motion: reduce) { .badgeDot { animation: none } }
+  
+  .eyebrow {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    color: #2196f3;
+    margin-bottom: 14px;
+  }
+  
+  .h1 {
+    font-size: clamp(32px, 4vw, 56px);
+    font-weight: 800;
+    line-height: 1.08;
+    color: #111111;
+    margin-bottom: 20px;
+  }
+  .h1 em { font-style: italic; font-weight: 600; color: #2196f3; }
+  
+  .body {
+    font-size: 15px;
+    line-height: 1.8;
+    color: #555555;
+    max-width: 480px;
+    margin-bottom: 32px;
+  }
+  
+  .acts {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+  }
+  
+  /* Primary button */
+  .btnPrimary {
+    background: #2196f3;
+    color: #fff;
+    padding: 13px 26px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: .07em;
+    text-transform: uppercase;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    border: 2px solid #2196f3;
+    transition: background .15s;
+  }
+  .btnPrimary:hover { background: #1976d2; border-color: #1976d2; }
+  
+  /* Outline button */
+  .btnOutline {
+    background: transparent;
+    color: #2196f3;
+    padding: 12px 24px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: .07em;
+    text-transform: uppercase;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    border: 2px solid #dde2ee;
+    transition: background .15s, color .15s;
+  }
+  .btnOutline:hover { border-color: #2196f3; color: #2196f3; }
+  
+  
+  /* Submit button */
+  .submitBtn {
+    background: #2196f3;
+    color: #fff;
+    border: none;
+    padding: 14px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .09em;
+    text-transform: uppercase;
+    cursor: pointer;
+    width: 100%;
+    border-radius: 4px;
+    margin-top: 4px;
+    transition: background .15s;
+  }
+  .submitBtn:hover:not(:disabled) { background: #1976d2; }
+  .submitBtn:disabled { opacity: .5; cursor: default; }
+  
+  /* Pills */
+  .pills { display: flex; gap: 10px; flex-wrap: wrap; }
+  .pill {
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    padding: 10px 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 1px 4px rgba(0,0,0,.05);
+  }
+  .pillN { font-size: 20px; font-weight: 800; color: #111111; line-height: 1; }
+  .pillL { font-size: 9px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: #999999; }
+  
+  /* Urgency */
+  .urgency {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    margin-top: 28px;
+    padding: 10px 14px;
+    background: #fffbf0;
+    border: 1px solid #f0dfa0;
+    width: fit-content;
+    color: #a07c10;
+    font-size: 11.5px;
+    font-weight: 600;
+  }
+  
+  /* Form Panel */
+  .formTag { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
+  .formTagBar { width: 20px; height: 3px; background: #2196f3; flex-shrink: 0; }
+  .formTag span { font-size: 9.5px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: #2196f3; }
+  
+  .formH { font-size: 20px; font-weight: 800; color: #111111; line-height: 1.2; margin-bottom: 4px; }
+  .formSub { font-size: 12px; color: #555555; line-height: 1.65; margin-bottom: 16px; }
+  
+  .trustRow { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 16px; }
+  .trustChip {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 9.5px;
+    font-weight: 700;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    color: #2196f3;
+  }
+  
+  /* Form fields */
+  .form { display: flex; flex-direction: column; gap: 10px; }
+  .frow { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .fg { display: flex; flex-direction: column; gap: 3px; }
+  
+  .label {
+    font-size: 9.5px;
+    font-weight: 700;
+    letter-spacing: .13em;
+    text-transform: uppercase;
+    color: #555555;
+  }
+  
+  .input, .select, .textarea {
+    border: 1.5px solid #e0e0e0;
+    background: #fff;
+    padding: 9px 12px;
+    font-size: 14px;
+    color: #111111;
+    outline: none;
+    width: 100%;
+    border-radius: 4px;
+    transition: border-color .15s;
+    appearance: none;
+    font-family: inherit;
+  }
+  .input::placeholder, .textarea::placeholder { color: #aaaaaa; }
+  .input:focus, .select:focus, .textarea:focus {
+    border-color: #2196f3;
+    box-shadow: 0 0 0 3px rgba(33,150,243,.08);
+  }
+  .inputErr { border-color: #e53935 !important; }
+  .select { cursor: pointer; color: #555555; }
+  .textarea { resize: vertical; min-height: 68px; }
+  
+  .successBox {
+    background: #e3f2fd;
+    border-left: 3px solid #2196f3;
+    padding: 14px 16px;
+    font-size: 13px;
+    color: #111111;
+    line-height: 1.6;
+    border-radius: 0 4px 4px 0;
+  }
+  
+  .errorMsg { color: #e53935; font-size: 12px; }
+  
+  .privacy { font-size: 10px; color: #aaaaaa; line-height: 1.6; margin-top: 8px; }
+  .privacy a { color: #2196f3; text-decoration: none; }
+  
+  .optional {
+    font-weight: 400;
+    text-transform: none;
+    letter-spacing: 0;
+    color: #aaaaaa;
+    font-size: 9px;
+    margin-left: 4px;
+  }
+  
+  .waRow {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid #e0e0e0;
+    font-size: 12px;
+  }
+  .waRow a { color: #2196f3; font-weight: 600; text-decoration: none; }
+  .waRow a:hover { text-decoration: underline; }
+  .sep { color: #aaaaaa; }
+  
+  /* Responsive */
+  @media (max-width: 900px) {
+    .hero { grid-template-columns: 1fr; align-items: stretch; }
+    .heroL {
+      padding: 40px 28px 36px;
+      border-right: none;
+      border-bottom: 1px solid #eef0f5;
+      position: static;        /* ← no sticky on mobile */
+      max-height: none;
+      overflow-y: visible;
+    }
+    .heroR { padding: 40px 28px; min-height: auto; }
+    .frow { grid-template-columns: 1fr; }
+  }
+  
+  @media (max-width: 600px) {
+    .heroL { padding: 32px 20px 28px; }
+    .heroR { padding: 32px 20px; }
+    .h1 { font-size: clamp(28px, 8vw, 40px); }
+  }

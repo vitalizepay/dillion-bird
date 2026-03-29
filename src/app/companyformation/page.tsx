@@ -1,24 +1,27 @@
-// src/app/companyformation/page.tsx
-import React from 'react';
-import CompanyFormationHero from './components/CompanyFormationHero/CompanyFormationHero';
-import CompanyFormationLaunch from './components/CompanyFormationLaunch/CompanyFormationLaunch';
-import CompanyFormationServices from './components/CompanyFormationServices/CompanyFormationServices';
-import CompanyFormationCaseStudies from './components/CompanyFormationCaseStudies/CompanyFormationCaseStudies';
-import CompanyFormationWhatItMeans from './components/CompanyFormationWhatItMeans/CompanyFormationWhatItMeans';
+import type { Metadata } from 'next';
+import CFHero from './components/CFHero/CFHero';
+import CFTicker from './components/CFTicker/CFTicker';
+import CFStructures from './components/CFStructures/CFStructures';
+import CFProcess from './components/CFProcess/CFProcess';
+import CFTestimonial from './components/CFTestimonial/CFTestimonial';
+import CFWhy from './components/CFWhy/CFWhy';
+import CFFAQ from './components/CFFAQ/CFFAQ';
 
-export const metadata = {
-  title: 'Company Formation | Dillon & Bird',
-  description: 'Fast, compliant company formation to launch your business seamlessly in the GCC.',
+export const metadata: Metadata = {
+  title: 'Company Formation UAE — Start in 5 Days | Dillon & Bird',
+  description: 'Form your company in the UAE in as little as 5 days. Mainland, Free Zone & Offshore — licences, visas, banking, and compliance handled end to end.',
 };
 
 export default function CompanyFormationPage() {
   return (
-    <main className="company-formation-page">
-      <CompanyFormationHero />
-      <CompanyFormationLaunch />
-      <CompanyFormationServices />
-      <CompanyFormationCaseStudies />
-      <CompanyFormationWhatItMeans />
-    </main>
+    <>
+      <CFHero />
+      <CFTicker />
+      <CFStructures />
+      <CFProcess />
+      <CFTestimonial />
+      <CFWhy />
+      <CFFAQ />
+    </>
   );
 }

@@ -137,8 +137,8 @@ Submitted via: ${window.location.href}
         </div>
         <p className={styles.eyebrow}>Company Formation · UAE &amp; GCC</p>
         <h1 className={styles.h1}>
-          Launch Your UAE Business<br />
-          <em>in as Little as 5 Days.</em>
+          Launch Your UAE <br /> Business
+          <em> in as Little <br /> as 5 Days.</em>
         </h1>
         <p className={styles.body}>
           Mainland or Free Zone — we handle everything from trade licence and visa

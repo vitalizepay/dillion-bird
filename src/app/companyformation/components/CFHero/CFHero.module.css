@@ -4,6 +4,7 @@
   min-height: calc(100vh - 64px);
   background: #fff;
   align-items: start; /* ← was default stretch, left was centering in tall grid */
+  padding-right: 160px;
 }
 
 .heroL {
@@ -14,8 +15,8 @@
   border-right: 1px solid #eef0f5;
   position: sticky;       /* ← sticks while right side scrolls */
   top: 64px;              /* ← offset by navbar height */
-  max-height: calc(100vh - 64px);
-  overflow-y: auto;
+  /* max-height: calc(100vh - 64px); */
+  /* overflow-y: auto; */
 }
 
 .heroR {

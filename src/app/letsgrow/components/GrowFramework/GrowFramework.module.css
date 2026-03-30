@@ -1,0 +1,130 @@
+/* ══════════════════════════════════════
+   GrowFramework — mirrors AuditServices
+   accent:  #1565c0  hover: #0d47a1
+   heading: #0a2342
+   body:    #4a5e7a  / #555
+   border:  #e0e4ee
+   ══════════════════════════════════════ */
+
+   .sec {
+    padding: 80px 60px;
+    background: #fff;
+  }
+  
+  /* ── TOP ROW ── */
+  .topRow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+  }
+  
+  .eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .rule {
+    width: 36px;
+    height: 2px;
+    background: #1565c0;
+    flex-shrink: 0;
+  }
+  .eyebrow span {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #555;
+  }
+  
+  /* ── HEADER BLOCK ── */
+  .hdr {
+    display: block;
+    margin-bottom: 52px;
+  }
+  
+  .h2 {
+    font-size: clamp(26px, 3vw, 44px);
+    font-weight: 700;
+    line-height: 1.1;
+    color: #0a2342;
+    font-family: 'Playfair Display', Georgia, serif;
+    margin-bottom: 16px;
+  }
+  .h2 em {
+    font-style: italic;
+    font-weight: 400;
+    color: #1565c0;
+  }
+  
+  .intro {
+    font-size: 13.5px;
+    line-height: 1.85;
+    color: #555;
+    max-width: 540px;
+  }
+  
+  /* ── 3×2 GRID ── */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border-top: 1px solid #e0e4ee;
+    border-left: 1px solid #e0e4ee;
+  }
+  
+  .card {
+    padding: 36px 32px 40px;
+    border-right: 1px solid #e0e4ee;
+    border-bottom: 1px solid #e0e4ee;
+    position: relative;
+    background: #fff;
+    transition: background 0.2s;
+    border-left: 3px solid transparent;
+  }
+  .card:hover {
+    background: #f7f9fc;
+    border-left-color: #1565c0;
+  }
+  
+  /* Large faint number — matches AuditServices .cardN exactly */
+  .cardN {
+    display: block;
+    font-size: 48px;
+    font-weight: 700;
+    color: #dde2ee;
+    line-height: 1;
+    margin-bottom: 18px;
+    font-family: 'Playfair Display', Georgia, serif;
+    letter-spacing: -0.02em;
+  }
+  
+  .cardIcon {
+    margin-bottom: 14px;
+  }
+  
+  .cardTitle {
+    font-size: 15px;
+    font-weight: 700;
+    color: #0a2342;
+    margin-bottom: 10px;
+    line-height: 1.3;
+  }
+  
+  .cardDesc {
+    font-size: 13px;
+    line-height: 1.8;
+    color: #666;
+  }
+  
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .grid { grid-template-columns: 1fr 1fr; }
+    .sec { padding: 60px 28px; }
+  }
+  @media (max-width: 600px) {
+    .grid { grid-template-columns: 1fr; }
+    .sec { padding: 44px 20px; }
+    .cardN { font-size: 36px; }
+    .topRow { flex-direction: column; align-items: flex-start; gap: 8px; }
+  }

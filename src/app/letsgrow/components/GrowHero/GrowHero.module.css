@@ -1,0 +1,171 @@
+/* ══════════════════════════════════════
+   GrowHero — light blue / white / navy
+   accent:  #1565c0  hover: #0d47a1
+   heading: #0a2342
+   body:    #4a5e7a
+   border:  #eef0f5
+   ══════════════════════════════════════ */
+
+   .sec {
+    padding: 80px 60px;
+    background: #fff;
+  }
+  
+  .grid {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: start;
+  }
+  
+  /* ── LEFT ── */
+  .left {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+  }
+  .eyebrow span:last-child {
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #1565c0;
+  }
+  .rule {
+    display: block;
+    width: 40px;
+    height: 3px;
+    background: #1565c0;
+    flex-shrink: 0;
+  }
+  
+  .h1 {
+    font-family: 'Playfair Display', 'Georgia', serif;
+    font-size: clamp(36px, 4vw, 62px);
+    font-weight: 700;
+    color: #0a2342;
+    line-height: 1.1;
+    margin-bottom: 16px;
+  }
+  .h1 em {
+    font-style: italic;
+    font-weight: 400;
+    color: #1565c0;
+  }
+  
+  .desc {
+    font-size: 14px;
+    line-height: 1.8;
+    color: #4a5e7a;
+    margin-bottom: 28px;
+    max-width: 500px;
+  }
+  
+  .acts {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  
+  .btnPrimary {
+    background: #2196f3;
+    color: #fff;
+    padding: 13px 26px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: .07em;
+    text-transform: uppercase;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    border: 2px solid #2196f3;
+    transition: background .15s;
+  }
+  .btnPrimary:hover { background: #1976d2; border-color: #1976d2; }
+  
+  .btnOutline {
+    background: transparent;
+    color: #2196f3;
+    padding: 12px 24px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: .07em;
+    text-transform: uppercase;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    border: 2px solid #dde2ee;
+    transition: background .15s, color .15s;
+  }
+  .btnOutline:hover { border-color: #2196f3; color: #2196f3; }
+  
+  
+  /* ── PILLARS CONTAINER ── */
+  .pillars {
+    display: flex;
+    flex-direction: column;
+    border: 1.5px solid #c5d3e8;          /* stronger, blue-tinted border */
+    background: ;                   /* very light blue tint so it reads as a card */
+    box-shadow:
+      0 1px 3px rgba(21, 101, 192, 0.06),
+      0 4px 16px rgba(21, 101, 192, 0.04); /* subtle blue-toned shadow for depth */
+  }
+
+  
+  /* ── SINGLE PILLAR ROW ── */
+  .pillar {
+    display: flex;
+    gap: 20px;
+    padding: 22px 24px;
+    align-items: flex-start;
+    border-bottom: 1px solid #dde6f4;      /* matches the box border tone */
+    transition: background 0.15s;
+  }
+  .pillar:last-child { border-bottom: none; }
+  .pillar:hover { background: #eef3fb; }   /* hover stays in the blue family */
+  
+  /* SVG icon — plain, no circle/background */
+  .pillarIcon {
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    margin-top: 2px;
+    color: #1565c0;
+  }
+  
+  .pillarContent {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  
+  .pillarName {
+    font-size: 14px;
+    font-weight: 700;
+    color: #0a2342;
+  }
+  
+  .pillarDesc {
+    font-size: 12.5px;
+    line-height: 1.72;
+    color: #4a5e7a;
+  }
+  
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .sec { padding: 60px 28px; }
+    .grid { grid-template-columns: 1fr; gap: 40px; }
+  }
+  @media (max-width: 600px) {
+    .sec { padding: 48px 20px; }
+    .acts { flex-direction: column; align-items: stretch; }
+    .acts a { text-align: center; justify-content: center; }
+  }

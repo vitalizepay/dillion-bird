@@ -1,6 +1,6 @@
 // HomeHero.tsx
 "use client";
-
+import Link from 'next/link';
 import Image from "next/image";
 import styles from "./HomeHero.module.css";
 
@@ -24,7 +24,9 @@ export default function HomeHero() {
             Dillon & Bird: Your dedicated strategic partner in the GCC. We blend finance, tech, and marketing to unlock your growth.
           </p>
 
-          <button className={styles.cta}>Lets Grow</button>
+          <Link href="/letsgrow" target="_blank" rel="noopener" className={styles.cta}>
+            Let's Grow
+          </Link>
         </div>
 
         {/* Right Column - Image */}

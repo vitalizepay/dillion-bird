@@ -7,6 +7,7 @@ import InsolvencyWhy from "./components/InsolvencyWhy/InsolvencyWhy";
 import InsolvencyCaseStudies from "./components/InsolvencyCaseStudies/InsolvencyCaseStudies";
 import InsolvencyCTA from "./components/InsolvencyCTA/InsolvencyCTA";
 import InsolvencyCrossLinks from "./components/InsolvencyCrossLinks/InsolvencyCrossLinks";
+import type { Metadata } from "next";
 
 export const metadata: Metadata = {
     title: 'Insolvency Liquidation | Dillon & Bird',

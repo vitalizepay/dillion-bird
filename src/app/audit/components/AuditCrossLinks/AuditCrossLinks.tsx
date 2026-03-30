@@ -10,13 +10,13 @@ export default function AuditCrossLinks() {
         Accounting, company formation, insolvency advisory and more.
         </p>
         <div className={styles.links}>
-          <Link href="/company-formation" className={styles.chip}>
+          <Link href="/accountingfinancialservices" target="_blank" rel="noopener" className={styles.chip}>
             Accounting &amp; Finance <span aria-hidden="true">↗</span>
           </Link>
-          <Link href="/management-consulting" className={styles.chip}>
+          <Link href="/companyformation" target="_blank" rel="noopener" className={styles.chip}>
             Company Formation <span aria-hidden="true">↗</span>
           </Link>
-          <Link href="/investor-services" className={styles.chip}>
+          <Link href="/insolvencyliquidation" target="_blank" rel="noopener" className={styles.chip}>
             Insolvency Advisory <span aria-hidden="true">↗</span>
           </Link>
         </div>

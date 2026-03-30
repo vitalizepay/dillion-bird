@@ -4,6 +4,7 @@
   min-height: calc(100vh - 64px);
   background: #fff;
   align-items: start; /* ← add this */
+  padding-right: 160px;
 }
   
   .heroL {
@@ -234,7 +235,7 @@
   .sep { color: #aaa; }
   
   @media (max-width: 900px) {
-    .hero { grid-template-columns: 1fr; }
+    .hero { grid-template-columns: 1fr; padding-right: 0; }
     .heroL { padding: 52px 28px 40px; border-right: none; border-bottom: 1px solid #eef0f5; }
     .heroR { padding: 40px 28px; }
     .frow { grid-template-columns: 1fr; }

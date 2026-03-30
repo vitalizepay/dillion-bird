@@ -4,6 +4,7 @@
     min-height: calc(100vh - 64px);
     background: #fff;
     align-items: start; /* ← was default stretch, left was centering in tall grid */
+    padding-right: 160px;
   }
   
   .heroL {
@@ -268,7 +269,7 @@
   
   /* Responsive */
   @media (max-width: 900px) {
-    .hero { grid-template-columns: 1fr; align-items: stretch; }
+    .hero { grid-template-columns: 1fr; align-items: stretch; padding-right: 0; }
     .heroL {
       padding: 40px 28px 36px;
       border-right: none;

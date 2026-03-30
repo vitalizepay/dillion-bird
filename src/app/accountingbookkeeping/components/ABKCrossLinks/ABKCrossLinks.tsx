@@ -10,13 +10,13 @@ export default function ABKCrossLinks() {
           Need more than accounting? We cover the full business lifecycle.
         </p>
         <div className={styles.links}>
-          <Link href="/company-formation" className={styles.chip}>
+          <Link href="/companyformation" target="_blank" rel="noopener" className={styles.chip}>
             Company Formation <span aria-hidden="true">↗</span>
           </Link>
-          <Link href="/management-consulting" className={styles.chip}>
+          <Link href="/managementconsulting" target="_blank" rel="noopener" className={styles.chip}>
             Management Consulting <span aria-hidden="true">↗</span>
           </Link>
-          <Link href="/investor-services" className={styles.chip}>
+          <Link href="/financialplanninginvestorservices" target="_blank" rel="noopener" className={styles.chip}>
             Investor Services <span aria-hidden="true">↗</span>
           </Link>
         </div>

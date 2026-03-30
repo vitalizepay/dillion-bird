@@ -30,6 +30,8 @@ function Navbar() {
     pathname.startsWith('/technologyconsulting') ||
     pathname.startsWith('/audit') ||
     pathname.startsWith('/accountingbookkeeping');
+    pathname.startsWith('/cmolanding');
+    pathname.startsWith('/insolvencyliquidation');
 
   return (
     <>
@@ -73,6 +75,8 @@ function Navbar() {
                 <Link href="/technologyconsulting" className={styles.menuItem}>Technology Consulting</Link>
                 <Link href="/audit" className={styles.menuItem}>Audit Services</Link>
                 <Link href="/accountingbookkeeping" className={styles.menuItem}>Accounting & Book Keeping</Link>  {/* ← added */}
+                <Link href="/cmolanding" className={styles.menuItem}>CMO Services</Link>
+                <Link href="/insolvencyliquidation" className={styles.menuItem}>Insolvency Liquidation</Link>  {/* ← added */}
               </div>
             </div>
 
@@ -164,6 +168,9 @@ function Navbar() {
                   <Link href="/technologyconsulting" onClick={() => setMobileOpen(false)}>Technology Consulting</Link>
                   <Link href="/audit" onClick={() => setMobileOpen(false)}>Audit Services</Link> {/* ← added */}
                   <Link href="/accountingbookkeeping" onClick={() => setMobileOpen(false)}>Accounting & Book Keeping</Link> {/* ← added */}
+                  <Link href="/cmolanding" onClick={() => setMobileOpen(false)}>CMO Services</Link> {/* ← added */}
+                  <Link href="/insolvencyliquidation" onClick={() => setMobileOpen(false)}>Insolvency Liquidation</Link> {/* ← added */}
+                  
                 </div>
               )}
 

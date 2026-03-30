@@ -1,0 +1,147 @@
+.sec {
+    padding: 84px 60px;
+    background: #fff;
+  }
+  
+  .inner {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 72px;
+    align-items: start;
+  }
+  
+  /* ── LEFT ── */
+  .left { display: flex; flex-direction: column; }
+  
+  /* ── Eyebrow ── */
+  .eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+  }
+  .rule { width: 40px; height: 3px; background: #2196f3; flex-shrink: 0; }
+  .eyebrow span {
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: #2196f3;
+  }
+  
+  /* ── Heading ── */
+  .h2 {
+    font-size: clamp(26px, 3vw, 42px);
+    font-weight: 800;
+    line-height: 1.12;
+    color: #111;
+    margin-bottom: 36px;
+  }
+  .h2 em { font-style: italic; font-weight: 600; color: #2196f3; }
+  
+  /* ── Pillars ── */
+  .pillars { display: flex; flex-direction: column; }
+  
+  .pillar {
+    display: flex;
+    gap: 18px;
+    padding: 22px 0;
+    border-bottom: 1px solid #c8cdd8;
+  }
+  .pillar:first-child { border-top: 1px solid #c8cdd8; }
+  
+  .pN {
+    font-size: 22px;
+    font-weight: 800;
+    color: #b0b8c8;
+    line-height: 1;
+    padding-top: 2px;
+    flex-shrink: 0;
+    min-width: 36px;
+  }
+  .pTitle { font-size: 14px; font-weight: 700; color: #111; margin-bottom: 4px; }
+  .pDesc  { font-size: 12.5px; line-height: 1.72; color: #555; }
+  
+  /* ── RIGHT ── */
+  .right {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* This spacer pushes the card down to align with the pillars start */
+  .cardOffset {
+    /* heading height: approx eyebrow (12+12) + h2 (~80px) + margin-bottom (36px) = ~140px */
+    height: 150px;
+  }
+  
+  /* ── CTA card ── */
+  .card {
+    border: 1px solid #dde2ee;
+    padding: 36px 32px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .cardEyebrow {
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: #2196f3;
+    margin-bottom: 12px;
+  }
+  
+  .cardHeading {
+    font-size: clamp(20px, 2.2vw, 28px);
+    font-weight: 800;
+    line-height: 1.18;
+    color: #111;
+    margin-bottom: 16px;
+  }
+  .cardHeading em { font-style: italic; font-weight: 600; color: #2196f3; }
+  
+  .cardBody {
+    font-size: 13px;
+    line-height: 1.78;
+    color: #555;
+    margin-bottom: 28px;
+  }
+  
+  .btnPrimary,
+  .btnSecondary {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 12.5px;
+    font-weight: 700;
+    letter-spacing: .07em;
+    text-transform: uppercase;
+    padding: 14px 20px;
+    transition: background .15s, border-color .15s;
+  }
+  
+  .btnPrimary {
+    background: #2196f3;
+    color: #fff;
+    border: 2px solid #2196f3;
+    margin-bottom: 10px;
+  }
+  .btnPrimary:hover { background: #1976d2; border-color: #1976d2; }
+  
+  .btnSecondary {
+    background: transparent;
+    color: #2196f3;
+    border: 2px solid #dde2ee;
+  }
+  .btnSecondary:hover { border-color: #2196f3; color: #2196f3; }
+  
+  /* ── Responsive ── */
+  @media (max-width: 960px) {
+    .inner { grid-template-columns: 1fr; gap: 44px; }
+    .cardOffset { display: none; }
+    .sec { padding: 60px 28px; }
+  }
+  @media (max-width: 600px) {
+    .sec { padding: 44px 20px; }
+  }

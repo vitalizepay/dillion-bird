@@ -1,0 +1,45 @@
+.sec { padding: 84px 60px; background: #f7f9fc; }
+.hdr { margin-bottom: 52px; }
+.eyebrow { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+.rule { width: 40px; height: 3px; background: #2196f3; flex-shrink: 0; }
+.eyebrow span { font-size: 10.5px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: #2196f3; }
+.h2 { font-size: clamp(26px, 3vw, 42px); font-weight: 800; line-height: 1.12; color: #111; }
+.h2 em { font-style: italic; font-weight: 600; color: #2196f3; }
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  position: relative;
+}
+
+.line {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  right: 24px;
+  height: 1px;
+  background: #e0e0e0;
+  z-index: 0;
+}
+
+.step { padding-right: 20px; position: relative; z-index: 1; }
+
+.dot {
+  width: 48px; height: 48px;
+  border: 2px solid #2196f3;
+  background: #fff;
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 18px;
+  transition: background .2s, border-color .2s;
+  position: relative;
+  z-index: 1;
+}
+
+.step:hover .dot { background: #2196f3; }
+.dotN { font-size: 16px; font-weight: 800; color: #2196f3; transition: color .2s; }
+.step:hover .dotN { color: #fff; }
+.title { font-size: 14.5px; font-weight: 700; color: #111; margin-bottom: 8px; }
+.desc { font-size: 12.5px; line-height: 1.76; color: #555; }
+
+@media (max-width: 900px) { .grid { grid-template-columns: 1fr 1fr; gap: 28px; } .line { display: none; } .sec { padding: 60px 28px; } }
+@media (max-width: 600px) { .grid { grid-template-columns: 1fr; } .step { padding-right: 0; } .sec { padding: 44px 20px; } }

@@ -1,0 +1,100 @@
+.sec {
+    background: #3b82f6; /* ← dark navy matching image */
+    padding: 80px 60px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  /* Subtle dot grid texture matching image bg */
+  .sec::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-image:
+      linear-gradient(rgba(255,255,255,.02) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,.02) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+  
+  .h2 {
+    font-size: clamp(28px, 3.5vw, 52px);
+    font-weight: 800;
+    line-height: 1.12;
+    color: #fff;
+    margin-bottom: 16px;
+    font-family: Georgia, serif;
+    position: relative;
+    z-index: 1;
+  }
+  .h2 em {
+    font-style: italic;
+    font-weight: 700;
+    color: #111; /* ← content blue replacing gold */
+  }
+  
+  .sub {
+    font-size: 15px;
+    color: rgba(255,255,255,0.8);
+    max-width: 520px;
+    margin: 0 auto 40px;
+    line-height: 1.8;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .acts {
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 1;
+  }
+  
+ /* White solid button */
+.btnPrimary {
+    background: #fff;
+    color: #2563eb; /* ← content color on white */
+    padding: 14px 30px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: .07em;
+    text-transform: uppercase;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    border: 2px solid #fff;
+    transition: background .15s, color .15s;
+  }
+  .btnPrimary:hover {
+    background: #e3f2fd;
+    border-color: #e3f2fd;
+  }
+  
+  /* White outline button */
+  .btnOutline {
+    background: transparent;
+    color: #fff;
+    padding: 13px 28px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: .07em;
+    text-transform: uppercase;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    border: 2px solid rgba(255,255,255,0.7);
+    transition: border-color .15s, background .15s;
+  }
+  .btnOutline:hover {
+    background: #2563eb; /* ← content color on hover */
+    border-color: #2563eb;
+  }
+  
+  @media (max-width: 600px) {
+    .sec { padding: 52px 20px; }
+    .acts { flex-direction: column; align-items: center; }
+    .acts a { width: 100%; max-width: 300px; text-align: center; justify-content: center; }
+  }

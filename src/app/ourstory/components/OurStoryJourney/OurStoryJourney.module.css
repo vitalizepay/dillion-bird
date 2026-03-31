@@ -1,0 +1,139 @@
+.sec {
+    padding: 84px 60px;
+    background: #fff;
+  }
+  
+  /* ── Header ── */
+  .hdr {
+    margin-bottom: 60px;
+  }
+  
+  .eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 16px;
+  }
+  .rule {
+    width: 36px;
+    height: 3px;
+    background: #2563eb;
+    flex-shrink: 0;
+  }
+  .eyebrow span {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: #2563eb;
+  }
+  
+  .h2 {
+    font-size: clamp(32px, 4vw, 56px);
+    font-weight: 800;
+    line-height: 1.08;
+    color: #111;
+    font-family: Georgia, serif;
+  }
+  .h2 em {
+    font-style: italic;
+    font-weight: 700;
+    color: #2563eb;
+  }
+  
+  /* ── Timeline ── */
+.timeline {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding-left: 200px;
+  }
+  
+  /* Line centered through all year boxes */
+  .line {
+    position: absolute;
+    left: 96px;   /* = yearBox left(64px) + half yearBox width(32px) = 96px from sec edge */
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: #c8d0e0;
+    z-index: 0;
+  }
+  
+  .item {
+    display: flex;
+    align-items: flex-start;
+    padding: 44px 0;
+    border-bottom: 1px solid #eef0f5;
+    position: relative;
+  }
+  .item:last-child { border-bottom: none; }
+  
+  /* Year box: left edge at 64px, so center at 64+32=96px — same as line */
+  .yearBox {
+    position: absolute;
+    left: -200px;        /* pulls to sec left edge */
+    margin-left: 64px;   /* box starts at 64px from sec left */
+    top: 44px;
+    width: 64px;
+    height: 64px;
+    border: 2px solid #2563eb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    z-index: 1;
+  }
+  
+  .year {
+    font-size: 11px;
+    font-weight: 700;
+    color: #2563eb;
+    letter-spacing: .04em;
+  }
+  
+  .content {
+    display: flex;
+    flex-direction: column;
+    max-width: 680px;
+    margin-top: 20px;
+  }
+  
+  .tag {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: #2563eb;
+    margin-bottom: 8px;
+  }
+  
+  .title {
+    font-size: 20px;
+    font-weight: 700;
+    color: #111;
+    line-height: 1.3;
+    margin-bottom: 12px;
+  }
+  
+  .desc {
+    font-size: 13.5px;
+    line-height: 1.82;
+    color: #555;
+  }
+  
+  @media (max-width: 900px) {
+    .sec { padding: 60px 28px; }
+    .timeline { padding-left: 160px; }
+    .line { left: 76px; }
+    .yearBox { left: -160px; margin-left: 48px; width: 56px; height: 56px; top: 40px; }
+  }
+  @media (max-width: 600px) {
+    .sec { padding: 44px 20px; }
+    .timeline { padding-left: 120px; }
+    .line { left: 56px; }
+    .yearBox { left: -120px; margin-left: 34px; width: 44px; height: 44px; top: 32px; }
+    .item { padding: 32px 0; }
+    .title { font-size: 16px; }
+    .year { font-size: 10px; }
+  }

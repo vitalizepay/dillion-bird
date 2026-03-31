@@ -1,0 +1,137 @@
+.sec {
+    padding: 84px 60px;
+    background: #fff;
+  }
+  
+  /* ── Eyebrow ── */
+  .eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 16px;
+  }
+  .rule {
+    width: 36px;
+    height: 3px;
+    background: #2563eb;
+    flex-shrink: 0;
+  }
+  .eyebrow span {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: #2563eb;
+  }
+  
+  /* ── Heading ── */
+  .h2 {
+    font-size: clamp(28px, 3.5vw, 52px);
+    font-weight: 800;
+    line-height: 1.08;
+    color: #111;
+    font-family: Georgia, serif;
+    margin-bottom: 48px;
+  }
+  .h2 em {
+    font-style: italic;
+    font-weight: 700;
+    color: #2563eb;
+  }
+  
+  /* ── 4-column grid ── */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border: 1px solid #c8d0e0;
+  }
+  
+  /* ── Card ── */
+  .card {
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid #c8d0e0;
+  }
+  .card:last-child { border-right: none; }
+  
+  .imgWrap {
+    position: relative;
+    background: #eff6ff;
+    height: 300px; /* ← taller so more of the face shows */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-bottom: 1px solid #c8d0e0;
+  }
+  
+  .img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center center; /* ← was top, now center */
+    z-index: 1;
+    filter: grayscale(100%); /* ← matching image style */
+  }
+  
+  /* Initials shown as fallback / until image loads */
+  .initials {
+    font-size: 48px;
+    font-weight: 700;
+    color: rgba(37,99,235,.25); /* ← faint blue matching image style */
+    font-family: Georgia, serif;
+    letter-spacing: .05em;
+    z-index: 0;
+    user-select: none;
+  }
+  
+  /* Info block */
+  .body {
+    padding: 24px 20px 28px;
+    background: #f7f9fc;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .name {
+    font-size: 15px;
+    font-weight: 700;
+    color: #111;
+    margin-bottom: 4px;
+  }
+  
+  .role {
+    font-size: 9.5px;
+    font-weight: 700;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: #2563eb; /* ← content */
+    margin-bottom: 12px;
+  }
+  
+  .bio {
+    font-size: 12.5px;
+    line-height: 1.76;
+    color: #555;
+    flex: 1;
+  }
+  
+  /* ── Responsive ── */
+  @media (max-width: 1024px) {
+    .grid { grid-template-columns: repeat(2, 1fr); }
+    .card { border-bottom: 1px solid #c8d0e0; }
+    .card:nth-child(2) { border-right: none; }
+    .card:nth-child(3) { border-right: 1px solid #c8d0e0; }
+    .card:last-child { border-right: none; }
+    .sec { padding: 60px 28px; }
+  }
+  @media (max-width: 600px) {
+    .grid { grid-template-columns: 1fr; }
+    .card { border-right: none; border-bottom: 1px solid #c8d0e0; }
+    .card:last-child { border-bottom: none; }
+    .imgWrap { height: 200px; }
+    .sec { padding: 44px 20px; }
+  }

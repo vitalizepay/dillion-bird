@@ -1,121 +1,112 @@
-/* ══════════════════════════════════════
-   GrowResults — white / blue / navy
-   bg:      #fff
-   accent:  #1565c0
-   heading: #0a2342
-   body:    #4a5e7a
-   border:  #e0e4ee
-   ══════════════════════════════════════ */
+.sec {
+  background: #f7f9fc;
+  padding: 80px 60px;
+}
 
-   .sec {
-    background: #f7f9fc;   /* very subtle blue-tinted off-white — lifts it off pure white sections */
-    padding: 80px 60px;
-  }
-  
-  .inner {
-    max-width: 1280px;
-    margin: 0 auto;
-  }
-  
-  /* ── TOP ROW ── */
-  .topRow {
-    margin-bottom: 14px;
-  }
-  
-  .eyebrow {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-  .rule {
-    width: 36px;
-    height: 2px;
-    background: #1565c0;
-    flex-shrink: 0;
-  }
-  .eyebrow span {
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: #555;
-  }
-  
-  /* ── HEADING ── */
-  .h2 {
-    font-size: clamp(26px, 3vw, 44px);
-    font-weight: 700;
-    color: #0a2342;
-    line-height: 1.1;
-    font-family: 'Playfair Display', Georgia, serif;
-    margin-bottom: 48px;
-  }
-  .h2 em {
-    font-style: italic;
-    font-weight: 400;
-    color: #1565c0;
-  }
-  
-  /* ── 2×2 GRID ── */
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    border-top: 1px solid #e0e4ee;
-    border-left: 1px solid #e0e4ee;
-  }
-  
-  /* ── RESULT CARD ── */
-  .card {
-    padding: 44px 48px;
-    border-right: 1px solid #e0e4ee;
-    border-bottom: 1px solid #e0e4ee;
-    background: #fff;
-    transition: background 0.2s;
-    border-left: 3px solid transparent;
-  }
-  .card:hover {
-    background: #f7f9fc;
-    border-left-color: #1565c0;
-  }
-  
-  /* Large stat number */
-  .cardN {
-    font-size: clamp(36px, 4vw, 56px);
-    font-weight: 800;
-    color: #1565c0;
-    line-height: 1;
-    margin-bottom: 8px;
-    font-family: 'Playfair Display', Georgia, serif;
-    font-variant-numeric: tabular-nums;
-    letter-spacing: -0.02em;
-  }
-  
-  /* Label */
-  .cardLabel {
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: #111;
-    margin-bottom: 14px;
-  }
-  
-  /* Desc */
-  .cardDesc {
-    font-size: 13px;
-    line-height: 1.8;
-    color: #555;
-    max-width: 65ch;
-  }
-  
-  /* ── RESPONSIVE ── */
-  @media (max-width: 900px) {
-    .sec { padding: 60px 28px; }
-    .card { padding: 32px 28px; }
-  }
-  @media (max-width: 600px) {
-    .sec { padding: 48px 20px; }
-    .grid { grid-template-columns: 1fr; }
-    .card { padding: 28px 0; border-left: none; }
-    .card:hover { border-left: none; }
-  }
+.inner {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+/* ── TOP ROW ── */
+.topRow {
+  margin-bottom: 14px;
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.rule {
+  width: 36px;
+  height: 2px;
+  background: #2563eb; /* ← content */
+  flex-shrink: 0;
+}
+.eyebrow span {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #2563eb;
+}
+
+/* ── HEADING ── */
+.h2 {
+  font-size: clamp(26px, 3vw, 44px);
+  font-weight: 700;
+  color: #111;
+  line-height: 1.1;
+  font-family: 'Playfair Display', Georgia, serif;
+  margin-bottom: 48px;
+}
+.h2 em {
+  font-style: italic;
+  font-weight: 400;
+  color: #2563eb; /* ← content */
+}
+
+/* ── 2×2 GRID ── */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  border-top: 1px solid #c8d0e0;
+  border-left: 1px solid #c8d0e0;
+}
+
+/* ── RESULT CARD ── */
+.card {
+  padding: 44px 48px;
+  border-right: 1px solid #c8d0e0;
+  border-bottom: 1px solid #c8d0e0;
+  background: #fff;
+  transition: background 0.2s;
+  border-left: 3px solid transparent;
+}
+.card:hover {
+  background: #eff6ff; /* ← banking light blue */
+  border-left-color: #3b82f6; /* ← button color */
+}
+
+/* Large stat number */
+.cardN {
+  font-size: clamp(36px, 4vw, 56px);
+  font-weight: 800;
+  color: #2563eb; /* ← content */
+  line-height: 1;
+  margin-bottom: 8px;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+}
+
+/* Label */
+.cardLabel {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #111;
+  margin-bottom: 14px;
+}
+
+/* Desc */
+.cardDesc {
+  font-size: 13px;
+  line-height: 1.8;
+  color: #555;
+  max-width: 65ch;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .sec { padding: 60px 28px; }
+  .card { padding: 32px 28px; }
+}
+@media (max-width: 600px) {
+  .sec { padding: 48px 20px; }
+  .grid { grid-template-columns: 1fr; }
+  .card { padding: 28px 0; border-left: none; }
+  .card:hover { border-left: none; }
+}

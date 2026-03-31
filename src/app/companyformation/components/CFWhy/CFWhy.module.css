@@ -5,11 +5,10 @@
 
 .grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;  /* ← forces two columns side by side */
+  grid-template-columns: 1fr 1fr;
   gap: 64px;
   align-items: start;
 }
-
 
 .eyebrow {
   display: flex;
@@ -22,42 +21,43 @@
   font-weight: 700;
   letter-spacing: .16em;
   text-transform: uppercase;
-  color: #1565c0;
+  color: #2563eb; /* ← content */
 }
 .rule {
   display: block;
   width: 40px;
   height: 3px;
-  background: #1565c0;
+  background: #2563eb; /* ← content */
   flex-shrink: 0;
 }
 
 .h2 {
-  font-family: 'Playfair Display', 'Georgia', serif; /* ← serif font like original */
+  font-family: 'Playfair Display', 'Georgia', serif;
   font-size: clamp(28px, 3vw, 42px);
   font-weight: 700;
-  color: #0a2342;
+  color: #111;
   line-height: 1.13;
   margin-bottom: 16px;
 }
 .h2 em {
   font-style: italic;
   font-weight: 400;
-  color: #1565c0;
+  color: #2563eb; /* ← content */
 }
 
 .desc {
   font-size: 14px;
   line-height: 1.8;
-  color: #4a5e7a;
+  color: #555;
   margin-bottom: 28px;
   max-width: 500px;
 }
 
+/* Primary: bg #3b82f6 → hover #2563eb */
 .btn {
   display: inline-flex;
   align-items: center;
-  background: #1565c0;
+  background: #3b82f6;
   color: #fff;
   padding: 13px 24px;
   font-size: 13px;
@@ -65,10 +65,10 @@
   letter-spacing: .07em;
   text-transform: uppercase;
   text-decoration: none;
-  border: 2px solid #1565c0;
-  transition: background .15s;
+  border: 2px solid #3b82f6;
+  transition: background .15s, border-color .15s;
 }
-.btn:hover { background: #0d47a1; border-color: #0d47a1; }
+.btn:hover { background: #2563eb; border-color: #2563eb; }
 
 /* RIGHT */
 .pillars {
@@ -80,15 +80,15 @@
   display: flex;
   gap: 20px;
   padding: 22px 0;
-  border-bottom: 1px solid #eef0f5;
+  border-bottom: 1px solid #c8d0e0; /* ← more visible */
   align-items: flex-start;
 }
-.pillar:first-child { border-top: 1px solid #eef0f5; }
+.pillar:first-child { border-top: 1px solid #c8d0e0; }
 
 .pillarN {
   font-size: 26px;
   font-weight: 800;
-  color: #dde3ed;
+  color: #b0b8c8; /* ← visible but subtle */
   line-height: 1;
   padding-top: 2px;
   flex-shrink: 0;
@@ -104,18 +104,18 @@
 .pillarName {
   font-size: 14px;
   font-weight: 700;
-  color: #0a2342;
+  color: #111;
 }
 
 .pillarDesc {
   font-size: 12.5px;
   line-height: 1.72;
-  color: #4a5e7a;
+  color: #555;
 }
 
 @media (max-width: 900px) {
   .sec { padding: 60px 28px; }
-  .grid { grid-template-columns: 1fr; gap: 40px; } /* stacks on tablet */
+  .grid { grid-template-columns: 1fr; gap: 40px; }
 }
 @media (max-width: 600px) {
   .sec { padding: 48px 20px; }

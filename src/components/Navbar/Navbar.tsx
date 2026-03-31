@@ -23,7 +23,7 @@ function Navbar() {
     pathname.startsWith('/partnership') ||
     pathname.startsWith('/managementconsulting') ||
     pathname.startsWith('/corporateservices') ||
-    pathname.startsWith('/businesssite') ||
+    pathname.startsWith('/businesssetup') ||
     pathname.startsWith('/companyformation') ||
     pathname.startsWith('/accountingfinancialservices') ||
     pathname.startsWith('/financialplanninginvestorservices') ||
@@ -32,6 +32,7 @@ function Navbar() {
     pathname.startsWith('/accountingbookkeeping');
     pathname.startsWith('/cmolanding');
     pathname.startsWith('/insolvencyliquidation');
+    pathname.startsWith('/bankingservices');
 
   return (
     <>
@@ -65,18 +66,19 @@ function Navbar() {
               </button>
 
               <div className={styles.menu}>
-                <Link href="/partnership" className={styles.menuItem}>Partnerships</Link>
-                <Link href="/managementconsulting" className={styles.menuItem}>Management Consulting</Link>
-                <Link href="/corporateservices" className={styles.menuItem}>Corporate Services</Link>
                 <Link href="/companyformation" className={styles.menuItem}>Company Formation</Link>
-                <Link href="/businesssite" className={styles.menuItem}>Business Site</Link>
-                <Link href="/accountingfinancialservices" className={styles.menuItem}>Accounting & Financial Services</Link>
-                <Link href="/financialplanninginvestorservices" className={styles.menuItem}>Financial Planning & Investor Services</Link>
-                <Link href="/technologyconsulting" className={styles.menuItem}>Technology Consulting</Link>
                 <Link href="/audit" className={styles.menuItem}>Audit Services</Link>
                 <Link href="/accountingbookkeeping" className={styles.menuItem}>Accounting & Book Keeping</Link>  {/* ← added */}
                 <Link href="/cmolanding" className={styles.menuItem}>CMO Services</Link>
                 <Link href="/insolvencyliquidation" className={styles.menuItem}>Insolvency Liquidation</Link>  {/* ← added */}
+                <Link href="/bankingservices" className={styles.menuItem}>Banking Services</Link>
+                <Link href="/partnership" className={styles.menuItem}>Partnerships</Link>
+                <Link href="/managementconsulting" className={styles.menuItem}>Management Consulting</Link>
+                <Link href="/corporateservices" className={styles.menuItem}>Corporate Services</Link>
+                <Link href="/businesssetup" className={styles.menuItem}>Business Setup</Link>
+                <Link href="/accountingfinancialservices" className={styles.menuItem}>Accounting & Financial Services</Link>
+                <Link href="/financialplanninginvestorservices" className={styles.menuItem}>Financial Planning & Investor Services</Link>
+                <Link href="/technologyconsulting" className={styles.menuItem}>Technology Consulting</Link>
               </div>
             </div>
 
@@ -158,18 +160,19 @@ function Navbar() {
 
               {mobileAccordion === 'services' && (
                 <div className={styles.mobileSubmenu}>
-                  <Link href="/partnership" onClick={() => setMobileOpen(false)}>Partnerships</Link>
-                  <Link href="/managementconsulting" onClick={() => setMobileOpen(false)}>Management Consulting</Link>
-                  <Link href="/corporateservices" onClick={() => setMobileOpen(false)}>Corporate Services</Link>
                   <Link href="/companyformation" onClick={() => setMobileOpen(false)}>Company Formation</Link>
-                  <Link href="/businesssite" onClick={() => setMobileOpen(false)}>Business Site</Link>
-                  <Link href="/accountingfinancialservices" onClick={() => setMobileOpen(false)}>Accounting & Financial Services</Link>
-                  <Link href="/financialplanninginvestorservices" onClick={() => setMobileOpen(false)}>Financial Planning & Investor Services</Link>
-                  <Link href="/technologyconsulting" onClick={() => setMobileOpen(false)}>Technology Consulting</Link>
                   <Link href="/audit" onClick={() => setMobileOpen(false)}>Audit Services</Link> {/* ← added */}
                   <Link href="/accountingbookkeeping" onClick={() => setMobileOpen(false)}>Accounting & Book Keeping</Link> {/* ← added */}
                   <Link href="/cmolanding" onClick={() => setMobileOpen(false)}>CMO Services</Link> {/* ← added */}
                   <Link href="/insolvencyliquidation" onClick={() => setMobileOpen(false)}>Insolvency Liquidation</Link> {/* ← added */}
+                  <Link href="/bankingservices" onClick={() => setMobileOpen(false)}>Banking Services</Link> {/* ← added */}
+                  <Link href="/partnership" onClick={() => setMobileOpen(false)}>Partnerships</Link>
+                  <Link href="/managementconsulting" onClick={() => setMobileOpen(false)}>Management Consulting</Link>
+                  <Link href="/corporateservices" onClick={() => setMobileOpen(false)}>Corporate Services</Link>
+                  <Link href="/businesssetup" onClick={() => setMobileOpen(false)}>Business Setup</Link>
+                  <Link href="/accountingfinancialservices" onClick={() => setMobileOpen(false)}>Accounting & Financial Services</Link>
+                  <Link href="/financialplanninginvestorservices" onClick={() => setMobileOpen(false)}>Financial Planning & Investor Services</Link>
+                  <Link href="/technologyconsulting" onClick={() => setMobileOpen(false)}>Technology Consulting</Link>
                   
                 </div>
               )}

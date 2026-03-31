@@ -1,12 +1,12 @@
 .band {
-  background: #2196f3;   /* ← was #0a1f3d */
+  background: #3b82f6; /* ← button color */
   display: grid;
   grid-template-columns: repeat(4, 1fr);
 }
 .cell {
   padding: 44px 28px;
   text-align: center;
-  border-right: 1px solid rgba(255,255,255,.07);
+  border-right: 1px solid rgba(255,255,255,.25);
 }
 .cell:last-child { border-right: none; }
 .n {
@@ -19,12 +19,12 @@
 }
 .n em {
   font-style: normal;
-  color: #111;;
+  color: #111; /* ← stays #111 */
 }
 .l {
   font-size: 12px;
   font-weight: 500;
-  color: rgba(255,255,255,.45);
+  color: rgba(255,255,255,0.8);
   letter-spacing: .04em;
   line-height: 1.6;
   text-align: center;
@@ -33,7 +33,7 @@
 @media (max-width: 900px) {
   .band { grid-template-columns: 1fr 1fr; }
   .cell:nth-child(2) { border-right: none; }
-  .cell:nth-child(3), .cell:nth-child(4) { border-top: 1px solid rgba(255,255,255,.07); }
+  .cell:nth-child(3), .cell:nth-child(4) { border-top: 1px solid rgba(255,255,255,.25); }
 }
 @media (max-width: 600px) {
   .n { font-size: 34px; }

@@ -1,10 +1,10 @@
 .sec { padding: 84px 60px; background: #f7f9fc; }
 .hdr { margin-bottom: 52px; }
 .eyebrow { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
-.rule { width: 40px; height: 3px; background: #2196f3; flex-shrink: 0; }
-.eyebrow span { font-size: 10.5px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: #2196f3; }
+.rule { width: 40px; height: 3px; background: #2563eb; flex-shrink: 0; } /* ← content */
+.eyebrow span { font-size: 10.5px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: #2563eb; } /* ← content */
 .h2 { font-size: clamp(26px, 3vw, 42px); font-weight: 800; line-height: 1.12; color: #111; }
-.h2 em { font-style: italic; font-weight: 600; color: #2196f3; }
+.h2 em { font-style: italic; font-weight: 600; color: #2563eb; } /* ← content */
 
 .grid {
   display: grid;
@@ -14,20 +14,27 @@
 
 .line {
   position: absolute;
-  top: 24px;
-  left: 24px;
-  right: 24px;
+  top: 28px;        /* half of 56px dot */
+  left: 28px;
+  right: 28px;
   height: 1px;
-  background: #e0e0e0;
+  background: #c8d0e0; /* ← more visible */
   z-index: 0;
 }
 
-.step { padding-right: 20px; position: relative; z-index: 1; }
+.step {
+  padding-right: 20px;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+}
+.step:last-child { padding-right: 0; }
 
 .dot {
-  width: 48px; height: 48px;
-  border: 2px solid #2196f3;
-  background: #fff;
+  width: 56px; height: 56px;  /* ← matches line top: 28px */
+  border: 2px solid #2563eb;  /* ← content */
+  background: #f7f9fc;        /* ← matches section bg so line hides behind */
   display: flex; align-items: center; justify-content: center;
   margin-bottom: 18px;
   transition: background .2s, border-color .2s;
@@ -35,8 +42,8 @@
   z-index: 1;
 }
 
-.step:hover .dot { background: #2196f3; }
-.dotN { font-size: 16px; font-weight: 800; color: #2196f3; transition: color .2s; }
+.step:hover .dot { background: #3b82f6; border-color: #3b82f6; } /* ← button color */
+.dotN { font-size: 16px; font-weight: 800; color: #2563eb; transition: color .2s; } /* ← content */
 .step:hover .dotN { color: #fff; }
 .title { font-size: 14.5px; font-weight: 700; color: #111; margin-bottom: 8px; }
 .desc { font-size: 12.5px; line-height: 1.76; color: #555; }

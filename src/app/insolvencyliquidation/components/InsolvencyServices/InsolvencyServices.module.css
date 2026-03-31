@@ -3,7 +3,6 @@
     background: #fff;
   }
   
-  /* Top row: eyebrow left, link right — same line */
   .topRow {
     display: flex;
     align-items: center;
@@ -16,7 +15,7 @@
     align-items: center;
     gap: 10px;
   }
-  .rule { width: 36px; height: 2px; background: #2196f3; flex-shrink: 0; }
+  .rule { width: 36px; height: 2px; background: #2563eb; flex-shrink: 0; }
   .eyebrow span {
     font-size: 10px;
     font-weight: 700;
@@ -30,13 +29,12 @@
     font-weight: 700;
     letter-spacing: .1em;
     text-transform: uppercase;
-    color: #2196f3;
+    color: #2563eb;
     text-decoration: none;
     white-space: nowrap;
   }
   .allLink:hover { text-decoration: underline; }
   
-  /* Header block */
   .hdr {
     display: block;
     grid-template-columns: 1fr 1fr;
@@ -56,7 +54,7 @@
   .h2 em {
     font-style: italic;
     font-weight: 400;
-    color: #2196f3;
+    color: #2563eb;
   }
   
   .intro {
@@ -67,26 +65,25 @@
     max-width: 540px;
   }
   
-  /* 3×2 grid with thin borders */
   .grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    border-top: 1px solid #e0e4ee;
-    border-left: 1px solid #e0e4ee;
+    border-top: 1px solid #c8d0e0;
+    border-left: 1px solid #c8d0e0;
   }
   
   .card {
     padding: 36px 32px 40px;
-    border-right: 1px solid #e0e4ee;
-    border-bottom: 1px solid #e0e4ee;
+    border-right: 1px solid #c8d0e0;
+    border-bottom: 1px solid #c8d0e0;
     position: relative;
     background: #fff;
     transition: background .2s;
     border-left: 3px solid transparent;
   }
   .card:hover {
-    background: #f7f9fc;
-    border-left-color: #2196f3;
+    background: #eff6ff;
+    border-left-color: #3b82f6;
   }
   
   .cardN {

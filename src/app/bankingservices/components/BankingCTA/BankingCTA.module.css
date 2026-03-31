@@ -1,0 +1,88 @@
+.sec {
+    background: #3b82f6; /* ← button color as bg */
+    padding: 80px 60px;
+    text-align: center;
+  }
+  
+  .label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 12px;
+  }
+  
+  .h2 {
+    font-size: clamp(28px, 3.5vw, 48px);
+    font-weight: 800;
+    line-height: 1.1;
+    color: #fff;
+    margin-bottom: 14px;
+  }
+  .h2 em {
+    font-style: italic;
+    font-weight: 600;
+    color: #111; /* ← was #111, invisible on blue */
+  }
+  
+  .sub {
+    font-size: 15px;
+    color: rgba(255,255,255,0.8);
+    max-width: 520px;
+    margin: 0 auto 36px;
+    line-height: 1.8;
+  }
+  
+  .acts {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  
+  /* White solid button */
+  .btnPrimary {
+    background: #fff;
+    color: #2563eb; /* ← content color on white */
+    padding: 14px 30px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: .07em;
+    text-transform: uppercase;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    border: 2px solid #fff;
+    transition: background .15s, color .15s;
+  }
+  .btnPrimary:hover {
+    background: #e3f2fd;
+    border-color: #e3f2fd;
+  }
+  
+  /* White outline button */
+  .btnOutline {
+    background: transparent;
+    color: #fff;
+    padding: 13px 28px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: .07em;
+    text-transform: uppercase;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    border: 2px solid rgba(255,255,255,0.7);
+    transition: border-color .15s, background .15s;
+  }
+  .btnOutline:hover {
+    background: #2563eb; /* ← content color on hover */
+    border-color: #2563eb;
+  }
+  
+  @media (max-width: 600px) {
+    .sec { padding: 52px 20px; }
+    .acts { flex-direction: column; align-items: center; }
+    .acts a { width: 100%; max-width: 300px; text-align: center; justify-content: center; }
+  }

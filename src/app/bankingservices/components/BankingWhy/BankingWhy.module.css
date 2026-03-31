@@ -1,0 +1,151 @@
+.sec {
+    padding: 0;
+    background: #fff;
+  }
+  
+  .inner {
+    display: grid;
+    grid-template-columns: 1fr 610px; /* ← fixed width right column */
+    gap: 0;
+    align-items: start; /* ← don't stretch, sit from top */
+  }
+  
+  /* ── LEFT ── */
+  .left {
+    display: flex;
+    flex-direction: column;
+    padding: 84px 60px;
+  }
+  
+  .eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+  }
+  .rule { width: 40px; height: 3px; background: #2563eb; flex-shrink: 0; }
+  .eyebrow span {
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: #2563eb;
+  }
+  
+  .h2 {
+    font-size: clamp(26px, 3vw, 42px);
+    font-weight: 800;
+    line-height: 1.12;
+    color: #111;
+    margin-bottom: 16px;
+  }
+  .h2 em { font-style: italic; font-weight: 600; color: #2563eb; }
+  
+  .intro {
+    font-size: 14px;
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 36px;
+    max-width: 480px;
+  }
+  
+  /* ── Pillars ── */
+  .pillars { display: flex; flex-direction: column; }
+  
+  .pillar {
+    display: flex;
+    gap: 18px;
+    padding: 22px 0;
+    border-bottom: 1px solid #c8d0e0;
+  }
+  .pillar:first-child { border-top: 1px solid #c8d0e0; }
+  
+  .pN {
+    font-size: 22px;
+    font-weight: 800;
+    color: #b0b8c8;
+    line-height: 1;
+    padding-top: 2px;
+    flex-shrink: 0;
+    min-width: 36px;
+  }
+  .pTitle { font-size: 14px; font-weight: 700; color: #111; margin-bottom: 4px; }
+  .pDesc  { font-size: 12.5px; line-height: 1.72; color: #555; }
+  
+  /* ── RIGHT — stats box ── */
+  .right {
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    border: 1px solid #c8d0e0; /* ← full box on all 4 sides */
+    margin: 84px 60px 84px 0; /* ← floats the box with breathing room */
+  }
+  
+  .stat {
+    padding: 28px 32px;
+    border-bottom: 1px solid #c8d0e0;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    transition: background .2s;
+    border-left: 3px solid transparent;
+  }
+  .stat:last-child { border-bottom: none; }
+  .stat:hover {
+    background: #eff6ff;
+    border-left-color: #3b82f6;
+  }
+  
+  .statN {
+    font-size: clamp(28px, 3vw, 44px);
+    font-weight: 800;
+    color: #2563eb;
+    line-height: 1;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: flex-start;
+    gap: 2px;
+    font-family: Georgia, serif;
+    letter-spacing: -.02em;
+  }
+  
+  .statSup {
+    font-size: .5em;
+    font-weight: 700;
+    color: #2563eb;
+    margin-top: 7px;
+  }
+  
+  .statLabel {
+    font-size: 9.5px;
+    font-weight: 700;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: #111;
+    margin-bottom: 8px;
+  }
+  
+  .statDesc {
+    font-size: 12px;
+    line-height: 1.72;
+    color: #555;
+  }
+  
+  /* ── Responsive ── */
+  @media (max-width: 960px) {
+    .inner { grid-template-columns: 1fr; }
+    .left { padding: 60px 28px; }
+    .right {
+      margin: 0 28px 60px;
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+    .stat { flex: 1 1 50%; }
+    .stat:nth-child(2n) { border-right: none; }
+  }
+  @media (max-width: 600px) {
+    .left { padding: 44px 20px; }
+    .right { margin: 0 20px 44px; flex-direction: column; }
+    .stat { flex: none; border-left: none; border-right: none; padding: 24px 20px; }
+    .stat:hover { border-left: none; }
+  }

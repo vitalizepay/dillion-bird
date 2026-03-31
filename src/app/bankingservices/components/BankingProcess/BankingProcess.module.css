@@ -1,0 +1,141 @@
+.sec {
+    padding: 80px 60px;
+    background: #fff;
+  }
+  
+  /* ── Header — left aligned ── */
+  .header {
+    text-align: left;
+    margin-bottom: 52px;
+  }
+  
+  .eyebrow {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* ← left */
+    gap: 10px;
+    margin-bottom: 12px;
+  }
+  .eyebrow span:last-child {
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: #2563eb; /* ← content */
+  }
+  
+  .rule {
+    display: block;
+    width: 40px;
+    height: 3px;
+    background: #2563eb; /* ← content */
+    flex-shrink: 0;
+  }
+  
+  .h2 {
+    font-size: clamp(24px, 2.8vw, 38px);
+    font-weight: 700;
+    color: #111;
+    line-height: 1.13;
+    font-family: Georgia, serif;
+    margin-bottom: 12px;
+  }
+  .h2 em {
+    font-style: italic;
+    font-weight: 400;
+    color: #2563eb; /* ← content */
+    font-family: Georgia, serif;
+  }
+  
+  .sub {
+    font-size: 13.5px;
+    line-height: 1.8;
+    color: #555;
+    max-width: 460px;
+  }
+  
+  /* ── Steps ── */
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0;
+    position: relative;
+  }
+  
+  /* Continuous line through all boxes */
+  .steps::before {
+    content: '';
+    position: absolute;
+    top: 28px; /* half of 56px dot */
+    left: 28px;
+    right: 28px;
+    height: 1px;
+    background: #c8d0e0;
+    z-index: 0;
+  }
+  
+  .step {
+    position: relative;
+    z-index: 1;
+    padding-right: 24px;
+    display: flex;
+    flex-direction: column;
+  }
+  .step:last-child { padding-right: 0; }
+  
+  /* topRow wraps dot so line runs behind it */
+  .topRow {
+    display: flex;
+    align-items: center;
+    margin-bottom: 18px;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .dot {
+    width: 56px;
+    height: 56px;
+    border: 2px solid #2563eb; /* ← content */
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: background .2s, border-color .2s;
+    position: relative;
+    z-index: 1;
+  }
+  .step:hover .dot { background: #3b82f6; border-color: #3b82f6; } /* ← button color on hover */
+  
+  .dotN {
+    font-size: 16px;
+    font-weight: 700;
+    color: #2563eb; /* ← content */
+    transition: color .2s;
+  }
+  .step:hover .dotN { color: #fff; }
+  
+  .stepName {
+    font-size: 13.5px;
+    font-weight: 700;
+    color: #111;
+    margin-bottom: 8px;
+  }
+  
+  .stepDesc {
+    font-size: 12.5px;
+    line-height: 1.76;
+    color: #555;
+  }
+  
+  /* ── Responsive ── */
+  @media (max-width: 900px) {
+    .sec { padding: 60px 28px; }
+    .steps { grid-template-columns: 1fr 1fr; gap: 36px 24px; }
+    .steps::before { display: none; }
+    .step { padding-right: 0; }
+  }
+  @media (max-width: 600px) {
+    .sec { padding: 48px 20px; }
+    .steps { grid-template-columns: 1fr; }
+  }

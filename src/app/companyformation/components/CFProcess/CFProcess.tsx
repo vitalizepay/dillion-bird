@@ -16,12 +16,18 @@ export default function CFProcess() {
           <span className={styles.rule} />
           <span>Our Process</span>
         </div>
-        <h2 className={styles.h2}>From Consultation to<br /><em>Trading in 5 Steps</em></h2>
+        <h2 className={styles.h2}>
+          From Consultation to<br /><em>Trading in 5 Steps</em>
+        </h2>
       </div>
       <div className={styles.steps}>
         {steps.map(s => (
           <div className={styles.step} key={s.n}>
-            <div className={styles.dot}><span className={styles.dotN}>{s.n}</span></div>
+            <div className={styles.topRow}>        {/* ← added wrapper */}
+              <div className={styles.dot}>
+                <span className={styles.dotN}>{s.n}</span>
+              </div>
+            </div>
             <div className={styles.stepName}>{s.name}</div>
             <p className={styles.stepDesc}>{s.desc}</p>
           </div>

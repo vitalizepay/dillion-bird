@@ -24,13 +24,13 @@
     font-weight: 700;
     letter-spacing: .16em;
     text-transform: uppercase;
-    color: #1565c0;
+    color: #2563eb; /* ← content */
   }
   .rule {
     display: block;
     width: 40px;
     height: 3px;
-    background: #1565c0;
+    background: #2563eb; /* ← content */
     flex-shrink: 0;
   }
   
@@ -39,21 +39,21 @@
     font-family: var(--font-playfair), 'Georgia', serif;
     font-size: clamp(28px, 3vw, 42px);
     font-weight: 700;
-    color: #0a2342;
+    color: #111;
     line-height: 1.13;
     margin-bottom: 16px;
   }
   .h2 em {
     font-style: italic;
     font-weight: 400;
-    color: #1565c0;
+    color: #2563eb; /* ← content */
   }
   
-  /* ── Blue divider line below heading ── */
+  /* ── Blue divider ── */
   .divider {
     width: 40px;
     height: 3px;
-    background: #1565c0;
+    background: #2563eb; /* ← content */
     margin-bottom: 20px;
   }
   
@@ -61,12 +61,12 @@
   .desc {
     font-size: 14px;
     line-height: 1.8;
-    color: #4a5e7a;
+    color: #555;
     margin-bottom: 14px;
     max-width: 500px;
   }
   
-  /* ── Actions row ── */
+  /* ── Actions ── */
   .acts {
     display: flex;
     flex-direction: row;
@@ -76,10 +76,11 @@
     flex-wrap: wrap;
   }
   
+  /* Primary: bg #3b82f6 → hover #2563eb */
   .btn {
     display: inline-flex;
     align-items: center;
-    background: #1565c0;
+    background: #3b82f6;
     color: #fff;
     padding: 13px 24px;
     font-size: 13px;
@@ -87,23 +88,24 @@
     letter-spacing: .07em;
     text-transform: uppercase;
     text-decoration: none;
-    border: 2px solid #1565c0;
-    transition: background .15s;
+    border: 2px solid #3b82f6;
+    transition: background .15s, border-color .15s;
   }
-  .btn:hover { background: #0d47a1; border-color: #0d47a1; }
+  .btn:hover { background: #2563eb; border-color: #2563eb; }
   
+  /* Ghost: color #2563eb → hover #3b82f6 */
   .ghostLink {
     font-size: 11px;
     font-weight: 700;
     letter-spacing: .09em;
     text-transform: uppercase;
-    color: #1565c0;
+    color: #2563eb; /* ← content */
     text-decoration: none;
-    border-bottom: 1px solid #1565c0;
+    border-bottom: 1px solid #2563eb;
     padding-bottom: 2px;
     transition: color .15s, border-color .15s;
   }
-  .ghostLink:hover { color: #0d47a1; border-color: #0d47a1; }
+  .ghostLink:hover { color: #3b82f6; border-color: #3b82f6; }
   
   /* ── RIGHT — Pillars ── */
   .pillars {
@@ -123,7 +125,7 @@
   .pillarN {
     font-size: 26px;
     font-weight: 800;
-    color: #dde3ed;
+    color: #b0b8c8;
     line-height: 1;
     padding-top: 2px;
     flex-shrink: 0;
@@ -139,13 +141,13 @@
   .pillarName {
     font-size: 14px;
     font-weight: 700;
-    color: #0a2342;
+    color: #111;
   }
   
   .pillarDesc {
     font-size: 12.5px;
     line-height: 1.72;
-    color: #4a5e7a;
+    color: #555;
   }
   
   /* ── Responsive ── */

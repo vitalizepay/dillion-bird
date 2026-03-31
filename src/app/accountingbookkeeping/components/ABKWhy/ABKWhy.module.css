@@ -21,13 +21,13 @@
     font-weight: 700;
     letter-spacing: .16em;
     text-transform: uppercase;
-    color: #2196f3;
+    color: #2563eb; /* ← content */
   }
   .rule {
     display: block;
     width: 40px;
     height: 3px;
-    background: #2196f3;
+    background: #2563eb; /* ← content */
     flex-shrink: 0;
   }
   
@@ -42,7 +42,7 @@
   .h2 em {
     font-style: italic;
     font-weight: 400;
-    color: #2196f3;
+    color: #2563eb; /* ← content */
   }
   
   .desc {
@@ -53,10 +53,11 @@
     max-width: 500px;
   }
   
+  /* Primary: bg #3b82f6 → hover #2563eb */
   .btn {
     display: inline-flex;
     align-items: center;
-    background: #2196f3;
+    background: #3b82f6;
     color: #fff;
     padding: 13px 24px;
     font-size: 13px;
@@ -64,10 +65,10 @@
     letter-spacing: .07em;
     text-transform: uppercase;
     text-decoration: none;
-    border: 2px solid #2196f3;
-    transition: background .15s;
+    border: 2px solid #3b82f6;
+    transition: background .15s, border-color .15s;
   }
-  .btn:hover { background: #1976d2; border-color: #1976d2; }
+  .btn:hover { background: #2563eb; border-color: #2563eb; }
   
   /* RIGHT */
   .pillars {
@@ -79,15 +80,15 @@
     display: flex;
     gap: 20px;
     padding: 22px 0;
-    border-bottom: 1px solid #e0e0e0;
+    border-bottom: 1px solid #c8d0e0; /* ← more visible */
     align-items: flex-start;
   }
-  .pillar:first-child { border-top: 1px solid #e0e0e0; }
+  .pillar:first-child { border-top: 1px solid #c8d0e0; }
   
   .pillarN {
     font-size: 26px;
     font-weight: 800;
-    color: #cccccc;
+    color: #b0b8c8;
     line-height: 1;
     padding-top: 2px;
     flex-shrink: 0;

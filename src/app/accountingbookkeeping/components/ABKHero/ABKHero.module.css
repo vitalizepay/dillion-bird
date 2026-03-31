@@ -3,24 +3,22 @@
     grid-template-columns: 1fr 420px;
     min-height: calc(100vh - 64px);
     background: #fff;
-    align-items: start; /* ← was default stretch, left was centering in tall grid */
+    align-items: start;
     padding-right: 160px;
   }
   
   .heroL {
-    padding: 56px 56px 64px 60px; /* ← reduced top padding, was 72px */
+    padding: 56px 56px 64px 60px;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start; /* ← was center, causing it to sit mid-column */
+    justify-content: flex-start;
     border-right: 1px solid #eef0f5;
-    position: sticky;       /* ← sticks while right side scrolls */
-    top: 64px;              /* ← offset by navbar height */
-    max-height: calc(100vh - 64px);
-    overflow-y: auto;
+    position: sticky;
+    top: 64px;
   }
   
   .heroR {
-    padding: 40px 40px 52px; /* ← slightly reduced top padding */
+    padding: 40px 40px 52px;
     background: #f7f9fc;
     display: flex;
     flex-direction: column;
@@ -34,8 +32,8 @@
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    background: #e3f2fd;
-    border: 1px solid #bbdefb;
+    background: #e3f2fd;       /* ✓ stays */
+    border: 1px solid #bbdefb; /* ✓ stays */
     padding: 6px 14px;
     margin-bottom: 24px;
     width: fit-content;
@@ -45,13 +43,13 @@
     font-weight: 700;
     letter-spacing: .12em;
     text-transform: uppercase;
-    color: #2196f3;
+    color: #2563eb; /* ← content color */
   }
   .badgeDot {
     width: 6px;
     height: 6px;
     border-radius: 50%;
-    background: #2196f3;
+    background: #2563eb; /* ← content color */
     animation: blink 2.5s ease-in-out infinite;
   }
   @keyframes blink { 0%, 100% { opacity: 1 } 50% { opacity: .25 } }
@@ -62,7 +60,7 @@
     font-weight: 700;
     letter-spacing: .2em;
     text-transform: uppercase;
-    color: #2196f3;
+    color: #2563eb; /* ← content color */
     margin-bottom: 14px;
   }
   
@@ -73,7 +71,7 @@
     color: #111111;
     margin-bottom: 20px;
   }
-  .h1 em { font-style: italic; font-weight: 600; color: #2196f3; }
+  .h1 em { font-style: italic; font-weight: 600; color: #2563eb; } /* ← content color */
   
   .body {
     font-size: 15px;
@@ -91,9 +89,9 @@
     margin-bottom: 40px;
   }
   
-  /* Primary button */
+  /* Primary button: bg #3b82f6 → hover #2563eb */
   .btnPrimary {
-    background: #2196f3;
+    background: #3b82f6;
     color: #fff;
     padding: 13px 26px;
     font-size: 13px;
@@ -103,15 +101,15 @@
     text-decoration: none;
     display: inline-flex;
     align-items: center;
-    border: 2px solid #2196f3;
-    transition: background .15s;
+    border: 2px solid #3b82f6;
+    transition: background .15s, border-color .15s;
   }
-  .btnPrimary:hover { background: #1976d2; border-color: #1976d2; }
+  .btnPrimary:hover { background: #2563eb; border-color: #2563eb; }
   
-  /* Outline button */
+  /* Secondary button: color #2563eb → hover color #3b82f6 */
   .btnOutline {
     background: transparent;
-    color: #2196f3;
+    color: #2563eb;
     padding: 12px 24px;
     font-size: 13px;
     font-weight: 600;
@@ -121,14 +119,13 @@
     display: inline-flex;
     align-items: center;
     border: 2px solid #dde2ee;
-    transition: background .15s, color .15s;
+    transition: border-color .15s, color .15s;
   }
-  .btnOutline:hover { border-color: #2196f3; color: #2196f3; }
+  .btnOutline:hover { border-color: #3b82f6; color: #3b82f6; }
   
-  
-  /* Submit button */
+  /* Submit button: bg #3b82f6 → hover #2563eb */
   .submitBtn {
-    background: #2196f3;
+    background: #3b82f6;
     color: #fff;
     border: none;
     padding: 14px;
@@ -142,7 +139,7 @@
     margin-top: 4px;
     transition: background .15s;
   }
-  .submitBtn:hover:not(:disabled) { background: #1976d2; }
+  .submitBtn:hover:not(:disabled) { background: #2563eb; }
   .submitBtn:disabled { opacity: .5; cursor: default; }
   
   /* Pills */
@@ -176,8 +173,8 @@
   
   /* Form Panel */
   .formTag { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
-  .formTagBar { width: 20px; height: 3px; background: #2196f3; flex-shrink: 0; }
-  .formTag span { font-size: 9.5px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: #2196f3; }
+  .formTagBar { width: 20px; height: 3px; background: #2563eb; flex-shrink: 0; } /* ← content color */
+  .formTag span { font-size: 9.5px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: #2563eb; } /* ← content color */
   
   .formH { font-size: 20px; font-weight: 800; color: #111111; line-height: 1.2; margin-bottom: 4px; }
   .formSub { font-size: 12px; color: #555555; line-height: 1.65; margin-bottom: 16px; }
@@ -191,7 +188,7 @@
     font-weight: 700;
     letter-spacing: .06em;
     text-transform: uppercase;
-    color: #2196f3;
+    color: #2563eb; /* ← content color */
   }
   
   /* Form fields */
@@ -222,16 +219,16 @@
   }
   .input::placeholder, .textarea::placeholder { color: #aaaaaa; }
   .input:focus, .select:focus, .textarea:focus {
-    border-color: #2196f3;
-    box-shadow: 0 0 0 3px rgba(33,150,243,.08);
+    border-color: #2563eb; /* ← content color */
+    box-shadow: 0 0 0 3px rgba(37,99,235,.08);
   }
   .inputErr { border-color: #e53935 !important; }
   .select { cursor: pointer; color: #555555; }
   .textarea { resize: vertical; min-height: 68px; }
   
   .successBox {
-    background: #e3f2fd;
-    border-left: 3px solid #2196f3;
+    background: #e3f2fd;         /* ✓ stays */
+    border-left: 3px solid #2563eb; /* ← content color */
     padding: 14px 16px;
     font-size: 13px;
     color: #111111;
@@ -242,7 +239,7 @@
   .errorMsg { color: #e53935; font-size: 12px; }
   
   .privacy { font-size: 10px; color: #aaaaaa; line-height: 1.6; margin-top: 8px; }
-  .privacy a { color: #2196f3; text-decoration: none; }
+  .privacy a { color: #2563eb; text-decoration: none; } /* ← content color */
   
   .optional {
     font-weight: 400;
@@ -263,7 +260,7 @@
     border-top: 1px solid #e0e0e0;
     font-size: 12px;
   }
-  .waRow a { color: #2196f3; font-weight: 600; text-decoration: none; }
+  .waRow a { color: #2563eb; font-weight: 600; text-decoration: none; } /* ← content color */
   .waRow a:hover { text-decoration: underline; }
   .sep { color: #aaaaaa; }
   
@@ -274,14 +271,13 @@
       padding: 40px 28px 36px;
       border-right: none;
       border-bottom: 1px solid #eef0f5;
-      position: static;        /* ← no sticky on mobile */
+      position: static;
       max-height: none;
       overflow-y: visible;
     }
     .heroR { padding: 40px 28px; min-height: auto; }
     .frow { grid-template-columns: 1fr; }
   }
-  
   @media (max-width: 600px) {
     .heroL { padding: 32px 20px 28px; }
     .heroR { padding: 32px 20px; }

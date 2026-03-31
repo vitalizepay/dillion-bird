@@ -22,7 +22,7 @@
     display: inline-block;
     width: 36px;
     height: 3px;
-    background: #2196f3;
+    background: #2563eb; /* ← content */
     flex-shrink: 0;
   }
   .eyebrow span:last-child {
@@ -30,7 +30,7 @@
     font-weight: 700;
     letter-spacing: .18em;
     text-transform: uppercase;
-    color: #2196f3;
+    color: #2563eb; /* ← content */
   }
   
   .h2 {
@@ -42,7 +42,7 @@
   .h2 em {
     font-style: italic;
     font-weight: 600;
-    color: #2196f3;
+    color: #2563eb; /* ← content */
   }
   
   /* ── Steps row ── */
@@ -54,11 +54,10 @@
     position: relative;
   }
   
-  /* Single continuous line running behind all number boxes */
   .steps::before {
     content: '';
     position: absolute;
-    top: 28px; /* half of 56px dot */
+    top: 28px;
     left: 28px;
     right: 28px;
     height: 1px;
@@ -74,10 +73,9 @@
   }
   .step:last-child { padding-right: 0; }
   
-  .step:hover .dot { background: #2196f3; }
+  .step:hover .dot { background: #3b82f6; border-color: #3b82f6; } /* ← button color */
   .step:hover .dotN { color: #fff; }
   
-
   /* Number box */
   .topRow {
     display: flex;
@@ -90,13 +88,13 @@
   .dot {
     width: 56px;
     height: 56px;
-    border: 2px solid #2196f3;
+    border: 2px solid #2563eb; /* ← content */
     display: flex;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
     background: #fff;
-    transition: background .2s;
+    transition: background .2s, border-color .2s;
     position: relative;
     z-index: 1;
   }
@@ -104,11 +102,10 @@
   .dotN {
     font-size: 18px;
     font-weight: 700;
-    color: #2196f3;
+    color: #2563eb; /* ← content */
     transition: color .2s;
   }
   
-  /* Individual per-step lines removed — handled by ::before */
   .line { display: none; }
   
   /* Text */

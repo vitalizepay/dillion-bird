@@ -1,6 +1,6 @@
 .sec {
     background: #f7f9fc;
-    border-top: 1px solid #dde3ed;
+    border-top: 1px solid #c8d0e0;
     padding: 52px 60px;
   }
   
@@ -14,14 +14,14 @@
     font-weight: 700;
     letter-spacing: .18em;
     text-transform: uppercase;
-    color: #1565c0;
+    color: #2563eb; /* ← content */
     margin-bottom: 10px;
   }
   
   .heading {
     font-size: 15px;
     font-weight: 700;
-    color: #0a2342;
+    color: #111;
     margin-bottom: 28px;
     line-height: 1.4;
   }
@@ -42,21 +42,20 @@
     letter-spacing: .08em;
     text-transform: uppercase;
     text-decoration: none;
-    color: #2196f3;
+    color: #2563eb; /* ← content */
     background: #fff;
-    border: 1px solid #dde3ed;
+    border: 1px solid #c8d0e0;
     transition: border-color .15s, background .15s;
     white-space: nowrap;
   }
-  
   .chip:hover {
-    border-color: #1565c0;
-    background: #f0f6ff;
+    border-color: #e3f2fd; /* ← button color on hover */
+    background: #e3f2fd;
   }
   
   .chip span {
     font-size: 13px;
-    color: #1565c0;
+    color: #2563eb; /* ← content */
   }
   
   @media (max-width: 640px) {

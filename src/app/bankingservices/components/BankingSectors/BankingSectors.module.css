@@ -1,0 +1,91 @@
+.sec {
+    padding: 80px 60px;
+    background: #f7f9fc;
+  }
+  
+  /* ── Eyebrow ── */
+  .eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .rule {
+    width: 36px;
+    height: 3px;
+    background: #2563eb; /* ← content */
+    flex-shrink: 0;
+  }
+  .eyebrow span {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: #2563eb; /* ← content */
+  }
+  
+  /* ── Heading ── */
+  .h2 {
+    font-size: clamp(24px, 3vw, 40px);
+    font-weight: 700;
+    line-height: 1.1;
+    color: #111;
+    font-family: Georgia, serif;
+    margin-bottom: 40px;
+  }
+  .h2 em {
+    font-style: italic;
+    font-weight: 400;
+    color: #2563eb; /* ← content */
+  }
+  
+  /* ── 4×2 grid ── */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border-top: 1px solid #c8d0e0;
+    border-left: 1px solid #c8d0e0;
+  }
+  
+  .item {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 28px 24px;
+    border-right: 1px solid #c8d0e0;
+    border-bottom: 1px solid #c8d0e0;
+    background: #fff;
+    transition: background .2s, outline .2s;
+    outline: 2px solid transparent;
+    outline-offset: -2px;
+    cursor: default;
+  }
+  .item:hover {
+    background: #eff6ff; /* ← banking light blue */
+    outline: 2px solid #3b82f6; /* ← button color */
+    outline-offset: -2px;
+    z-index: 1;
+  }
+  
+  .ico {
+    display: flex;
+    align-items: center;
+  }
+  
+  .title {
+    font-size: 13px;
+    font-weight: 700;
+    color: #111;
+    line-height: 1.3;
+  }
+  
+  /* ── Responsive ── */
+  @media (max-width: 900px) {
+    .grid { grid-template-columns: repeat(2, 1fr); }
+    .sec { padding: 60px 28px; }
+  }
+  @media (max-width: 500px) {
+    .grid { grid-template-columns: 1fr 1fr; }
+    .sec { padding: 44px 20px; }
+    .item { padding: 20px 16px; }
+  }

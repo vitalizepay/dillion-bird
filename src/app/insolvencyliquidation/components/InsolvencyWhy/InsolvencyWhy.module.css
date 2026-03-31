@@ -20,13 +20,13 @@
     gap: 10px;
     margin-bottom: 12px;
   }
-  .rule { width: 40px; height: 3px; background: #2196f3; flex-shrink: 0; }
+  .rule { width: 40px; height: 3px; background: #2563eb; flex-shrink: 0; } /* ← content */
   .eyebrow span {
     font-size: 10.5px;
     font-weight: 700;
     letter-spacing: .18em;
     text-transform: uppercase;
-    color: #2196f3;
+    color: #2563eb; /* ← content */
   }
   
   /* ── Heading ── */
@@ -37,7 +37,7 @@
     color: #111;
     margin-bottom: 36px;
   }
-  .h2 em { font-style: italic; font-weight: 600; color: #2196f3; }
+  .h2 em { font-style: italic; font-weight: 600; color: #2563eb; } /* ← content */
   
   /* ── Pillars ── */
   .pillars { display: flex; flex-direction: column; }
@@ -53,7 +53,7 @@
   .pN {
     font-size: 22px;
     font-weight: 800;
-    color: #b0b8c8;
+    color: #b0b8c8; /* ← visible but subtle */
     line-height: 1;
     padding-top: 2px;
     flex-shrink: 0;
@@ -68,15 +68,13 @@
     flex-direction: column;
   }
   
-  /* This spacer pushes the card down to align with the pillars start */
   .cardOffset {
-    /* heading height: approx eyebrow (12+12) + h2 (~80px) + margin-bottom (36px) = ~140px */
     height: 150px;
   }
   
   /* ── CTA card ── */
   .card {
-    border: 1px solid #dde2ee;
+    border: 1px solid #c8d0e0;
     padding: 36px 32px;
     display: flex;
     flex-direction: column;
@@ -87,7 +85,7 @@
     font-weight: 700;
     letter-spacing: .18em;
     text-transform: uppercase;
-    color: #2196f3;
+    color: #2563eb; /* ← content */
     margin-bottom: 12px;
   }
   
@@ -98,7 +96,7 @@
     color: #111;
     margin-bottom: 16px;
   }
-  .cardHeading em { font-style: italic; font-weight: 600; color: #2196f3; }
+  .cardHeading em { font-style: italic; font-weight: 600; color: #2563eb; } /* ← content */
   
   .cardBody {
     font-size: 13px;
@@ -121,20 +119,22 @@
     transition: background .15s, border-color .15s;
   }
   
+  /* Primary: bg #3b82f6 → hover #2563eb */
   .btnPrimary {
-    background: #2196f3;
+    background: #3b82f6;
     color: #fff;
-    border: 2px solid #2196f3;
+    border: 2px solid #3b82f6;
     margin-bottom: 10px;
   }
-  .btnPrimary:hover { background: #1976d2; border-color: #1976d2; }
+  .btnPrimary:hover { background: #2563eb; border-color: #2563eb; }
   
+  /* Secondary: color #2563eb → hover #3b82f6 */
   .btnSecondary {
     background: transparent;
-    color: #2196f3;
-    border: 2px solid #dde2ee;
+    color: #2563eb; /* ← content */
+    border: 2px solid #c8d0e0;
   }
-  .btnSecondary:hover { border-color: #2196f3; color: #2196f3; }
+  .btnSecondary:hover { border-color: #3b82f6; color: #3b82f6; }
   
   /* ── Responsive ── */
   @media (max-width: 960px) {

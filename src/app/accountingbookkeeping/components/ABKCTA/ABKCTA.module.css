@@ -1,7 +1,5 @@
-
-
 .sec {
-    background: #2196f3;
+    background: #3b82f6; /* ← button color as bg */
     padding: 80px 60px;
     text-align: center;
   }
@@ -15,16 +13,15 @@
     font-weight: 700;
     letter-spacing: .2em;
     text-transform: uppercase;
-    color: rgba(255, 255, 255, 0.7);
+    color: rgba(255,255,255,0.7);
     margin-bottom: 12px;
   }
-  
   .label::before {
     content: '';
     display: block;
     width: 28px;
     height: 3px;
-    background: rgba(255, 255, 255, 0.7); /* or #0a2342 to match the dark line in reference */
+    background: rgba(255,255,255,0.7);
     flex-shrink: 0;
   }
   
@@ -35,11 +32,10 @@
     color: #fff;
     margin-bottom: 14px;
   }
-  
   .h2 em {
     font-style: italic;
     font-weight: 600;
-    color: #111;
+    color: #111; /* ← stays #111 */
   }
   
   .sub {
@@ -60,7 +56,7 @@
   /* White solid button */
   .btnPrimary {
     background: #fff;
-    color: #2196f3;
+    color: #2563eb; /* ← content color on white */
     padding: 14px 30px;
     font-size: 13px;
     font-weight: 700;
@@ -93,7 +89,8 @@
     transition: border-color .15s, background .15s;
   }
   .btnOutline:hover {
-    background: #1976d2; border-color: #1976d2;
+    background: #2563eb; /* ← content color on hover */
+    border-color: #2563eb;
   }
   
   @media (max-width: 600px) {

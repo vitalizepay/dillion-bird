@@ -1,9 +1,5 @@
-/* Art direction: CTA banner → clean, professional, trust-building
-   Palette: Blue brand color (#2196f3), white text, black em accent
-   Layout: Left text content / Right action buttons — split two-column */
-
-   .sec {
-    background: #2196f3;
+.sec {
+    background: #3b82f6; /* ← button color as bg */
     padding: clamp(48px, 6vw, 80px) clamp(24px, 5vw, 60px);
     display: grid;
     grid-template-columns: 1fr auto;
@@ -22,7 +18,7 @@
     font-weight: 700;
     letter-spacing: 0.2em;
     text-transform: uppercase;
-    color: rgba(255, 255, 255, 0.7);
+    color: rgba(255,255,255,0.7);
   }
   
   .h2 {
@@ -32,33 +28,32 @@
     color: #fff;
     text-wrap: balance;
   }
-  
   .h2 em {
     font-style: italic;
     font-weight: 600;
-    color: #111;
+    color: #111; /* ← was #111, invisible on blue */
   }
   
   .sub {
     font-size: 15px;
-    color: rgba(255, 255, 255, 0.85);
+    color: rgba(255,255,255,0.85);
     max-width: 550px;
     line-height: 1.7;
   }
   
   .acts {
     display: flex;
-    flex-direction: row;       /* ← buttons side by side (left–right) */
-    align-items: center;       /* ← vertically centered */
+    flex-direction: row;
+    align-items: center;
     gap: 12px;
     flex-shrink: 0;
-    flex-wrap: wrap;           /* ← wraps on narrow screens before breakpoint */
+    flex-wrap: wrap;
   }
   
   /* White solid button */
   .btnPrimary {
     background: #fff;
-    color: #2196f3;
+    color: #2563eb; /* ← content color on white */
     padding: 14px 28px;
     font-size: 13px;
     font-weight: 700;
@@ -95,37 +90,21 @@
     align-items: center;
     justify-content: center;
     white-space: nowrap;
-    border: 2px solid rgba(255, 255, 255, 0.7);
+    border: 2px solid rgba(255,255,255,0.7);
     transition: border-color 0.15s, background 0.15s;
   }
   .btnOutline:hover {
-    background: #1976d2;
-    border-color: #1976d2;
+    background: #2563eb; /* ← content color on hover */
+    border-color: #2563eb;
   }
   .btnOutline:active {
-    background: #1565c0;
-    border-color: #1565c0;
+    background: #1d4ed8;
+    border-color: #1d4ed8;
   }
   
-  /* Mobile: stack to single column */
   @media (max-width: 700px) {
-    .sec {
-      grid-template-columns: 1fr;
-      text-align: center;
-    }
-  
-    .sub {
-      max-width: 100%;
-    }
-  
-    .acts {
-      flex-direction: column;
-      align-items: center;
-      width: 100%;
-    }
-  
-    .acts a {
-      width: 100%;
-      max-width: 320px;
-    }
+    .sec { grid-template-columns: 1fr; text-align: center; }
+    .sub { max-width: 100%; }
+    .acts { flex-direction: column; align-items: center; width: 100%; }
+    .acts a { width: 100%; max-width: 320px; }
   }

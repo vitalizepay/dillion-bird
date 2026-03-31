@@ -1,5 +1,5 @@
 .sec {
-    background: #2196f3;
+    background: #3b82f6; /* ← button color */
     padding: 80px 60px;
     text-align: center;
   }
@@ -20,11 +20,10 @@
     color: #fff;
     margin-bottom: 14px;
   }
-  
   .h2 em {
     font-style: italic;
     font-weight: 600;
-    color: #111;
+    color: #111; /* ← stays */
   }
   
   .sub {
@@ -42,10 +41,9 @@
     flex-wrap: wrap;
   }
   
-  /* White solid button */
   .btnPrimary {
     background: #fff;
-    color: #2196f3;
+    color: #2563eb; /* ← content color on white */
     padding: 14px 30px;
     font-size: 13px;
     font-weight: 700;
@@ -62,7 +60,6 @@
     border-color: #e3f2fd;
   }
   
-  /* White outline button */
   .btnOutline {
     background: transparent;
     color: #fff;
@@ -78,7 +75,8 @@
     transition: border-color .15s, background .15s;
   }
   .btnOutline:hover {
-    background: #1976d2; border-color: #1976d2;
+    background: #2563eb; /* ← content color on hover */
+    border-color: #2563eb;
   }
   
   @media (max-width: 600px) {

@@ -24,7 +24,7 @@
     display: inline-block;
     width: 36px;
     height: 3px;
-    background: #2196f3;
+    background: #2563eb; /* ← content */
     flex-shrink: 0;
   }
   .eyebrow span:last-child {
@@ -32,7 +32,7 @@
     font-weight: 700;
     letter-spacing: .18em;
     text-transform: uppercase;
-    color: #2196f3;
+    color: #2563eb; /* ← content */
   }
   
   .h2 {
@@ -44,14 +44,14 @@
   .h2 em {
     font-style: italic;
     font-weight: 600;
-    color: #2196f3;
+    color: #2563eb; /* ← content */
   }
   
   .hdrRight {
     font-size: 14px;
     line-height: 1.8;
     color: #555;
-    padding-top: 56px; /* aligns with h2 visually */
+    padding-top: 56px;
     max-width: 500px;
     margin-left: 140px;
   }
@@ -69,27 +69,26 @@
   .grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    border-top: 1px solid #dde2ee;
-    border-left: 1px solid #dde2ee;
+    border-top: 1px solid #c8d0e0; /* ← more visible */
+    border-left: 1px solid #c8d0e0;
   }
   
   .card {
     padding: 36px 32px 32px;
-    border-right: 1px solid #dde2ee;
-    border-bottom: 1px solid #dde2ee;
+    border-right: 1px solid #c8d0e0;
+    border-bottom: 1px solid #c8d0e0;
     background: #fff;
     display: flex;
     flex-direction: column;
     gap: 0;
     position: relative;
-    transition: background .2s, box-shadow .2s;
-    outline: 2px solid transparent; /* reserves space so layout doesn't shift */
+    transition: background .2s, outline .2s;
+    outline: 2px solid transparent;
     outline-offset: -2px;
   }
-  
   .card:hover {
-    background: #f0f7ff;
-    outline: 2px solid #90caf9;
+    background: #eff6ff; /* ← banking light blue tint */
+    outline: 2px solid #3b82f6; /* ← button color */
     outline-offset: -2px;
     z-index: 1;
   }
@@ -126,10 +125,9 @@
   /* ── Responsive ── */
   @media (max-width: 960px) {
     .hdr { grid-template-columns: 1fr; gap: 16px; }
-    .hdrRight { padding-top: 0; }
+    .hdrRight { padding-top: 0; margin-left: 0; }
     .sec { padding: 60px 28px; }
   }
-  
   @media (max-width: 640px) {
     .grid { grid-template-columns: 1fr; }
     .sec { padding: 44px 20px; }

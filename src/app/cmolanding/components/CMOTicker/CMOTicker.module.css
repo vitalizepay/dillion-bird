@@ -1,5 +1,5 @@
 .ticker {
-    background: #2196f3;
+    background: #3b82f6;
     padding: 12px 48px;
     display: flex;
     align-items: center;
@@ -38,8 +38,8 @@
     z-index: 2;
     pointer-events: none;
   }
-  .track::before { left: 0; background: linear-gradient(to right, #2196f3, transparent); }
-  .track::after  { right: 0; background: linear-gradient(to left, #2196f3, transparent); }
+  .track::before { left: 0; background: linear-gradient(to right, #3b82f6, transparent); }
+  .track::after  { right: 0; background: linear-gradient(to left, #3b82f6, transparent); }
   
   .inner {
     display: flex;

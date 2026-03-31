@@ -1,0 +1,99 @@
+.band {
+    background: #3b82f6; /* ← dark blue matching banking palette */
+    padding: 52px 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  /* Subtle dot grid texture */
+  .band::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-image:
+      linear-gradient(rgba(255,255,255,.02) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,.02) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+  
+  /* ── Left content ── */
+  .content {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 1;
+    flex: 1;
+  }
+  
+  /* ── Eyebrow with gold accent ── */
+  .eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .rule {
+    display: block;
+    width: 36px;
+    height: 3px;
+    background: rgba(255,255,255,0.7); /* ← gold */
+    flex-shrink: 0;
+  }
+  
+  .eyebrow span:last-child {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.7); /* ← gold */
+  }
+  
+  /* ── Quote text ── */
+  .text {
+    font-size: clamp(16px, 2vw, 24px);
+    font-style: italic;
+    font-weight: 400;
+    color: #fff;
+    line-height: 1.65;
+    max-width: 680px;
+    margin-bottom: 20px;
+    font-family: Georgia, serif;
+  }
+  
+  /* ── Attribution ── */
+  .author {
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,.4);
+  }
+  
+  /* ── Big quote mark — right side ── */
+  .mark {
+    font-size: 180px;
+    font-weight: 800;
+    color: rgba(255,255,255,.06);
+    line-height: 1;
+    flex-shrink: 0;
+    align-self: flex-end;
+    position: relative;
+    z-index: 1;
+    font-family: Georgia, serif;
+    margin-bottom: 25px;
+  }
+  
+  @media (max-width: 900px) {
+    .band { padding: 44px 36px; }
+    .mark { font-size: 100px; }
+  }
+  @media (max-width: 600px) {
+    .band { flex-direction: column; gap: 0; padding: 36px 20px; }
+    .mark { align-self: flex-end; font-size: 80px; margin-bottom: -10px; }
+  }

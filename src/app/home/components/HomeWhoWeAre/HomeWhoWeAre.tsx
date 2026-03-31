@@ -28,7 +28,7 @@ export default function HomeWhoWeAre() {
           <Button
             text="Our Story"
             variant="primary"
-            href="/our-story"
+            href="/ourstory" 
           />
         </div>
       </div>

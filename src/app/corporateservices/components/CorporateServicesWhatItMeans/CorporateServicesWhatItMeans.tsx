@@ -24,7 +24,7 @@ export default function CorporateServicesWhatItMeans() {
         </p>
 
         <div className={styles.buttonContainer}>
-          <Button text="Streamline Now" variant="primary" href="/contact" />
+          <Button text="Streamline Now" variant="primary" target="_blank" rel="noopener" href="/streamlinenow" />
         </div>
       </div>
     </section>

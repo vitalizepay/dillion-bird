@@ -1,0 +1,150 @@
+.sec {
+    padding: 84px 60px;
+    background: #fff;
+  }
+  
+  .inner {
+    display: grid;
+    grid-template-columns: 1fr 500px;
+    gap: 64px;
+    align-items: center;
+  }
+  
+  /* ── LEFT ── */
+  .left {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .rule {
+    width: 36px;
+    height: 3px;
+    background: #2563eb;
+    flex-shrink: 0;
+  }
+  .eyebrow span {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: #2563eb;
+  }
+  
+  .h2 {
+    font-size: clamp(26px, 3vw, 44px);
+    font-weight: 700;
+    line-height: 1.1;
+    color: #111;
+    font-family: Georgia, serif;
+    margin-bottom: 16px;
+  }
+  .h2 em {
+    font-style: italic;
+    font-weight: 400;
+    color: #2563eb; /* ← content blue replacing gold */
+  }
+  
+  .desc {
+    font-size: 14px;
+    line-height: 1.85;
+    color: #555;
+    max-width: 480px;
+    margin-bottom: 32px;
+  }
+  
+  /* ── Checklist ── */
+  .points {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .point {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  
+  .check {
+    width: 22px;
+    height: 22px;
+    background: #eff6ff; /* ← light blue bg */
+    border: 1px solid #bfdbfe;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  
+  .pointText {
+    font-size: 13.5px;
+    line-height: 1.65;
+    color: #333;
+    font-weight: 500;
+  }
+  
+  /* ── RIGHT — stat box ── */
+  .right {
+    background: #fff;
+    border: 1.5px solid #c8d0e0;
+    padding: 48px 40px;
+    display: flex;
+    flex-direction: column;
+    box-shadow:
+      0 1px 3px rgba(37,99,235,.06),
+      0 4px 16px rgba(37,99,235,.04);
+  }
+
+  .right:hover { background: #eff6ff; } /* ← banking light blue */
+  
+  .statN {
+    font-size: clamp(52px, 6vw, 80px);
+    font-weight: 800;
+    color: #2563eb; /* ← content blue replacing gold */
+    line-height: 1;
+    font-family: Georgia, serif;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: flex-start;
+    gap: 2px;
+  }
+  
+  .statSup {
+    font-size: .5em;
+    font-weight: 700;
+    color: #2563eb;
+    margin-top: 10px;
+  }
+  
+  .statLabel {
+    font-size: 9.5px;
+    font-weight: 700;
+    letter-spacing: .15em;
+    text-transform: uppercase;
+    color: #888;
+    margin-bottom: 20px;
+  }
+  
+  .statDesc {
+    font-size: 13.5px;
+    line-height: 1.78;
+    color: #555;
+  }
+  
+  /* ── Responsive ── */
+  @media (max-width: 960px) {
+    .inner { grid-template-columns: 1fr; gap: 40px; }
+    .right { padding: 36px 28px; }
+    .sec { padding: 60px 28px; }
+  }
+  @media (max-width: 600px) {
+    .sec { padding: 44px 20px; }
+  }

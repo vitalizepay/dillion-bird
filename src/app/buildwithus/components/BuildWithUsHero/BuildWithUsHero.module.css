@@ -1,0 +1,161 @@
+.sec {
+    padding: 80px 110px;
+    background: #fff;
+  }
+  
+  .grid {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: start;
+  }
+  
+  /* ── LEFT ── */
+  .left {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+  }
+  .eyebrow span:last-child {
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #2563eb; /* ← content */
+  }
+  .rule {
+    display: block;
+    width: 40px;
+    height: 3px;
+    background: #2563eb; /* ← content */
+    flex-shrink: 0;
+  }
+  
+  .h1 {
+    font-family: 'Playfair Display', 'Georgia', serif;
+    font-size: clamp(36px, 4vw, 62px);
+    font-weight: 700;
+    color: #111;
+    line-height: 1.1;
+    margin-bottom: 16px;
+  }
+  .h1 em {
+    font-style: italic;
+    font-weight: 400;
+    color: #2563eb; /* ← content */
+  }
+  
+  .desc {
+    font-size: 14px;
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 28px;
+    max-width: 500px;
+  }
+  
+  .acts {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  
+  /* Primary: bg #3b82f6 → hover #2563eb */
+  .btnPrimary {
+    background: #3b82f6;
+    color: #fff;
+    padding: 13px 26px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: .07em;
+    text-transform: uppercase;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    border: 2px solid #3b82f6;
+    transition: background .15s, border-color .15s;
+  }
+  .btnPrimary:hover { background: #2563eb; border-color: #2563eb; }
+  
+  /* Secondary: color #2563eb → hover #3b82f6 */
+  .btnOutline {
+    background: transparent;
+    color: #2563eb; /* ← content */
+    padding: 12px 24px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: .07em;
+    text-transform: uppercase;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    border: 2px solid #c8d0e0;
+    transition: border-color .15s, color .15s;
+  }
+  .btnOutline:hover { border-color: #3b82f6; color: #3b82f6; }
+  
+  /* ── PILLARS CONTAINER ── */
+  .pillars {
+    display: flex;
+    flex-direction: column;
+    border: 1.5px solid #c8d0e0;
+    box-shadow:
+      0 1px 3px rgba(37, 99, 235, 0.06),
+      0 4px 16px rgba(37, 99, 235, 0.04);
+  }
+  
+  /* ── SINGLE PILLAR ROW ── */
+  .pillar {
+    display: flex;
+    gap: 20px;
+    padding: 22px 24px;
+    align-items: flex-start;
+    border-bottom: 1px solid #c8d0e0;
+    transition: background 0.15s;
+  }
+  .pillar:last-child { border-bottom: none; }
+  .pillar:hover { background: #eff6ff; } /* ← banking light blue */
+  
+  .pillarIcon {
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    margin-top: 2px;
+    color: #2563eb; /* ← content */
+  }
+  
+  .pillarContent {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  
+  .pillarName {
+    font-size: 14px;
+    font-weight: 700;
+    color: #111;
+  }
+  
+  .pillarDesc {
+    font-size: 12.5px;
+    line-height: 1.72;
+    color: #555;
+  }
+  
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .sec { padding: 60px 28px; }
+    .grid { grid-template-columns: 1fr; gap: 40px; }
+  }
+  @media (max-width: 600px) {
+    .sec { padding: 48px 20px; }
+    .acts { flex-direction: column; align-items: stretch; }
+    .acts a { text-align: center; justify-content: center; }
+  }

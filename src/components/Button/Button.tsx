@@ -7,6 +7,8 @@ type ButtonProps = {
   href?: string;
   onClick?: () => void;
   type?: "button" | "submit";
+  target?: string;
+  rel?: string;
 };
 
 export default function Button({
@@ -15,12 +17,14 @@ export default function Button({
   href,
   onClick,
   type = "button",
+  target,
+  rel,
 }: ButtonProps) {
   const className = `${styles.button} ${styles[variant]}`;
 
   if (href) {
     return (
-      <Link href={href} className={className}>
+      <Link href={href} className={className} target={target} rel={rel}>
         {text}
       </Link>
     );

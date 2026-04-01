@@ -29,6 +29,7 @@ export default function HomeWhoWeAre() {
             text="Our Story"
             variant="primary"
             href="/ourstory" 
+            target="_blank" rel="noopener"
           />
         </div>
       </div>

@@ -28,7 +28,7 @@ export default function BuildingRelationships() {
         </p>
 
         <div className={styles.buttonContainer}>
-          <Button text="Build With Us" variant="primary" href="/build-with-us" />
+          <Button text="Build With Us" variant="primary" href="/buildwithus" target="_blank" rel="noopener" />
         </div>
       </div>
     </section>

@@ -1,0 +1,142 @@
+.sec {
+    padding: 84px 60px;
+    background: #fff;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  /* Subtle grid texture */
+  .sec::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(#c8d0e0 1px, transparent 1px),
+      linear-gradient(90deg, #c8d0e0 1px, transparent 1px);
+    background-size: 48px 48px;
+    opacity: .1;
+    pointer-events: none;
+  }
+  
+  .inner {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 80px;
+    align-items: start;
+    position: relative;
+    z-index: 1;
+  }
+  
+  /* ── LEFT ── */
+  .left {
+    display: flex;
+    flex-direction: column;
+    position: sticky;
+    top: 84px;
+  }
+  
+  .eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  .rule {
+    width: 36px;
+    height: 3px;
+    background: #2563eb;
+    flex-shrink: 0;
+  }
+  .eyebrow span {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: #2563eb;
+  }
+  
+  .h2 {
+    font-size: clamp(28px, 3.5vw, 48px);
+    font-weight: 800;
+    line-height: 1.1;
+    color: #111;
+    font-family: Georgia, serif;
+  }
+  
+  /* ── RIGHT ── */
+  .right {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  /* Italic highlight quote */
+  .highlight {
+    font-size: clamp(16px, 1.8vw, 22px);
+    font-style: italic;
+    font-family: Georgia, serif;
+    color: #2563eb; /* ← content blue replacing gold */
+    line-height: 1.55;
+    margin-bottom: 4px;
+  }
+  
+  .body {
+    font-size: 14px;
+    line-height: 1.85;
+    color: #555;
+  }
+  
+  /* ── 2×2 Stats grid ── */
+  .stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid #c8d0e0;
+    margin-top: 12px;
+  }
+  
+  .stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 36px 24px;
+    border-right: 1px solid #c8d0e0;
+    border-bottom: 1px solid #c8d0e0;
+    background: #fff;
+    gap: 10px;
+    transition: background .2s;
+  }
+  .stat:nth-child(2n) { border-right: none; }
+  .stat:nth-child(3),
+  .stat:nth-child(4) { border-bottom: none; }
+  .stat:hover { background: #eff6ff; }
+  
+  .statN {
+    font-size: clamp(28px, 3.5vw, 44px);
+    font-weight: 800;
+    color: #2563eb; /* ← content blue replacing gold */
+    font-family: Georgia, serif;
+    line-height: 1;
+    letter-spacing: -.02em;
+  }
+  
+  .statLabel {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: #888;
+    text-align: center;
+  }
+  
+  /* ── Responsive ── */
+  @media (max-width: 960px) {
+    .inner { grid-template-columns: 1fr; gap: 44px; }
+    .left { position: static; }
+    .sec { padding: 60px 28px; }
+  }
+  @media (max-width: 600px) {
+    .sec { padding: 44px 20px; }
+    .stats { grid-template-columns: 1fr 1fr; }
+    .stat { padding: 24px 16px; }
+  }

@@ -1,0 +1,36 @@
+.strip {
+    background: #3b82f6; /* ← content blue as bg */
+    padding: 22px 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+  }
+  
+  .text {
+    font-size: 14px;
+    font-style: italic;
+    font-family: Georgia, serif;
+    color: rgba(255,255,255,.9);
+    line-height: 1.6;
+    max-width: 760px;
+  }
+  
+  .tag {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,.6);
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  
+  @media (max-width: 768px) {
+    .strip { flex-direction: column; align-items: flex-start; padding: 24px 28px; gap: 12px; }
+    .tag { align-self: flex-end; }
+  }
+  @media (max-width: 600px) {
+    .strip { padding: 20px; }
+    .text { font-size: 13px; }
+  }

@@ -1,0 +1,150 @@
+.sec {
+    padding: 84px 60px;
+    background: #fff;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  /* Subtle grid texture */
+  .gridBg {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(#c8d0e0 1px, transparent 1px),
+      linear-gradient(90deg, #c8d0e0 1px, transparent 1px);
+    background-size: 48px 48px;
+    opacity: .12;
+    pointer-events: none;
+  }
+  
+  .inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+    position: relative;
+    z-index: 1;
+  }
+  
+  /* ── LEFT ── */
+  .left {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  .rule {
+    width: 36px;
+    height: 3px;
+    background: #2563eb;
+    flex-shrink: 0;
+  }
+  .eyebrow span {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: #2563eb;
+  }
+  
+  .h2 {
+    font-size: clamp(26px, 3vw, 44px);
+    font-weight: 800;
+    line-height: 1.1;
+    color: #111;
+    font-family: Georgia, serif;
+    margin-bottom: 24px;
+  }
+  
+  .body {
+    font-size: 13.5px;
+    line-height: 1.85;
+    color: #555;
+    margin-bottom: 16px;
+    max-width: 520px;
+  }
+  .body:last-child { margin-bottom: 0; }
+  
+  /* ── RIGHT ── */
+  .right {
+    display: flex;
+    flex-direction: column;
+    gap: 44px;
+  }
+  
+  /* Blockquote with left border */
+  .quote {
+    font-size: clamp(18px, 2.2vw, 28px);
+    font-style: italic;
+    font-weight: 400;
+    font-family: Georgia, serif;
+    color: #2563eb; /* ← content blue replacing gold */
+    line-height: 1.55;
+    padding-left: 24px;
+    border-left: 3px solid #2563eb;
+    margin: 0;
+  }
+  
+  /* ── Pillars list ── */
+  .pillars {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  
+  .pillar {
+    display: grid;
+    grid-template-columns: 28px 1fr auto;
+    align-items: center;
+    gap: 16px;
+    padding: 18px 0;
+    border-bottom: 1px solid #c8d0e0;
+  }
+  .pillar:first-child { border-top: 1px solid #c8d0e0; }
+  
+  .pillarNum {
+    font-size: 11px;
+    font-weight: 700;
+    color: #b0b8c8;
+    font-family: Georgia, serif;
+    font-style: italic;
+  }
+  
+  .pillarName {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: #111;
+  }
+  
+  .pillarBar {
+    width: 60px;
+    height: 2px;
+    background: #e0e6f0;
+    position: relative;
+    flex-shrink: 0;
+  }
+  
+  .pillarFill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background: #2563eb; /* ← content blue replacing gold */
+  }
+  
+  /* ── Responsive ── */
+  @media (max-width: 960px) {
+    .inner { grid-template-columns: 1fr; gap: 52px; }
+    .sec { padding: 60px 28px; }
+  }
+  @media (max-width: 600px) {
+    .sec { padding: 44px 20px; }
+    .quote { font-size: clamp(16px, 5vw, 22px); }
+  }

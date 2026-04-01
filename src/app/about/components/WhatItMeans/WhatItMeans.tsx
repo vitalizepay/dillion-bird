@@ -35,7 +35,7 @@ export default function WhatItMeans() {
         </p>
 
         <div className={styles.buttonContainer}>
-          <Button text="Learn More About Our Values" variant="primary" href="/values" />
+          <Button text="Learn More About Our Values" variant="primary" target="_blank" rel="noopener" href="/values"  />
         </div>
       </div>
     </section>

@@ -49,7 +49,7 @@ function Navbar() {
               href="/about"
               className={`${styles.navLink} ${isActive('/about') ? styles.active : ''}`}
             >
-              Who We Are
+              About Us
             </Link>
 
             {/* WHAT WE DO */}
@@ -59,7 +59,7 @@ function Navbar() {
               onMouseLeave={() => setServicesArrow(false)}
             >
               <button className={`${styles.trigger} ${isServicesActive ? styles.active : ''}`}>
-                <span>What We Do</span>
+                <span>Our Services</span>
                 <svg className={servicesArrow ? styles.rotate : ''} viewBox="0 0 24 24">
                   <path d="M7 10l5 5 5-5z" />
                 </svg>
@@ -141,7 +141,7 @@ function Navbar() {
                 className={`${styles.mobileLink} ${isActive('/about') ? styles.active : ''}`}
                 onClick={() => setMobileOpen(false)}
               >
-                Who We Are
+                About Us
               </Link>
 
               {/* WHAT WE DO */}
@@ -149,7 +149,7 @@ function Navbar() {
                 className={`${styles.mobileItem} ${isServicesActive ? styles.active : ''}`}
                 onClick={() => toggleAccordion('services')}
               >
-                <span>What We Do</span>
+                <span>Our Services</span>
                 <svg
                   className={`${styles.mobileArrow} ${mobileAccordion === 'services' ? styles.rotate : ''}`}
                   viewBox="0 0 24 24"

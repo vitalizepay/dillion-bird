@@ -15,7 +15,7 @@ export default function CompanyFormationWhatItMeans() {
         </p>
 
         <div className={styles.buttonContainer}>
-          <Button text="Launch Here" variant="primary" href="/contact" />
+          <Button text="Launch Here" variant="primary" target="_blank" rel="noopener" href="/companyformation" />
         </div>
       </div>
 

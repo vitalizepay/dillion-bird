@@ -1,0 +1,190 @@
+.sec {
+  padding: 84px 60px;
+  background: #fff;
+}
+
+/* ── Eyebrow ── */
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+.rule {
+  width: 36px;
+  height: 3px;
+  background: #2563eb;
+  flex-shrink: 0;
+}
+.eyebrow span {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: #2563eb;
+}
+
+/* ── Heading ── */
+.h2 {
+  font-size: clamp(28px, 3.5vw, 52px);
+  font-weight: 800;
+  line-height: 1.08;
+  color: #111;
+  font-family: Georgia, serif;
+  margin-bottom: 40px;
+}
+.h2 em {
+  font-weight: 700;
+  color: #2563eb;
+}
+
+/* ── Featured card ── */
+.card {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  background: #2563eb;
+  min-height: 360px;
+}
+
+/* ── LEFT — image panel ── */
+.imgPanel {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    padding: 52px 40px;
+    background: #2563eb;
+    border-right: 1px solid rgba(255,255,255,.08);
+    overflow: hidden;
+  }
+  
+  /* Diagonal line texture matching image 2 */
+  .pattern {
+    position: absolute;
+    inset: 0;
+    background-image: repeating-linear-gradient(
+      225deg,
+      rgba(255,255,255,.04) 0px,
+      rgba(255,255,255,.04) 1px,
+      transparent 1px,
+      transparent 24px
+    );
+    pointer-events: none;
+  }
+  
+  .clientImg {
+    height: 44px;
+    filter: brightness(0) invert(1);
+    opacity: .2;
+    position: relative;
+    z-index: 1;
+    flex-shrink: 0;
+  }
+  
+  /* Name sits inline to the right of the logo */
+  .clientName {
+    font-size: 28px;
+    font-weight: 700;
+    color: rgba(255,255,255,.18);
+    font-family: Georgia, serif;
+    letter-spacing: .02em;
+    position: relative;
+    z-index: 1;
+    margin-left: 16px; /* ← gap between logo and name */
+  }
+/* ── RIGHT — content ── */
+.body {
+  padding: 48px 44px;
+  display: flex;
+  flex-direction: column;
+  background: #3b82f6;
+}
+
+.client {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: #111; /* ← content blue replacing gold */
+  margin-bottom: 14px;
+}
+
+.title {
+  font-size: clamp(18px, 2vw, 26px);
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.3;
+  margin-bottom: 16px;
+  font-family: Georgia, serif;
+}
+
+.desc {
+  font-size: 13px;
+  line-height: 1.8;
+  color: rgba(255,255,255,.8);
+  margin-bottom: 28px;
+  max-width: 560px;
+}
+
+/* ── Metrics row ── */
+.metrics {
+  display: flex;
+  gap: 40px;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+}
+
+.metric {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.metricN {
+  font-size: clamp(20px, 2.5vw, 28px);
+  font-weight: 800;
+  color: #111; /* ← content blue replacing gold */
+  font-family: Georgia, serif;
+  line-height: 1;
+}
+
+.metricL {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.8);
+}
+
+/* ── CTA button ── */
+.btn {
+    background: transparent;
+    color: #fff;
+    padding: 13px 28px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: .07em;
+    text-transform: uppercase;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    border: 2px solid rgba(255,255,255,0.7);
+    transition: border-color .15s, background .15s;
+  }
+  .btn:hover {
+    background: #2563eb; /* ← content color on hover */
+    border-color: #2563eb;
+  }
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .card { grid-template-columns: 1fr; }
+  .imgPanel { min-height: 200px; border-right: none; border-bottom: 1px solid rgba(255,255,255,.08); }
+  .sec { padding: 60px 28px; }
+}
+@media (max-width: 600px) {
+  .sec { padding: 44px 20px; }
+  .body { padding: 32px 24px; }
+  .metrics { gap: 24px; }
+}

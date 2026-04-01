@@ -18,7 +18,7 @@
 }
 .rule {
   width: 36px;
-  height: 2px;
+  height: 3px;
   background: #2563eb; /* ← content */
   flex-shrink: 0;
 }

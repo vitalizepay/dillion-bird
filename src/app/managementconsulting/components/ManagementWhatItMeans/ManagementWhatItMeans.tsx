@@ -24,7 +24,7 @@ export default function ManagementWhatItMeans() {
         </p>
 
         <div className={styles.buttonContainer}>
-          <Button text="Plan Your Growth" variant="primary" href="/contact" />
+          <Button text="Plan Your Growth" variant="primary" href="/planyourgrowth" target="_blank" rel="noopener" />
         </div>
       </div>
     </section>

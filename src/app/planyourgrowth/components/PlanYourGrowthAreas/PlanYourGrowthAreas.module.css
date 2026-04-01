@@ -1,0 +1,153 @@
+.sec {
+    padding: 84px 60px;
+    background: #f7f9fc;
+  }
+  
+  /* ── Header ── */
+  .hdr {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: start;
+    margin-bottom: 52px;
+  }
+  
+  .hdrLeft { display: flex; flex-direction: column; }
+  
+  .eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .rule {
+    display: inline-block;
+    width: 36px;
+    height: 3px;
+    background: #2563eb;
+    flex-shrink: 0;
+  }
+  .eyebrow span:last-child {
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: #2563eb;
+  }
+  
+  .h2 {
+    font-size: clamp(26px, 3vw, 42px);
+    font-weight: 800;
+    line-height: 1.12;
+    color: #111;
+    white-space: nowrap
+  }
+  .h2 em {
+    font-weight: 700;
+    color: #2563eb;
+  }
+  
+  
+  
+  /* ── 2×2 Grid ── */
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-top: 1px solid #c8d0e0;
+    border-left: 1px solid #c8d0e0;
+  }
+  
+  .card {
+    padding: 40px 36px 44px;
+    border-right: 1px solid #c8d0e0;
+    border-bottom: 1px solid #c8d0e0;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    transition: background .2s, outline .2s;
+    outline: 2px solid transparent;
+    outline-offset: -2px;
+  }
+  .card:hover {
+    background: #eff6ff;
+    outline: 2px solid #3b82f6;
+    outline-offset: -2px;
+    z-index: 1;
+  }
+  
+  .cardN {
+    font-size: 36px;
+    font-weight: 800;
+    color: #e8edf5;
+    line-height: 1;
+    margin-bottom: 20px;
+    letter-spacing: -.02em;
+  }
+  
+  .cardIco {
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .cardTitle {
+    font-size: 16px;
+    font-weight: 700;
+    color: #111;
+    margin-bottom: 10px;
+    line-height: 1.3;
+  }
+  
+  .cardDesc {
+    font-size: 13px;
+    line-height: 1.76;
+    color: #555;
+    margin-bottom: 12px;
+    flex: 1;
+  }
+  
+  /* ── Bullet list ── */
+  .list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    
+  }
+  
+  .list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    font-size: 12.5px;
+    color: #444;
+    line-height: 1.5;
+  }
+  
+  .list li::before {
+    content: '→';
+    color: #2563eb;
+    font-size: 12px;
+    line-height: 1.5; /* ← match li line-height so it aligns */
+    flex-shrink: 0;
+  }
+  
+  /* Remove ::after if any exists */
+  .list li::after {
+    display: none;
+  }
+  
+  /* ── Responsive ── */
+  @media (max-width: 960px) {
+    .hdr { grid-template-columns: 1fr; gap: 16px; }
+    .hdrRight { padding-top: 0; margin-left: 0; }
+    .sec { padding: 60px 28px; }
+  }
+  @media (max-width: 640px) {
+    .grid { grid-template-columns: 1fr; }
+    .sec { padding: 44px 20px; }
+    .cardN { font-size: 28px; }
+  }

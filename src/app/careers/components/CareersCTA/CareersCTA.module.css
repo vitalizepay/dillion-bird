@@ -1,0 +1,126 @@
+.sec {
+    background: #3b82f6; /* ← button color as bg */
+    padding: 84px 60px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  /* Radial glow from bottom */
+  .sec::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+      ellipse at 50% 120%,
+      rgba(37,99,235,.3),
+      transparent 56%
+    );
+    pointer-events: none;
+  }
+  
+  
+  .inner {
+    position: relative;
+    z-index: 2;
+  }
+  .eyebrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 12px;
+  }
+  
+  .rule {
+    display: block;
+    width: 36px;
+    height: 3px;
+    background: rgba(255,255,255,.6); /* ← white on blue bg */
+    flex-shrink: 0;
+    margin-bottom: 13px;
+  }
+  .label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,.7);
+    margin-bottom: 12px;
+  }
+  
+  .h2 {
+    font-size: clamp(28px, 4.5vw, 62px);
+    font-weight: 700;
+    line-height: 1.04;
+    color: #fff;
+    letter-spacing: -.02em;
+    margin-bottom: 14px;
+    font-family: Georgia, serif;
+  }
+  .h2 em {
+    font-style: italic;
+    font-weight: 400;
+    color: #111;
+  }
+  
+  .sub {
+    font-size: 14.5px;
+    color: rgba(255,255,255,.7);
+    max-width: 420px;
+    margin: 0 auto 36px;
+    line-height: 1.88;
+  }
+  
+  .acts {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  
+  /* White solid button */
+  .btnPrimary {
+    background: #fff;
+    color: #2563eb;
+    padding: 14px 30px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: .07em;
+    text-transform: uppercase;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    border: 2px solid #fff;
+    transition: background .15s, color .15s;
+  }
+  .btnPrimary:hover {
+    background: #e3f2fd;
+    border-color: #e3f2fd;
+  }
+  
+  /* White outline button */
+  .btnOutline {
+    background: transparent;
+    color: #fff;
+    padding: 13px 28px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: .07em;
+    text-transform: uppercase;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    border: 2px solid rgba(255,255,255,.6);
+    transition: border-color .15s, background .15s;
+  }
+  .btnOutline:hover {
+    background: #2563eb;
+    border-color: #2563eb;
+  }
+  
+  @media (max-width: 600px) {
+    .sec { padding: 52px 20px; }
+    .acts { flex-direction: column; align-items: center; }
+    .acts a { width: 100%; max-width: 300px; text-align: center; justify-content: center; }
+  }

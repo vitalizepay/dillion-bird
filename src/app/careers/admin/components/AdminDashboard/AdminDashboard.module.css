@@ -25,8 +25,9 @@
     align-items: center;
     justify-content: space-between;
     position: sticky;
-    top: 0;
-    z-index: 100;
+    top: 64px;        /* ← offset by navbar height so it sits below, not over it */
+    z-index: 40;      /* ← below navbar (navbar is typically z-50 or z-100) */
+
   }
   
   .topbarLeft {

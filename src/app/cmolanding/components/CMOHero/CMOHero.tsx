@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { supabase } from '../../../../../lib/supabase';
 import styles from './CMOHero.module.css';
 
@@ -32,6 +33,7 @@ const pills = [
 const trustItems = ['No Long-Term Lock-in', '100% Confidential', 'Response in 24 hrs'];
 
 export default function CMOHero() {
+  const router = useRouter();
   const [form, setForm] = useState<FormData>(initial);
   const [errors, setErrors] = useState<Partial<Record<keyof FormData, boolean>>>({});
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
@@ -103,7 +105,7 @@ Submitted via: ${window.location.href}
       body: JSON.stringify(web3Payload('dinesh@dillonbird.com')),
     });
 
-    setStatus('success');
+    router.push('/success?from=cmolanding');
   };
 
   return (

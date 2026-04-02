@@ -169,8 +169,8 @@ export default function ApplyForm() {
 
       if (dbErr) throw new Error(`Submission failed: ${dbErr.message}`);
 
-      setDone(true);
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      router.push(`/success?from=careers&role=${encodeURIComponent(job.title)}`);
+
 
     } catch (err) {
       setSubmitError(

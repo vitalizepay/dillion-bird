@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { supabase } from '../../../../../lib/supabase';
 import styles from './AuditHero.module.css';
 
@@ -17,6 +18,7 @@ const initial: FormData = {
 };
 
 export default function AuditHero() {
+  const router = useRouter();
   const [form, setForm] = useState<FormData>(initial);
   const [errors, setErrors] = useState<Partial<Record<keyof FormData, boolean>>>({});
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
@@ -79,7 +81,7 @@ Submitted via: ${window.location.href}
       }),
     });
 
-    setStatus('success');
+    router.push('/success?from=audit');
   };
 
   return (

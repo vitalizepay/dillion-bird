@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { supabase } from '../../../../../lib/supabase';
 import styles from './CFHero.module.css';
 
@@ -24,6 +25,7 @@ const initialForm: FormData = {
 };
 
 export default function CFHero() {
+  const router = useRouter()
   const [form, setForm] = useState<FormData>(initialForm);
   const [errors, setErrors] = useState<Partial<Record<keyof FormData, boolean>>>({});
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
@@ -124,7 +126,7 @@ Submitted via: ${window.location.href}
       }),
     });
 
-    setStatus('success');
+    router.push('/success?from=companyformation');
   };
 
   return (

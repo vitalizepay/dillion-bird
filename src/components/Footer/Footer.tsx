@@ -104,7 +104,7 @@ export default function Footer() {
         <div className={styles.linksSection}>
           <h4 className={styles.sectionTitle}>Company</h4>
           <ul>
-            <li><Link href="/about">Who We Are</Link></li>
+            <li><Link href="/about">About Us</Link></li>
             <li><Link href="/careers">Careers</Link></li>
             <li><Link href="/casestudies/technologystartup">Technology Startup</Link></li>
             <li><Link href="/casestudies/retailbusiness">Retail Business</Link></li>

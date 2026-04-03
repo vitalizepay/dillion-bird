@@ -2,12 +2,17 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  /* This forces all components to stop using their own font-family */
+  font-family: inherit;
 }
 
 body {
-  font-family: Inter, Arial, sans-serif;
+  /* This connects the variable from your Layout to the CSS */
+  font-family: var(--font-nunito), system-ui, -apple-system, sans-serif;
   color: #111827;
   background: #ffffff;
+  overflow-x: hidden;
+  width: 100%;
 }
 
 

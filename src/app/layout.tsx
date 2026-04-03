@@ -4,17 +4,20 @@ import { Montserrat, Nunito_Sans } from "next/font/google";
 import Navbar from "@/components/Navbar/Navbar";
 import Footer from "@/components/Footer/Footer";
 import CTASection from "@/components/CTASection/CTASection";
+import CookiesBanner from '@/components/CookiesBanner/CookiesBanner';
 import Script from "next/script";
 
+// 1. Montserrat for bold headings
 const montserrat = Montserrat({
   subsets: ["latin"],
   weight: ["800"],
   variable: "--font-montserrat",
 });
 
+// 2. Nunito Sans for general body text (Added 400 weight for normal text)
 const nunito = Nunito_Sans({
   subsets: ["latin"],
-  weight: ["600", "800"],
+  weight: ["400", "600", "800"],
   variable: "--font-nunito",
 });
 
@@ -60,7 +63,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -68,13 +71,16 @@ export default function RootLayout({
         {/* Google Tag Manager — as high as possible in <head> */}
         <Script id="gtm-head" strategy="beforeInteractive">
           {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-KSSC8DJ9');`}
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','GTM-KSSC8DJ9');`}
         </Script>
       </head>
-      <body className={`${montserrat.variable} ${nunito.variable}`}>
+      {/* Applied both variables AND the nunito.className. 
+          This ensures Nunito is the "Default" font for the whole body immediately.
+      */}
+      <body className={`${montserrat.variable} ${nunito.variable} ${nunito.className} antialiased`}>
 
         {/* Google Tag Manager (noscript) — immediately after <body> */}
         <noscript>
@@ -90,6 +96,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <main>{children}</main>
         <CTASection />
         <Footer />
+        <CookiesBanner />
       </body>
     </html>
   );

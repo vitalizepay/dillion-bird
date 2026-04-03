@@ -215,7 +215,7 @@
     border-radius: 4px;
     transition: border-color .15s;
     appearance: none;
-    font-family: inherit;
+   
   }
   .input::placeholder, .textarea::placeholder { color: #aaaaaa; }
   .input:focus, .select:focus, .textarea:focus {

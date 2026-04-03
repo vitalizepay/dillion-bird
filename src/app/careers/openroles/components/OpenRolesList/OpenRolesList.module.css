@@ -102,7 +102,7 @@
     width: 100%;
     text-align: center;
     line-height: 1.6;
-    font-family: inherit;
+   
     margin-top: 12px;
     transition: background 0.15s;
   }
@@ -150,7 +150,7 @@
     padding: 5px 10px;
     outline: none;
     cursor: pointer;
-    font-family: inherit;
+   
   }
   .sortSelect:focus { border-color: #2563eb; }
   
@@ -296,7 +296,7 @@
     letter-spacing: 0.08em;
     text-transform: uppercase;
     cursor: pointer;
-    font-family: inherit;
+   
     flex-shrink: 0;
     white-space: nowrap;
     transition: background 0.15s;
@@ -327,7 +327,7 @@
     cursor: pointer;
     font-size: inherit;
     padding: 0;
-    font-family: inherit;
+   
   }
   .clearLink:hover { text-decoration: underline; }
   
@@ -380,7 +380,7 @@
     color: #fff;
     line-height: 1.15;
     margin-bottom: 14px;
-    font-family: Georgia, serif;
+    
   }
   
   .drawerMeta {
@@ -491,7 +491,7 @@
     letter-spacing: 0.1em;
     text-transform: uppercase;
     cursor: pointer;
-    font-family: inherit;
+   
     transition: background 0.15s;
   }
   .drawerApply:hover { background: #2563eb; }
@@ -506,7 +506,7 @@
     letter-spacing: 0.1em;
     text-transform: uppercase;
     cursor: pointer;
-    font-family: inherit;
+   
     transition: background 0.15s, border-color 0.15s;
   }
   .drawerClose:hover { background: #f7f9fc; border-color: #111; }

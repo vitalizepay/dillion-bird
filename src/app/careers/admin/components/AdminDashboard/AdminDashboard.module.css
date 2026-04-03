@@ -13,7 +13,7 @@
 .page {
     min-height: 100vh;
     background: #f5f7fa;
-    font-family: inherit;
+   
   }
   
   /* ── TOPBAR ── */
@@ -60,7 +60,7 @@
     letter-spacing: 0.07em;
     text-transform: uppercase;
     cursor: pointer;
-    font-family: inherit;
+   
     display: inline-flex;
     align-items: center;
     transition: background 0.15s, border-color 0.15s;
@@ -117,7 +117,7 @@
     font-weight: 800;
     color: #2563eb;
     line-height: 1;
-    font-family: Georgia, serif;
+    
     margin-bottom: 6px;
     font-variant-numeric: tabular-nums;
   }
@@ -244,7 +244,7 @@
     letter-spacing: 0.07em;
     text-transform: uppercase;
     cursor: pointer;
-    font-family: inherit;
+   
     border: 1px solid;
     transition: background 0.12s, color 0.12s;
   }
@@ -275,7 +275,7 @@
     background: #f5f7fa;
     padding: 4px 8px;
     cursor: pointer;
-    font-family: inherit;
+   
     color: #111;
   }
   .statusSelect:focus { border-color: #2563eb; outline: none; }
@@ -388,7 +388,7 @@
     padding: 10px 13px;
     font-size: 13.5px;
     color: #111;
-    font-family: inherit;
+   
     outline: none;
     width: 100%;
     transition: border-color 0.15s, background 0.15s;
@@ -424,7 +424,7 @@
     letter-spacing: 0.07em;
     text-transform: uppercase;
     cursor: pointer;
-    font-family: inherit;
+   
     transition: background .15s, color .15s;
   }
   .btnCancel:hover { border-color: #2563eb; color: #2563eb; }
@@ -439,7 +439,7 @@
     letter-spacing: 0.07em;
     text-transform: uppercase;
     cursor: pointer;
-    font-family: inherit;
+   
     transition: background 0.15s;
   }
   .btnSave:hover    { background: #2563eb; }
@@ -545,7 +545,7 @@
     border: 1px solid #d4d8e2;
     color: #444;
     cursor: pointer;
-    font-family: inherit;
+   
     transition: background 0.12s, border-color 0.12s;
   }
   .statusBtn:hover      { background: #eff6ff; border-color: #2563eb; color: #2563eb; }
@@ -589,7 +589,7 @@
     letter-spacing: 0.07em;
     text-transform: uppercase;
     cursor: pointer;
-    font-family: inherit;
+   
     transition: background 0.15s;
   }
   .btnDelete:hover { background: #a93226; }

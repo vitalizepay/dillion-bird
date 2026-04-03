@@ -54,7 +54,30 @@
     display: flex;
     gap: 16px;
   }
+
+  .cookiePrefBtn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: inherit;
+    color: #ffffff; /* ← matches .bottomLinks a */
+    padding: 0;
+    font-family: inherit;
+    text-decoration: none;
+    opacity: 1;
+    transition: opacity .15s;
+  }
+
   
+  .statusMsg {
+    font-size: 13px;
+    margin-top: 8px;
+    line-height: 1.5;
+  }
+  
+  .status_success { color: #16a34a; }
+  .status_error   { color: #dc2626; }
+  .status_invalid { color: #d97706; }
   /* ---------------- LINKS ---------------- */
   .linksSection ul {
     list-style: none;

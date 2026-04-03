@@ -1,0 +1,207 @@
+.page {
+    background: #fff;
+    padding: 84px 60px;
+  }
+  
+  .inner {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 16px;
+  }
+  .rule { width: 36px; height: 3px; background: #2563eb; flex-shrink: 0; }
+  .eyebrow span {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: #2563eb;
+  }
+  
+  .h1 {
+    font-size: clamp(28px, 3.5vw, 48px);
+    font-weight: 800;
+    color: #111;
+    font-family: Georgia, serif;
+    margin-bottom: 8px;
+  }
+  
+  .updated {
+    font-size: 12px;
+    color: #888;
+    margin-bottom: 52px;
+  }
+  
+  .body { display: flex; flex-direction: column; }
+  
+  .sec {
+    padding: 36px 0;
+    border-bottom: 1px solid #c8d0e0;
+  }
+  .sec:last-child { border-bottom: none; }
+  
+  .sec h2 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #111;
+    font-family: Georgia, serif;
+    margin-bottom: 16px;
+  }
+  
+  .sec p {
+    font-size: 14px;
+    line-height: 1.85;
+    color: #555;
+    margin-bottom: 12px;
+  }
+  .sec p:last-child { margin-bottom: 0; }
+  
+  .sec ul {
+    margin: 12px 0 12px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .sec ul li {
+    font-size: 14px;
+    line-height: 1.7;
+    color: #555;
+  }
+  .sec a { color: #2563eb; font-weight: 600; text-decoration: none; }
+  .sec a:hover { text-decoration: underline; }
+  
+  /* ── Category cards ── */
+  .catCard {
+    border: 1px solid #c8d0e0;
+    padding: 20px 24px;
+    margin-bottom: 10px;
+    background: #f7f9fc;
+  }
+  .catCard:last-child { margin-bottom: 0; }
+  .catCard p { font-size: 13.5px; line-height: 1.78; color: #555; margin: 0; }
+  
+  .catCardHead {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+  
+  .catCardName {
+    font-size: 13px;
+    font-weight: 700;
+    color: #111;
+  }
+  
+  .alwaysOn {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    background: #2563eb;
+    color: #fff;
+    padding: 3px 9px;
+  }
+  
+  .optional {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    background: #f0f4f9;
+    color: #888;
+    border: 1px solid #c8d0e0;
+    padding: 3px 9px;
+  }
+  
+  /* ── Table ── */
+  .table {
+    border: 1px solid #c8d0e0;
+    margin-top: 16px;
+    overflow-x: auto;
+  }
+  
+  .tableHead {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 2fr 1fr;
+    background: #f7f9fc;
+    border-bottom: 1px solid #c8d0e0;
+    padding: 10px 16px;
+    gap: 16px;
+    font-size: 9.5px;
+    font-weight: 700;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: #888;
+  }
+  
+  .tableRow {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 2fr 1fr;
+    padding: 14px 16px;
+    gap: 16px;
+    border-bottom: 1px solid #c8d0e0;
+    font-size: 13px;
+    color: #555;
+    line-height: 1.5;
+    align-items: center;
+  }
+  .tableRow:last-child { border-bottom: none; }
+  
+  .cookieName {
+    font-family: monospace;
+    font-size: 12px;
+    color: #2563eb;
+    font-weight: 600;
+  }
+  
+  .tagEssential {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    background: #2563eb;
+    color: #fff;
+    padding: 3px 8px;
+    width: fit-content;
+  }
+  .tagAnalytics {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    background: #eff6ff;
+    color: #2563eb;
+    border: 1px solid #bfdbfe;
+    padding: 3px 8px;
+    width: fit-content;
+  }
+  .tagMarketing {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    background: #f0fdf4;
+    color: #16a34a;
+    border: 1px solid #bbf7d0;
+    padding: 3px 8px;
+    width: fit-content;
+  }
+  
+  @media (max-width: 900px) {
+    .page { padding: 60px 28px; }
+    .tableHead,
+    .tableRow { grid-template-columns: 1fr 1fr; }
+    .tableHead span:nth-child(3),
+    .tableHead span:nth-child(4),
+    .tableRow span:nth-child(3),
+    .tableRow span:nth-child(4) { display: none; }
+  }
+  @media (max-width: 600px) {
+    .page { padding: 44px 20px; }
+  }

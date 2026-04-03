@@ -4,7 +4,7 @@
   justify-content: space-between;
   padding: 6rem 5vw;
   background-color: #ffffff;
-  font-family: var(--font-nunito-sans), system-ui, -apple-system, sans-serif;
+  
   gap: 2rem;
 }
 
@@ -23,7 +23,7 @@
 }
 
 .headingBlack {
-  font-family: var(--font-nunito-sans), system-ui;
+  
   font-weight: 800;
   font-size: 64px;
   color: #1a1a1a;
@@ -32,7 +32,7 @@
 }
 
 .headingBlue {
-  font-family: var(--font-nunito-sans), system-ui;
+  
   font-weight: 800;
   font-size: 64px;
   color: #2563eb;
@@ -46,7 +46,7 @@
 }
 
 .paragraph {
-  font-family: var(--font-nunito-sans), system-ui;
+  
   font-weight: 500;
   font-size: 20px;
   line-height: 1.6;

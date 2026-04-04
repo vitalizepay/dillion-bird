@@ -71,10 +71,10 @@ export default function Footer() {
             Nad Al Sheba 1, Dubai, UAE
           </p>
           <div className={styles.socials}>
-            <Link href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <Link href="" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
               <Image src="/linkedin.svg" alt="LinkedIn" width={18} height={18} />
             </Link>
-            <Link href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            <Link href="" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
               <Image src="/instagram.svg" alt="Instagram" width={18} height={18} />
             </Link>
           </div>

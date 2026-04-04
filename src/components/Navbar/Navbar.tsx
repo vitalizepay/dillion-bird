@@ -34,7 +34,6 @@ function Navbar() {
     pathname.startsWith('/cmolanding') ||
     pathname.startsWith('/insolvencyliquidation') ||
     pathname.startsWith('/bankingservices');
-
   const isCareersActive = pathname.startsWith('/careers');
 
   return (
@@ -105,6 +104,14 @@ function Navbar() {
                 <Link href="/casestudies/retailbusiness" className={styles.menuItem}>Retail Business</Link>
               </div>
             </div>
+
+            {/* DESKTOP NAV */}
+            <Link
+              href="/clientsuccess"
+              className={`${styles.navLink} ${isActive('/clientsuccess') ? styles.active : ''}`}
+            >
+              Client Success
+            </Link>
 
             {/* CAREERS ← new */}
             <div
@@ -219,6 +226,14 @@ function Navbar() {
                   <Link href="/casestudies/retailbusiness" onClick={() => setMobileOpen(false)}>Retail Business</Link>
                 </div>
               )}
+
+              <Link
+                href="/clientsuccess"
+                className={`${styles.mobileLink} ${isActive('/clientsuccess') ? styles.active : ''}`}
+                onClick={() => setMobileOpen(false)}
+              >
+                Client Success
+              </Link>
 
               {/* CAREERS ← new */}
               <div

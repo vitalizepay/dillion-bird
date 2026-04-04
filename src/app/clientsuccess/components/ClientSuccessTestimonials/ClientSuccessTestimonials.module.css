@@ -1,0 +1,85 @@
+.sec {
+    padding: 84px 60px;
+    background: #3b82f6;
+    position: relative;
+  }
+  
+  
+  .eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 44px;
+  }
+  .rule { width: 36px; height: 2px; background: #fff; flex-shrink: 0; }
+  .eyebrow span {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: #fff;
+  }
+  
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: rgba(255,255,255,.06);
+  }
+  
+  .card {
+    background: #fff;
+    padding: 36px 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    transition: background .2s;
+    cursor: default;
+  }
+  .card:hover { background: #eff6ff; }
+  
+  .quote {
+    font-size: 14px;
+    font-style: italic;
+    line-height: 1.78;
+    color: #111;
+    padding-left: 20px;
+    border-left: 2px solid #2563eb;
+    flex: 1;
+  }
+  
+  .author {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  
+  .avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 700;
+    color: #fff;
+    flex-shrink: 0;
+    background-color: #2563eb;
+  }
+  
+  .name {
+    font-size: 13px;
+    font-weight: 600;
+    color: #111;
+  }
+  .role {
+    font-size: 11px;
+    color: #111;
+    margin-top: 2px;
+  }
+  
+  @media (max-width: 900px) {
+    .grid { grid-template-columns: 1fr; }
+    .sec { padding: 60px 28px; }
+  }

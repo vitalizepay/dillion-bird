@@ -84,7 +84,7 @@ function Navbar() {
               </div>
             </div>
 
-            {/* CASE STUDIES */}
+             {/* CASE STUDIES 
             <div
               className={styles.dropdownWrapper}
               onMouseEnter={() => setBlogsArrow(true)}
@@ -103,7 +103,7 @@ function Navbar() {
                 <Link href="/casestudies/technologystartup" className={styles.menuItem}>Technology Startup</Link>
                 <Link href="/casestudies/retailbusiness" className={styles.menuItem}>Retail Business</Link>
               </div>
-            </div>
+            </div>  */}
 
             {/* DESKTOP NAV */}
             <Link
@@ -206,7 +206,7 @@ function Navbar() {
                 </div>
               )}
 
-              {/* CASE STUDIES */}
+              {/* CASE STUDIES 
               <div
                 className={`${styles.mobileItem} ${pathname.startsWith('/casestudies') ? styles.active : ''}`}
                 onClick={() => toggleAccordion('blogs')}
@@ -225,7 +225,7 @@ function Navbar() {
                   <Link href="/casestudies/technologystartup" onClick={() => setMobileOpen(false)}>Technology Startup</Link>
                   <Link href="/casestudies/retailbusiness" onClick={() => setMobileOpen(false)}>Retail Business</Link>
                 </div>
-              )}
+              )} */}
 
               <Link
                 href="/clientsuccess"

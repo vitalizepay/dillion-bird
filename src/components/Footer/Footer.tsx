@@ -71,11 +71,11 @@ export default function Footer() {
             Nad Al Sheba 1, Dubai, UAE
           </p>
           <div className={styles.socials}>
-            <Link href="" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <Link href="https://www.linkedin.com/company/dillon-bird/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
               <Image src="/linkedin.svg" alt="LinkedIn" width={18} height={18} />
             </Link>
-            <Link href="" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-              <Image src="/instagram.svg" alt="Instagram" width={18} height={18} />
+            <Link href="https://www.youtube.com/@Dillonbird6" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+              <Image src="/youtubeicon.svg" alt="Instagram" width={18} height={18} />
             </Link>
           </div>
         </div>

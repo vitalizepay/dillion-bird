@@ -1,0 +1,189 @@
+.sec {
+  background: #fff;
+  padding: 84px 60px;
+  border-top: 1px solid #c8d0e0;
+}
+
+.inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 72px;
+  align-items: start;
+}
+
+.half { display: flex; flex-direction: column; }
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+.rule { width: 28px; height: 3px; background: #2563eb; flex-shrink: 0; }
+.eyebrow span {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: #2563eb;
+}
+
+.h2 {
+  font-size: clamp(22px, 2.5vw, 32px);
+  font-weight: 800;
+  color: #111;
+  margin-bottom: 10px;
+}
+
+.sub {
+  font-size: 14px;
+  color: #555;
+  line-height: 1.75;
+  margin-bottom: 32px;
+}
+
+.steps { display: flex; flex-direction: column; }
+
+.step {
+  display: flex;
+  gap: 20px;
+  padding: 20px 0;
+  border-bottom: 1px solid #c8d0e0;
+}
+.step:last-child { border-bottom: none; }
+
+.stepN {
+  font-size: 13px;
+  font-weight: 800;
+  color: #2563eb;
+  min-width: 28px;
+  padding-top: 2px;
+  flex-shrink: 0;
+}
+
+.stepContent { display: flex; flex-direction: column; gap: 6px; }
+
+.stepTitle {
+  font-size: 14px;
+  font-weight: 700;
+  color: #111;
+}
+
+.stepText {
+  font-size: 13px;
+  line-height: 1.75;
+  color: #555;
+}
+
+.stackGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 28px;
+}
+
+.stackChip {
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  color: #2563eb;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .06em;
+  padding: 6px 12px;
+  transition: background .15s, border-color .15s;
+  cursor: default;
+}
+.stackChip:hover {
+  background: #dbeafe;
+  border-color: #93c5fd;
+}
+
+.stackTabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 16px;
+  }
+  
+  .stackTab {
+    background: #fff;
+    border: 1.5px solid #c8d0e0;
+    color: #555;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    cursor: pointer;
+    transition: background .15s, border-color .15s, color .15s;
+  }
+  .stackTab:hover {
+    background: #eff6ff;
+    border-color: #93c5fd;
+    color: #2563eb;
+  }
+  .stackTabActive {
+    background: #2563eb;
+    border-color: #2563eb;
+    color: #fff;
+  }
+  
+  .stackGrid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 28px;
+    min-height: 80px;
+  }
+  
+  .stackChip {
+    background: #eff6ff;
+    border: 1px solid #bfdbfe;
+    color: #2563eb;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .06em;
+    padding: 6px 12px;
+    transition: background .15s, border-color .15s;
+    cursor: default;
+  }
+  .stackChip:hover {
+    background: #dbeafe;
+    border-color: #93c5fd;
+  }
+  
+  .whyBox {
+    background: #f7f9fc;
+    border: 1.5px solid #c8d0e0;
+    border-left: 4px solid #2563eb;
+    padding: 24px 28px;
+  }
+  
+  .whyTitle {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: #2563eb;
+    margin-bottom: 16px;
+  }
+  
+  .whyList { display: flex; flex-direction: column; gap: 10px; }
+  
+  .whyItem {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 13px;
+    color: #333;
+    line-height: 1.5;
+  }
+  .whyItem svg { flex-shrink: 0; margin-top: 2px; }
+  
+  @media (max-width: 900px) {
+    .sec { padding: 60px 28px; }
+    .inner { grid-template-columns: 1fr; gap: 52px; }
+  }
+

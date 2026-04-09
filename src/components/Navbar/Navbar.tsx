@@ -33,7 +33,8 @@ function Navbar() {
     pathname.startsWith('/accountingbookkeeping') ||
     pathname.startsWith('/cmolanding') ||
     pathname.startsWith('/insolvencyliquidation') ||
-    pathname.startsWith('/bankingservices');
+    pathname.startsWith('/bankingservices') ||
+    pathname.startsWith('/aiandcloud');
   const isCareersActive = pathname.startsWith('/careers');
 
   return (
@@ -74,6 +75,7 @@ function Navbar() {
                 <Link href="/cmolanding" className={styles.menuItem}>CMO Services</Link>
                 <Link href="/insolvencyliquidation" className={styles.menuItem}>Insolvency Liquidation</Link>
                 <Link href="/bankingservices" className={styles.menuItem}>Banking Services</Link>
+                <Link href="/aiandcloud" className={styles.menuItem}>AI & Cloud Services</Link>
                 <Link href="/partnership" className={styles.menuItem}>Partnerships</Link>
                 <Link href="/managementconsulting" className={styles.menuItem}>Management Consulting</Link>
                 <Link href="/corporateservices" className={styles.menuItem}>Corporate Services</Link>
@@ -196,6 +198,7 @@ function Navbar() {
                   <Link href="/cmolanding" onClick={() => setMobileOpen(false)}>CMO Services</Link>
                   <Link href="/insolvencyliquidation" onClick={() => setMobileOpen(false)}>Insolvency Liquidation</Link>
                   <Link href="/bankingservices" onClick={() => setMobileOpen(false)}>Banking Services</Link>
+                  <Link href="/aiandcloud" onClick={() => setMobileOpen(false)}>AI & Cloud Services</Link>
                   <Link href="/partnership" onClick={() => setMobileOpen(false)}>Partnerships</Link>
                   <Link href="/managementconsulting" onClick={() => setMobileOpen(false)}>Management Consulting</Link>
                   <Link href="/corporateservices" onClick={() => setMobileOpen(false)}>Corporate Services</Link>

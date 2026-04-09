@@ -7,17 +7,17 @@ export default function AuditCrossLinks() {
       <div className={styles.inner}>
         <p className={styles.label}>Also from Dillon &amp; Bird</p>
         <p className={styles.heading}>
-        Accounting, company formation, insolvency advisory and more.
+        Banking Services, company formation, insolvency Liquidation and more.
         </p>
         <div className={styles.links}>
-          <Link href="/accountingfinancialservices" target="_blank" rel="noopener" className={styles.chip}>
-            Accounting &amp; Finance <span aria-hidden="true">↗</span>
+          <Link href="/bankingservices" target="_blank" rel="noopener" className={styles.chip}>
+          Banking Services <span aria-hidden="true">↗</span>
           </Link>
           <Link href="/companyformation" target="_blank" rel="noopener" className={styles.chip}>
             Company Formation <span aria-hidden="true">↗</span>
           </Link>
           <Link href="/insolvencyliquidation" target="_blank" rel="noopener" className={styles.chip}>
-            Insolvency Advisory <span aria-hidden="true">↗</span>
+            Insolvency Liquidation <span aria-hidden="true">↗</span>
           </Link>
         </div>
       </div>

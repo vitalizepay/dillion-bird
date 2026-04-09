@@ -5,17 +5,17 @@ export default function BankingCrossLinks() {
     <div className={styles.bar}>
       <div className={styles.left}>
         <p className={styles.label}>Also From Dillon &amp; Bird</p>
-        <p className={styles.text}>Audit, Tax &amp; Business Advisory Services</p>
+        <p className={styles.text}>Audit, CMO &amp; Company Formation Services</p>
       </div>
       <div className={styles.actions}>
         <a href="/audit" target="_blank" rel="noopener" className={styles.btnOutline}>
           Audit &amp; Assurance {'\u2197'}
         </a>
-        <a href="/accountingfinancialservices" target="_blank" rel="noopener" className={styles.btnOutline}>
-          Tax Services {'\u2197'}
+        <a href="/cmolanding" target="_blank" rel="noopener" className={styles.btnOutline}>
+          CMO Services {'\u2197'}
         </a>
         <a href="/companyformation" target="_blank" rel="noopener" className={styles.btnOutline}>
-          Business Advisory {'\u2197'}
+          Company Formation {'\u2197'}
         </a>
       </div>
     </div>

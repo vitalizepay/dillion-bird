@@ -41,7 +41,7 @@ export default function PartnersSuccess() {
         </p>
 
         <div className={styles.buttonContainer}>
-          <Button text="See Our Work" variant="primary" target="_blank" rel="noopener" href='/casestudies' />
+          <Button text="See Our Work" variant="primary" target="_blank" rel="noopener" href='/clientsuccess' />
         </div>
 
         {/* Partner Logos */}

@@ -88,10 +88,10 @@ export default function CareersHero() {
           </p>
 
           <div className={styles.acts}>
-            <Link href="/carrers/openroles" className={styles.btnPrimary}>
+            <Link href="/careers/openroles" target="_blank" rel="noopener" className={styles.btnPrimary}>
               Explore Open Roles →
             </Link>
-            <Link href="/carrers/apply" className={styles.btnOutline}>
+            <Link href="/careers/apply" target="_blank" rel="noopener" className={styles.btnOutline}>
               Spontaneous Application
             </Link>
           </div>

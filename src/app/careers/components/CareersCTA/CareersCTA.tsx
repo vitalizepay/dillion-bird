@@ -20,10 +20,10 @@ export default function CareersCTA() {
           you have something valuable to offer — we want to hear from you.
         </p>
         <div className={styles.acts}>
-          <Link href="/carrers/openroles" className={styles.btnPrimary}>
+          <Link href="/careers/openroles" target="_blank" rel="noopener" className={styles.btnPrimary}>
             View All Open Roles →
           </Link>
-          <Link href="/carrers/apply" className={styles.btnOutline}>
+          <Link href="/careers/apply" target="_blank" rel="noopener" className={styles.btnOutline}>
             Send Spontaneous Application
           </Link>
         </div>

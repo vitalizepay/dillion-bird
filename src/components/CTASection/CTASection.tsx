@@ -27,7 +27,7 @@ export default function CTASection() {
         <Button
           text="Contact Us"
           variant="secondary"
-          href="/contact"    // TODO: Add contact page link
+          href="/contact" target="_blank" rel="noopener noreferrer"   // TODO: Add contact page link
           type="button"
         />
       </div>

@@ -72,10 +72,10 @@ export default function Footer() {
           </p>
           <div className={styles.socials}>
             <Link href="https://www.linkedin.com/company/dillon-bird/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-              <Image src="/linkedin.svg" alt="LinkedIn" width={18} height={18} />
+              <Image src="/linkedinicon.svg" alt="LinkedIn" width={30} height={30} />
             </Link>
             <Link href="https://www.youtube.com/@Dillonbird6" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
-              <Image src="/youtubeicon.svg" alt="Instagram" width={18} height={18} />
+              <Image src="/youtubeicon1.svg" alt="Instagram" width={30} height={30} />
             </Link>
           </div>
         </div>

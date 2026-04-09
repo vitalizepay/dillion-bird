@@ -259,13 +259,7 @@ Submitted via: ${window.location.href}
             </p>
 
             <div className={styles.waRow}>
-            <img
-              src="https://cdn.simpleicons.org/whatsapp/25d366"
-              alt="WhatsApp"
-              width={18}
-              height={18}
-              style={{ flexShrink: 0 }}
-              />
+            <img src="/whatsapplogo1.svg" alt="WhatsApp Icon" width={30} height={30} />
               <a href="https://wa.me/971585570593" target="_blank" rel="noopener">Chat on WhatsApp</a>
               <span className={styles.sep}>·</span>
               <a href="tel:+971585570593">+971 585 570 593</a>

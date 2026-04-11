@@ -31,7 +31,7 @@ export default function PlanYourGrowthHero() {
             <Link href="/buildwithus" target="_blank" rel="noopener" className={styles.btnPrimary}>
               Start Your Strategy →
             </Link>
-            <Link href="/casestudies" target="_blank" rel="noopener" className={styles.btnOutline}>
+            <Link href="/clientsuccess" target="_blank" rel="noopener" className={styles.btnOutline}>
               See Case Studies
             </Link>
           </div>

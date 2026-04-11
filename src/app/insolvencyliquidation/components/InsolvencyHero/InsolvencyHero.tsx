@@ -103,6 +103,10 @@ Submitted via: ${window.location.href}
     router.push('/success?from=insolvencyliquidation')
   };
 
+  const scrollToContact = () => {
+    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <section className={styles.hero}>
 
@@ -124,18 +128,14 @@ Submitted via: ${window.location.href}
           — with full confidentiality and a clear path forward.
         </p>
         <div className={styles.acts}>
-          <Link href="#contact" className={styles.btnPrimary}>
-            Get Confidential Advice →
-          </Link>
-          <a
-            href="https://wa.me/971585570593"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.btnOutline}
-          >
-            WhatsApp Us Now
-          </a>
-        </div>
+  <button onClick={scrollToContact} className={styles.btnPrimary}>
+    Get Confidential Advice →
+  </button>
+  <a href="https://wa.me/971585570593" target="_blank" rel="noopener noreferrer" className={styles.btnOutline}>
+    <img src="/whatsapplogo1.svg" alt="WhatsApp" width={20} height={20} />
+    WhatsApp Us Now
+  </a>
+</div>
         <div className={styles.pills}>
           {[
             { n: 'UAE',  l: 'Licensed Advisors' },
@@ -314,7 +314,9 @@ Submitted via: ${window.location.href}
                 Chat on WhatsApp
               </a>
               <span className={styles.sep}>·</span>
-              <a href="tel:+971585570593">+971 585 570 593</a>
+              <a href="tel:+971585570593" style={{ pointerEvents: 'none' }}>
+    +971 585 570 593
+  </a>
             </div>
 
           </div>

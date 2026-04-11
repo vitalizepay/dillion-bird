@@ -88,6 +88,14 @@ Submitted via: ${window.location.href}
     router.push('/success?from=bankingservices');
   };
 
+  const scrollToContact = () => {
+    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+  };
+  
+  const scrollToServices = () => {
+    document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <section className={styles.hero}>
 
@@ -107,9 +115,13 @@ Submitted via: ${window.location.href}
           From structuring complex debt facilities to managing multi-bank credit relationships across the UAE and GCC, Dillon &amp; Bird delivers independent banking advisory that puts your business interests first.
         </p>
         <div className={styles.acts}>
-          <Link href="#contact" className={styles.btnPrimary}>Request Free Consultation →</Link>
-          <Link href="#services" className={styles.btnOutline}>Our Services ↓</Link>
-        </div>
+  <button onClick={scrollToContact} className={styles.btnPrimary}>
+    Request Free Consultation →
+  </button>
+  <button onClick={scrollToServices} className={styles.btnOutline}>
+    Our Services ↓
+  </button>
+</div>
         <div className={styles.pills}>
           {[
             { n: '15+', l: 'Years Experience' },
@@ -262,7 +274,9 @@ Submitted via: ${window.location.href}
             <img src="/whatsapplogo1.svg" alt="WhatsApp Icon" width={30} height={30} />
               <a href="https://wa.me/971585570593" target="_blank" rel="noopener">Chat on WhatsApp</a>
               <span className={styles.sep}>·</span>
-              <a href="tel:+971585570593">+971 585 570 593</a>
+              <a href="tel:+971585570593" style={{ pointerEvents: 'none' }}>
+    +971 585 570 593
+  </a>
             </div>
 
           </div>

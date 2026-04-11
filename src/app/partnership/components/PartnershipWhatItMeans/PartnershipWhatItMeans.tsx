@@ -18,7 +18,7 @@ export default function PartnershipWhatItMeans() {
         </p>
 
         <div className={styles.buttonContainer}>
-          <Button text="Partner With Us" variant="primary" href="/partner" />
+          <Button text="Partner With Us" variant="primary" href="/buildwithus" target="_blank" rel="noopener noreferrer" />
         </div>
       </div>
 

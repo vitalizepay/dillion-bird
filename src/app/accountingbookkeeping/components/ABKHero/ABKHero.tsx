@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';  
+import { useRouter } from 'next/navigation';
 import { supabase } from '../../../../../lib/supabase';
 import styles from './ABKHero.module.css';
 
@@ -17,6 +17,14 @@ const initial: FormData = {
   firstName: '', lastName: '', companyName: '', email: '',
   phone: '', role: '', emirate: '', auditType: '',
   companySize: '', referralSource: '', message: '',
+};
+
+const scrollToContact = () => {
+  document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+};
+
+const scrollToServices = () => {
+  document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' });
 };
 
 export default function ABKHero() {
@@ -115,20 +123,26 @@ Submitted via: ${window.location.href}
         </h1>
 
         <p className={styles.body}>
-          From daily bookkeeping and VAT filing to management accounts and CFO-level insights — Dillon & Bird gives UAE businesses a dedicated finance team without the overhead.
+          From daily bookkeeping and VAT filing to management accounts and CFO-level
+          insights — Dillon &amp; Bird gives UAE businesses a dedicated finance team
+          without the overhead.
         </p>
 
         <div className={styles.acts}>
-          <Link href="#contact" className={styles.btnPrimary}>→ Get a Free Assessment</Link>
-          <Link href="#services" className={styles.btnOutline}>View Our Services</Link>
+          <button onClick={scrollToContact} className={styles.btnPrimary}>
+            → Get a Free Assessment
+          </button>
+          <button onClick={scrollToServices} className={styles.btnOutline}>
+            View Our Services
+          </button>
         </div>
 
         <div className={styles.pills}>
           {[
             { n: '100%', l: 'FTA Compliant' },
             { n: '24hr', l: 'Response Time' },
-            { n: 'VAT', l: 'Filing Handled' },
-            { n: 'GCC', l: 'Regional Expertise' },
+            { n: 'VAT',  l: 'Filing Handled' },
+            { n: 'GCC',  l: 'Regional Expertise' },
           ].map(p => (
             <div className={styles.pill} key={p.n}>
               <span className={styles.pillN}>{p.n}</span>
@@ -169,7 +183,6 @@ Submitted via: ${window.location.href}
         ) : (
           <div className={styles.form}>
 
-            {/* First + Last Name */}
             <div className={styles.frow}>
               <div className={styles.fg}>
                 <label className={styles.label} htmlFor="au-fn">First Name</label>
@@ -185,7 +198,6 @@ Submitted via: ${window.location.href}
               </div>
             </div>
 
-            {/* Work / Personal Email */}
             <div className={styles.fg}>
               <label className={styles.label} htmlFor="au-em">Work / Personal Email *</label>
               <input className={`${styles.input} ${errors.email ? styles.inputErr : ''}`}
@@ -193,7 +205,6 @@ Submitted via: ${window.location.href}
                 autoComplete="email" value={form.email} onChange={handleChange} />
             </div>
 
-            {/* Phone */}
             <div className={styles.fg}>
               <label className={styles.label} htmlFor="au-ph">Phone / WhatsApp *</label>
               <input className={`${styles.input} ${errors.phone ? styles.inputErr : ''}`}
@@ -201,7 +212,6 @@ Submitted via: ${window.location.href}
                 autoComplete="tel" value={form.phone} onChange={handleChange} />
             </div>
 
-            {/* Company Name + Role */}
             <div className={styles.frow}>
               <div className={styles.fg}>
                 <label className={styles.label} htmlFor="au-cn">Company Name</label>
@@ -217,7 +227,6 @@ Submitted via: ${window.location.href}
               </div>
             </div>
 
-            {/* Emirate */}
             <div className={styles.fg}>
               <label className={styles.label} htmlFor="au-loc">
                 Emirate <span className={styles.optional}>(Optional)</span>
@@ -236,7 +245,6 @@ Submitted via: ${window.location.href}
               </select>
             </div>
 
-            {/* Service Type */}
             <div className={styles.fg}>
               <label className={styles.label} htmlFor="au-type">Service Type</label>
               <select className={styles.select} id="au-type" name="auditType"
@@ -252,7 +260,6 @@ Submitted via: ${window.location.href}
               </select>
             </div>
 
-            {/* Company Size */}
             <div className={styles.fg}>
               <label className={styles.label} htmlFor="au-size">Company Size</label>
               <select className={styles.select} id="au-size" name="companySize"
@@ -266,7 +273,6 @@ Submitted via: ${window.location.href}
               </select>
             </div>
 
-            {/* How Did You Find Us */}
             <div className={styles.fg}>
               <label className={styles.label} htmlFor="au-rf">How Did You Find Us?</label>
               <select className={styles.select} id="au-rf" name="referralSource"
@@ -280,7 +286,6 @@ Submitted via: ${window.location.href}
               </select>
             </div>
 
-            {/* Message */}
             <div className={styles.fg}>
               <label className={styles.label} htmlFor="au-msg">
                 Additional Requirements <span className={styles.optional}>(Optional)</span>
@@ -304,10 +309,14 @@ Submitted via: ${window.location.href}
             </p>
 
             <div className={styles.waRow}>
-            <img src="/whatsapplogo1.svg" alt="WhatsApp Icon" width={30} height={30} />
-              <a href="https://wa.me/971585570593" target="_blank" rel="noopener">Chat on WhatsApp</a>
+              <img src="/whatsapplogo1.svg" alt="WhatsApp" width={30} height={30} />
+              <a href="https://wa.me/971585570593" target="_blank" rel="noopener noreferrer">
+                Chat on WhatsApp
+              </a>
               <span className={styles.sep}>·</span>
-              <a href="tel:+971585570593">+971 585 570 593</a>
+              <a href="tel:+971585570593" style={{ pointerEvents: 'none' }}>
+                +971 585 570 593
+              </a>
             </div>
 
           </div>

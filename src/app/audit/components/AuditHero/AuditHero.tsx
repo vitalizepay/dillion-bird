@@ -103,7 +103,14 @@ Submitted via: ${window.location.href}
         </p>
         <div className={styles.acts}>
           <Link href="#contact" className={styles.btnPrimary}>Book Free Audit Consultation →</Link>
-          <a href="https://wa.me/971585570593" target="_blank" rel="noopener" className={styles.btnOutline}>WhatsApp Us Now</a>
+          <a href="https://wa.me/971585570593"
+  target="_blank"
+  rel="noopener"
+  className={styles.btnOutline}
+>
+  <img src="/whatsapplogo1.svg" alt="WhatsApp" width={22} height={22} />
+  WhatsApp Us Now
+</a>
         </div>
         <div className={styles.pills}>
           {[
@@ -227,7 +234,9 @@ Submitted via: ${window.location.href}
             <img src="/whatsapplogo1.svg" alt="WhatsApp Icon" width={30} height={30} />
               <a href="https://wa.me/971585570593" target="_blank" rel="noopener">Chat on WhatsApp</a>
               <span className={styles.sep}>·</span>
-              <a href="tel:+971585570593">+971 585 570 593</a>
+              <a href="tel:+971585570593" style={{ pointerEvents: 'none' }}>
+  +971 585 570 593
+</a>
             </div>
           </div>
         )}

@@ -55,6 +55,9 @@
     white-space: nowrap;
     padding-top: 8px;
     transition: opacity .15s;
+    background: none;
+  border: none;
+  cursor: pointer;
   }
   .bookLink:hover { opacity: .7; }
   

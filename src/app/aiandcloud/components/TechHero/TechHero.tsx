@@ -96,6 +96,14 @@ Submitted via: ${window.location.href}
     router.push('/success?from=technologyconsulting');
   };
 
+  const scrollToContact = () => {
+    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+  };
+  
+  const scrollToServices = () => {
+    document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <section className={styles.hero}>
 
@@ -119,9 +127,13 @@ Submitted via: ${window.location.href}
         </p>
 
         <div className={styles.acts}>
-          <Link href="#contact" className={styles.btnPrimary}>→ Get a Free Consultation</Link>
-          <Link href="#services" className={styles.btnOutline}>View Our Services</Link>
-        </div>
+  <button onClick={scrollToContact} className={styles.btnPrimary}>
+    → Get a Free Consultation
+  </button>
+  <button onClick={scrollToServices} className={styles.btnOutline}>
+    View Our Services
+  </button>
+</div>
 
         <div className={styles.pills}>
           {[
@@ -296,7 +308,9 @@ Submitted via: ${window.location.href}
           <img src="/whatsapplogo1.svg" alt="WhatsApp Icon" width={30} height={30} />
             <a href="https://wa.me/971585570593" target="_blank" rel="noopener">Chat on WhatsApp</a>
             <span className={styles.sep}>·</span>
-            <a href="tel:+971585570593">+971 585 570 593</a>
+            <a href="tel:+971585570593" style={{ pointerEvents: 'none' }}>
+    +971 585 570 593
+  </a>
           </div>
 
         </div>

@@ -129,6 +129,13 @@ Submitted via: ${window.location.href}
     router.push('/success?from=companyformation');
   };
 
+  const scrollToContact = () => {
+    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+  };
+  
+  const scrollToProcess = () => {
+    document.getElementById('process')?.scrollIntoView({ behavior: 'smooth' });
+  };
   return (
     <section className={styles.hero}>
       {/* LEFT */}
@@ -147,9 +154,13 @@ Submitted via: ${window.location.href}
           applications to corporate banking and compliance. One expert team, zero hassle.
         </p>
         <div className={styles.acts}>
-          <Link href="#contact" className={styles.btnPrimary}>Start My Company →</Link>
-          <Link href="#process" className={styles.btnOutline}>See How It Works</Link>
-        </div>
+  <button onClick={scrollToContact} className={styles.btnPrimary}>
+    Start My Company →
+  </button>
+  <button onClick={scrollToProcess} className={styles.btnOutline}>
+    See How It Works
+  </button>
+</div>
         <div className={styles.pills}>
           {[
             { n: '5', l: 'Day Formation' },
@@ -321,7 +332,9 @@ Submitted via: ${window.location.href}
             <img src="/whatsapplogo1.svg" alt="WhatsApp Icon" width={30} height={30} />
               <a href="https://wa.me/971585570593" target="_blank" rel="noopener">Chat on WhatsApp</a>
               <span className={styles.sep}>·</span>
-              <a href="tel:+971585570593">+971 585 570 593</a>
+              <a href="tel:+971585570593" style={{ pointerEvents: 'none' }}>
+  +971 585 570 593
+</a>
             </div>
           </div>
         )}

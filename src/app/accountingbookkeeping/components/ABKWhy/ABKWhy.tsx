@@ -1,4 +1,5 @@
-import Link from 'next/link';
+'use client';
+
 import styles from './ABKWhy.module.css';
 
 const pillars = [
@@ -29,10 +30,15 @@ const pillars = [
   },
 ];
 
+const scrollToContact = () => {
+  document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+};
+
 export default function ABKWhy() {
   return (
     <section className={styles.sec}>
       <div className={styles.grid}>
+
         {/* LEFT */}
         <div className={styles.left}>
           <div className={styles.eyebrow}>
@@ -41,14 +47,18 @@ export default function ABKWhy() {
           </div>
           <h2 className={styles.h2}>The Finance Partner<br />Your Business<em> Deserves</em></h2>
           <p className={styles.desc}>
-            We&apos;re not a generic bookkeeping bureau. We&apos;re a  boutique advisory firm that combines chartered accounting rigour with strategic thinking  — so your numbers don&apos;t just balance, they drive decisions.
+            We&apos;re not a generic bookkeeping bureau. We&apos;re a boutique advisory firm
+            that combines chartered accounting rigour with strategic thinking — so your
+            numbers don&apos;t just balance, they drive decisions.
           </p>
-          <Link href="#contact" className={styles.btn}>Get My Free Assessment →</Link>
+          <button onClick={scrollToContact} className={styles.btn}>
+            Get My Free Assessment →
+          </button>
         </div>
 
         {/* RIGHT */}
         <div className={styles.pillars}>
-          {pillars.map((p, i) => (
+          {pillars.map((p) => (
             <div className={styles.pillar} key={p.n}>
               <span className={styles.pillarN}>{p.n}</span>
               <div className={styles.pillarContent}>
@@ -58,6 +68,7 @@ export default function ABKWhy() {
             </div>
           ))}
         </div>
+
       </div>
     </section>
   );

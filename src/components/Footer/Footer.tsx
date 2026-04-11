@@ -66,10 +66,14 @@ export default function Footer() {
             and enterprises on business strategy, market entry, structuring, and scalable growth
             across the GCC.
           </p>
-          <p className={styles.address}>
-            Address: Meydan Hotel, Grandstand Building, 6th Floor, Al Meydan Road,
-            Nad Al Sheba 1, Dubai, UAE
-          </p>
+          <a href="https://maps.google.com/?q=Meydan+Hotel+Grandstand+Building+6th+Floor+Al+Meydan+Road+Nad+Al+Sheba+1+Dubai+UAE"
+  target="_blank"
+  rel="noopener noreferrer"
+  className={styles.addressLink}
+>
+  Address: Meydan Hotel, Grandstand Building, 6th Floor, Al Meydan Road,
+  Nad Al Sheba 1, Dubai, UAE
+</a>
           <div className={styles.socials}>
             <Link href="https://www.linkedin.com/company/dillon-bird/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
               <Image src="/linkedinicon.svg" alt="LinkedIn" width={30} height={30} />
@@ -107,8 +111,6 @@ export default function Footer() {
             <li><Link href="/about">About Us</Link></li>
             <li><Link href="/careers">Careers</Link></li>
             <li><Link href="/clientsuccess">Client Success</Link></li>
-            <li><Link href="/casestudies/technologystartup">Technology Startup</Link></li>
-            <li><Link href="/casestudies/retailbusiness">Retail Business</Link></li>
             <li><Link href="/contact">Contact</Link></li>
           </ul>
         </div>

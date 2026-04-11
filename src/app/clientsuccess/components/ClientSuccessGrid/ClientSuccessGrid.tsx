@@ -1,7 +1,8 @@
 'use client';
-import { useState } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import React from 'react';
 import Link from 'next/link';
+import { useSearchParams } from 'next/navigation';
 import styles from './ClientSuccessGrid.module.css';
 
 const cases = [
@@ -95,7 +96,7 @@ const cases = [
     image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&q=80&auto=format&fit=crop',
     tags: ['Logistics', 'Technology Consulting'],
     metrics: [
-      { n: '50%',     l: 'Reduction in manual hours' },
+      { n: '50%',      l: 'Reduction in manual hours' },
       { n: 'AED 2.3M', l: 'Annual operational savings' },
     ],
     title: 'Logistics company cuts overhead by half with AI-led workflow automation',
@@ -155,7 +156,7 @@ const cases = [
     image: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80&auto=format&fit=crop',
     tags: ['F&B / Hospitality', 'Management Consulting'],
     metrics: [
-      { n: '29%',  l: 'EBITDA margin improvement' },
+      { n: '29%',   l: 'EBITDA margin improvement' },
       { n: '12 mo', l: 'Full transformation timeline' },
     ],
     title: 'F&B group turns around underperforming portfolio with 29% EBITDA improvement',
@@ -189,17 +190,23 @@ const cases = [
 ];
 
 const filters = [
-  { label: 'All Stories',          value: 'all',                   count: 9 },
-  { label: 'Financial Advisory',   value: 'financial-advisory',    count: 3 },
-  { label: 'Business Setup',       value: 'business-setup',        count: 2 },
-  { label: 'Management Consulting',value: 'management-consulting', count: 2 },
-  { label: 'Technology',           value: 'technology-consulting', count: 1 },
-  { label: 'Audit & Compliance',   value: 'audit',                 count: 1 },
+  { label: 'All Stories',           value: 'all',                   count: 9 },
+  { label: 'Financial Advisory',    value: 'financial-advisory',    count: 3 },
+  { label: 'Business Setup',        value: 'business-setup',        count: 2 },
+  { label: 'Management Consulting', value: 'management-consulting', count: 2 },
+  { label: 'Technology',            value: 'technology-consulting', count: 1 },
+  { label: 'Audit & Compliance',    value: 'audit',                 count: 1 },
 ];
 
-export default function ClientSuccessGrid() {
+function ClientSuccessGridInner() {
+  const searchParams = useSearchParams();
   const [active, setActive] = useState('all');
   const [sort, setSort] = useState('default');
+
+  useEffect(() => {
+    const filter = searchParams.get('filter');
+    if (filter) setActive(filter);
+  }, [searchParams]);
 
   const filtered = cases
     .filter(c => active === 'all' || c.svc === active)
@@ -260,16 +267,16 @@ export default function ClientSuccessGrid() {
 
             {/* Body */}
             <div className={styles.cardBody}>
-                <div className={styles.metrics}>
-                    {c.metrics.map((m, i) => (
-                    <React.Fragment key={`${c.id}-${i}`}>
-                        <div className={styles.metric}>
-                        <span className={styles.metricN}>{m.n}</span>
-                        <span className={styles.metricL}>{m.l}</span>
-                        </div>
-                        {i < c.metrics.length - 1 && <div className={styles.metricDiv} />}
-                    </React.Fragment>
-                    ))}
+              <div className={styles.metrics}>
+                {c.metrics.map((m, i) => (
+                  <React.Fragment key={`${c.id}-${i}`}>
+                    <div className={styles.metric}>
+                      <span className={styles.metricN}>{m.n}</span>
+                      <span className={styles.metricL}>{m.l}</span>
+                    </div>
+                    {i < c.metrics.length - 1 && <div className={styles.metricDiv} />}
+                  </React.Fragment>
+                ))}
               </div>
               <div className={styles.cardContent}>
                 <h2 className={styles.cardTitle}>{c.title}</h2>
@@ -280,31 +287,40 @@ export default function ClientSuccessGrid() {
 
             {/* Footer */}
             <div className={styles.cardFoot}>
-  <div className={styles.clientInfo}>
-    <div className={styles.avatar} style={{ background: c.color }}>
-      {c.initials}
-    </div>
-    <div>
-      <p className={styles.clientName}>{c.client}</p>
-      <p className={styles.clientLoc}>{c.location}</p>
-    </div>
-  </div>
-  <Link
-    href={c.href}
-    target="_blank"
-    rel="noopener noreferrer"
-    className={styles.readLink}
-  >
-    Read Full Story
-    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-      <path d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-    </svg>
-  </Link>
-</div>
+              <div className={styles.clientInfo}>
+                <div className={styles.avatar} style={{ background: c.color }}>
+                  {c.initials}
+                </div>
+                <div>
+                  <p className={styles.clientName}>{c.client}</p>
+                  <p className={styles.clientLoc}>{c.location}</p>
+                </div>
+              </div>
+              <Link
+                href={c.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.readLink}
+              >
+                Read Full Story
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                </svg>
+              </Link>
+            </div>
 
           </div>
         ))}
       </div>
+
     </section>
+  );
+}
+
+export default function ClientSuccessGrid() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <ClientSuccessGridInner />
+    </Suspense>
   );
 }

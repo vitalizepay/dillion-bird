@@ -57,6 +57,7 @@
     align-items: center;
     border: 2px solid #fff;
     transition: background .15s, color .15s;
+    cursor: pointer;
   }
   .btnPrimary:hover {
     background: #e3f2fd;

@@ -1,4 +1,5 @@
-import Link from 'next/link';
+'use client';
+
 import styles from './CFWhy.module.css';
 
 const pillars = [
@@ -15,7 +16,7 @@ const pillars = [
   {
     n: '03',
     name: 'Post-Formation Support',
-    desc: 'Trade licences need renewals, visas expire, and VAT must be filed. We offer retained packages so you\'re always compliant.',
+    desc: "Trade licences need renewals, visas expire, and VAT must be filed. We offer retained packages so you're always compliant.",
   },
   {
     n: '04',
@@ -29,10 +30,15 @@ const pillars = [
   },
 ];
 
+const scrollToContact = () => {
+  document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+};
+
 export default function CFWhy() {
   return (
     <section className={styles.sec}>
       <div className={styles.grid}>
+
         {/* LEFT */}
         <div className={styles.left}>
           <div className={styles.eyebrow}>
@@ -45,12 +51,14 @@ export default function CFWhy() {
             your company for long-term success — tax efficiency, scalability, and investor readiness
             baked in from day one.
           </p>
-          <a href="#contact" className={styles.btn}>Get My Free Consultation →</a>
+          <button onClick={scrollToContact} className={styles.btn}>
+            Get My Free Consultation →
+          </button>
         </div>
 
         {/* RIGHT */}
         <div className={styles.pillars}>
-          {pillars.map((p, i) => (
+          {pillars.map((p) => (
             <div className={styles.pillar} key={p.n}>
               <span className={styles.pillarN}>{p.n}</span>
               <div className={styles.pillarContent}>
@@ -60,6 +68,7 @@ export default function CFWhy() {
             </div>
           ))}
         </div>
+
       </div>
     </section>
   );

@@ -1,3 +1,5 @@
+'use client';
+
 import Link from 'next/link';
 import styles from './AuditWhyDB.module.css';
 
@@ -9,12 +11,16 @@ const pillars = [
   { n: '05', title: 'Actionable Findings, Not Just Opinions', desc: 'Every finding comes with a practical, risk-rated recommendation your team can implement immediately. We turn the audit process into genuine business improvement, not just a compliance exercise.' },
 ];
 
+const scrollToContact = () => {
+  document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+};
+
 export default function AuditWhyDB() {
   return (
     <section className={styles.sec}>
       <div className={styles.inner}>
 
-        {/* LEFT — heading + pillars */}
+        {/* LEFT */}
         <div className={styles.left}>
           <div className={styles.eyebrow}>
             <div className={styles.rule} />
@@ -35,7 +41,7 @@ export default function AuditWhyDB() {
           </div>
         </div>
 
-        {/* RIGHT — empty space on top, card pushed down */}
+        {/* RIGHT */}
         <div className={styles.right}>
           <div className={styles.cardOffset} />
           <div className={styles.card}>
@@ -45,14 +51,17 @@ export default function AuditWhyDB() {
               <em>Response within 24 hours.</em>
             </h3>
             <p className={styles.cardBody}>
-              Whether you're facing an FTA audit visit, need internal controls reviewed before fundraising, or want clarity on your UAE CT position — our team will give you a straight, expert answer.
+              Whether you&apos;re facing an FTA audit visit, need internal controls reviewed
+              before fundraising, or want clarity on your UAE CT position — our team will
+              give you a straight, expert answer.
             </p>
-            <Link href="#contact" className={styles.btnPrimary}>
+            <button onClick={scrollToContact} className={styles.btnPrimary}>
               Book Free Consultation →
-            </Link>
-            <Link href="https://wa.me/971585570593" className={styles.btnSecondary}>
-              WhatsApp +971 585 570 593
-            </Link>
+            </button>
+            <Link href="https://wa.me/971585570593" target="_blank" rel="noopener" className={styles.btnSecondary}>
+  <img src="/whatsapplogo1.svg" alt="WhatsApp" width={20} height={20} />
+  WhatsApp +971 585 570 593
+</Link>
           </div>
         </div>
 

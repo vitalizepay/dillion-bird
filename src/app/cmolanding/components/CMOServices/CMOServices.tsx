@@ -1,4 +1,5 @@
-import Link from 'next/link';
+'use client';
+
 import styles from './CMOServices.module.css';
 
 const areas = [
@@ -65,7 +66,11 @@ const areas = [
   },
 ];
 
-export default function AuditServices() {
+const scrollToContact = () => {
+  document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+};
+
+export default function CMOServices() {
   return (
     <section className={styles.sec} id="services">
 
@@ -81,14 +86,16 @@ export default function AuditServices() {
             <em>Fractional CMO.</em>
           </h2>
         </div>
-        <Link href="#contact" className={styles.bookLink}>
+        <button onClick={scrollToContact} className={styles.bookLink}>
           Book a Consultation ↗
-        </Link>
+        </button>
       </div>
 
       {/* Intro */}
       <p className={styles.intro}>
-        Each engagement is structured around your specific stage, sector, and growth ambitions. Your Fractional CMO leads across all five pillars — bringing strategic thinking and hands-on execution to every dimension of your marketing function.
+        Each engagement is structured around your specific stage, sector, and growth ambitions.
+        Your Fractional CMO leads across all five pillars — bringing strategic thinking and
+        hands-on execution to every dimension of your marketing function.
       </p>
 
       {/* Cards */}

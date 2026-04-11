@@ -15,8 +15,8 @@ export default function AccountingFinancialServicesWhatItMeans() {
         </p>
 
         <div className={styles.buttonContainer}>
-          <Button text="Get Secure" variant="primary" href="/contact" />
-        </div>
+  <Button text="Get Secure" variant="primary" href="/clientsuccess?filter=audit" target="_blank" rel="noopener noreferrer" />
+</div>
       </div>
 
       {/* Image Collage - Right */}

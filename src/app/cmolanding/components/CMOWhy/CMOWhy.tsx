@@ -1,4 +1,5 @@
-import Link from 'next/link';
+'use client';
+
 import styles from './CMOWhy.module.css';
 
 const pillars = [
@@ -23,6 +24,10 @@ const pillars = [
     desc: 'Our CMOs have led marketing across technology, retail, financial services, and real estate — bringing cross-industry intelligence that generic specialists lack.',
   },
 ];
+
+const scrollToContact = () => {
+  document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+};
 
 export default function CMOWhy() {
   return (
@@ -51,11 +56,13 @@ export default function CMOWhy() {
             serious marketing leadership, today.
           </p>
           <div className={styles.acts}>
-            <Link href="#contact" className={styles.btn}>Start the Conversation</Link>
-            <a href="https://dillonbird.com/managementconsulting" target="_blank" rel="noopener" className={styles.ghostLink}>
-              Explore Management Consulting{' \u2197'}
-            </a>
-          </div>
+  <button onClick={scrollToContact} className={styles.btn}>
+    Start the Conversation
+  </button>
+  <a href="/managementconsulting" target="_blank" rel="noopener noreferrer" className={styles.ghostLink}>
+    Explore Management Consulting ↗
+  </a>
+</div>
         </div>
 
         {/* RIGHT */}

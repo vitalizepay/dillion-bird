@@ -24,8 +24,8 @@ export default function TechnologyConsultingWhatItMeans() {
         </p>
 
         <div className={styles.buttonContainer}>
-          <Button text="Tech Solutions" variant="primary" href="/contact" />
-        </div>
+  <Button text="Tech Solutions" variant="primary" target="_blank" rel="noopener" href="/clientsuccess?filter=technology-consulting" />
+</div>
       </div>
     </section>
   );

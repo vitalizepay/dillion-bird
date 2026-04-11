@@ -66,6 +66,7 @@
     white-space: nowrap;
     border: 2px solid #fff;
     transition: background 0.15s, border-color 0.15s;
+    gap: 5px;
   }
   .btnPrimary:hover {
     background: #e3f2fd;
@@ -92,6 +93,8 @@
     white-space: nowrap;
     border: 2px solid rgba(255,255,255,0.7);
     transition: border-color 0.15s, background 0.15s;
+    cursor: pointer;
+    height: 51px;
   }
   .btnOutline:hover {
     background: #2563eb; /* ← content color on hover */

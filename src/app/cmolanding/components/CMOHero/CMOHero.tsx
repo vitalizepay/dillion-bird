@@ -32,6 +32,14 @@ const pills = [
 
 const trustItems = ['No Long-Term Lock-in', '100% Confidential', 'Response in 24 hrs'];
 
+const scrollToContact = () => {
+  document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+};
+
+const scrollToServices = () => {
+  document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' });
+};
+
 export default function CMOHero() {
   const router = useRouter();
   const [form, setForm] = useState<FormData>(initial);
@@ -111,16 +119,14 @@ Submitted via: ${window.location.href}
   return (
     <section className={styles.hero}>
 
-      {/* ══ LEFT ══════════════════════════════════════════ */}
+      {/* ══ LEFT ══ */}
       <div className={styles.heroL}>
         <div className={styles.badge}>
           <div className={styles.badgeDot} />
           <span>Now Accepting Fractional CMO Engagements · GCC</span>
         </div>
 
-        <p className={styles.eyebrow}>
-          Do More!
-        </p>
+        <p className={styles.eyebrow}>Do More!</p>
 
         <h1 className={styles.h1}>
           Senior Marketing<br />
@@ -136,12 +142,12 @@ Submitted via: ${window.location.href}
         </p>
 
         <div className={styles.acts}>
-          <Link href="#contact" className={styles.btnPrimary}>
+          <button onClick={scrollToContact} className={styles.btnPrimary}>
             → Request a Free CMO Consultation
-          </Link>
-          <a href="#services" className={styles.btnOutline}>
+          </button>
+          <button onClick={scrollToServices} className={styles.btnOutline}>
             Explore All 5 Service Areas
-          </a>
+          </button>
         </div>
 
         <div className={styles.pills}>
@@ -156,7 +162,7 @@ Submitted via: ${window.location.href}
         </div>
       </div>
 
-      {/* ══ RIGHT — FORM ══════════════════════════════════ */}
+      {/* ══ RIGHT — FORM ══ */}
       <div className={styles.heroR} id="contact">
         <div className={styles.formTag}>
           <div className={styles.formTagBar} />
@@ -190,7 +196,6 @@ Submitted via: ${window.location.href}
         ) : (
           <div className={styles.form}>
 
-            {/* Row: First / Last */}
             <div className={styles.frow}>
               <div className={styles.fg}>
                 <label className={styles.label} htmlFor="cmo-fn">First Name</label>
@@ -206,7 +211,6 @@ Submitted via: ${window.location.href}
               </div>
             </div>
 
-            {/* Company */}
             <div className={styles.fg}>
               <label className={styles.label} htmlFor="cmo-co">
                 Company <span className={styles.optional}>(Optional)</span>
@@ -216,7 +220,6 @@ Submitted via: ${window.location.href}
                 value={form.companyName} onChange={handleChange} />
             </div>
 
-            {/* Email */}
             <div className={styles.fg}>
               <label className={styles.label} htmlFor="cmo-em">Work Email *</label>
               <input
@@ -226,11 +229,8 @@ Submitted via: ${window.location.href}
                 value={form.email} onChange={handleChange} />
             </div>
 
-            {/* Phone */}
             <div className={styles.fg}>
-              <label className={styles.label} htmlFor="cmo-ph">
-                Phone / WhatsApp *
-              </label>
+              <label className={styles.label} htmlFor="cmo-ph">Phone / WhatsApp *</label>
               <input
                 className={`${styles.input} ${errors.phone ? styles.inputErr : ''}`}
                 id="cmo-ph" name="phone" type="tel"
@@ -238,7 +238,6 @@ Submitted via: ${window.location.href}
                 value={form.phone} onChange={handleChange} />
             </div>
 
-            {/* Row: Emirate / CMO Service */}
             <div className={styles.frow}>
               <div className={styles.fg}>
                 <label className={styles.label} htmlFor="cmo-loc">
@@ -257,9 +256,7 @@ Submitted via: ${window.location.href}
                 </select>
               </div>
               <div className={styles.fg}>
-                <label className={styles.label} htmlFor="cmo-svc">
-                  Area of Interest
-                </label>
+                <label className={styles.label} htmlFor="cmo-svc">Area of Interest</label>
                 <select className={styles.select} id="cmo-svc" name="cmoService"
                   value={form.cmoService} onChange={handleChange}>
                   <option value="">— Select —</option>
@@ -273,11 +270,8 @@ Submitted via: ${window.location.href}
               </div>
             </div>
 
-            {/* Referral Source */}
             <div className={styles.fg}>
-              <label className={styles.label} htmlFor="cmo-rf">
-                How Did You Find Us?
-              </label>
+              <label className={styles.label} htmlFor="cmo-rf">How Did You Find Us?</label>
               <select className={styles.select} id="cmo-rf" name="referralSource"
                 value={form.referralSource} onChange={handleChange}>
                 <option value="">— Select —</option>
@@ -291,7 +285,6 @@ Submitted via: ${window.location.href}
               </select>
             </div>
 
-            {/* Message */}
             <div className={styles.fg}>
               <label className={styles.label} htmlFor="cmo-msg">
                 Your Marketing Goal{' '}
@@ -320,14 +313,15 @@ Submitted via: ${window.location.href}
             </p>
 
             <div className={styles.waRow}>
-            <img src="/whatsapplogo1.svg" alt="WhatsApp Icon" width={30} height={30} />
-              <a href="https://wa.me/971585570593?text=Hi%2C%20I%27m%20interested%20in%20a%20Fractional%20CMO%20consultation"
-                target="_blank" rel="noopener noreferrer">
-                Chat on WhatsApp
-              </a>
-              <span className={styles.sep}>·</span>
-              <a href="tel:+971585570593">+971 585 570 593</a>
-            </div>
+  <img src="/whatsapplogo1.svg" alt="WhatsApp" width={30} height={30} />
+  <a href="https://wa.me/971585570593?text=Hi%2C%20I%27m%20interested%20in%20a%20Fractional%20CMO%20consultation" target="_blank" rel="noopener noreferrer">
+    Chat on WhatsApp
+  </a>
+  <span className={styles.sep}>·</span>
+  <a href="tel:+971585570593" style={{ pointerEvents: 'none' }}>
+    +971 585 570 593
+  </a>
+</div>
 
           </div>
         )}

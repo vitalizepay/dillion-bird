@@ -33,7 +33,7 @@
     text-decoration: none;
     white-space: nowrap;
   }
-  .allLink:hover { text-decoration: underline; }
+  .allLink:hover { text-decoration: none; }
   
   .hdr {
     display: block;

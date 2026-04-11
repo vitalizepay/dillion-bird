@@ -55,6 +55,7 @@
     align-items: center;
     border: 2px solid #fff;
     transition: background .15s, color .15s;
+    gap: 5px;
   }
   .btnPrimary:hover {
     background: #e3f2fd;
@@ -75,6 +76,7 @@
     align-items: center;
     border: 2px solid rgba(255,255,255,0.7);
     transition: border-color .15s, background .15s;
+    cursor: pointer;
   }
   .btnOutline:hover {
     background: #2563eb; /* ← content color on hover */

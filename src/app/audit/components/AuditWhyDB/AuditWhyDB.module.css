@@ -107,7 +107,7 @@
 
 .btnPrimary,
 .btnSecondary {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   text-decoration: none;
@@ -117,6 +117,9 @@
   text-transform: uppercase;
   padding: 14px 20px;
   transition: background .15s, border-color .15s;
+  border: none;
+  cursor: pointer;
+  gap: 5px;
 }
 
 /* Primary: bg #3b82f6 → hover #2563eb */

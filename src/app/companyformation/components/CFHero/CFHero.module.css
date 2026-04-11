@@ -103,6 +103,7 @@
   align-items: center;
   border: 2px solid #3b82f6;
   transition: background .15s, border-color .15s;
+  cursor: pointer;
 }
 .btnPrimary:hover { background: #2563eb; border-color: #2563eb; }
 
@@ -120,6 +121,7 @@
   align-items: center;
   border: 2px solid #dde2ee;
   transition: border-color .15s, color .15s;
+  cursor: pointer;
 }
 .btnOutline:hover { border-color: #3b82f6; color: #3b82f6; }
 

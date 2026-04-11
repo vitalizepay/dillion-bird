@@ -24,8 +24,8 @@ export default function FinancialPlanningInvestorWhatItMeans() {
         </p>
 
         <div className={styles.buttonContainer}>
-          <Button text="Invest Smarter" variant="primary" href="/contact" />
-        </div>
+  <Button text="Invest Smarter" variant="primary" target="_blank" rel="noopener" href="/clientsuccess?filter=financial-advisory" />
+</div>
       </div>
     </section>
   );

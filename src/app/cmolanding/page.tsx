@@ -8,7 +8,7 @@ import CMOWhy from './components/CMOWhy/CMOWhy';
 import CMOProcess from './components/CMOProcess/CMOProcess';
 import CMOTestimonial from './components/CMOTestimonial/CMOTestimonial';
 import CMOCTA from './components/CMOCTA/CMOCTA';
-import CMOCrossLinks from './components/CMOCrossLinks/CMOCrossLinks';
+
 
 export const metadata: Metadata = {
   title: 'Fractional CMO Services in UAE | Dillon & Bird',
@@ -28,7 +28,6 @@ export default function FractionalCMOPage() {
       <CMOProcess />
       <CMOTestimonial />
       <CMOCTA />
-      <CMOCrossLinks />
     </main>
   );
 }

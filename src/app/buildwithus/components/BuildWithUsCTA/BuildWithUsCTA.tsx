@@ -40,7 +40,7 @@ export default function BuildWithUsCTA() {
         <Link href="/contact" target="_blank" rel="noopener" className={styles.btnPrimary}>
           Send Us a Message →
         </Link>
-        <Link href="/casestudies" target="_blank" rel="noopener" className={styles.btnOutline}>
+        <Link href="/clientsuccess" target="_blank" rel="noopener" className={styles.btnOutline}>
           See Our Work First
         </Link>
       </div>

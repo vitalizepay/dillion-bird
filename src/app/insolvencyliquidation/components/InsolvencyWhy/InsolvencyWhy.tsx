@@ -1,4 +1,5 @@
-import Link from 'next/link';
+'use client';
+
 import styles from './InsolvencyWhy.module.css';
 
 const pillars = [
@@ -9,12 +10,16 @@ const pillars = [
   { n: '05', title: 'End-to-End Case Management', desc: 'One dedicated advisor manages your entire case from first call to final clearance certificate — no handoffs, no confusion, no gaps in accountability.' },
 ];
 
+const scrollToContact = () => {
+  document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+};
+
 export default function InsolvencyWhy() {
   return (
     <section className={styles.sec}>
       <div className={styles.inner}>
 
-        {/* LEFT — heading + pillars */}
+        {/* LEFT */}
         <div className={styles.left}>
           <div className={styles.eyebrow}>
             <div className={styles.rule} />
@@ -38,7 +43,7 @@ export default function InsolvencyWhy() {
           </div>
         </div>
 
-        {/* RIGHT — card pushed down with offset */}
+        {/* RIGHT */}
         <div className={styles.right}>
           <div className={styles.cardOffset} />
           <div className={styles.card}>
@@ -48,12 +53,15 @@ export default function InsolvencyWhy() {
               <em>Response within 24 hours.</em>
             </h3>
             <p className={styles.cardBody}>
-              Whether you need to close a company, restructure debt or understand your options — our team will give you a clear, honest assessment with complete confidentiality.
+              Whether you need to close a company, restructure debt or understand your
+              options — our team will give you a clear, honest assessment with complete
+              confidentiality.
             </p>
-            <Link href="#contact" className={styles.btnPrimary}>
+            <button onClick={scrollToContact} className={styles.btnPrimary}>
               Get Free Consultation →
-            </Link>
-            <a href="https://wa.me/971585570593" target="_blank" rel="noopener" className={styles.btnSecondary}>
+            </button>
+            <a href="https://wa.me/971585570593" target="_blank" rel="noopener noreferrer" className={styles.btnSecondary}>
+              <img src="/whatsapplogo1.svg" alt="WhatsApp" width={20} height={20} />
               WhatsApp +971 585 570 593
             </a>
           </div>

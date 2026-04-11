@@ -1,5 +1,11 @@
+'use client';
+
 import Link from 'next/link';
 import styles from './TechCTA.module.css';
+
+const scrollToContact = () => {
+  document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+};
 
 export default function TechCTA() {
   return (
@@ -17,10 +23,10 @@ export default function TechCTA() {
           Tell us about your challenge. A senior technology consultant will respond within 24 hours.
         </p>
         <div className={styles.acts}>
-          <Link href="#contact" className={styles.btnPrimary}>
+          <button onClick={scrollToContact} className={styles.btnPrimary}>
             Get a Free Consultation →
-          </Link>
-          <Link href="/clientsuccess" className={styles.btnOutline}>
+          </button>
+          <Link href="/clientsuccess" target="_blank" rel="noopener noreferrer" className={styles.btnOutline}>
             See Client Results
           </Link>
         </div>

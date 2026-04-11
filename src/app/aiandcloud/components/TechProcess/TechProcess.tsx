@@ -62,7 +62,7 @@ export default function TechProcess() {
   const [activeStack, setActiveStack] = useState(0);
 
   return (
-    <section className={styles.sec}>
+    <section className={styles.sec} id="process">
       <div className={styles.inner}>
 
         {/* Process */}

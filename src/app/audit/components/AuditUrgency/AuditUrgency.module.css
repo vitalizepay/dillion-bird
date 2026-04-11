@@ -21,6 +21,8 @@
     align-items: center;
     white-space: nowrap;
     transition: background .15s;
+    border: none;
+    cursor: pointer;
   }
   .cta:hover { background: #e3f2fd; }
   @media (max-width: 600px) { .band { padding: 14px 20px; flex-direction: column; text-align: center; gap: 12px; } .cta { width: 100%; justify-content: center; } }

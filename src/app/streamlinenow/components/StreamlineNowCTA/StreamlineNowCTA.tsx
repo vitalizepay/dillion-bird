@@ -15,7 +15,7 @@ export default function StreamlineNowCTA() {
       </div>
 
       <div className={styles.acts}>
-        <Link href="/buildwithus" target="_blank" rel="noopener"  className={styles.btnPrimary}>
+        <Link href="/contact" target="_blank" rel="noopener"  className={styles.btnPrimary}>
           Get A Custom Quote →
         </Link>
       </div>

@@ -70,7 +70,8 @@ export default function Footer() {
   target="_blank"
   rel="noopener noreferrer"
   className={styles.addressLink}
->
+> 
+  <Image src="/googlemapsicon.svg" alt="Google Maps" width={20} height={20} />
   Address: Meydan Hotel, Grandstand Building, 6th Floor, Al Meydan Road,
   Nad Al Sheba 1, Dubai, UAE
 </a>

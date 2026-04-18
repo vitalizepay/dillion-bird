@@ -3,50 +3,71 @@
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import styles from './ContactForm.module.css';
-import { supabase } from '../../../../../lib/supabase';;
+import { supabase } from '../../../../../lib/supabase';
 
 interface FormData {
-  name: string;
+  firstName: string;
+  lastName: string;
   email: string;
   phone: string;
   company: string;
-  enquiryType: string;
+  serviceRequired: string;
   hearAbout: string;
   message: string;
   agreePolicy: boolean;
 }
 
 interface FormErrors {
-  name?: string;
+  firstName?: string;
   email?: string;
   phone?: string;
   company?: string;
-  enquiryType?: string;
+  serviceRequired?: string;
   hearAbout?: string;
   message?: string;
   agreePolicy?: string;
 }
 
-const enquiryTypeOptions = [
-  { value: '',             label: '-Select-'    },
-  { value: 'consultation', label: 'Consultation' },
-  { value: 'partnership',  label: 'Partnership'  },
-  { value: 'support',      label: 'Support'      },
-  { value: 'other',        label: 'Other'        },
+const serviceOptions = [
+  { value: '',                          label: '— Select a service —'              },
+  { value: 'company-formation',         label: 'Company Formation'                 },
+  { value: 'audit-services',            label: 'Audit Services'                    },
+  { value: 'accounting-bookkeeping',    label: 'Accounting & Bookkeeping'          },
+  { value: 'cmo-services',              label: 'CMO Services'                      },
+  { value: 'insolvency-liquidation',    label: 'Insolvency Liquidation'            },
+  { value: 'banking-services',          label: 'Banking Services'                  },
+  { value: 'ai-cloud-services',         label: 'AI & Cloud Services'               },
+  { value: 'management-consulting',     label: 'Management Consulting'             },
+  { value: 'financial-advisory',        label: 'Financial Advisory'                },
+  { value: 'consultation',              label: 'General Consultation'              },
+  { value: 'partnership',               label: 'Partnership'                       },
+  { value: 'other',                     label: 'Other'                             },
 ];
 
 const hearAboutOptions = [
-  { value: '',           label: '-Select-'      },
-  { value: 'social-media', label: 'Social Media' },
-  { value: 'referral',   label: 'Referral'      },
-  { value: 'search',     label: 'Search Engine' },
-  { value: 'news',       label: 'News/Media'    },
-  { value: 'other',      label: 'Other'         },
+  { value: '',             label: '— Select —'      },
+  { value: 'google',       label: 'Google Search'   },
+  { value: 'google-ads',   label: 'Google Ads'      },
+  { value: 'linkedin',     label: 'LinkedIn'        },
+  { value: 'referral',     label: 'Referral / Word of Mouth' },
+  { value: 'social-media', label: 'Social Media'   },
+  { value: 'news',         label: 'News / Media'   },
+  { value: 'other',        label: 'Other'           },
 ];
 
 const INITIAL: FormData = {
-  name: '', email: '', phone: '', company: '',
-  enquiryType: '', hearAbout: '', message: '', agreePolicy: false,
+  firstName: '', lastName: '', email: '', phone: '',
+  company: '', serviceRequired: '', hearAbout: '', message: '', agreePolicy: false,
+};
+
+const SUPABASE_FUNCTION_URL = process.env.NEXT_PUBLIC_SUPABASE_URL + '/functions/v1/send-email';
+
+const sendEmail = async (to: string[], subject: string, html: string) => {
+  await fetch(SUPABASE_FUNCTION_URL, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ to, subject, html }),
+  });
 };
 
 export default function ContactForm() {
@@ -57,24 +78,18 @@ export default function ContactForm() {
   const [isLoading, setIsLoading] = useState(false);
   const [submitErr, setSubmitErr] = useState<string | null>(null);
 
-  /* ── Validation ── */
   const validateForm = (): boolean => {
     const e: FormErrors = {};
-    if (!formData.name.trim())    e.name = 'Name is required';
-    if (!formData.email.trim())   e.email = 'Email is required';
+    if (!formData.firstName.trim()) e.firstName = 'First name is required';
+    if (!formData.email.trim())     e.email = 'Email is required';
     else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email))
-                                  e.email = 'Invalid email address';
-    if (!formData.phone.trim())   e.phone = 'Phone is required';
-    if (!formData.company.trim()) e.company = 'Company is required';
-    if (!formData.enquiryType)    e.enquiryType = 'Enquiry type is required';
-    if (!formData.hearAbout)      e.hearAbout = 'Please select how you heard about us';
-    if (!formData.message.trim()) e.message = 'Message is required';
-    if (!formData.agreePolicy)    e.agreePolicy = 'You must agree to the privacy policy';
+                                    e.email = 'Invalid email address';
+    if (!formData.phone.trim())     e.phone = 'Phone is required';
+    if (!formData.agreePolicy)      e.agreePolicy = 'You must agree to the privacy policy';
     setErrors(e);
     return Object.keys(e).length === 0;
   };
 
-  /* ── Field change ── */
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => {
@@ -88,7 +103,6 @@ export default function ContactForm() {
     }
   };
 
-  /* ── Submit ── */
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!validateForm()) return;
@@ -97,65 +111,88 @@ export default function ContactForm() {
     setSubmitErr(null);
 
     try {
-      /* 1 — Supabase insert */
+      // 1. Save to Supabase
       const { error: dbError } = await supabase
         .from('contact_leads')
         .insert({
-          name:         formData.name.trim(),
-          email:        formData.email.trim(),
-          phone:        formData.phone.trim(),
-          company:      formData.company.trim(),
-          enquiry_type: formData.enquiryType,
-          hear_about:   formData.hearAbout,
-          message:      formData.message.trim(),
-          source_page:  window.location.href,
-          status:       'new',
+          name:             `${formData.firstName} ${formData.lastName}`.trim(),
+          email:            formData.email.trim(),
+          phone:            formData.phone.trim(),
+          company:          formData.company.trim(),
+          enquiry_type:     formData.serviceRequired,
+          hear_about:       formData.hearAbout,
+          message:          formData.message.trim(),
+          source_page:      window.location.href,
+          status:           'new',
         });
 
       if (dbError) throw new Error(`Database error: ${dbError.message}`);
 
-      /* 2 — Web3Forms notification email */
-      const msgBody = `
-CONTACT FORM LEAD
-===========================
-Name           : ${formData.name}
-Email          : ${formData.email}
-Phone          : ${formData.phone}
-Company        : ${formData.company}
-Enquiry Type   : ${formData.enquiryType}
-How They Found : ${formData.hearAbout}
-Message        : ${formData.message}
-===========================
-Submitted via: ${window.location.href}
-      `.trim();
+      // 2. Internal team email HTML
+      const detailsHtml = `
+        <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto;">
+          <div style="background: #2563eb; padding: 24px 32px;">
+            <h1 style="color: #fff; margin: 0; font-size: 20px;">New Contact Enquiry</h1>
+          </div>
+          <div style="padding: 32px; background: #f7f9fc; border: 1px solid #c8d0e0;">
+            <table style="width: 100%; border-collapse: collapse; font-size: 14px;">
+              <tr><td style="padding: 8px 0; color: #555; width: 180px;">Name</td><td style="padding: 8px 0; font-weight: 600; color: #111;">${formData.firstName} ${formData.lastName}</td></tr>
+              <tr><td style="padding: 8px 0; color: #555;">Email</td><td style="padding: 8px 0; font-weight: 600; color: #111;">${formData.email}</td></tr>
+              <tr><td style="padding: 8px 0; color: #555;">Phone / WhatsApp</td><td style="padding: 8px 0; font-weight: 600; color: #111;">${formData.phone}</td></tr>
+              <tr><td style="padding: 8px 0; color: #555;">Company</td><td style="padding: 8px 0; font-weight: 600; color: #111;">${formData.company || '—'}</td></tr>
+              <tr><td style="padding: 8px 0; color: #555;">Service Required</td><td style="padding: 8px 0; font-weight: 600; color: #111;">${formData.serviceRequired || '—'}</td></tr>
+              <tr><td style="padding: 8px 0; color: #555;">How They Found Us</td><td style="padding: 8px 0; font-weight: 600; color: #111;">${formData.hearAbout || '—'}</td></tr>
+              <tr><td style="padding: 8px 0; color: #555;">Additional Requirements</td><td style="padding: 8px 0; font-weight: 600; color: #111;">${formData.message || '—'}</td></tr>
+              <tr><td style="padding: 8px 0; color: #555;">Source Page</td><td style="padding: 8px 0; font-weight: 600; color: #111;">${window.location.href}</td></tr>
+            </table>
+          </div>
+          <div style="padding: 16px 32px; background: #fff; border: 1px solid #c8d0e0; border-top: none; font-size: 12px; color: #aaa;">
+            Dillon &amp; Bird · UAE
+          </div>
+        </div>
+      `;
 
-      await fetch('https://api.web3forms.com/submit', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          access_key: process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY,
-          subject:    `New Contact Enquiry — ${formData.name} (${formData.enquiryType})`,
-          from_name:  formData.name,
-          replyto:    formData.email,
-          message:    msgBody,
-        }),
-      });
+      // 3. Confirmation email to user
+      const confirmHtml = `
+        <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto;">
+          <div style="background: #2563eb; padding: 24px 32px;">
+            <h1 style="color: #fff; margin: 0; font-size: 20px;">Thank you, ${formData.firstName}!</h1>
+          </div>
+          <div style="padding: 32px; background: #f7f9fc; border: 1px solid #c8d0e0;">
+            <p style="font-size: 15px; color: #333; line-height: 1.7;">
+              We've received your enquiry. A senior consultant will review your requirements
+              and be in touch within <strong>24 hours</strong>.
+            </p>
+            <p style="font-size: 15px; color: #333; line-height: 1.7;">
+              In the meantime, feel free to WhatsApp us at
+              <a href="https://wa.me/971585570593" style="color: #2563eb;">+971 585 570 593</a>
+              if you have any urgent questions.
+            </p>
+            <p style="font-size: 15px; color: #333; margin-top: 24px;">
+              Warm regards,<br />
+              <strong>The Dillon &amp; Bird Team</strong>
+            </p>
+          </div>
+          <div style="padding: 16px 32px; background: #fff; border: 1px solid #c8d0e0; border-top: none; font-size: 12px; color: #aaa;">
+            Dillon &amp; Bird · UAE · <a href="https://dillonbird.com" style="color: #aaa;">dillonbird.com</a>
+          </div>
+        </div>
+      `;
 
-      /* Also CC dinesh@ */
-      await fetch('https://api.web3forms.com/submit', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          access_key: process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY,
-          subject:    `New Contact Enquiry — ${formData.name} (${formData.enquiryType})`,
-          from_name:  formData.name,
-          replyto:    formData.email,
-          email:      'dinesh@dillonbird.com',
-          message:    msgBody,
-        }),
-      });
+      // 4. Send emails via Supabase Edge Function
+      await Promise.allSettled([
+        sendEmail(
+          [formData.email],
+          'We received your enquiry — Dillon & Bird',
+          confirmHtml
+        ),
+        sendEmail(
+          ['dinesh@dillonbird.com', 'praveen@dillonbird.com', 'senthil@dillonbird.com'],
+          `New Contact Enquiry — ${formData.firstName} ${formData.lastName}`,
+          detailsHtml
+        ),
+      ]);
 
-      /* 3 — Redirect to success page */
       router.push('/success?from=contact');
 
     } catch (err) {
@@ -183,118 +220,128 @@ Submitted via: ${window.location.href}
       <div className={styles.container}>
         <form className={styles.form} onSubmit={handleSubmit} noValidate>
 
-          {/* Name & Email */}
+          {/* First Name & Last Name */}
           <div className={styles.formRow}>
             <div className={styles.formGroup}>
-              <label htmlFor="name" className={styles.label}>
-                Name <span className={styles.required}>*</span>
+              <label htmlFor="firstName" className={styles.label}>
+                First Name <span className={styles.required}>*</span>
               </label>
               <input
-                type="text" id="name" name="name"
-                placeholder="Your name"
-                value={formData.name} onChange={handleChange}
-                className={`${styles.input} ${errors.name ? styles.error : ''}`}
+                type="text" id="firstName" name="firstName"
+                placeholder="Sarah"
+                value={formData.firstName} onChange={handleChange}
+                className={`${styles.input} ${errors.firstName ? styles.error : ''}`}
                 disabled={isLoading}
               />
-              {errors.name && <span className={styles.errorMessage}>{errors.name}</span>}
+              {errors.firstName && <span className={styles.errorMessage}>{errors.firstName}</span>}
             </div>
 
             <div className={styles.formGroup}>
+              <label htmlFor="lastName" className={styles.label}>
+                Last Name
+              </label>
+              <input
+                type="text" id="lastName" name="lastName"
+                placeholder="Al Mansoori"
+                value={formData.lastName} onChange={handleChange}
+                className={styles.input}
+                disabled={isLoading}
+              />
+            </div>
+          </div>
+
+          {/* Email & Phone */}
+          <div className={styles.formRow}>
+            <div className={styles.formGroup}>
               <label htmlFor="email" className={styles.label}>
-                Email <span className={styles.required}>*</span>
+                Work / Personal Email <span className={styles.required}>*</span>
               </label>
               <input
                 type="email" id="email" name="email"
-                placeholder="example@company.com"
+                placeholder="you@company.com"
                 value={formData.email} onChange={handleChange}
                 className={`${styles.input} ${errors.email ? styles.error : ''}`}
                 disabled={isLoading}
               />
               {errors.email && <span className={styles.errorMessage}>{errors.email}</span>}
             </div>
-          </div>
 
-          {/* Phone & Company */}
-          <div className={styles.formRow}>
             <div className={styles.formGroup}>
               <label htmlFor="phone" className={styles.label}>
-                Phone Number <span className={styles.required}>*</span>
+                Phone / WhatsApp <span className={styles.required}>*</span>
               </label>
               <input
                 type="tel" id="phone" name="phone"
-                placeholder="+971 50 000 0000"
+                placeholder="+971 5X XXX XXXX"
                 value={formData.phone} onChange={handleChange}
                 className={`${styles.input} ${errors.phone ? styles.error : ''}`}
                 disabled={isLoading}
               />
               {errors.phone && <span className={styles.errorMessage}>{errors.phone}</span>}
             </div>
+          </div>
 
+          {/* Company & Service Required */}
+          <div className={styles.formRow}>
             <div className={styles.formGroup}>
               <label htmlFor="company" className={styles.label}>
-                Company Name <span className={styles.required}>*</span>
+                Company Name
               </label>
               <input
                 type="text" id="company" name="company"
-                placeholder="Company name"
+                placeholder="Your Company"
                 value={formData.company} onChange={handleChange}
-                className={`${styles.input} ${errors.company ? styles.error : ''}`}
+                className={styles.input}
                 disabled={isLoading}
               />
-              {errors.company && <span className={styles.errorMessage}>{errors.company}</span>}
-            </div>
-          </div>
-
-          {/* Enquiry Type & How Did You Hear */}
-          <div className={styles.formRow}>
-            <div className={styles.formGroup}>
-              <label htmlFor="enquiryType" className={styles.label}>
-                Enquiry Type <span className={styles.required}>*</span>
-              </label>
-              <select
-                id="enquiryType" name="enquiryType"
-                value={formData.enquiryType} onChange={handleChange}
-                className={`${styles.select} ${errors.enquiryType ? styles.error : ''}`}
-                disabled={isLoading}
-              >
-                {enquiryTypeOptions.map(o => (
-                  <option key={o.value} value={o.value}>{o.label}</option>
-                ))}
-              </select>
-              {errors.enquiryType && <span className={styles.errorMessage}>{errors.enquiryType}</span>}
             </div>
 
             <div className={styles.formGroup}>
-              <label htmlFor="hearAbout" className={styles.label}>
-                How Did You Hear About Us <span className={styles.required}>*</span>
+              <label htmlFor="serviceRequired" className={styles.label}>
+                Service Required
               </label>
               <select
-                id="hearAbout" name="hearAbout"
-                value={formData.hearAbout} onChange={handleChange}
-                className={`${styles.select} ${errors.hearAbout ? styles.error : ''}`}
+                id="serviceRequired" name="serviceRequired"
+                value={formData.serviceRequired} onChange={handleChange}
+                className={styles.select}
                 disabled={isLoading}
               >
-                {hearAboutOptions.map(o => (
+                {serviceOptions.map(o => (
                   <option key={o.value} value={o.value}>{o.label}</option>
                 ))}
               </select>
-              {errors.hearAbout && <span className={styles.errorMessage}>{errors.hearAbout}</span>}
             </div>
           </div>
 
-          {/* Message */}
+          {/* How Did You Find Us */}
+          <div className={styles.formGroup}>
+            <label htmlFor="hearAbout" className={styles.label}>
+              How Did You Find Us
+            </label>
+            <select
+              id="hearAbout" name="hearAbout"
+              value={formData.hearAbout} onChange={handleChange}
+              className={styles.select}
+              disabled={isLoading}
+            >
+              {hearAboutOptions.map(o => (
+                <option key={o.value} value={o.value}>{o.label}</option>
+              ))}
+            </select>
+          </div>
+
+          {/* Additional Requirements */}
           <div className={styles.formGroup}>
             <label htmlFor="message" className={styles.label}>
-              Message <span className={styles.required}>*</span>
+              Additional Requirements
             </label>
             <textarea
               id="message" name="message"
-              placeholder="Leave us a message…"
+              placeholder="Tell us about your requirements…"
               value={formData.message} onChange={handleChange}
-              className={`${styles.textarea} ${errors.message ? styles.error : ''}`}
+              className={styles.textarea}
               disabled={isLoading}
             />
-            {errors.message && <span className={styles.errorMessage}>{errors.message}</span>}
           </div>
 
           {/* Checkbox */}

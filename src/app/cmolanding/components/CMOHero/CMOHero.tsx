@@ -32,6 +32,16 @@ const pills = [
 
 const trustItems = ['No Long-Term Lock-in', '100% Confidential', 'Response in 24 hrs'];
 
+const SUPABASE_FUNCTION_URL = process.env.NEXT_PUBLIC_SUPABASE_URL + '/functions/v1/send-email';
+
+const sendEmail = async (to: string[], subject: string, html: string) => {
+  await fetch(SUPABASE_FUNCTION_URL, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ to, subject, html }),
+  });
+};
+
 const scrollToContact = () => {
   document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
 };
@@ -62,6 +72,7 @@ export default function CMOHero() {
 
     setStatus('loading');
 
+    // 1. Save to Supabase
     const { error } = await supabase.from('cmo_leads').insert({
       first_name:      form.firstName,
       last_name:       form.lastName,
@@ -77,41 +88,71 @@ export default function CMOHero() {
 
     if (error) { console.error(error); setStatus('error'); return; }
 
-    const msgBody = `
-FRACTIONAL CMO LEAD
-===========================
-Name             : ${form.firstName} ${form.lastName}
-Company          : ${form.companyName || '—'}
-Email            : ${form.email}
-Phone / WhatsApp : ${form.phone}
-Emirate          : ${form.emirate || '—'}
-CMO Service      : ${form.cmoService || '—'}
-Referral Source  : ${form.referralSource || '—'}
-Marketing Goal   : ${form.message || '—'}
-===========================
-Submitted via: ${window.location.href}
-    `.trim();
+    // 2. Internal team email HTML
+    const detailsHtml = `
+      <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto;">
+        <div style="background: #2563eb; padding: 24px 32px;">
+          <h1 style="color: #fff; margin: 0; font-size: 20px;">New Fractional CMO Enquiry</h1>
+        </div>
+        <div style="padding: 32px; background: #f7f9fc; border: 1px solid #c8d0e0;">
+          <table style="width: 100%; border-collapse: collapse; font-size: 14px;">
+            <tr><td style="padding: 8px 0; color: #555; width: 180px;">Name</td><td style="padding: 8px 0; font-weight: 600; color: #111;">${form.firstName} ${form.lastName}</td></tr>
+            <tr><td style="padding: 8px 0; color: #555;">Company</td><td style="padding: 8px 0; font-weight: 600; color: #111;">${form.companyName || '—'}</td></tr>
+            <tr><td style="padding: 8px 0; color: #555;">Email</td><td style="padding: 8px 0; font-weight: 600; color: #111;">${form.email}</td></tr>
+            <tr><td style="padding: 8px 0; color: #555;">Phone / WhatsApp</td><td style="padding: 8px 0; font-weight: 600; color: #111;">${form.phone}</td></tr>
+            <tr><td style="padding: 8px 0; color: #555;">Emirate</td><td style="padding: 8px 0; font-weight: 600; color: #111;">${form.emirate || '—'}</td></tr>
+            <tr><td style="padding: 8px 0; color: #555;">Service Required</td><td style="padding: 8px 0; font-weight: 600; color: #111;">${form.cmoService || '—'}</td></tr>
+            <tr><td style="padding: 8px 0; color: #555;">How They Found Us</td><td style="padding: 8px 0; font-weight: 600; color: #111;">${form.referralSource || '—'}</td></tr>
+            <tr><td style="padding: 8px 0; color: #555;">Additional Requirements</td><td style="padding: 8px 0; font-weight: 600; color: #111;">${form.message || '—'}</td></tr>
+            <tr><td style="padding: 8px 0; color: #555;">Source Page</td><td style="padding: 8px 0; font-weight: 600; color: #111;">${window.location.href}</td></tr>
+          </table>
+        </div>
+        <div style="padding: 16px 32px; background: #fff; border: 1px solid #c8d0e0; border-top: none; font-size: 12px; color: #aaa;">
+          Dillon &amp; Bird · UAE
+        </div>
+      </div>
+    `;
 
-    const web3Payload = (toEmail?: string) => ({
-      access_key: process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY,
-      subject: `New CMO Enquiry — ${form.firstName} ${form.lastName}`,
-      from_name: `${form.firstName} ${form.lastName}`,
-      replyto: form.email,
-      ...(toEmail ? { email: toEmail } : {}),
-      message: msgBody,
-    });
+    // 3. Confirmation email to user
+    const confirmHtml = `
+      <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto;">
+        <div style="background: #2563eb; padding: 24px 32px;">
+          <h1 style="color: #fff; margin: 0; font-size: 20px;">Thank you, ${form.firstName}!</h1>
+        </div>
+        <div style="padding: 32px; background: #f7f9fc; border: 1px solid #c8d0e0;">
+          <p style="font-size: 15px; color: #333; line-height: 1.7;">
+            We've received your CMO enquiry. A senior consultant will review your requirements
+            and be in touch within <strong>24 hours</strong>.
+          </p>
+          <p style="font-size: 15px; color: #333; line-height: 1.7;">
+            In the meantime, feel free to WhatsApp us at
+            <a href="https://wa.me/971585570593" style="color: #2563eb;">+971 585 570 593</a>
+            if you have any urgent questions.
+          </p>
+          <p style="font-size: 15px; color: #333; margin-top: 24px;">
+            Warm regards,<br />
+            <strong>The Dillon &amp; Bird Team</strong>
+          </p>
+        </div>
+        <div style="padding: 16px 32px; background: #fff; border: 1px solid #c8d0e0; border-top: none; font-size: 12px; color: #aaa;">
+          Dillon &amp; Bird · UAE · <a href="https://dillonbird.com" style="color: #aaa;">dillonbird.com</a>
+        </div>
+      </div>
+    `;
 
-    await fetch('https://api.web3forms.com/submit', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(web3Payload()),
-    });
-
-    await fetch('https://api.web3forms.com/submit', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(web3Payload('dinesh@dillonbird.com')),
-    });
+    // 4. Send all emails via Supabase Edge Function
+    await Promise.allSettled([
+      sendEmail(
+        [form.email],
+        'We received your enquiry — Dillon & Bird',
+        confirmHtml
+      ),
+      sendEmail(
+        ['dinesh@dillonbird.com', 'praveen@dillonbird.com', 'senthil@dillonbird.com'],
+        `New CMO Enquiry — ${form.firstName} ${form.lastName}`,
+        detailsHtml
+      ),
+    ]);
 
     router.push('/success?from=cmolanding');
   };
@@ -198,7 +239,7 @@ Submitted via: ${window.location.href}
 
             <div className={styles.frow}>
               <div className={styles.fg}>
-                <label className={styles.label} htmlFor="cmo-fn">First Name</label>
+                <label className={styles.label} htmlFor="cmo-fn">First Name *</label>
                 <input className={styles.input} id="cmo-fn" name="firstName"
                   type="text" placeholder="John" autoComplete="given-name"
                   value={form.firstName} onChange={handleChange} />
@@ -213,7 +254,7 @@ Submitted via: ${window.location.href}
 
             <div className={styles.fg}>
               <label className={styles.label} htmlFor="cmo-co">
-                Company <span className={styles.optional}>(Optional)</span>
+                Company Name <span className={styles.optional}>(Optional)</span>
               </label>
               <input className={styles.input} id="cmo-co" name="companyName"
                 type="text" placeholder="Your Company" autoComplete="organization"
@@ -221,7 +262,7 @@ Submitted via: ${window.location.href}
             </div>
 
             <div className={styles.fg}>
-              <label className={styles.label} htmlFor="cmo-em">Work Email *</label>
+              <label className={styles.label} htmlFor="cmo-em">Work / Personal Email *</label>
               <input
                 className={`${styles.input} ${errors.email ? styles.inputErr : ''}`}
                 id="cmo-em" name="email" type="email"
@@ -256,7 +297,7 @@ Submitted via: ${window.location.href}
                 </select>
               </div>
               <div className={styles.fg}>
-                <label className={styles.label} htmlFor="cmo-svc">Area of Interest</label>
+                <label className={styles.label} htmlFor="cmo-svc">Service Required</label>
                 <select className={styles.select} id="cmo-svc" name="cmoService"
                   value={form.cmoService} onChange={handleChange}>
                   <option value="">— Select —</option>
@@ -287,11 +328,11 @@ Submitted via: ${window.location.href}
 
             <div className={styles.fg}>
               <label className={styles.label} htmlFor="cmo-msg">
-                Your Marketing Goal{' '}
+                Additional Requirements{' '}
                 <span className={styles.optional}>(Optional)</span>
               </label>
               <textarea className={styles.textarea} id="cmo-msg" name="message"
-                placeholder="Describe your biggest marketing challenge or goal…"
+                placeholder="Tell us about your requirement…"
                 value={form.message} onChange={handleChange} />
             </div>
 
@@ -313,15 +354,15 @@ Submitted via: ${window.location.href}
             </p>
 
             <div className={styles.waRow}>
-  <img src="/whatsapplogo1.svg" alt="WhatsApp" width={30} height={30} />
-  <a href="https://wa.me/971585570593?text=Hi%2C%20I%27m%20interested%20in%20a%20Fractional%20CMO%20consultation" target="_blank" rel="noopener noreferrer">
-    Chat on WhatsApp
-  </a>
-  <span className={styles.sep}>·</span>
-  <a href="tel:+971585570593" style={{ pointerEvents: 'none' }}>
-    +971 585 570 593
-  </a>
-</div>
+              <img src="/whatsapplogo1.svg" alt="WhatsApp" width={30} height={30} />
+              <a href="https://wa.me/971585570593" target="_blank" rel="noopener noreferrer">
+                Chat on WhatsApp
+              </a>
+              <span className={styles.sep}>·</span>
+              <a href="tel:+971585570593" style={{ pointerEvents: 'none' }}>
+                +971 585 570 593
+              </a>
+            </div>
 
           </div>
         )}

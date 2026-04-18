@@ -16,6 +16,20 @@ const initial: FormData = {
   phone: '', emirate: '', serviceType: '', referralSource: '', message: '',
 };
 
+const SUPABASE_FUNCTION_URL = process.env.NEXT_PUBLIC_SUPABASE_URL + '/functions/v1/send-email';
+
+const sendEmail = async (to: string[], subject: string, html: string) => {
+  await fetch(SUPABASE_FUNCTION_URL, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ to, subject, html }),
+  });
+};
+
+const scrollToContact = () => {
+  document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+};
+
 export default function InsolvencyHero() {
   const router = useRouter();
   const [form, setForm] = useState<FormData>(initial);
@@ -54,63 +68,80 @@ export default function InsolvencyHero() {
 
     if (error) { console.error(error); setStatus('error'); return; }
 
-    // 2. Email body
-    const msgBody = `
-INSOLVENCY LEAD
-===========================
-Name              : ${form.firstName} ${form.lastName}
-Company Name      : ${form.companyName || '—'}
-Email             : ${form.email}
-Phone / WhatsApp  : ${form.phone}
-Emirate           : ${form.emirate || '—'}
-Service Type      : ${form.serviceType || '—'}
-Referral Source   : ${form.referralSource || '—'}
-Additional Notes  : ${form.message || '—'}
-===========================
-Submitted via: ${window.location.href}
-    `.trim();
+    // 2. Internal team email HTML
+    const detailsHtml = `
+      <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto;">
+        <div style="background: #2563eb; padding: 24px 32px;">
+          <h1 style="color: #fff; margin: 0; font-size: 20px;">New Insolvency Enquiry</h1>
+        </div>
+        <div style="padding: 32px; background: #f7f9fc; border: 1px solid #c8d0e0;">
+          <table style="width: 100%; border-collapse: collapse; font-size: 14px;">
+            <tr><td style="padding: 8px 0; color: #555; width: 180px;">Name</td><td style="padding: 8px 0; font-weight: 600; color: #111;">${form.firstName} ${form.lastName}</td></tr>
+            <tr><td style="padding: 8px 0; color: #555;">Company Name</td><td style="padding: 8px 0; font-weight: 600; color: #111;">${form.companyName || '—'}</td></tr>
+            <tr><td style="padding: 8px 0; color: #555;">Email</td><td style="padding: 8px 0; font-weight: 600; color: #111;">${form.email}</td></tr>
+            <tr><td style="padding: 8px 0; color: #555;">Phone / WhatsApp</td><td style="padding: 8px 0; font-weight: 600; color: #111;">${form.phone}</td></tr>
+            <tr><td style="padding: 8px 0; color: #555;">Emirate</td><td style="padding: 8px 0; font-weight: 600; color: #111;">${form.emirate || '—'}</td></tr>
+            <tr><td style="padding: 8px 0; color: #555;">Service Required</td><td style="padding: 8px 0; font-weight: 600; color: #111;">${form.serviceType || '—'}</td></tr>
+            <tr><td style="padding: 8px 0; color: #555;">How They Found Us</td><td style="padding: 8px 0; font-weight: 600; color: #111;">${form.referralSource || '—'}</td></tr>
+            <tr><td style="padding: 8px 0; color: #555;">Additional Requirements</td><td style="padding: 8px 0; font-weight: 600; color: #111;">${form.message || '—'}</td></tr>
+            <tr><td style="padding: 8px 0; color: #555;">Source Page</td><td style="padding: 8px 0; font-weight: 600; color: #111;">${window.location.href}</td></tr>
+          </table>
+        </div>
+        <div style="padding: 16px 32px; background: #fff; border: 1px solid #c8d0e0; border-top: none; font-size: 12px; color: #aaa;">
+          Dillon &amp; Bird · UAE
+        </div>
+      </div>
+    `;
 
-    // 3. Payload builder — each call goes to its own verified recipient
-    const makePayload = (toEmail: string) => JSON.stringify({
-      access_key: process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY,
-      subject:    `New Insolvency Enquiry — ${form.firstName} ${form.lastName}`,
-      from_name:  `${form.firstName} ${form.lastName}`,
-      replyto:    form.email,
-      email:      toEmail,
-      message:    msgBody,
-    });
+    // 3. Confirmation email to user
+    const confirmHtml = `
+      <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto;">
+        <div style="background: #2563eb; padding: 24px 32px;">
+          <h1 style="color: #fff; margin: 0; font-size: 20px;">Thank you, ${form.firstName}!</h1>
+        </div>
+        <div style="padding: 32px; background: #f7f9fc; border: 1px solid #c8d0e0;">
+          <p style="font-size: 15px; color: #333; line-height: 1.7;">
+            We've received your insolvency enquiry. A senior advisor will review your
+            requirements and be in touch within <strong>24 hours</strong>.
+          </p>
+          <p style="font-size: 15px; color: #333; line-height: 1.7;">
+            Your details are treated with complete confidentiality. In the meantime,
+            feel free to WhatsApp us at
+            <a href="https://wa.me/971585570593" style="color: #2563eb;">+971 585 570 593</a>
+            if you have any urgent questions.
+          </p>
+          <p style="font-size: 15px; color: #333; margin-top: 24px;">
+            Warm regards,<br />
+            <strong>The Dillon &amp; Bird Team</strong>
+          </p>
+        </div>
+        <div style="padding: 16px 32px; background: #fff; border: 1px solid #c8d0e0; border-top: none; font-size: 12px; color: #aaa;">
+          Dillon &amp; Bird · UAE · <a href="https://dillonbird.com" style="color: #aaa;">dillonbird.com</a>
+        </div>
+      </div>
+    `;
 
-    // 4. Send to both emails in parallel — allSettled so one failure won't block the other
-    const results = await Promise.allSettled([
-      fetch('https://api.web3forms.com/submit', {
-        method:  'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body:    makePayload('senthil@dillonbird.com'),
-      }),
-      fetch('https://api.web3forms.com/submit', {
-        method:  'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body:    makePayload('praveen@dillonbird.com'),
-      }),
+    // 4. Send all emails via Supabase Edge Function
+    await Promise.allSettled([
+      sendEmail(
+        [form.email],
+        'We received your enquiry — Dillon & Bird',
+        confirmHtml
+      ),
+      sendEmail(
+        ['dinesh@dillonbird.com', 'praveen@dillonbird.com', 'senthil@dillonbird.com'],
+        `New Insolvency Enquiry — ${form.firstName} ${form.lastName}`,
+        detailsHtml
+      ),
     ]);
 
-    results.forEach((result, i) => {
-      if (result.status === 'rejected') {
-        console.error(`web3forms send ${i} failed:`, result.reason);
-      }
-    });
-
-    router.push('/success?from=insolvencyliquidation')
-  };
-
-  const scrollToContact = () => {
-    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+    router.push('/success?from=insolvencyliquidation');
   };
 
   return (
     <section className={styles.hero}>
 
-      {/* ── LEFT ─────────────────────────────────────── */}
+      {/* ── LEFT ── */}
       <div className={styles.heroL}>
         <div className={styles.badge}>
           <div className={styles.badgeDot} />
@@ -128,14 +159,14 @@ Submitted via: ${window.location.href}
           — with full confidentiality and a clear path forward.
         </p>
         <div className={styles.acts}>
-  <button onClick={scrollToContact} className={styles.btnPrimary}>
-    Get Confidential Advice →
-  </button>
-  <a href="https://wa.me/971585570593" target="_blank" rel="noopener noreferrer" className={styles.btnOutline}>
-    <img src="/whatsapplogo1.svg" alt="WhatsApp" width={20} height={20} />
-    WhatsApp Us Now
-  </a>
-</div>
+          <button onClick={scrollToContact} className={styles.btnPrimary}>
+            Get Confidential Advice →
+          </button>
+          <a href="https://wa.me/971585570593" target="_blank" rel="noopener noreferrer" className={styles.btnOutline}>
+            <img src="/whatsapplogo1.svg" alt="WhatsApp" width={20} height={20} />
+            WhatsApp Us Now
+          </a>
+        </div>
         <div className={styles.pills}>
           {[
             { n: 'UAE',  l: 'Licensed Advisors' },
@@ -150,7 +181,7 @@ Submitted via: ${window.location.href}
         </div>
       </div>
 
-      {/* ── RIGHT — FORM ─────────────────────────────── */}
+      {/* ── RIGHT — FORM ── */}
       <div className={styles.heroR} id="contact">
         <div className={styles.formTag}>
           <div className={styles.formTagBar} />
@@ -182,10 +213,9 @@ Submitted via: ${window.location.href}
         ) : (
           <div className={styles.form}>
 
-            {/* First + Last */}
             <div className={styles.frow}>
               <div className={styles.fg}>
-                <label className={styles.label} htmlFor="in-fn">First Name</label>
+                <label className={styles.label} htmlFor="in-fn">First Name *</label>
                 <input className={styles.input} id="in-fn" name="firstName" type="text"
                   placeholder="Ahmed" autoComplete="given-name"
                   value={form.firstName} onChange={handleChange} />
@@ -198,7 +228,6 @@ Submitted via: ${window.location.href}
               </div>
             </div>
 
-            {/* Company */}
             <div className={styles.fg}>
               <label className={styles.label} htmlFor="in-cn">
                 Company Name <span className={styles.optional}>(Optional)</span>
@@ -208,7 +237,6 @@ Submitted via: ${window.location.href}
                 value={form.companyName} onChange={handleChange} />
             </div>
 
-            {/* Email */}
             <div className={styles.fg}>
               <label className={styles.label} htmlFor="in-em">Work / Personal Email *</label>
               <input
@@ -219,7 +247,6 @@ Submitted via: ${window.location.href}
               />
             </div>
 
-            {/* Phone */}
             <div className={styles.fg}>
               <label className={styles.label} htmlFor="in-ph">Phone / WhatsApp *</label>
               <input
@@ -230,7 +257,6 @@ Submitted via: ${window.location.href}
               />
             </div>
 
-            {/* Emirate + Service */}
             <div className={styles.frow}>
               <div className={styles.fg}>
                 <label className={styles.label} htmlFor="in-loc">
@@ -265,7 +291,6 @@ Submitted via: ${window.location.href}
               </div>
             </div>
 
-            {/* Referral */}
             <div className={styles.fg}>
               <label className={styles.label} htmlFor="in-rf">How Did You Find Us?</label>
               <select className={styles.select} id="in-rf" name="referralSource"
@@ -279,13 +304,12 @@ Submitted via: ${window.location.href}
               </select>
             </div>
 
-            {/* Message */}
             <div className={styles.fg}>
               <label className={styles.label} htmlFor="in-msg">
-                Brief Description <span className={styles.optional}>(Optional)</span>
+                Additional Requirements <span className={styles.optional}>(Optional)</span>
               </label>
               <textarea className={styles.textarea} id="in-msg" name="message"
-                placeholder="Briefly describe your situation…"
+                placeholder="Tell us about your requirement…"
                 value={form.message} onChange={handleChange} />
             </div>
 
@@ -309,14 +333,14 @@ Submitted via: ${window.location.href}
             </p>
 
             <div className={styles.waRow}>
-            <img src="/whatsapplogo1.svg" alt="WhatsApp Icon" width={30} height={30} />
+              <img src="/whatsapplogo1.svg" alt="WhatsApp" width={30} height={30} />
               <a href="https://wa.me/971585570593" target="_blank" rel="noopener noreferrer">
                 Chat on WhatsApp
               </a>
               <span className={styles.sep}>·</span>
               <a href="tel:+971585570593" style={{ pointerEvents: 'none' }}>
-    +971 585 570 593
-  </a>
+                +971 585 570 593
+              </a>
             </div>
 
           </div>

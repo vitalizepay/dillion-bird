@@ -291,16 +291,16 @@ export default function ABKHero() {
             </div>
 
             <div className={styles.fg}>
-              <label className={styles.label} htmlFor="au-type">Service Type</label>
+              <label className={styles.label} htmlFor="au-type">Service Required</label>
               <select className={styles.select} id="au-type" name="auditType"
                 value={form.auditType} onChange={handleChange}>
                 <option value="">— Select a service —</option>
-                <option>Internal Audit</option>
-                <option>VAT Compliance Audit</option>
-                <option>Corporate Tax Audit</option>
-                <option>External Audit Readiness</option>
-                <option>Financial Due Diligence</option>
-                <option>Forensic Investigation</option>
+                <option>Bookkeeping & Montly Accounts</option>
+                <option>⁠VAT Registration & Filing</option>
+                <option>⁠Corporate Tax & Compliance</option>
+                <option>Payroll & WPS Processing</option>
+                <option>Management Accounts & Reporting</option>
+                <option>⁠Outsourced CFO Services</option>
                 <option>Not Sure — Need Advice</option>
               </select>
             </div>
@@ -333,7 +333,7 @@ export default function ABKHero() {
 
             <div className={styles.fg}>
               <label className={styles.label} htmlFor="au-msg">
-                Additional Requirements <span className={styles.optional}>(Optional)</span>
+              Tell us about your requirement <span className={styles.optional}>(Optional)</span>
               </label>
               <textarea className={styles.textarea} id="au-msg" name="message"
                 placeholder="Describe your audit scope, timeline or any specific concerns…"

@@ -27,6 +27,21 @@ const scrollToServices = () => {
   document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' });
 };
 
+const SUPABASE_FUNCTION_URL = process.env.NEXT_PUBLIC_SUPABASE_URL + '/functions/v1/send-email';
+
+const sendEmail = async (to: string[], subject: string, html: string) => {
+  const res = await fetch(SUPABASE_FUNCTION_URL, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ to, subject, html }),
+  });
+  const data = await res.json();
+  console.log('sendEmail response:', data);
+  return data;
+};
+
 export default function ABKHero() {
   const router = useRouter();
   const [form, setForm] = useState<FormData>(initial);
@@ -46,6 +61,7 @@ export default function ABKHero() {
     if (Object.keys(errs).length) { setErrors(errs); return; }
     setStatus('loading');
 
+    // 1. Save to Supabase
     const { error } = await supabase.from('accounting_book_keeping_leads').insert({
       first_name: form.firstName,
       last_name: form.lastName,
@@ -62,44 +78,73 @@ export default function ABKHero() {
     });
     if (error) { console.error(error); setStatus('error'); return; }
 
-    const msgBody = `
-AUDIT & ASSURANCE LEAD
-===========================
-Name              : ${form.firstName} ${form.lastName}
-Company Name      : ${form.companyName || '—'}
-Role              : ${form.role || '—'}
-Email             : ${form.email}
-Phone / WhatsApp  : ${form.phone}
-Emirate           : ${form.emirate || '—'}
-Service Type      : ${form.auditType || '—'}
-Company Size      : ${form.companySize || '—'}
-Referral Source   : ${form.referralSource || '—'}
-Additional Notes  : ${form.message || '—'}
-===========================
-Submitted via: ${window.location.href}
-    `.trim();
+    // 2. Internal team email HTML
+    const detailsHtml = `
+      <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto;">
+        <div style="background: #2563eb; padding: 24px 32px;">
+          <h1 style="color: #fff; margin: 0; font-size: 20px;">New Accounting & Bookkeeping Enquiry</h1>
+        </div>
+        <div style="padding: 32px; background: #f7f9fc; border: 1px solid #c8d0e0;">
+          <table style="width: 100%; border-collapse: collapse; font-size: 14px;">
+            <tr><td style="padding: 8px 0; color: #555; width: 180px;">Name</td><td style="padding: 8px 0; font-weight: 600; color: #111;">${form.firstName} ${form.lastName}</td></tr>
+            <tr><td style="padding: 8px 0; color: #555;">Company</td><td style="padding: 8px 0; font-weight: 600; color: #111;">${form.companyName || '—'}</td></tr>
+            <tr><td style="padding: 8px 0; color: #555;">Role</td><td style="padding: 8px 0; font-weight: 600; color: #111;">${form.role || '—'}</td></tr>
+            <tr><td style="padding: 8px 0; color: #555;">Email</td><td style="padding: 8px 0; font-weight: 600; color: #111;">${form.email}</td></tr>
+            <tr><td style="padding: 8px 0; color: #555;">Phone / WhatsApp</td><td style="padding: 8px 0; font-weight: 600; color: #111;">${form.phone}</td></tr>
+            <tr><td style="padding: 8px 0; color: #555;">Emirate</td><td style="padding: 8px 0; font-weight: 600; color: #111;">${form.emirate || '—'}</td></tr>
+            <tr><td style="padding: 8px 0; color: #555;">Service Type</td><td style="padding: 8px 0; font-weight: 600; color: #111;">${form.auditType || '—'}</td></tr>
+            <tr><td style="padding: 8px 0; color: #555;">Company Size</td><td style="padding: 8px 0; font-weight: 600; color: #111;">${form.companySize || '—'}</td></tr>
+            <tr><td style="padding: 8px 0; color: #555;">Referral Source</td><td style="padding: 8px 0; font-weight: 600; color: #111;">${form.referralSource || '—'}</td></tr>
+            <tr><td style="padding: 8px 0; color: #555;">Notes</td><td style="padding: 8px 0; font-weight: 600; color: #111;">${form.message || '—'}</td></tr>
+            <tr><td style="padding: 8px 0; color: #555;">Source Page</td><td style="padding: 8px 0; font-weight: 600; color: #111;">${window.location.href}</td></tr>
+          </table>
+        </div>
+        <div style="padding: 16px 32px; background: #fff; border: 1px solid #c8d0e0; border-top: none; font-size: 12px; color: #aaa;">
+          Dillon &amp; Bird · UAE
+        </div>
+      </div>
+    `;
 
-    await fetch('https://api.web3forms.com/submit', {
-      method: 'POST', headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        access_key: process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY,
-        subject: `New Audit Enquiry — ${form.firstName} ${form.lastName}`,
-        from_name: `${form.firstName} ${form.lastName}`,
-        replyto: form.email, message: msgBody,
-      }),
-    });
+    // 3. Confirmation email to user
+    const confirmHtml = `
+      <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto;">
+        <div style="background: #2563eb; padding: 24px 32px;">
+          <h1 style="color: #fff; margin: 0; font-size: 20px;">Thank you, ${form.firstName}!</h1>
+        </div>
+        <div style="padding: 32px; background: #f7f9fc; border: 1px solid #c8d0e0;">
+          <p style="font-size: 15px; color: #333; line-height: 1.7;">
+            We've received your accounting &amp; bookkeeping enquiry. A senior advisor will review
+            your requirements and be in touch within <strong>24 hours</strong>.
+          </p>
+          <p style="font-size: 15px; color: #333; line-height: 1.7;">
+            In the meantime, feel free to WhatsApp us at
+            <a href="https://wa.me/971585570593" style="color: #2563eb;">+971 585 570 593</a>
+            if you have any urgent questions.
+          </p>
+          <p style="font-size: 15px; color: #333; margin-top: 24px;">
+            Warm regards,<br />
+            <strong>The Dillon &amp; Bird Team</strong>
+          </p>
+        </div>
+        <div style="padding: 16px 32px; background: #fff; border: 1px solid #c8d0e0; border-top: none; font-size: 12px; color: #aaa;">
+          Dillon &amp; Bird · UAE · <a href="https://dillonbird.com" style="color: #aaa;">dillonbird.com</a>
+        </div>
+      </div>
+    `;
 
-    await fetch('https://api.web3forms.com/submit', {
-      method: 'POST', headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        access_key: process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY,
-        subject: `New Audit Enquiry — ${form.firstName} ${form.lastName}`,
-        from_name: `${form.firstName} ${form.lastName}`,
-        replyto: form.email,
-        email: 'dinesh@dillonbird.com',
-        message: msgBody,
-      }),
-    });
+    // 4. Send all emails via Supabase Edge Function
+    await Promise.allSettled([
+      sendEmail(
+        [form.email],
+        'We received your enquiry — Dillon & Bird',
+        confirmHtml
+      ),
+      sendEmail(
+        ['dinesh@dillonbird.com', 'praveen@dillonbird.com', 'senthil@dillonbird.com'],
+        `New Accounting Enquiry — ${form.firstName} ${form.lastName}`,
+        detailsHtml
+      ),
+    ]);
 
     router.push('/success?from=accountingbookkeeping');
   };

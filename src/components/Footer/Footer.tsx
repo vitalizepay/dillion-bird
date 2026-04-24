@@ -66,7 +66,7 @@ export default function Footer() {
             and enterprises on business strategy, market entry, structuring, and scalable growth
             across the GCC.
           </p>
-          <a href="https://maps.google.com/?q=Meydan+Hotel+Grandstand+Building+6th+Floor+Al+Meydan+Road+Nad+Al+Sheba+1+Dubai+UAE"
+          <a href="https://maps.app.goo.gl/yYS3mNKHXUdV7nDu6"
   target="_blank"
   rel="noopener noreferrer"
   className={styles.addressLink}

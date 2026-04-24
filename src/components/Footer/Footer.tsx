@@ -66,14 +66,14 @@ export default function Footer() {
             and enterprises on business strategy, market entry, structuring, and scalable growth
             across the GCC.
           </p>
-          <a href="https://maps.app.goo.gl/yYS3mNKHXUdV7nDu6"
+          <a href="https://maps.google.com/?q=Meydan+Hotel+Grandstand+Building+6th+Floor+Al+Meydan+Road+Nad+Al+Sheba+1+Dubai+UAE"
   target="_blank"
   rel="noopener noreferrer"
   className={styles.addressLink}
 > 
   <Image src="/googlemapsicon.svg" alt="Google Maps" width={20} height={20} />
-  Address: 15th floor, Office Room No-15-28,Burjuman Business Tower,
-  Al Mankhool, Dubai, UAE
+  Address: Meydan, Grandstand Building, 6th Floor, Al Meydan Road,
+  Nad Al Sheba 1, Dubai, UAE
 </a>
           <div className={styles.socials}>
             <Link href="https://www.linkedin.com/company/dillon-bird/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">

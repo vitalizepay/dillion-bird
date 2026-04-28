@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "start:static": "npx serve -s out -l 3000",  
+    "start:static": "npx serve -s out -l 3000",
     "lint": "eslint"
   },
   "dependencies": {
@@ -16,7 +16,8 @@
     "prettier": "^3.7.4",
     "react": "19.2.3",
     "react-dom": "19.2.3",
-    "resend": "^6.12.0"
+    "resend": "^6.12.0",
+    "serve": "^14.2.6"
   },
   "devDependencies": {
     "@types/node": "^20",

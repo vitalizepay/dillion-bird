@@ -92,7 +92,7 @@ export default function Footer() {
           <h4 className={styles.sectionTitle}>Our Services</h4>
           <ul>
             <li><Link href="/companyformation">Company Formation</Link></li>
-            <li><Link href="/auditservices">Audit Services</Link></li>
+            <li><Link href="/audit">Audit Services</Link></li>
             <li><Link href="/accountingbookkeeping">Accounting &amp; Book Keeping</Link></li>
             <li><Link href="/cmoservices">CMO Services</Link></li>
             <li><Link href="/insolvencyliquidation">Insolvency Liquidation</Link></li>

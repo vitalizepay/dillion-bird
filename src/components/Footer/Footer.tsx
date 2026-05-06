@@ -72,8 +72,10 @@ export default function Footer() {
   className={styles.addressLink}
 > 
   <Image src="/googlemapsicon.svg" alt="Google Maps" width={20} height={20} />
-  Address: Meydan, Grandstand Building, 6th Floor, Al Meydan Road,
+  Address : Meydan, Grandstand Building, 6th Floor, Al Meydan Road,
   Nad Al Sheba 1, Dubai, UAE
+  Address 2: 15th Floor, Burjuman Towers, Burjuman, Dubai, 
+  United Arab Emirates.
 </a>
           <div className={styles.socials}>
             <Link href="https://www.linkedin.com/company/dillon-bird/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">

@@ -2,9 +2,36 @@ import Link from 'next/link';
 import { getAllPosts, getAllCategories } from '../../../lib/wordpress';
 import styles from './Blog.module.css';
 
+interface Post {
+  id: string;
+  slug: string;
+  title: string;
+  date: string;
+  excerpt: string;
+  featuredImage: {
+    node: {
+      sourceUrl: string;
+      altText: string;
+    };
+  } | null;
+  categories: {
+    nodes: { name: string; slug: string }[];
+  };
+  author: {
+    node: { name: string };
+  };
+}
+
+interface Category {
+  id: string;
+  name: string;
+  slug: string;
+  count: number;
+}
+
 export default async function BlogPage() {
-  let posts = [];
-  let categories = [];
+  let posts: Post[] = [];
+  let categories: Category[] = [];
 
   try {
     [posts, categories] = await Promise.all([
@@ -37,7 +64,7 @@ export default async function BlogPage() {
       {categories.length > 0 && (
         <div className={styles.filters}>
           <Link href="/blog" className={styles.filterBtn}>All</Link>
-          {categories.map(cat => (
+          {categories.map((cat: Category) => (
             <Link
               key={cat.id}
               href={`/blog/category/${cat.slug}`}
@@ -55,7 +82,7 @@ export default async function BlogPage() {
         <p className={styles.empty}>No posts published yet.</p>
       ) : (
         <div className={styles.grid}>
-          {posts.map((post, i) => (
+          {posts.map((post: Post, i: number) => (
             <article
               key={post.id}
               className={`${styles.card} ${i === 0 ? styles.cardFeatured : ''}`}
@@ -106,4 +133,4 @@ export default async function BlogPage() {
 
     </main>
   );
-} 
+}

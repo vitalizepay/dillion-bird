@@ -1,23 +1,22 @@
 name: Deploy Next.js Site
-
 on:
   push:
     branches: [main]
+  repository_dispatch:
+    types: [wp_post_published]
 
-# Opt into the Node 24 runner environment globally
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout
-        uses: actions/checkout@v6 # Updated to v6 for Node 24 native support
+        uses: actions/checkout@v6
 
       - name: Setup Node
-        uses: actions/setup-node@v6 # Updated to v6
+        uses: actions/setup-node@v6
         with:
           node-version: 24
           cache: 'npm'
@@ -26,11 +25,12 @@ jobs:
         run: npm install
 
       - name: Build Project
-        # Injecting all your secret keys for the build phase
         env:
           NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
           NEXT_PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.NEXT_PUBLIC_SUPABASE_ANON_KEY }}
           NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY: ${{ secrets.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY }}
+          NEXT_PUBLIC_TURNSTILE_SITE_KEY: ${{ secrets.NEXT_PUBLIC_TURNSTILE_SITE_KEY }}
+          NEXT_PUBLIC_WP_GRAPHQL_URL: ${{ secrets.NEXT_PUBLIC_WP_GRAPHQL_URL }}
         run: npm run build
 
       - name: Upload artifact

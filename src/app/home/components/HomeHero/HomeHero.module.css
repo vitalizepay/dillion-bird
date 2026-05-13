@@ -2,32 +2,85 @@
   position: relative;
   width: 100%;
   height: 100vh;
-  background: #ffffff;
   overflow: hidden;
+  background: #000;
 }
 
 .container {
-  display: flex;
+  position: relative;
   width: 100%;
   height: 100%;
-  position: relative;
 }
 
-/* ============== LEFT CONTENT COLUMN ============== */
-.leftContent {
-  z-index: 2;
+/* ================= VIDEO SECTION ================= */
+
+.rightImage {
   position: absolute;
-  left: 5vw;
-  top: 45%;
-  transform: translateY(-50%);
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 1;
+}
+
+/* dark overlay */
+.rightImage::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  z-index: 3;
+}
+
+/* stacked videos */
+.video {
+  position: absolute;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  opacity: 0;
+
+  transform: scale(1.05);
+  transition:
+    opacity 0.8s ease-in-out,
+    transform 6s ease;
+  backface-visibility: hidden;
+
+  will-change: opacity;
+
+  pointer-events: none;
+}
+
+/* active visible video */
+.activeVideo {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* ================= CONTENT ================= */
+
+.leftContent {
+  position: relative;
+  z-index: 5;
+
+  height: 100%;
+
   display: flex;
   flex-direction: column;
+  justify-content: center;
+
+  padding-left: 5vw;
+
   max-width: 700px;
 }
 
 .brand {
   display: block;
-  color: #3b82f6;
+  color: #60a5fa;
   font-size: 18px;
   font-weight: 700;
   line-height: 28px;
@@ -35,190 +88,179 @@
 }
 
 .heading {
-  font-size: 50px;
-  line-height: 55px;
+  font-size: 58px;
+  line-height: 1.1;
   font-weight: 800;
   color: #fff;
-  margin: 0 0 32px 0;
-  letter-spacing: -0.5px;
+  margin: 0 0 28px 0;
+  letter-spacing: -1px;
   max-width: 900px;
 }
 
 .strategic {
   font-size: 18px;
   font-weight: 700;
-  line-height: 28px;
-  color: #0f172a;
-  margin: 50px 0 20px 0;
+  line-height: 30px;
+  color: rgba(255, 255, 255, 0.95);
+  margin: 0 0 18px 0;
 }
 
 .description {
   font-size: 16px;
-  line-height: 26px;
-  color: #64748b;
+  line-height: 28px;
+  color: rgba(255, 255, 255, 0.78);
   margin: 0 0 32px 0;
-  max-width: 500px;
+  max-width: 520px;
 }
 
 .cta {
   background: #3b82f6;
   color: #ffffff;
+
   border: none;
-  border-radius: 8px;
-  padding: 12px 28px;
+  border-radius: 10px;
+
+  padding: 14px 30px;
+
   font-size: 15px;
   font-weight: 700;
+
   cursor: pointer;
+
   transition: all 0.3s ease;
+
   align-self: flex-start;
+
   text-decoration: none;
 }
 
 .cta:hover {
   background: #2563eb;
+  transform: translateY(-2px);
 }
 
-/* ============== RIGHT IMAGE COLUMN ============== */
-.rightImage {
-  position: relative;
-  right: 0;
-  bottom: 0;
-  width: 75%;
-  height: 100%;
+/* ================= DOTS ================= */
+
+.dots {
+  position: absolute;
+
+  bottom: 40px;
+  left: 5vw;
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  z-index: 6;
 }
 
-.image {
-  object-fit: contain;
-  object-position: bottom right;
+.dot {
+  width: 10px;
+  height: 10px;
+
+  border-radius: 999px;
+  border: none;
+
+  background: rgba(255, 255, 255, 0.45);
+
+  cursor: pointer;
+
+  transition: all 0.3s ease;
 }
 
+.dot:hover {
+  background: rgba(255, 255, 255, 0.7);
+}
 
+.dotActive {
+  width: 28px;
+  background: #fff;
+}
 
-/* ============== TABLET ============== */
+/* ================= TABLET ================= */
+
 @media (max-width: 1024px) and (min-width: 769px) {
   .hero {
-    height: auto;
-  }
-
-  .container {
-    flex-direction: column;
-    padding: 4rem 4vw 0 4vw;
-    position: relative;
+    height: 100vh;
   }
 
   .leftContent {
-    position: relative;
-    left: 0;
-    top: 0;
-    transform: none;
-    width: 100%;
     max-width: 100%;
-    text-align: center;
-    align-items: center;
-    z-index: 3;
+    padding: 0 6vw;
+    justify-content: center;
   }
 
   .heading {
-    font-size: 48px;
-    line-height: 56px;
-    margin-bottom: 20px;
+    font-size: 46px;
+    line-height: 1.15;
   }
 
   .strategic {
-    font-size: 24px;
-    margin-bottom: 20px;
-    max-width: 500px;
-  }
-
-  .description {
-    margin-bottom: 18px;
     font-size: 18px;
   }
 
-  .cta {
-    align-self: center;
-    margin-bottom: -30.0rem;
+  .description {
+    font-size: 17px;
+    max-width: 600px;
   }
 
-  .rightImage {
-    position: relative;
-    width: 100%;
-    height: 70vh;
-    min-height: 700px;
-  }
-  
-  .image {
-    object-position: bottom center;
-    object-fit: contain;
-
+  .dots {
+    bottom: 30px;
   }
 }
 
+/* ================= MOBILE ================= */
 
-
-
-/* ============== MOBILE ============== */
 @media (max-width: 768px) {
   .hero {
-    height: auto;
+    height: 100vh;
+    min-height: 700px;
   }
 
   .container {
-    padding: 3rem 5vw 0 5vw;
-    flex-direction: column;
+    padding: 0;
   }
 
   .leftContent {
-    position: relative;
-    left: 0;
-    top: 0;
-    transform: none;
-    width: 100%;
-    max-width: 100%;
-    text-align: center;
+    padding: 0 7vw;
+    justify-content: center;
     align-items: center;
+    text-align: center;
+    max-width: 100%;
   }
 
   .brand {
-    font-size: 16px;
-    margin-bottom: 20px;
+    font-size: 15px;
+    margin-bottom: 18px;
   }
 
   .heading {
-    font-size: 32px;
-    line-height: 40px;
+    font-size: 34px;
+    line-height: 1.15;
     margin-bottom: 20px;
   }
 
   .strategic {
     font-size: 15px;
-    margin-bottom: 12px;
-    max-width: 190px;
+    line-height: 24px;
+    margin-bottom: 16px;
   }
 
   .description {
     font-size: 14px;
-    margin-bottom: 16px;
-    max-width: 300px;
+    line-height: 24px;
+    margin-bottom: 24px;
+    max-width: 320px;
   }
 
   .cta {
-    width: auto;
     align-self: center;
-    margin-bottom: -30rem;
+    padding: 13px 26px;
   }
 
-  .rightImage {
-    position: relative;
-    width: 100vw;
-    margin-left: -5vw;
-    margin-right: -5vw;
-    height: 70vh;
-    min-height: 600px;
-  }
-  
-  .image {
-    object-position: bottom center;
-    object-fit: contain;
+  .dots {
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 25px;
   }
 }

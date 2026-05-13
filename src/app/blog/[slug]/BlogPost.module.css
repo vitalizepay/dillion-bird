@@ -61,7 +61,6 @@
   
   .featuredImg {
     width: 100%;
-    border-radius: 16px;
     overflow: hidden;
     margin-bottom: 40px;
     aspect-ratio: 16/9;

@@ -9,17 +9,23 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata(
-  { params }: { params: { slug: string } }
+  { params }: { params: Promise<{ slug: string }> }
 ): Promise<Metadata> {
-  const post = await getPostBySlug(params.slug);
+  const { slug } = await params;
+  const post = await getPostBySlug(slug);
   return {
     title: `${post?.title} | Dillon & Bird`,
     description: post?.excerpt?.replace(/<[^>]+>/g, '') || '',
   };
 }
 
-export default async function BlogPost({ params }: { params: { slug: string } }) {
-  const post = await getPostBySlug(params.slug);
+export default async function BlogPost({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
+  const post = await getPostBySlug(slug);
 
   if (!post) {
     return (
@@ -33,12 +39,10 @@ export default async function BlogPost({ params }: { params: { slug: string } })
   return (
     <main className={styles.main}>
 
-      {/* Back link */}
       <Link href="/blog" className={styles.back}>
         ← Back to Blog
       </Link>
 
-      {/* Header */}
       <section className={styles.header}>
         {post.categories.nodes[0] && (
           <span className={styles.cat}>
@@ -66,7 +70,6 @@ export default async function BlogPost({ params }: { params: { slug: string } })
         </div>
       </section>
 
-      {/* Featured Image */}
       {post.featuredImage && (
         <div className={styles.featuredImg}>
           <img
@@ -76,7 +79,6 @@ export default async function BlogPost({ params }: { params: { slug: string } })
         </div>
       )}
 
-      {/* Content */}
       <article className={styles.article}>
         <div
           className={styles.content}
@@ -84,7 +86,6 @@ export default async function BlogPost({ params }: { params: { slug: string } })
         />
       </article>
 
-      {/* Back to blog */}
       <div className={styles.footer}>
         <Link href="/blog" className={styles.backBtn}>
           ← Back to All Articles

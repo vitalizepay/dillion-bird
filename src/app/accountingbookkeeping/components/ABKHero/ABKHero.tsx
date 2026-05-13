@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { supabase } from '../../../../../lib/supabase';
+import { Turnstile } from '@marsidev/react-turnstile';
 import styles from './ABKHero.module.css';
 
 interface FormData {
@@ -29,13 +30,11 @@ const scrollToServices = () => {
 
 const SUPABASE_FUNCTION_URL = process.env.NEXT_PUBLIC_SUPABASE_URL + '/functions/v1/send-email';
 
-const sendEmail = async (to: string[], subject: string, html: string) => {
+const sendEmail = async (to: string[], subject: string, html: string, turnstileToken: string) => {
   const res = await fetch(SUPABASE_FUNCTION_URL, {
     method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({ to, subject, html }),
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ to, subject, html, turnstileToken }),
   });
   const data = await res.json();
   console.log('sendEmail response:', data);
@@ -47,6 +46,8 @@ export default function ABKHero() {
   const [form, setForm] = useState<FormData>(initial);
   const [errors, setErrors] = useState<Partial<Record<keyof FormData, boolean>>>({});
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  const [turnstileToken, setTurnstileToken] = useState<string>('');
+  const [turnstileError, setTurnstileError] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -59,22 +60,29 @@ export default function ABKHero() {
     if (!form.email || !form.email.includes('@')) errs.email = true;
     if (!form.phone) errs.phone = true;
     if (Object.keys(errs).length) { setErrors(errs); return; }
+
+    if (!turnstileToken) {
+      setTurnstileError(true);
+      return;
+    }
+
+    setTurnstileError(false);
     setStatus('loading');
 
     // 1. Save to Supabase
     const { error } = await supabase.from('accounting_book_keeping_leads').insert({
-      first_name: form.firstName,
-      last_name: form.lastName,
-      company_name: form.companyName || null,
-      email: form.email,
-      role: form.role || 'Not specified',
-      phone: form.phone,
-      emirate: form.emirate || 'Not specified',
-      audit_type: form.auditType || 'Not specified',
-      company_size: form.companySize || 'Not specified',
+      first_name:      form.firstName,
+      last_name:       form.lastName,
+      company_name:    form.companyName || null,
+      email:           form.email,
+      role:            form.role || 'Not specified',
+      phone:           form.phone,
+      emirate:         form.emirate || 'Not specified',
+      audit_type:      form.auditType || 'Not specified',
+      company_size:    form.companySize || 'Not specified',
       referral_source: form.referralSource || 'Not specified',
-      message: form.message,
-      source_page: window.location.href,
+      message:         form.message,
+      source_page:     window.location.href,
     });
     if (error) { console.error(error); setStatus('error'); return; }
 
@@ -92,7 +100,7 @@ export default function ABKHero() {
             <tr><td style="padding: 8px 0; color: #555;">Email</td><td style="padding: 8px 0; font-weight: 600; color: #111;">${form.email}</td></tr>
             <tr><td style="padding: 8px 0; color: #555;">Phone / WhatsApp</td><td style="padding: 8px 0; font-weight: 600; color: #111;">${form.phone}</td></tr>
             <tr><td style="padding: 8px 0; color: #555;">Emirate</td><td style="padding: 8px 0; font-weight: 600; color: #111;">${form.emirate || '—'}</td></tr>
-            <tr><td style="padding: 8px 0; color: #555;">Service Type</td><td style="padding: 8px 0; font-weight: 600; color: #111;">${form.auditType || '—'}</td></tr>
+            <tr><td style="padding: 8px 0; color: #555;">Service Required</td><td style="padding: 8px 0; font-weight: 600; color: #111;">${form.auditType || '—'}</td></tr>
             <tr><td style="padding: 8px 0; color: #555;">Company Size</td><td style="padding: 8px 0; font-weight: 600; color: #111;">${form.companySize || '—'}</td></tr>
             <tr><td style="padding: 8px 0; color: #555;">Referral Source</td><td style="padding: 8px 0; font-weight: 600; color: #111;">${form.referralSource || '—'}</td></tr>
             <tr><td style="padding: 8px 0; color: #555;">Notes</td><td style="padding: 8px 0; font-weight: 600; color: #111;">${form.message || '—'}</td></tr>
@@ -137,12 +145,14 @@ export default function ABKHero() {
       sendEmail(
         [form.email],
         'We received your enquiry — Dillon & Bird',
-        confirmHtml
+        confirmHtml,
+        turnstileToken
       ),
       sendEmail(
         ['dinesh@dillonbird.com', 'praveen@dillonbird.com', 'senthil@dillonbird.com'],
         `New Accounting Enquiry — ${form.firstName} ${form.lastName}`,
-        detailsHtml
+        detailsHtml,
+        turnstileToken
       ),
     ]);
 
@@ -295,12 +305,12 @@ export default function ABKHero() {
               <select className={styles.select} id="au-type" name="auditType"
                 value={form.auditType} onChange={handleChange}>
                 <option value="">— Select a service —</option>
-                <option>Bookkeeping & Montly Accounts</option>
-                <option>⁠VAT Registration & Filing</option>
-                <option>⁠Corporate Tax & Compliance</option>
+                <option>Bookkeeping & Monthly Accounts</option>
+                <option>VAT Registration & Filing</option>
+                <option>Corporate Tax & Compliance</option>
                 <option>Payroll & WPS Processing</option>
                 <option>Management Accounts & Reporting</option>
-                <option>⁠Outsourced CFO Services</option>
+                <option>Outsourced CFO Services</option>
                 <option>Not Sure — Need Advice</option>
               </select>
             </div>
@@ -333,15 +343,36 @@ export default function ABKHero() {
 
             <div className={styles.fg}>
               <label className={styles.label} htmlFor="au-msg">
-              Tell us about your requirement <span className={styles.optional}>(Optional)</span>
+                Tell us about your requirement{' '}
+                <span className={styles.optional}>(Optional)</span>
               </label>
               <textarea className={styles.textarea} id="au-msg" name="message"
-                placeholder="Describe your audit scope, timeline or any specific concerns…"
+                placeholder="Tell us about your requirement…"
                 value={form.message} onChange={handleChange} />
             </div>
 
+            {/* Turnstile CAPTCHA */}
+            <div className={styles.fg}>
+              <Turnstile
+                siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY!}
+                onSuccess={(token) => {
+                  setTurnstileToken(token);
+                  setTurnstileError(false);
+                }}
+                onExpire={() => setTurnstileToken('')}
+                options={{ theme: 'light', size: 'normal' }}
+              />
+              {turnstileError && (
+                <p className={styles.errorMsg}>
+                  Please complete the CAPTCHA verification.
+                </p>
+              )}
+            </div>
+
             {status === 'error' && (
-              <p className={styles.errorMsg}>Something went wrong. Please try again or WhatsApp us.</p>
+              <p className={styles.errorMsg}>
+                Something went wrong. Please try again or WhatsApp us.
+              </p>
             )}
 
             <button className={styles.submitBtn} onClick={handleSubmit} disabled={status === 'loading'}>

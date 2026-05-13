@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { supabase } from '../../../../../lib/supabase';
+import { Turnstile } from '@marsidev/react-turnstile';
 import styles from './AuditHero.module.css';
 
 interface FormData {
@@ -19,11 +20,11 @@ const initial: FormData = {
 
 const SUPABASE_FUNCTION_URL = process.env.NEXT_PUBLIC_SUPABASE_URL + '/functions/v1/send-email';
 
-const sendEmail = async (to: string[], subject: string, html: string) => {
+const sendEmail = async (to: string[], subject: string, html: string, turnstileToken: string) => {
   await fetch(SUPABASE_FUNCTION_URL, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ to, subject, html }),
+    body: JSON.stringify({ to, subject, html, turnstileToken }),
   });
 };
 
@@ -36,6 +37,8 @@ export default function AuditHero() {
   const [form, setForm] = useState<FormData>(initial);
   const [errors, setErrors] = useState<Partial<Record<keyof FormData, boolean>>>({});
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  const [turnstileToken, setTurnstileToken] = useState<string>('');
+  const [turnstileError, setTurnstileError] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -48,6 +51,9 @@ export default function AuditHero() {
     if (!form.email || !form.email.includes('@')) errs.email = true;
     if (!form.phone) errs.phone = true;
     if (Object.keys(errs).length) { setErrors(errs); return; }
+
+    if (!turnstileToken) { setTurnstileError(true); return; }
+    setTurnstileError(false);
     setStatus('loading');
 
     // 1. Save to Supabase
@@ -122,12 +128,14 @@ export default function AuditHero() {
       sendEmail(
         [form.email],
         'We received your enquiry — Dillon & Bird',
-        confirmHtml
+        confirmHtml,
+        turnstileToken
       ),
       sendEmail(
         ['dinesh@dillonbird.com', 'praveen@dillonbird.com', 'senthil@dillonbird.com'],
         `New Audit Enquiry — ${form.firstName} ${form.lastName}`,
-        detailsHtml
+        detailsHtml,
+        turnstileToken
       ),
     ]);
 
@@ -297,6 +305,24 @@ export default function AuditHero() {
               <textarea className={styles.textarea} id="au-msg" name="message"
                 placeholder="Tell us about your requirement…"
                 value={form.message} onChange={handleChange} />
+            </div>
+
+            {/* Turnstile CAPTCHA */}
+            <div className={styles.fg}>
+              <Turnstile
+                siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY!}
+                onSuccess={(token) => {
+                  setTurnstileToken(token);
+                  setTurnstileError(false);
+                }}
+                onExpire={() => setTurnstileToken('')}
+                options={{ theme: 'light', size: 'normal' }}
+              />
+              {turnstileError && (
+                <p className={styles.errorMsg}>
+                  Please complete the CAPTCHA verification.
+                </p>
+              )}
             </div>
 
             {status === 'error' && (

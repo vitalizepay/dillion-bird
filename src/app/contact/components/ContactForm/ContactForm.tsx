@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import { Turnstile } from '@marsidev/react-turnstile';
 import styles from './ContactForm.module.css';
 import { supabase } from '../../../../../lib/supabase';
 
@@ -21,38 +22,35 @@ interface FormErrors {
   firstName?: string;
   email?: string;
   phone?: string;
-  company?: string;
-  serviceRequired?: string;
-  hearAbout?: string;
-  message?: string;
   agreePolicy?: string;
+  turnstile?: string;
 }
 
 const serviceOptions = [
-  { value: '',                          label: '— Select a service —'              },
-  { value: 'company-formation',         label: 'Company Formation'                 },
-  { value: 'audit-services',            label: 'Audit Services'                    },
-  { value: 'accounting-bookkeeping',    label: 'Accounting & Bookkeeping'          },
-  { value: 'cmo-services',              label: 'CMO Services'                      },
-  { value: 'insolvency-liquidation',    label: 'Insolvency Liquidation'            },
-  { value: 'banking-services',          label: 'Banking Services'                  },
-  { value: 'ai-cloud-services',         label: 'AI & Cloud Services'               },
-  { value: 'management-consulting',     label: 'Management Consulting'             },
-  { value: 'financial-advisory',        label: 'Financial Advisory'                },
-  { value: 'consultation',              label: 'General Consultation'              },
-  { value: 'partnership',               label: 'Partnership'                       },
-  { value: 'other',                     label: 'Other'                             },
+  { value: '',                       label: '— Select a service —'    },
+  { value: 'company-formation',      label: 'Company Formation'        },
+  { value: 'audit-services',         label: 'Audit Services'           },
+  { value: 'accounting-bookkeeping', label: 'Accounting & Bookkeeping' },
+  { value: 'cmo-services',           label: 'CMO Services'             },
+  { value: 'insolvency-liquidation', label: 'Insolvency Liquidation'   },
+  { value: 'banking-services',       label: 'Banking Services'         },
+  { value: 'ai-cloud-services',      label: 'AI & Cloud Services'      },
+  { value: 'management-consulting',  label: 'Management Consulting'    },
+  { value: 'financial-advisory',     label: 'Financial Advisory'       },
+  { value: 'consultation',           label: 'General Consultation'     },
+  { value: 'partnership',            label: 'Partnership'              },
+  { value: 'other',                  label: 'Other'                    },
 ];
 
 const hearAboutOptions = [
-  { value: '',             label: '— Select —'      },
-  { value: 'google',       label: 'Google Search'   },
-  { value: 'google-ads',   label: 'Google Ads'      },
-  { value: 'linkedin',     label: 'LinkedIn'        },
+  { value: '',             label: '— Select —'           },
+  { value: 'google',       label: 'Google Search'        },
+  { value: 'google-ads',   label: 'Google Ads'           },
+  { value: 'linkedin',     label: 'LinkedIn'             },
   { value: 'referral',     label: 'Referral / Word of Mouth' },
-  { value: 'social-media', label: 'Social Media'   },
-  { value: 'news',         label: 'News / Media'   },
-  { value: 'other',        label: 'Other'           },
+  { value: 'social-media', label: 'Social Media'         },
+  { value: 'news',         label: 'News / Media'         },
+  { value: 'other',        label: 'Other'                },
 ];
 
 const INITIAL: FormData = {
@@ -62,21 +60,23 @@ const INITIAL: FormData = {
 
 const SUPABASE_FUNCTION_URL = process.env.NEXT_PUBLIC_SUPABASE_URL + '/functions/v1/send-email';
 
-const sendEmail = async (to: string[], subject: string, html: string) => {
+const sendEmail = async (to: string[], subject: string, html: string, turnstileToken: string) => {
   await fetch(SUPABASE_FUNCTION_URL, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ to, subject, html }),
+    body: JSON.stringify({ to, subject, html, turnstileToken }),
   });
 };
 
 export default function ContactForm() {
   const router = useRouter();
 
-  const [formData,  setFormData]  = useState<FormData>(INITIAL);
-  const [errors,    setErrors]    = useState<FormErrors>({});
-  const [isLoading, setIsLoading] = useState(false);
-  const [submitErr, setSubmitErr] = useState<string | null>(null);
+  const [formData,        setFormData]        = useState<FormData>(INITIAL);
+  const [errors,          setErrors]          = useState<FormErrors>({});
+  const [isLoading,       setIsLoading]       = useState(false);
+  const [submitErr,       setSubmitErr]       = useState<string | null>(null);
+  const [turnstileToken,  setTurnstileToken]  = useState<string>('');
+  const [turnstileError,  setTurnstileError]  = useState(false);
 
   const validateForm = (): boolean => {
     const e: FormErrors = {};
@@ -107,6 +107,12 @@ export default function ContactForm() {
     e.preventDefault();
     if (!validateForm()) return;
 
+    if (!turnstileToken) {
+      setTurnstileError(true);
+      return;
+    }
+
+    setTurnstileError(false);
     setIsLoading(true);
     setSubmitErr(null);
 
@@ -115,15 +121,15 @@ export default function ContactForm() {
       const { error: dbError } = await supabase
         .from('contact_leads')
         .insert({
-          name:             `${formData.firstName} ${formData.lastName}`.trim(),
-          email:            formData.email.trim(),
-          phone:            formData.phone.trim(),
-          company:          formData.company.trim(),
-          enquiry_type:     formData.serviceRequired,
-          hear_about:       formData.hearAbout,
-          message:          formData.message.trim(),
-          source_page:      window.location.href,
-          status:           'new',
+          name:         `${formData.firstName} ${formData.lastName}`.trim(),
+          email:        formData.email.trim(),
+          phone:        formData.phone.trim(),
+          company:      formData.company.trim(),
+          enquiry_type: formData.serviceRequired,
+          hear_about:   formData.hearAbout,
+          message:      formData.message.trim(),
+          source_page:  window.location.href,
+          status:       'new',
         });
 
       if (dbError) throw new Error(`Database error: ${dbError.message}`);
@@ -184,12 +190,14 @@ export default function ContactForm() {
         sendEmail(
           [formData.email],
           'We received your enquiry — Dillon & Bird',
-          confirmHtml
+          confirmHtml,
+          turnstileToken
         ),
         sendEmail(
           ['dinesh@dillonbird.com', 'praveen@dillonbird.com', 'senthil@dillonbird.com'],
           `New Contact Enquiry — ${formData.firstName} ${formData.lastName}`,
-          detailsHtml
+          detailsHtml,
+          turnstileToken
         ),
       ]);
 
@@ -237,9 +245,7 @@ export default function ContactForm() {
             </div>
 
             <div className={styles.formGroup}>
-              <label htmlFor="lastName" className={styles.label}>
-                Last Name
-              </label>
+              <label htmlFor="lastName" className={styles.label}>Last Name</label>
               <input
                 type="text" id="lastName" name="lastName"
                 placeholder="Al Mansoori"
@@ -284,9 +290,7 @@ export default function ContactForm() {
           {/* Company & Service Required */}
           <div className={styles.formRow}>
             <div className={styles.formGroup}>
-              <label htmlFor="company" className={styles.label}>
-                Company Name
-              </label>
+              <label htmlFor="company" className={styles.label}>Company Name</label>
               <input
                 type="text" id="company" name="company"
                 placeholder="Your Company"
@@ -297,9 +301,7 @@ export default function ContactForm() {
             </div>
 
             <div className={styles.formGroup}>
-              <label htmlFor="serviceRequired" className={styles.label}>
-                Service Required
-              </label>
+              <label htmlFor="serviceRequired" className={styles.label}>Service Required</label>
               <select
                 id="serviceRequired" name="serviceRequired"
                 value={formData.serviceRequired} onChange={handleChange}
@@ -315,9 +317,7 @@ export default function ContactForm() {
 
           {/* How Did You Find Us */}
           <div className={styles.formGroup}>
-            <label htmlFor="hearAbout" className={styles.label}>
-              How Did You Find Us
-            </label>
+            <label htmlFor="hearAbout" className={styles.label}>How Did You Find Us</label>
             <select
               id="hearAbout" name="hearAbout"
               value={formData.hearAbout} onChange={handleChange}
@@ -332,9 +332,7 @@ export default function ContactForm() {
 
           {/* Additional Requirements */}
           <div className={styles.formGroup}>
-            <label htmlFor="message" className={styles.label}>
-              Additional Requirements
-            </label>
+            <label htmlFor="message" className={styles.label}>Additional Requirements</label>
             <textarea
               id="message" name="message"
               placeholder="Tell us about your requirements…"
@@ -357,6 +355,24 @@ export default function ContactForm() {
             </label>
             {errors.agreePolicy && (
               <span className={styles.errorMessage}>{errors.agreePolicy}</span>
+            )}
+          </div>
+
+          {/* Turnstile CAPTCHA */}
+          <div className={styles.formGroup}>
+            <Turnstile
+              siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY!}
+              onSuccess={(token) => {
+                setTurnstileToken(token);
+                setTurnstileError(false);
+              }}
+              onExpire={() => setTurnstileToken('')}
+              options={{ theme: 'light', size: 'normal' }}
+            />
+            {turnstileError && (
+              <span className={styles.errorMessage}>
+                Please complete the CAPTCHA verification.
+              </span>
             )}
           </div>
 

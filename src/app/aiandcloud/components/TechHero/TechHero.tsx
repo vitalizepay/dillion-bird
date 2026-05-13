@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { supabase } from '../../../../../lib/supabase';
+import { Turnstile } from '@marsidev/react-turnstile';
 import styles from './TechHero.module.css';
 
 interface FormData {
@@ -21,11 +22,11 @@ const initial: FormData = {
 
 const SUPABASE_FUNCTION_URL = process.env.NEXT_PUBLIC_SUPABASE_URL + '/functions/v1/send-email';
 
-const sendEmail = async (to: string[], subject: string, html: string) => {
+const sendEmail = async (to: string[], subject: string, html: string, turnstileToken: string) => {
   await fetch(SUPABASE_FUNCTION_URL, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ to, subject, html }),
+    body: JSON.stringify({ to, subject, html, turnstileToken }),
   });
 };
 
@@ -42,6 +43,8 @@ export default function TechHero() {
   const [form, setForm] = useState<FormData>(initial);
   const [errors, setErrors] = useState<Partial<Record<keyof FormData, boolean>>>({});
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  const [turnstileToken, setTurnstileToken] = useState<string>('');
+  const [turnstileError, setTurnstileError] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -54,6 +57,9 @@ export default function TechHero() {
     if (!form.email || !form.email.includes('@')) errs.email = true;
     if (!form.phone) errs.phone = true;
     if (Object.keys(errs).length) { setErrors(errs); return; }
+
+    if (!turnstileToken) { setTurnstileError(true); return; }
+    setTurnstileError(false);
     setStatus('loading');
 
     // 1. Save to Supabase
@@ -77,7 +83,7 @@ export default function TechHero() {
     const detailsHtml = `
       <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto;">
         <div style="background: #2563eb; padding: 24px 32px;">
-          <h1 style="color: #fff; margin: 0; font-size: 20px;">AI & Cloud Consulting Enquiry</h1>
+          <h1 style="color: #fff; margin: 0; font-size: 20px;">New AI & Cloud Consulting Enquiry</h1>
         </div>
         <div style="padding: 32px; background: #f7f9fc; border: 1px solid #c8d0e0;">
           <table style="width: 100%; border-collapse: collapse; font-size: 14px;">
@@ -108,7 +114,7 @@ export default function TechHero() {
         </div>
         <div style="padding: 32px; background: #f7f9fc; border: 1px solid #c8d0e0;">
           <p style="font-size: 15px; color: #333; line-height: 1.7;">
-            We've received your ai & cloud consulting enquiry. A senior consultant will review
+            We've received your technology consulting enquiry. A senior consultant will review
             your requirements and be in touch within <strong>24 hours</strong>.
           </p>
           <p style="font-size: 15px; color: #333; line-height: 1.7;">
@@ -132,12 +138,14 @@ export default function TechHero() {
       sendEmail(
         [form.email],
         'We received your enquiry — Dillon & Bird',
-        confirmHtml
+        confirmHtml,
+        turnstileToken
       ),
       sendEmail(
         ['dinesh@dillonbird.com', 'praveen@dillonbird.com', 'senthil@dillonbird.com'],
         `New AI & Cloud Consulting Enquiry — ${form.firstName} ${form.lastName}`,
-        detailsHtml
+        detailsHtml,
+        turnstileToken
       ),
     ]);
 
@@ -331,6 +339,24 @@ export default function TechHero() {
             <textarea className={styles.textarea} id="tc-msg" name="message"
               placeholder="Tell us about your requirement…"
               value={form.message} onChange={handleChange} />
+          </div>
+
+          {/* Turnstile CAPTCHA */}
+          <div className={styles.fg}>
+            <Turnstile
+              siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY!}
+              onSuccess={(token) => {
+                setTurnstileToken(token);
+                setTurnstileError(false);
+              }}
+              onExpire={() => setTurnstileToken('')}
+              options={{ theme: 'light', size: 'normal' }}
+            />
+            {turnstileError && (
+              <p className={styles.errorMsg}>
+                Please complete the CAPTCHA verification.
+              </p>
+            )}
           </div>
 
           {status === 'error' && (

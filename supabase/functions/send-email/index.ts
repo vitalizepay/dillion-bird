@@ -1,6 +1,7 @@
 import { serve } from 'https://deno.land/std@0.168.0/http/server.ts';
 
 const RESEND_API_KEY = Deno.env.get('RESEND_API_KEY');
+const TURNSTILE_SECRET_KEY = Deno.env.get('TURNSTILE_SECRET_KEY');
 
 const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
@@ -8,14 +9,28 @@ const corsHeaders = {
   'Access-Control-Allow-Methods': 'POST, OPTIONS',
 };
 
+async function verifyTurnstile(token: string): Promise<boolean> {
+  const res = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      secret: TURNSTILE_SECRET_KEY,
+      response: token,
+    }),
+  });
+  const data = await res.json();
+  console.log('Turnstile verification result:', data);
+  return data.success === true;
+}
+
 serve(async (req) => {
   if (req.method === 'OPTIONS') {
     return new Response('ok', { headers: corsHeaders });
   }
 
   try {
-    // Log API key presence (not the actual key)
     console.log('RESEND_API_KEY present:', !!RESEND_API_KEY);
+    console.log('TURNSTILE_SECRET_KEY present:', !!TURNSTILE_SECRET_KEY);
 
     const text = await req.text();
     console.log('Request body length:', text.length);
@@ -27,8 +42,35 @@ serve(async (req) => {
       );
     }
 
-    const { to, subject, html } = JSON.parse(text);
+    const { to, subject, html, turnstileToken } = JSON.parse(text);
+
+    // Verify Turnstile token
+    if (!turnstileToken) {
+      console.log('Missing Turnstile token');
+      return new Response(
+        JSON.stringify({ error: 'Missing CAPTCHA token' }),
+        { status: 400, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+      );
+    }
+
+    const isHuman = await verifyTurnstile(turnstileToken);
+    if (!isHuman) {
+      console.log('Turnstile verification failed');
+      return new Response(
+        JSON.stringify({ error: 'CAPTCHA verification failed' }),
+        { status: 403, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+      );
+    }
+
+    console.log('Turnstile verified ✓');
     console.log('Sending to:', to, '| Subject:', subject);
+
+    if (!to || !subject || !html) {
+      return new Response(
+        JSON.stringify({ error: 'Missing required fields: to, subject, html' }),
+        { status: 400, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+      );
+    }
 
     const res = await fetch('https://api.resend.com/emails', {
       method: 'POST',
@@ -55,6 +97,7 @@ serve(async (req) => {
         headers: { ...corsHeaders, 'Content-Type': 'application/json' },
       }
     );
+
   } catch (error) {
     console.error('Edge function error:', String(error));
     return new Response(

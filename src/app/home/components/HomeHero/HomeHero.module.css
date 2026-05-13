@@ -38,7 +38,7 @@
   font-size: 50px;
   line-height: 55px;
   font-weight: 800;
-  color: #0f172a;
+  color: #fff;
   margin: 0 0 32px 0;
   letter-spacing: -0.5px;
   max-width: 900px;
@@ -80,7 +80,7 @@
 
 /* ============== RIGHT IMAGE COLUMN ============== */
 .rightImage {
-  position: absolute;
+  position: relative;
   right: 0;
   bottom: 0;
   width: 75%;
@@ -91,6 +91,8 @@
   object-fit: contain;
   object-position: bottom right;
 }
+
+
 
 /* ============== TABLET ============== */
 @media (max-width: 1024px) and (min-width: 769px) {

@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { supabase } from '../../../../../lib/supabase';
+import { Turnstile } from '@marsidev/react-turnstile';
 import styles from './BankingHero.module.css';
 
 interface FormData {
@@ -19,11 +20,11 @@ const initial: FormData = {
 
 const SUPABASE_FUNCTION_URL = process.env.NEXT_PUBLIC_SUPABASE_URL + '/functions/v1/send-email';
 
-const sendEmail = async (to: string[], subject: string, html: string) => {
+const sendEmail = async (to: string[], subject: string, html: string, turnstileToken: string) => {
   await fetch(SUPABASE_FUNCTION_URL, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ to, subject, html }),
+    body: JSON.stringify({ to, subject, html, turnstileToken }),
   });
 };
 
@@ -40,6 +41,8 @@ export default function BankingHero() {
   const [form, setForm] = useState<FormData>(initial);
   const [errors, setErrors] = useState<Partial<Record<keyof FormData, boolean>>>({});
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  const [turnstileToken, setTurnstileToken] = useState<string>('');
+  const [turnstileError, setTurnstileError] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -52,6 +55,9 @@ export default function BankingHero() {
     if (!form.email || !form.email.includes('@')) errs.email = true;
     if (!form.phone) errs.phone = true;
     if (Object.keys(errs).length) { setErrors(errs); return; }
+
+    if (!turnstileToken) { setTurnstileError(true); return; }
+    setTurnstileError(false);
     setStatus('loading');
 
     // 1. Save to Supabase
@@ -126,12 +132,14 @@ export default function BankingHero() {
       sendEmail(
         [form.email],
         'We received your enquiry — Dillon & Bird',
-        confirmHtml
+        confirmHtml,
+        turnstileToken
       ),
       sendEmail(
         ['dinesh@dillonbird.com', 'praveen@dillonbird.com', 'senthil@dillonbird.com'],
         `New Banking Advisory Enquiry — ${form.firstName} ${form.lastName}`,
-        detailsHtml
+        detailsHtml,
+        turnstileToken
       ),
     ]);
 
@@ -168,9 +176,9 @@ export default function BankingHero() {
         </div>
         <div className={styles.pills}>
           {[
-            { n: '15+',    l: 'Years Experience' },
+            { n: '15+',     l: 'Years Experience' },
             { n: 'AED 2B+', l: 'Financing Facilitated' },
-            { n: '30+',    l: 'Banking Relationships' },
+            { n: '30+',     l: 'Banking Relationships' },
           ].map(p => (
             <div className={styles.pill} key={p.n}>
               <span className={styles.pillN}>{p.n}</span>
@@ -208,7 +216,6 @@ export default function BankingHero() {
         ) : (
           <div className={styles.form}>
 
-            {/* First + Last Name */}
             <div className={styles.frow}>
               <div className={styles.fg}>
                 <label className={styles.label} htmlFor="bk-fn">First Name *</label>
@@ -224,7 +231,6 @@ export default function BankingHero() {
               </div>
             </div>
 
-            {/* Work Email */}
             <div className={styles.fg}>
               <label className={styles.label} htmlFor="bk-em">Work / Personal Email *</label>
               <input className={`${styles.input} ${errors.email ? styles.inputErr : ''}`}
@@ -232,7 +238,6 @@ export default function BankingHero() {
                 autoComplete="email" value={form.email} onChange={handleChange} />
             </div>
 
-            {/* Phone */}
             <div className={styles.fg}>
               <label className={styles.label} htmlFor="bk-ph">Phone / WhatsApp *</label>
               <input className={`${styles.input} ${errors.phone ? styles.inputErr : ''}`}
@@ -240,7 +245,6 @@ export default function BankingHero() {
                 autoComplete="tel" value={form.phone} onChange={handleChange} />
             </div>
 
-            {/* Company Name + Role */}
             <div className={styles.frow}>
               <div className={styles.fg}>
                 <label className={styles.label} htmlFor="bk-co">Company Name</label>
@@ -256,7 +260,6 @@ export default function BankingHero() {
               </div>
             </div>
 
-            {/* Emirate + Service Required */}
             <div className={styles.frow}>
               <div className={styles.fg}>
                 <label className={styles.label} htmlFor="bk-loc">
@@ -291,7 +294,6 @@ export default function BankingHero() {
               </div>
             </div>
 
-            {/* Additional Requirements */}
             <div className={styles.fg}>
               <label className={styles.label} htmlFor="bk-msg">
                 Additional Requirements <span className={styles.optional}>(Optional)</span>
@@ -299,6 +301,24 @@ export default function BankingHero() {
               <textarea className={styles.textarea} id="bk-msg" name="message"
                 placeholder="Tell us about your requirement…"
                 value={form.message} onChange={handleChange} />
+            </div>
+
+            {/* Turnstile CAPTCHA */}
+            <div className={styles.fg}>
+              <Turnstile
+                siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY!}
+                onSuccess={(token) => {
+                  setTurnstileToken(token);
+                  setTurnstileError(false);
+                }}
+                onExpire={() => setTurnstileToken('')}
+                options={{ theme: 'light', size: 'normal' }}
+              />
+              {turnstileError && (
+                <p className={styles.errorMsg}>
+                  Please complete the CAPTCHA verification.
+                </p>
+              )}
             </div>
 
             {status === 'error' && (

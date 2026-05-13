@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { supabase } from '../../../../../lib/supabase';
+import { Turnstile } from '@marsidev/react-turnstile';
 import styles from './CFHero.module.css';
 
 interface FormData {
@@ -26,11 +27,11 @@ const initialForm: FormData = {
 
 const SUPABASE_FUNCTION_URL = process.env.NEXT_PUBLIC_SUPABASE_URL + '/functions/v1/send-email';
 
-const sendEmail = async (to: string[], subject: string, html: string) => {
+const sendEmail = async (to: string[], subject: string, html: string, turnstileToken: string) => {
   await fetch(SUPABASE_FUNCTION_URL, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ to, subject, html }),
+    body: JSON.stringify({ to, subject, html, turnstileToken }),
   });
 };
 
@@ -47,6 +48,8 @@ export default function CFHero() {
   const [form, setForm] = useState<FormData>(initialForm);
   const [errors, setErrors] = useState<Partial<Record<keyof FormData, boolean>>>({});
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  const [turnstileToken, setTurnstileToken] = useState<string>('');
+  const [turnstileError, setTurnstileError] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -60,6 +63,8 @@ export default function CFHero() {
     if (!form.phone) newErrors.phone = true;
     if (Object.keys(newErrors).length > 0) { setErrors(newErrors); return; }
 
+    if (!turnstileToken) { setTurnstileError(true); return; }
+    setTurnstileError(false);
     setStatus('loading');
 
     // 1. Save to Supabase
@@ -137,12 +142,14 @@ export default function CFHero() {
       sendEmail(
         [form.email],
         'We received your enquiry — Dillon & Bird',
-        confirmHtml
+        confirmHtml,
+        turnstileToken
       ),
       sendEmail(
         ['dinesh@dillonbird.com', 'praveen@dillonbird.com', 'senthil@dillonbird.com'],
         `New Company Formation Enquiry — ${form.firstName} ${form.lastName}`,
-        detailsHtml
+        detailsHtml,
+        turnstileToken
       ),
     ]);
 
@@ -224,7 +231,6 @@ export default function CFHero() {
         ) : (
           <div className={styles.form}>
 
-            {/* First + Last Name */}
             <div className={styles.frow}>
               <div className={styles.fg}>
                 <label className={styles.label} htmlFor="cf-fn">First Name *</label>
@@ -240,7 +246,6 @@ export default function CFHero() {
               </div>
             </div>
 
-            {/* Company Name */}
             <div className={styles.fg}>
               <label className={styles.label} htmlFor="cf-cn">
                 Company Name <span className={styles.optional}>(Optional)</span>
@@ -250,7 +255,6 @@ export default function CFHero() {
                 value={form.companyName} onChange={handleChange} />
             </div>
 
-            {/* Emirate */}
             <div className={styles.fg}>
               <label className={styles.label} htmlFor="cf-em-loc">
                 Emirate <span className={styles.optional}>(Optional)</span>
@@ -269,7 +273,6 @@ export default function CFHero() {
               </select>
             </div>
 
-            {/* Email */}
             <div className={styles.fg}>
               <label className={styles.label} htmlFor="cf-em">Work / Personal Email *</label>
               <input className={`${styles.input} ${errors.email ? styles.inputErr : ''}`}
@@ -277,7 +280,6 @@ export default function CFHero() {
                 autoComplete="email" value={form.email} onChange={handleChange} />
             </div>
 
-            {/* Phone */}
             <div className={styles.fg}>
               <label className={styles.label} htmlFor="cf-ph">Phone / WhatsApp *</label>
               <input className={`${styles.input} ${errors.phone ? styles.inputErr : ''}`}
@@ -285,7 +287,6 @@ export default function CFHero() {
                 autoComplete="tel" value={form.phone} onChange={handleChange} />
             </div>
 
-            {/* Structure Required */}
             <div className={styles.fg}>
               <label className={styles.label} htmlFor="cf-st">Service Required</label>
               <select className={styles.select} id="cf-st" name="structure"
@@ -299,7 +300,6 @@ export default function CFHero() {
               </select>
             </div>
 
-            {/* Business Activity */}
             <div className={styles.fg}>
               <label className={styles.label} htmlFor="cf-act">Business Activity</label>
               <input className={styles.input} id="cf-act" name="businessActivity" type="text"
@@ -307,7 +307,6 @@ export default function CFHero() {
                 value={form.businessActivity} onChange={handleChange} />
             </div>
 
-            {/* How Did You Find Us */}
             <div className={styles.fg}>
               <label className={styles.label} htmlFor="cf-rf">How Did You Find Us?</label>
               <select className={styles.select} id="cf-rf" name="referralSource"
@@ -321,12 +320,29 @@ export default function CFHero() {
               </select>
             </div>
 
-            {/* Additional Requirements */}
             <div className={styles.fg}>
               <label className={styles.label} htmlFor="cf-msg">Additional Requirements</label>
               <textarea className={styles.textarea} id="cf-msg" name="message"
                 placeholder="Tell us about your requirement…"
                 value={form.message} onChange={handleChange} />
+            </div>
+
+            {/* Turnstile CAPTCHA */}
+            <div className={styles.fg}>
+              <Turnstile
+                siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY!}
+                onSuccess={(token) => {
+                  setTurnstileToken(token);
+                  setTurnstileError(false);
+                }}
+                onExpire={() => setTurnstileToken('')}
+                options={{ theme: 'light', size: 'normal' }}
+              />
+              {turnstileError && (
+                <p className={styles.errorMsg}>
+                  Please complete the CAPTCHA verification.
+                </p>
+              )}
             </div>
 
             {status === 'error' && (

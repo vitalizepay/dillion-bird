@@ -1,5 +1,5 @@
 const WP_GRAPHQL_URL = process.env.NEXT_PUBLIC_WP_GRAPHQL_URL
-  || 'https://l2m.ba7.myftpupload.com/graphql';
+  || 'https://public-api.wordpress.com/graphql';
 
 async function fetchGraphQL(query: string, variables = {}) {
   try {

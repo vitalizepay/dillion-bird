@@ -48,7 +48,7 @@ export default function CFWhy() {
           <h2 className={styles.h2}>The GCC Formation<br /><em>Specialists You Need</em></h2>
           <p className={styles.desc}>
             We&apos;re not a generic document processor. We&apos;re a boutique strategy firm that structures
-            your company for long-term success — tax efficiency, scalability, and investor readiness
+            your company for long-term success - tax efficiency, scalability, and investor readiness
             baked in from day one.
           </p>
           <button onClick={scrollToContact} className={styles.btn}>

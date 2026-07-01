@@ -3,12 +3,13 @@ import { getPostBySlug, getAllPosts } from '../../../../lib/wordpress';
 import styles from './BlogPost.module.css';
 import type { Metadata } from 'next';
 
+export const dynamicParams = false; // ← add this
+
 export async function generateStaticParams() {
   try {
     const posts = await getAllPosts();
     return posts.map((post: { slug: string }) => ({ slug: post.slug }));
-  } catch (err) {
-    console.error('generateStaticParams error:', err);
+  } catch {
     return [];
   }
 }

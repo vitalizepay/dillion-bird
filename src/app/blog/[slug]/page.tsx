@@ -4,19 +4,31 @@ import styles from './BlogPost.module.css';
 import type { Metadata } from 'next';
 
 export async function generateStaticParams() {
-  const posts = await getAllPosts();
-  return posts.map((post: { slug: string }) => ({ slug: post.slug }));
+  try {
+    const posts = await getAllPosts();
+    return posts.map((post: { slug: string }) => ({ slug: post.slug }));
+  } catch (err) {
+    console.error('generateStaticParams error:', err);
+    return [];
+  }
 }
 
 export async function generateMetadata(
   { params }: { params: Promise<{ slug: string }> }
 ): Promise<Metadata> {
-  const { slug } = await params;
-  const post = await getPostBySlug(slug);
-  return {
-    title: `${post?.title} | Dillon & Bird`,
-    description: post?.excerpt?.replace(/<[^>]+>/g, '') || '',
-  };
+  try {
+    const { slug } = await params;
+    const post = await getPostBySlug(slug);
+    return {
+      title: `${post?.title} | Dillon & Bird`,
+      description: post?.excerpt?.replace(/<[^>]+>/g, '') || '',
+    };
+  } catch {
+    return {
+      title: 'Blog | Dillon & Bird',
+      description: '',
+    };
+  }
 }
 
 export default async function BlogPost({
@@ -38,11 +50,9 @@ export default async function BlogPost({
 
   return (
     <main className={styles.main}>
-
       <Link href="/blog" className={styles.back}>
         ← Back to Blog
       </Link>
-
       <section className={styles.header}>
         {post.categories.nodes[0] && (
           <span className={styles.cat}>
@@ -91,7 +101,6 @@ export default async function BlogPost({
           ← Back to All Articles
         </Link>
       </div>
-
     </main>
   );
 }

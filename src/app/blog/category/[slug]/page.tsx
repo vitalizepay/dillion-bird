@@ -1,61 +1,71 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { getAllPosts, getAllCategories } from '../../../lib/blog';
-import styles from './Blog.module.css';
+import { notFound } from 'next/navigation';
+import { getAllCategories, getPostsByCategory } from '../../../../../lib/blog';
+import styles from '../../Blog.module.css';
 
-export const metadata: Metadata = {
-  title: 'Blog | Dillon & Bird',
-  description: 'Expert insights on business strategy, market entry, finance and growth across the GCC — from the Dillon & Bird team.',
-  keywords: ['Dillon & Bird Blog', 'GCC Business Insights', 'UAE Market Entry', 'GCC Strategy Blog'],
-  openGraph: {
-    title: 'Blog | Dillon & Bird',
-    description: 'Expert insights on business strategy, market entry, finance and growth across the GCC.',
-    type: 'website',
-  },
-};
+export const dynamicParams = false;
 
-export default function BlogPage() {
-  const posts = getAllPosts();
+export async function generateStaticParams() {
+  return getAllCategories().map(cat => ({ slug: cat.slug }));
+}
+
+export async function generateMetadata(
+  { params }: { params: Promise<{ slug: string }> }
+): Promise<Metadata> {
+  const { slug } = await params;
+  const category = getAllCategories().find(c => c.slug === slug);
+  if (!category) return { title: 'Blog | Dillon & Bird' };
+
+  return {
+    title: `${category.name} | Dillon & Bird Blog`,
+    description: `Articles on ${category.name} from the Dillon & Bird team — insights on business strategy and growth across the GCC.`,
+  };
+}
+
+export default async function BlogCategoryPage(
+  { params }: { params: Promise<{ slug: string }> }
+) {
+  const { slug } = await params;
   const categories = getAllCategories();
+  const category = categories.find(c => c.slug === slug);
+
+  if (!category) notFound();
+
+  const posts = getPostsByCategory(slug);
 
   return (
     <main className={styles.main}>
 
-      {/* Hero */}
       <section className={styles.hero}>
         <div className={styles.eyebrow}>
           <span className={styles.rule} />
           <span>Insights & Ideas</span>
         </div>
         <h1 className={styles.h1}>
-          The Dillon &amp; Bird <em>Blog</em>
+          {category.name}
         </h1>
         <p className={styles.sub}>
-          Expert insights on business strategy, market entry,
-          finance and growth across the GCC.
+          Articles filed under {category.name} from the Dillon &amp; Bird team.
         </p>
       </section>
 
-      {/* Category filters */}
-      {categories.length > 0 && (
-        <div className={styles.filters}>
-          <Link href="/blog" className={styles.filterBtn}>All</Link>
-          {categories.map(cat => (
-            <Link
-              key={cat.slug}
-              href={`/blog/category/${cat.slug}`}
-              className={styles.filterBtn}
-            >
-              {cat.name}
-              <span className={styles.filterCount}>{cat.count}</span>
-            </Link>
-          ))}
-        </div>
-      )}
+      <div className={styles.filters}>
+        <Link href="/blog" className={styles.filterBtn}>All</Link>
+        {categories.map(cat => (
+          <Link
+            key={cat.slug}
+            href={`/blog/category/${cat.slug}`}
+            className={`${styles.filterBtn} ${cat.slug === slug ? styles.filterBtnActive : ''}`}
+          >
+            {cat.name}
+            <span className={styles.filterCount}>{cat.count}</span>
+          </Link>
+        ))}
+      </div>
 
-      {/* Posts grid */}
       {posts.length === 0 ? (
-        <p className={styles.empty}>No posts published yet.</p>
+        <p className={styles.empty}>No posts in this category yet.</p>
       ) : (
         <div className={styles.grid}>
           {posts.map((post, i) => (

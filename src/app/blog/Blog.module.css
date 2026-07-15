@@ -81,7 +81,18 @@
     color: #fff;
     border-color: #2563eb;
   }
-  
+
+  .filterBtnActive {
+    background: #2563eb;
+    color: #fff;
+    border-color: #2563eb;
+  }
+
+  .filterBtnActive .filterCount {
+    background: #fff;
+    color: #2563eb;
+  }
+
   .filterCount {
     background: #2563eb;
     color: #fff;

@@ -26,11 +26,11 @@ export const metadata: Metadata = {
   description: 'Dillon & Bird is a premium consulting firm driving unprecedented growth and innovation across the GCC. Strategic partnerships, management consulting, and corporate services.',
   keywords: 'GCC consulting, Dubai business, strategic partnerships, management consulting, UAE company formation',
   authors: [{ name: 'Dillon & Bird' }],
-  metadataBase: new URL('https://dilionbird.com'),
+  metadataBase: new URL('https://dillonbird.com'),
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://dilionbird.com',
+    url: 'https://dillonbird.com',
     title: 'Dillon & Bird | Strategic Consulting Partners in the GCC',
     description: 'Dillon & Bird is a premium consulting firm driving unprecedented growth and innovation across the GCC. Strategic partnerships, management consulting, and corporate services.',
     siteName: 'Dillon & Bird',

@@ -103,9 +103,7 @@ export default async function BlogPage() {
                   </span>
                 )}
                 <h2 className={styles.cardTitle}>
-                  <Link href={`/blog/${post.slug}`}>
-                    {post.title}
-                  </Link>
+                  {post.title}
                 </h2>
                 <div
                   className={styles.cardExcerpt}
@@ -122,9 +120,6 @@ export default async function BlogPage() {
                     })}
                   </span>
                 </div>
-                <Link href={`/blog/${post.slug}`} className={styles.readMore}>
-                  Read Article →
-                </Link>
               </div>
             </article>
           ))}

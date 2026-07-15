@@ -1,6 +1,18 @@
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import { getAllPosts, getAllCategories } from '../../../lib/wordpress';
 import styles from './Blog.module.css';
+
+export const metadata: Metadata = {
+  title: 'Blog | Dillon & Bird',
+  description: 'Expert insights on business strategy, market entry, finance and growth across the GCC — from the Dillon & Bird team.',
+  keywords: ['Dillon & Bird Blog', 'GCC Business Insights', 'UAE Market Entry', 'GCC Strategy Blog'],
+  openGraph: {
+    title: 'Blog | Dillon & Bird',
+    description: 'Expert insights on business strategy, market entry, finance and growth across the GCC.',
+    type: 'website',
+  },
+};
 
 interface Post {
   id: string;

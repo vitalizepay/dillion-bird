@@ -25,8 +25,8 @@ const team = [
     image: '/team-senthil.jpeg',
   },
   {
-    initials: 'J',
-    name: 'Janath',
+    initials: 'TV',
+    name: 'Thilagaran Vasagam',
     role: 'Senior Tax and Audit Consultant',
     bio: 'Seasoned financial advisor with 15+ years structuring complex transactions across GCC capital markets, private equity, and sovereign investment vehicles.',
     image: '/team-tilak.jpg',

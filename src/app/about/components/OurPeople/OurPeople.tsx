@@ -36,7 +36,7 @@ const baseTeamMembers: TeamMember[] = [
   },
   {
     id: 4,
-    name: 'Janath',
+    name: 'Thilagaran Vasagam',
     position: 'Senior Tax and Audit Consultant',
     image: '/team-tilak.jpg',
     linkedIn: 'https://linkedin.com/in/fatima',

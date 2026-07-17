@@ -36,8 +36,52 @@ export default async function BlogPost(
 
   if (!post) notFound();
 
+  const isOrgAuthor = post.author.trim() === 'Dillon & Bird';
+  const authorName = post.author.split(',')[0].trim();
+  const postUrl = `https://dillonbird.com/blog/${post.slug}`;
+
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'BlogPosting',
+        headline: post.title,
+        description: post.excerpt,
+        datePublished: post.date,
+        dateModified: post.date,
+        author: isOrgAuthor
+          ? { '@type': 'Organization', name: 'Dillon & Bird' }
+          : { '@type': 'Person', name: authorName },
+        publisher: {
+          '@type': 'Organization',
+          name: 'Dillon & Bird',
+          logo: {
+            '@type': 'ImageObject',
+            url: 'https://dillonbird.com/t-logo.png',
+          },
+        },
+        mainEntityOfPage: {
+          '@type': 'WebPage',
+          '@id': postUrl,
+        },
+      },
+      {
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://dillonbird.com' },
+          { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://dillonbird.com/blog' },
+          { '@type': 'ListItem', position: 3, name: post.title, item: postUrl },
+        ],
+      },
+    ],
+  };
+
   return (
     <main className={styles.main}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <Link href="/blog" className={styles.back}>
         ← Back to Blog
       </Link>

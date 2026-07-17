@@ -18,8 +18,33 @@ export default function BlogPage() {
   const posts = getAllPosts();
   const categories = getAllCategories();
 
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Blog',
+    name: 'The Dillon & Bird Blog',
+    url: 'https://dillonbird.com/blog',
+    publisher: {
+      '@type': 'Organization',
+      name: 'Dillon & Bird',
+      logo: {
+        '@type': 'ImageObject',
+        url: 'https://dillonbird.com/t-logo.png',
+      },
+    },
+    blogPost: posts.map(post => ({
+      '@type': 'BlogPosting',
+      headline: post.title,
+      url: `https://dillonbird.com/blog/${post.slug}`,
+      datePublished: post.date,
+    })),
+  };
+
   return (
     <main className={styles.main}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
 
       {/* Hero */}
       <section className={styles.hero}>

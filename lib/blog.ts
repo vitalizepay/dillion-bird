@@ -5,14 +5,21 @@ import { marked } from 'marked';
 
 const POSTS_DIR = path.join(process.cwd(), 'content/blog');
 
+export interface FaqItem {
+  question: string;
+  answer: string;
+}
+
 export interface PostMeta {
   slug: string;
   title: string;
+  seoTitle?: string;
   date: string;
   excerpt: string;
   category: string;
   categorySlug: string;
   author: string;
+  faq?: FaqItem[];
 }
 
 export interface Post extends PostMeta {
@@ -26,11 +33,13 @@ function readPostFile(filename: string): { meta: PostMeta; content: string } {
     meta: {
       slug: filename.replace(/\.md$/, ''),
       title: data.title,
+      seoTitle: data.seoTitle,
       date: data.date,
       excerpt: data.excerpt,
       category: data.category,
       categorySlug: data.categorySlug,
       author: data.author || 'Dillon & Bird',
+      faq: data.faq,
     },
     content,
   };

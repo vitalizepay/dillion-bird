@@ -18,7 +18,7 @@ export async function generateMetadata(
   if (!post) return { title: 'Blog | Dillon & Bird' };
 
   return {
-    title: `${post.title} | Dillon & Bird`,
+    title: post.seoTitle || `${post.title} | Dillon & Bird`,
     description: post.excerpt,
     openGraph: {
       title: post.title,
@@ -73,6 +73,19 @@ export default async function BlogPost(
           { '@type': 'ListItem', position: 3, name: post.title, item: postUrl },
         ],
       },
+      ...(post.faq && post.faq.length > 0
+        ? [{
+            '@type': 'FAQPage',
+            mainEntity: post.faq.map(item => ({
+              '@type': 'Question',
+              name: item.question,
+              acceptedAnswer: {
+                '@type': 'Answer',
+                text: item.answer,
+              },
+            })),
+          }]
+        : []),
     ],
   };
 

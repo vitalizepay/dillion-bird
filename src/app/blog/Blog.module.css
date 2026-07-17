@@ -52,60 +52,6 @@
     line-height: 1.7;
   }
   
-  /* Filters */
-  .filters {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    justify-content: center;
-    margin-bottom: 48px;
-  }
-  
-  .filterBtn {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    padding: 8px 16px;
-    border-radius: 999px;
-    font-size: 13px;
-    font-weight: 600;
-    color: #2563eb;
-    background: #eff6ff;
-    border: 1px solid #bfdbfe;
-    text-decoration: none;
-    transition: all .2s;
-  }
-  
-  .filterBtn:hover {
-    background: #2563eb;
-    color: #fff;
-    border-color: #2563eb;
-  }
-
-  .filterBtnActive {
-    background: #2563eb;
-    color: #fff;
-    border-color: #2563eb;
-  }
-
-  .filterBtnActive .filterCount {
-    background: #fff;
-    color: #2563eb;
-  }
-
-  .filterCount {
-    background: #2563eb;
-    color: #fff;
-    border-radius: 999px;
-    font-size: 11px;
-    padding: 1px 7px;
-  }
-  
-  .filterBtn:hover .filterCount {
-    background: #fff;
-    color: #2563eb;
-  }
-  
   /* Grid */
   .grid {
     display: grid;
@@ -167,19 +113,6 @@
     display: flex;
     flex-direction: column;
     flex: 1;
-  }
-  
-  .cardCat {
-    display: inline-block;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: .08em;
-    text-transform: uppercase;
-    color: #2563eb;
-    background: #eff6ff;
-    border-radius: 999px;
-    padding: 3px 10px;
-    margin-bottom: 12px;
   }
   
   .cardTitle {

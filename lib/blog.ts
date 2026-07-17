@@ -19,12 +19,6 @@ export interface Post extends PostMeta {
   contentHtml: string;
 }
 
-export interface Category {
-  name: string;
-  slug: string;
-  count: number;
-}
-
 function readPostFile(filename: string): { meta: PostMeta; content: string } {
   const raw = fs.readFileSync(path.join(POSTS_DIR, filename), 'utf8');
   const { data, content } = matter(raw);
@@ -56,21 +50,4 @@ export function getPostBySlug(slug: string): Post | null {
   if (!fs.existsSync(filePath)) return null;
   const { meta, content } = readPostFile(`${slug}.md`);
   return { ...meta, contentHtml: marked.parse(content, { async: false }) };
-}
-
-export function getAllCategories(): Category[] {
-  const categories = new Map<string, Category>();
-  for (const post of getAllPosts()) {
-    const existing = categories.get(post.categorySlug);
-    if (existing) {
-      existing.count++;
-    } else {
-      categories.set(post.categorySlug, { name: post.category, slug: post.categorySlug, count: 1 });
-    }
-  }
-  return Array.from(categories.values());
-}
-
-export function getPostsByCategory(categorySlug: string): PostMeta[] {
-  return getAllPosts().filter(p => p.categorySlug === categorySlug);
 }

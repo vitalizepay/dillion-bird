@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { getAllPosts, getAllCategories } from '../../../lib/blog';
+import { getAllPosts } from '../../../lib/blog';
 import styles from './Blog.module.css';
 
 export const metadata: Metadata = {
@@ -16,7 +16,6 @@ export const metadata: Metadata = {
 
 export default function BlogPage() {
   const posts = getAllPosts();
-  const categories = getAllCategories();
 
   const jsonLd = {
     '@context': 'https://schema.org',
@@ -61,23 +60,6 @@ export default function BlogPage() {
         </p>
       </section>
 
-      {/* Category filters */}
-      {categories.length > 0 && (
-        <div className={styles.filters}>
-          <Link href="/blog" className={styles.filterBtn}>All</Link>
-          {categories.map(cat => (
-            <Link
-              key={cat.slug}
-              href={`/blog/category/${cat.slug}`}
-              className={styles.filterBtn}
-            >
-              {cat.name}
-              <span className={styles.filterCount}>{cat.count}</span>
-            </Link>
-          ))}
-        </div>
-      )}
-
       {/* Posts grid */}
       {posts.length === 0 ? (
         <p className={styles.empty}>No posts published yet.</p>
@@ -89,7 +71,6 @@ export default function BlogPage() {
               className={`${styles.card} ${i === 0 ? styles.cardFeatured : ''}`}
             >
               <div className={styles.cardBody}>
-                <span className={styles.cardCat}>{post.category}</span>
                 <h2 className={styles.cardTitle}>
                   <Link href={`/blog/${post.slug}`}>
                     {post.title}

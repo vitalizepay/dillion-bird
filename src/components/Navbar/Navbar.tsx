@@ -20,10 +20,6 @@ function Navbar() {
 
   const isActive = (href: string) => pathname === href;
 
-  // Preview-only branding for /newpage — leaves the rest of the site untouched
-  const isNewPage = pathname === '/newpage';
-  const logoSrc = isNewPage ? '/logo-mark.png' : '/logo.svg';
-
   const isServicesActive =
     pathname.startsWith('/partnership') ||
     pathname.startsWith('/managementconsulting') ||
@@ -46,7 +42,7 @@ function Navbar() {
       <header className={styles.header}>
         <div className={styles.inner}>
           <Link href="/" className={styles.logo}>
-            <Image src={logoSrc} alt="Dillon & Bird" width={isNewPage ? 22 : 28} height={28} />
+            <Image src="/logo-mark.png" alt="Dillon & Bird" width={22} height={28} />
             <span>Dillon & Bird</span>
           </Link>
 
@@ -165,7 +161,7 @@ function Navbar() {
           <div className={styles.mobilePanel}>
             <div className={styles.mobileHeader}>
               <Link href="/" className={styles.logo} onClick={() => setMobileOpen(false)}>
-                <Image src={logoSrc} alt="Dillon & Bird" width={isNewPage ? 19 : 24} height={24} />
+                <Image src="/logo-mark.png" alt="Dillon & Bird" width={19} height={24} />
                 <span>Dillon & Bird</span>
               </Link>
               <button className={styles.closeBtn} onClick={() => setMobileOpen(false)}>✕</button>

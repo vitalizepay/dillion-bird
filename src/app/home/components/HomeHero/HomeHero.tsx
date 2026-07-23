@@ -1,67 +1,18 @@
-'use client';
-
 import Link from 'next/link';
-import { useEffect, useRef, useState } from 'react';
 import styles from './HomeHero.module.css';
 
-const videos = [
-  '/dubai-1.mp4',
-  '/dubai-2.mp4',
-  '/dubai-3.mp4',
-];
-
 export default function HomeHero() {
-  const [current, setCurrent] = useState(0);
-
-  const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
-
-  // Play active video only
-  useEffect(() => {
-    videoRefs.current.forEach((video, index) => {
-      if (!video) return;
-
-      if (index === current) {
-        video.currentTime = 0;
-
-        const playPromise = video.play();
-
-        if (playPromise !== undefined) {
-          playPromise.catch(() => {});
-        }
-      } else {
-        video.pause();
-      }
-    });
-  }, [current]);
-
-  // When video ends → next
-  const handleVideoEnd = () => {
-    setCurrent((prev) => (prev + 1) % videos.length);
-  };
-
   return (
     <section className={styles.hero}>
       <div className={styles.container}>
 
-        {/* VIDEO BACKGROUND */}
+        {/* IMAGE BACKGROUND */}
         <div className={styles.rightImage}>
-          {videos.map((video, index) => (
-            <video
-              key={index}
-              ref={(el) => {
-                videoRefs.current[index] = el;
-              }}
-              className={`${styles.video} ${
-                index === current ? styles.activeVideo : ''
-              }`}
-              muted
-              playsInline
-              preload="auto"
-              onEnded={index === current ? handleVideoEnd : undefined}
-            >
-              <source src={video} type="video/mp4" />
-            </video>
-          ))}
+          <img
+            className={styles.heroImg}
+            src="/hero-skyline.jpg"
+            alt="Dubai skyline"
+          />
         </div>
 
         {/* CONTENT */}
@@ -89,20 +40,6 @@ export default function HomeHero() {
           >
             Let&apos;s Grow
           </Link>
-        </div>
-
-        {/* DOTS */}
-        <div className={styles.dots}>
-          {videos.map((_, i) => (
-            <button
-              key={i}
-              className={`${styles.dot} ${
-                i === current ? styles.dotActive : ''
-              }`}
-              onClick={() => setCurrent(i)}
-              aria-label={`Play video ${i + 1}`}
-            />
-          ))}
         </div>
 
       </div>

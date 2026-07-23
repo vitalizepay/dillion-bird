@@ -58,6 +58,16 @@
   opacity: 1;
   z-index: 2;
 }
+
+/* static hero image */
+.heroImg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 2;
+}
 /* ================= CONTENT ================= */
 
 .leftContent {

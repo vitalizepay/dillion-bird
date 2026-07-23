@@ -3,13 +3,10 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
 import { supabase } from '@lib/supabase';
 import styles from './Footer.module.css';
 
 export default function Footer() {
-  // Preview-only branding for /newpage — leaves the rest of the site untouched
-  const isNewPage = usePathname() === '/newpage';
   const [email, setEmail]     = useState('');
   const [status, setStatus]   = useState<'idle' | 'loading' | 'success' | 'error' | 'invalid'>('idle');
 
@@ -61,7 +58,7 @@ export default function Footer() {
         {/* BRAND */}
         <div className={styles.brandSection}>
           <div className={styles.logoRow}>
-            <Image src={isNewPage ? '/logo-mark.png' : '/logo.svg'} alt="Dillon & Bird" width={isNewPage ? 22 : 28} height={28} />
+            <Image src="/logo-mark.png" alt="Dillon & Bird" width={22} height={28} />
             <span className={styles.brandName}>Dillon &amp; Bird</span>
           </div>
           <p className={styles.description}>
@@ -69,8 +66,7 @@ export default function Footer() {
             and enterprises on business strategy, market entry, structuring, and scalable growth
             across the GCC.
           </p>
-          {isNewPage ? (
-            <a href="https://www.google.com/maps/dir/?api=1&destination=BurJuman+Towers+Burjuman+Dubai+United+Arab+Emirates"
+          <a href="https://www.google.com/maps/dir/?api=1&destination=BurJuman+Towers+Burjuman+Dubai+United+Arab+Emirates"
   target="_blank"
   rel="noopener noreferrer"
   className={styles.addressLink}
@@ -79,19 +75,6 @@ export default function Footer() {
   Address: 944, 9th Floor, Burjuman Towers, Burjuman, Dubai,
   United Arab Emirates.
 </a>
-          ) : (
-            <a href="https://maps.google.com/?q=Meydan+Hotel+Grandstand+Building+6th+Floor+Al+Meydan+Road+Nad+Al+Sheba+1+Dubai+UAE"
-  target="_blank"
-  rel="noopener noreferrer"
-  className={styles.addressLink}
->
-  <Image src="/googlemapsicon.svg" alt="Google Maps" width={20} height={20} />
-  Address : Meydan, Grandstand Building, 6th Floor, Al Meydan Road,
-  Nad Al Sheba 1, Dubai, UAE
-  Address 2: 15th Floor, Burjuman Towers, Burjuman, Dubai,
-  United Arab Emirates.
-</a>
-          )}
           <div className={styles.socials}>
             <Link href="https://www.linkedin.com/company/dillon-bird/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
               <Image src="/linkedinicon.svg" alt="LinkedIn" width={30} height={30} />

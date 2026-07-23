@@ -1,0 +1,199 @@
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background: #000;
+}
+
+.container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* ================= IMAGE SECTION ================= */
+
+.rightImage {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 1;
+}
+
+/* dark overlay */
+.rightImage::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  z-index: 3;
+}
+
+/* static hero image */
+.heroImg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 2;
+}
+
+/* ================= CONTENT ================= */
+
+.leftContent {
+  position: relative;
+  z-index: 5;
+
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  padding-left: 5vw;
+
+  max-width: 700px;
+}
+
+.brand {
+  display: block;
+  color: #60a5fa;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 28px;
+  margin-bottom: 24px;
+}
+
+.heading {
+  font-size: 58px;
+  line-height: 1.1;
+  font-weight: 800;
+  color: #fff;
+  margin: 0 0 28px 0;
+  letter-spacing: -1px;
+  max-width: 900px;
+}
+
+.strategic {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 30px;
+  color: rgba(255, 255, 255, 0.95);
+  margin: 0 0 18px 0;
+}
+
+.description {
+  font-size: 16px;
+  line-height: 28px;
+  color: rgba(255, 255, 255, 0.78);
+  margin: 0 0 32px 0;
+  max-width: 520px;
+}
+
+.cta {
+  background: #3b82f6;
+  color: #ffffff;
+
+  border: none;
+  border-radius: 10px;
+
+  padding: 14px 30px;
+
+  font-size: 15px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition: all 0.3s ease;
+
+  align-self: flex-start;
+
+  text-decoration: none;
+}
+
+.cta:hover {
+  background: #2563eb;
+  transform: translateY(-2px);
+}
+
+/* ================= TABLET ================= */
+
+@media (max-width: 1024px) and (min-width: 769px) {
+  .hero {
+    height: 100vh;
+  }
+
+  .leftContent {
+    max-width: 100%;
+    padding: 0 6vw;
+    justify-content: center;
+  }
+
+  .heading {
+    font-size: 46px;
+    line-height: 1.15;
+  }
+
+  .strategic {
+    font-size: 18px;
+  }
+
+  .description {
+    font-size: 17px;
+    max-width: 600px;
+  }
+}
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 768px) {
+  .hero {
+    height: 100vh;
+    min-height: 700px;
+  }
+
+  .container {
+    padding: 0;
+  }
+
+  .leftContent {
+    padding: 0 7vw;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    max-width: 100%;
+  }
+
+  .brand {
+    font-size: 15px;
+    margin-bottom: 18px;
+  }
+
+  .heading {
+    font-size: 34px;
+    line-height: 1.15;
+    margin-bottom: 20px;
+  }
+
+  .strategic {
+    font-size: 15px;
+    line-height: 24px;
+    margin-bottom: 16px;
+  }
+
+  .description {
+    font-size: 14px;
+    line-height: 24px;
+    margin-bottom: 24px;
+    max-width: 320px;
+  }
+
+  .cta {
+    align-self: center;
+    padding: 13px 26px;
+  }
+}

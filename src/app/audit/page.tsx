@@ -21,6 +21,7 @@ export const metadata: Metadata = {
     description: 'Independent audit and assurance experts helping UAE businesses achieve compliance and financial clarity.',
     url: 'https://dillonbird.com/audit',
     type: 'website',
+    images: ['/og-image.png'],
   },
   alternates: { canonical: 'https://dillonbird.com/audit' },
 };

@@ -11,6 +11,7 @@ export const metadata: Metadata = {
     title: 'Blog | Dillon & Bird',
     description: 'Expert insights on business strategy, market entry, finance and growth across the GCC.',
     type: 'website',
+    images: ['/og-image.png'],
   },
 };
 

@@ -36,11 +36,11 @@ export const metadata: Metadata = {
     siteName: 'Dillon & Bird',
     images: [
       {
-        url: 'https://storage.googleapis.com/gpt-engineer-file-uploads/RMEudFFF1oX2REUOr0q3qvNIpyJ3/social-images/social-1767890819384-DnB.jpg',
+        url: 'https://dillonbird.com/og-image.png',
         width: 1200,
         height: 630,
         alt: 'Dillon & Bird',
-        type: 'image/jpeg',
+        type: 'image/png',
       },
     ],
   },
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     site: '@DillonAndBird',
     title: 'Dillon & Bird | Strategic Consulting Partners in the GCC',
     description: 'Dillon & Bird is a premium consulting firm driving unprecedented growth and innovation across the GCC. Strategic partnerships, management consulting, and corporate services.',
-    images: ['https://storage.googleapis.com/gpt-engineer-file-uploads/RMEudFFF1oX2REUOr0q3qvNIpyJ3/social-images/social-1767890819384-DnB.jpg'],
+    images: ['https://dillonbird.com/og-image.png'],
     creator: '@DillonAndBird',
   },
   icons: {

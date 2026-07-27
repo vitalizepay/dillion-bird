@@ -24,6 +24,7 @@ export async function generateMetadata(
       title: post.title,
       description: post.excerpt,
       type: 'article',
+      images: ['/og-image.png'],
     },
   };
 }

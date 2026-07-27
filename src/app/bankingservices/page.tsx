@@ -17,6 +17,7 @@ export const metadata: Metadata = {
     description: 'From structuring complex debt facilities to managing multi-bank credit relationships across the UAE and GCC, Dillon &amp; Bird delivers independent banking advisory that puts your business interests first.',
     url: 'https://dillonbird.com/bankingservices',
     type: 'website',
+    images: ['/og-image.png'],
   },
   alternates: { canonical: 'https://dillonbird.com/bankingservices' },
 };

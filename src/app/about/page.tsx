@@ -16,6 +16,7 @@ export const metadata = {
     title: 'About Us | Dillon & Bird',
     description: 'Driving the future of business in the GCC with bold strategy, smart tech, and trusted expertise.',
     type: 'website',
+    images: ['/og-image.png'],
   },
 };
 

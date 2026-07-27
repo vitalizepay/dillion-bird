@@ -34,14 +34,7 @@ const baseTeamMembers: TeamMember[] = [
     image: '/team-senthil.jpeg',
     linkedIn: 'https://linkedin.com/in/fatima',
   },
-  {
-    id: 4,
-    name: 'Thilagaran Vasagam',
-    position: 'Senior Tax and Audit Consultant',
-    image: '/team-tilak.jpg',
-    linkedIn: 'https://linkedin.com/in/fatima',
-  },
-  
+
 ];
 
 const teamMembers = [...baseTeamMembers, ...baseTeamMembers, ...baseTeamMembers];

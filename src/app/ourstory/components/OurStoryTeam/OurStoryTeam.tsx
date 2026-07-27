@@ -24,13 +24,6 @@ const team = [
     bio: 'Native GCC advisor with deep roots across UAE, Saudi Arabia, and Kuwait. Leads our regional market entry and government relations practice areas.',
     image: '/team-senthil.jpeg',
   },
-  {
-    initials: 'TV',
-    name: 'Thilagaran Vasagam',
-    role: 'Senior Tax and Audit Consultant',
-    bio: 'Seasoned financial advisor with 15+ years structuring complex transactions across GCC capital markets, private equity, and sovereign investment vehicles.',
-    image: '/team-tilak.jpg',
-  },
 ];
 
 export default function OurStoryTeam() {

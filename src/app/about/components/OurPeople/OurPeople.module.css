@@ -88,11 +88,6 @@
     object-position: center center;
     display: block;
     filter: grayscale(100%);
-    transition: filter 0.3s ease;
-  }
-  
-  .card:hover .image {
-    filter: grayscale(0%);
   }
   
   .overlay {

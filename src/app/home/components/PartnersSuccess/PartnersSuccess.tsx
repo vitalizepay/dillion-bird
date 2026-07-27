@@ -18,11 +18,6 @@ const partnerLogos: PartnerLogo[] = [
     logo: '/washmen.svg',
   },
   {
-    id: 2,
-    name: 'Sarwa',
-    logo: '/sarwa.svg',
-  },
-  {
     id: 3,
     name: 'Kitopi',
     logo: '/kitopi.svg',
@@ -37,7 +32,7 @@ export default function PartnersSuccess() {
         <h2 className={styles.title}>Partnering for Success</h2>
 
         <p className={styles.text}>
-          Collaborating with visionary founders and established businesses to drive innovation across the GCC. Clients like Washmen, Kitopi, and Sarwa. Together, we transform ambition into scalable, lasting impact.
+          Collaborating with visionary founders and established businesses to drive innovation across the GCC. Clients like Washmen and Kitopi. Together, we transform ambition into scalable, lasting impact.
         </p>
 
         <div className={styles.buttonContainer}>

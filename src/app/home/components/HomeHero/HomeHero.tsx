@@ -8,11 +8,16 @@ export default function HomeHero() {
 
         {/* IMAGE BACKGROUND */}
         <div className={styles.rightImage}>
-          <img
-            className={styles.heroImg}
-            src="/hero-skyline.jpg"
-            alt="Dubai skyline"
-          />
+          {/* Phones get a portrait crop - the landscape shot has to zoom ~4.7x
+              to fill a tall viewport, which loses the skyline entirely. */}
+          <picture>
+            <source media="(max-width: 768px)" srcSet="/hero-skyline-mobile.jpg" />
+            <img
+              className={styles.heroImg}
+              src="/hero-skyline.jpg"
+              alt="Dubai skyline"
+            />
+          </picture>
         </div>
 
         {/* CONTENT */}

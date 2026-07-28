@@ -221,7 +221,10 @@
 @media (max-width: 768px) {
   .hero {
     height: 100vh;
-    min-height: 700px;
+    /* svh tracks the *small* viewport, so the CTA isn't hidden behind the
+       phone browser's collapsing address bar. */
+    height: 100svh;
+    min-height: 620px;
   }
 
   .container {

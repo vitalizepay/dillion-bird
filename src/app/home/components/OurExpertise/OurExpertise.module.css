@@ -54,37 +54,35 @@
     border-radius: 8px;
   }
   
+  /* Each slide is exactly 100%/--visible wide and the gutter lives *inside* it,
+     so translating by index * (100%/--visible) lands pixel-perfect no matter how
+     many cards we page through. */
   .cardsContainer {
+    --visible: 4;
+    --gap: 2rem;
     display: flex;
-    gap: 2rem;
     transition: transform 0.5s ease-in-out;
   }
-  
+
   .cardWrapper {
-    flex: 0 0 calc(25% - 1.5rem);
+    flex: 0 0 calc(100% / var(--visible));
     min-width: 0;
+    padding-right: var(--gap);
+    box-sizing: border-box;
   }
-  
+
   /* DESKTOP - 4 visible */
   @media (min-width: 1025px) {
     .section {
       padding: 6rem 5vw;
     }
-  
+
     .carousel {
       overflow: hidden;
     }
-  
-    .cardsContainer {
-      gap: 2rem;
-    }
-  
-    .cardWrapper {
-      flex: 0 0 calc(25% - 1.5rem);
-    }
   }
   
-  /* TABLET - 3 visible + 1 cutoff */
+  /* TABLET - 2 visible + 1 cutoff */
   @media (max-width: 1024px) {
     .section {
       padding: 4rem 4vw 4rem 4vw;
@@ -109,11 +107,8 @@
     }
   
     .cardsContainer {
-      gap: 1.5rem;
-    }
-  
-    .cardWrapper {
-      flex: 0 0 calc(33.333% - 1rem);
+      --visible: 2;
+      --gap: 1.5rem;
     }
   }
   
@@ -142,11 +137,8 @@
     }
   
     .cardsContainer {
-      gap: 1rem;
-    }
-  
-    .cardWrapper {
-      flex: 0 0 100%;
+      --visible: 1;
+      --gap: 1rem;
     }
   }
   

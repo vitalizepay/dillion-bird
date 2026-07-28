@@ -5,46 +5,125 @@ import { useState, useEffect, useRef } from "react";
 import ExpertiseCard from "./components/ExpertiseCard";
 import styles from "./OurExpertise.module.css";
 
-const baseExpertiseData = [
+const expertiseData = [
   {
     id: 1,
+    image: "/expertise-businesssetup.png",
+    imageDark: "/expertise-businesssetup-dark.png",
+    title: "Business Setup",
+    description: "End-to-end business setup solutions across the UAE and GCC.",
+    buttonText: "Get Started",
+    buttonHref: "/businesssetup",
+  },
+  {
+    id: 2,
+    image: "/expertise-corporate.png",
+    imageDark: "/expertise-corporate-dark.png",
+    title: "Corporate Services",
+    description: "Focus on your business while we handle compliance and administration.",
+    buttonText: "Streamline Now",
+    buttonHref: "/corporateservices",
+  },
+  {
+    id: 3,
+    image: "/expertise-formation.png",
+    imageDark: "/expertise-formation-dark.png",
+    title: "Company Formation",
+    description: "Fast, compliant company registration and licensing services.",
+    buttonText: "Launch Here",
+    buttonHref: "/companyformation",
+  },
+  {
+    id: 4,
+    image: "/expertise-management.png",
+    imageDark: "/expertise-management-dark.png",
+    title: "Management Consulting",
+    description: "Strategic planning, operational excellence, and business transformation.",
+    buttonText: "Plan Your Growth",
+    buttonHref: "/managementconsulting",
+  },
+  {
+    id: 5,
     image: "/expertise-strategic.png",
     imageDark: "/expertise-strategic-dark.png",
     title: "Strategic Partnership",
-    description: "Collaborative growth and the efficiency.",
+    description: "Building valuable partnerships that accelerate business growth.",
     buttonText: "Partner With Us",
     buttonHref: "/partnership",
   },
   {
-    id: 2,
-    image: "/expertise-management.png",
-    imageDark: "/expertise-management-dark.png",
-    title: "Management Consulting",
-    description: "Clear growth strategy, smooth transformation",
-    buttonText: "Plan Your Growth",
-    buttonHref: "/consulting",
+    id: 6,
+    image: "/expertise-financialplanning.png",
+    imageDark: "/expertise-financialplanning-dark.png",
+    title: "Financial Planning",
+    description: "Smart financial strategies for sustainable business success.",
+    buttonText: "Plan Ahead",
+    buttonHref: "/financialplanninginvestorservices",
   },
   {
-    id: 3,
-    image: "/expertise-corporate.png",
-    imageDark: "/expertise-corporate-dark.png",
-    title: "Corporate Services",
-    description: "Focus on core business, we handle the rest.",
-    buttonText: "Streamline Now",
-    buttonHref: "/services",
+    id: 7,
+    image: "/expertise-accounting.png",
+    imageDark: "/expertise-accounting-dark.png",
+    title: "Accounting & Bookkeeping",
+    description: "Accurate bookkeeping and financial reporting for informed decisions.",
+    buttonText: "Keep Books Clean",
+    buttonHref: "/accountingbookkeeping",
   },
   {
-    id: 4,
-    image: "/expertise-formation.png",
-    imageDark: "/expertise-formation-dark.png",
-    title: "Company Formation",
-    description: "Fast, compliant startup launches in the GCC.",
-    buttonText: "Launch Here",
-    buttonHref: "/formation",
+    id: 8,
+    image: "/expertise-audit.png",
+    imageDark: "/expertise-audit-dark.png",
+    title: "Audit Services",
+    description: "Independent auditing to ensure transparency and regulatory compliance.",
+    buttonText: "Request an Audit",
+    buttonHref: "/audit",
+  },
+  {
+    id: 9,
+    image: "/expertise-banking.png",
+    imageDark: "/expertise-banking-dark.png",
+    title: "Banking Services",
+    description: "Assistance with corporate bank account opening and banking solutions.",
+    buttonText: "Open an Account",
+    buttonHref: "/bankingservices",
+  },
+  {
+    id: 10,
+    image: "/expertise-insolvency.png",
+    imageDark: "/expertise-insolvency-dark.png",
+    title: "Insolvency & Liquidation",
+    description: "Professional restructuring, liquidation, and business recovery support.",
+    buttonText: "Get Advice",
+    buttonHref: "/insolvencyliquidation",
+  },
+  {
+    id: 11,
+    image: "/expertise-cmo.png",
+    imageDark: "/expertise-cmo-dark.png",
+    title: "CMO Services",
+    description: "Fractional Chief Marketing Officer services to drive brand growth and revenue.",
+    buttonText: "Grow Your Brand",
+    buttonHref: "/cmolanding",
+  },
+  {
+    id: 12,
+    image: "/expertise-aicloud.png",
+    imageDark: "/expertise-aicloud-dark.png",
+    title: "AI & Cloud Services",
+    description: "AI automation, cloud transformation, and intelligent digital solutions.",
+    buttonText: "Explore AI",
+    buttonHref: "/aiandcloud",
+  },
+  {
+    id: 13,
+    image: "/expertise-techconsulting.png",
+    imageDark: "/expertise-techconsulting-dark.png",
+    title: "Technology Consulting",
+    description: "Digital transformation, enterprise technology strategy, and IT consulting.",
+    buttonText: "Modernise Now",
+    buttonHref: "/technologyconsulting",
   },
 ];
-
-const expertiseData = [...baseExpertiseData, ...baseExpertiseData, ...baseExpertiseData];
 
 export default function OurExpertise() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -57,7 +136,7 @@ export default function OurExpertise() {
       if (window.innerWidth <= 768) {
         setVisibleCount(1);
       } else if (window.innerWidth <= 1024) {
-        setVisibleCount(3);
+        setVisibleCount(2);
       } else {
         setVisibleCount(4);
       }
@@ -68,25 +147,23 @@ export default function OurExpertise() {
     return () => window.removeEventListener("resize", checkScreenSize);
   }, []);
 
-  const baseCardCount = baseExpertiseData.length;
+  // Last scroll position that still fills the viewport - stops us paging into empty space.
+  const maxIndex = Math.max(0, expertiseData.length - visibleCount);
+  // Derived rather than stored, so a resize that shrinks maxIndex can't strand us out of range.
+  const activeIndex = Math.min(currentIndex, maxIndex);
 
+  // Functional updates so rapid clicks queue up instead of collapsing into one step.
   const handlePrev = () => {
     setCurrentIndex((prev) => {
-      let newIndex = prev - 1;
-      if (newIndex < 0) {
-        newIndex = baseCardCount - 1;
-      }
-      return newIndex;
+      const cur = Math.min(prev, maxIndex);
+      return cur - 1 < 0 ? maxIndex : cur - 1;
     });
   };
 
   const handleNext = () => {
     setCurrentIndex((prev) => {
-      let newIndex = prev + 1;
-      if (newIndex >= baseCardCount) {
-        newIndex = 0;
-      }
-      return newIndex;
+      const cur = Math.min(prev, maxIndex);
+      return cur + 1 > maxIndex ? 0 : cur + 1;
     });
   };
 
@@ -105,12 +182,10 @@ export default function OurExpertise() {
 
   const isCardVisible = (index: number) => {
     return (
-      index >= currentIndex &&
-      index < currentIndex + visibleCount
+      index >= activeIndex &&
+      index < activeIndex + visibleCount
     );
   };
-
-  const offset = (currentIndex * 100) / visibleCount;
 
   return (
     <section className={styles.section}>
@@ -143,11 +218,12 @@ export default function OurExpertise() {
         <div
           className={styles.cardsContainer}
           style={{
-            transform: `translateX(-${offset}%)`,
-          }}
+            "--index": activeIndex,
+            transform: `translateX(-${(activeIndex * 100) / visibleCount}%)`,
+          } as React.CSSProperties}
         >
           {expertiseData.map((item, index) => (
-            <div key={`${item.id}-${Math.floor(index / baseCardCount)}`} className={styles.cardWrapper}>
+            <div key={item.id} className={styles.cardWrapper}>
               <ExpertiseCard
                 image={item.image}
                 imageDark={item.imageDark}

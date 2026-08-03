@@ -44,7 +44,13 @@ export default function OurPeople() {
         {teamMembers.map((member) => (
           <div key={member.id} className={styles.cardWrapper}>
             <div className={styles.card}>
-              <div className={styles.imageWrapper}>
+              <a
+                href={member.linkedIn}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`${member.name.trim()} on LinkedIn`}
+                className={styles.imageWrapper}
+              >
                 <img
                   src={member.image}
                   alt={member.name}
@@ -54,16 +60,11 @@ export default function OurPeople() {
                 <div className={styles.info}>
                   <h3 className={styles.name}>{member.name}</h3>
                   <p className={styles.position}>{member.position}</p>
-                  <a
-                    href={member.linkedIn}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={styles.linkedInLink}
-                  >
-                    <img src="/linkedlin-logo.png" alt="LinkedIn" className={styles.linkedInIcon} />
-                  </a>
+                  <span className={styles.linkedInLink}>
+                    <img src="/linkedlin-logo.png" alt="" className={styles.linkedInIcon} />
+                  </span>
                 </div>
-              </div>
+              </a>
             </div>
           </div>
         ))}

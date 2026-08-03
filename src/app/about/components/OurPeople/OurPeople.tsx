@@ -22,14 +22,14 @@ const teamMembers: TeamMember[] = [
     name: 'Dinesh',
     position: 'Managing Partner',
     image: '/team-dinesh.jpg',
-    linkedIn: 'https://linkedin.com/in/sarah',
+    linkedIn: 'https://www.linkedin.com/in/dinesh-prasanna-r-827249111/',
   },
   {
     id: 3,
     name: 'Senthilnathan ',
     position: 'Senior Cloud and AI Consultant',
     image: '/team-senthil.jpeg',
-    linkedIn: 'https://linkedin.com/in/fatima',
+    linkedIn: 'https://www.linkedin.com/in/senthilnathane',
   },
 ];
 

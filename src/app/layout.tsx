@@ -4,7 +4,7 @@ import { Montserrat, Nunito_Sans } from "next/font/google";
 import Navbar from "@/components/Navbar/Navbar";
 import Footer from "@/components/Footer/Footer";
 import CTASection from "@/components/CTASection/CTASection";
-import CookiesBanner from '@/components/CookiesBanner/CookiesBanner';
+import WhatsAppButton from '@/components/WhatsAppButton/WhatsAppButton';
 import Script from "next/script";
 
 // 1. Montserrat for bold headings
@@ -96,7 +96,7 @@ export default function RootLayout({
         <main>{children}</main>
         <CTASection />
         <Footer />
-        <CookiesBanner />
+        <WhatsAppButton />
       </body>
     </html>
   );

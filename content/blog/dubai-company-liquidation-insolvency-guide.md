@@ -25,7 +25,7 @@ Closing a company in Dubai is an administrative process with a legal spine, and 
 
 This guide sets out how company liquidation and insolvency actually work in Dubai in 2026: which law now applies, the step-by-step process for mainland and free zone entities, what genuinely drives the timeline, the tax deregistration deadlines that catch people out, and where directors carry personal exposure.
 
-If you are looking for the broader UAE-wide picture, including how banking and debt financing interact with a wind-down, our companion guide on [banking, finance and corporate liquidation in the UAE](/blog/banking-finance-liquidation-uae-rules) covers that ground.
+If you are looking for the broader UAE-wide picture, including how banking and debt financing interact with a wind-down, our companion guide on [banking, finance and corporate liquidation in the UAE](/blog/banking-finance-liquidation-uae-rules) covers that ground. If you already know you are closing and just need the working document list, go straight to our [Dubai company closure checklist](/blog/how-to-close-a-company-in-dubai-checklist).
 
 ## Liquidation and Insolvency Are Not the Same Thing
 

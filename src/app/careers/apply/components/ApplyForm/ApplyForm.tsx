@@ -3,6 +3,38 @@ import { useState, useRef } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
 import styles from './ApplyForm.module.css';
 import { supabase } from '../../../../../../lib/supabase';
+import TurnstileWidget from '../../../../../components/Turnstile/TurnstileWidget';
+
+const SUPABASE_FUNCTION_URL = process.env.NEXT_PUBLIC_SUPABASE_URL + '/functions/v1/send-email';
+
+/* Team inbox for new applications, matching the other site forms */
+const TEAM_RECIPIENTS = [
+  'dinesh@dillonbird.com',
+  'praveen@dillonbird.com',
+  'senthil@dillonbird.com',
+];
+
+/* CV download links in the team email stay valid for 7 days */
+const CV_LINK_TTL_SECONDS = 60 * 60 * 24 * 7;
+
+const MAX_CV_BYTES = 10 * 1024 * 1024;
+const MAX_PORTFOLIO_BYTES = 25 * 1024 * 1024;
+
+const sendEmail = async (to: string[], subject: string, html: string, turnstileToken: string) => {
+  await fetch(SUPABASE_FUNCTION_URL, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ to, subject, html, turnstileToken }),
+  });
+};
+
+/* Escape user-supplied values before they go into email HTML */
+const esc = (v: string | null | undefined) =>
+  String(v ?? '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
 
 /* ── Job data ── */
 const jobs: Record<number, { title: string; dept: string; location: string }> = {
@@ -57,6 +89,8 @@ export default function ApplyForm() {
   const [errors,      setErrors]      = useState<Partial<Record<keyof FormData, string>>>({});
   const [submitting,  setSubmitting]  = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
+  const [turnstileToken, setTurnstileToken] = useState('');
+  const [turnstileError, setTurnstileError] = useState(false);
 
   const cvRef = useRef<HTMLInputElement>(null);
   const pfRef = useRef<HTMLInputElement>(null);
@@ -101,6 +135,9 @@ export default function ApplyForm() {
   /* ── Submit to Supabase ── */
   const submit = async () => {
     if (!validate(3)) return;
+
+    if (!turnstileToken) { setTurnstileError(true); return; }
+    setTurnstileError(false);
 
     setSubmitting(true);
     setSubmitError(null);
@@ -168,6 +205,116 @@ export default function ApplyForm() {
         });
 
       if (dbErr) throw new Error(`Submission failed: ${dbErr.message}`);
+
+      /* The application is now saved. Everything below is best effort:
+         a failed email must never lose a submission the candidate made. */
+      try {
+        let cvLink = '';
+        if (cvPath) {
+          const { data: signed } = await supabase.storage
+            .from('applications')
+            .createSignedUrl(cvPath, CV_LINK_TTL_SECONDS);
+          if (signed?.signedUrl) cvLink = signed.signedUrl;
+        }
+
+        const applicant = `${form.firstName} ${form.lastName}`.trim();
+
+        const row = (label: string, value: string) => `
+          <tr>
+            <td style="padding: 8px 0; color: #555; width: 180px; vertical-align: top;">${label}</td>
+            <td style="padding: 8px 0; font-weight: 600; color: #111;">${esc(value) || '—'}</td>
+          </tr>`;
+
+        const teamHtml = `
+          <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto;">
+            <div style="background: #2563eb; padding: 24px 32px;">
+              <h1 style="color: #fff; margin: 0; font-size: 20px;">New Job Application</h1>
+              <p style="color: #dbeafe; margin: 6px 0 0; font-size: 14px;">${esc(job.title)} · ${esc(job.dept)} · ${esc(job.location)}</p>
+            </div>
+            <div style="padding: 32px; background: #f7f9fc; border: 1px solid #c8d0e0;">
+              <table style="width: 100%; border-collapse: collapse; font-size: 14px;">
+                ${row('Name', applicant)}
+                ${row('Email', form.email)}
+                ${row('Phone / WhatsApp', form.phone)}
+                ${row('Current Location', form.location)}
+                ${row('Nationality', form.nationality)}
+                ${row('LinkedIn', form.linkedin)}
+                ${row('Area of Interest', form.areaOfInterest)}
+                ${row('Employment Type', form.employmentType)}
+                ${row('Preferred Location', form.preferredLocation)}
+                ${row('Earliest Start Date', form.startDate)}
+                ${row('Current Title', form.currentTitle)}
+                ${row('Current Employer', form.currentEmployer)}
+                ${row('Total Experience', form.experience)}
+                ${row('Education', form.education)}
+                ${row('Skills', form.skills)}
+                ${row('Languages', form.languages)}
+                ${row('Source', form.source)}
+                ${row('Referral', form.referral)}
+                ${row('Marketing Consent', form.consent3 ? 'Yes' : 'No')}
+              </table>
+
+              <h2 style="font-size: 15px; color: #111; margin: 28px 0 8px;">Cover Letter</h2>
+              <div style="font-size: 14px; color: #333; line-height: 1.7; white-space: pre-wrap; background: #fff; border: 1px solid #e2e8f0; padding: 16px;">${esc(form.coverLetter)}</div>
+
+              ${cvLink
+                ? `<p style="margin: 28px 0 0;">
+                     <a href="${cvLink}" style="display: inline-block; background: #2563eb; color: #fff; text-decoration: none; padding: 12px 24px; font-weight: 600; font-size: 14px;">Download CV</a>
+                   </p>
+                   <p style="font-size: 12px; color: #888; margin: 10px 0 0;">This download link expires in 7 days. The file is also in the careers admin dashboard.</p>`
+                : `<p style="font-size: 13px; color: #888; margin: 28px 0 0;">No CV file was attached to this application.</p>`}
+              ${portfolioPath ? `<p style="font-size: 13px; color: #555; margin: 12px 0 0;">Portfolio uploaded: ${esc(portfolioPath)}</p>` : ''}
+            </div>
+            <div style="padding: 16px 32px; background: #fff; border: 1px solid #c8d0e0; border-top: none; font-size: 12px; color: #aaa;">
+              Dillon &amp; Bird · UAE
+            </div>
+          </div>`;
+
+        const confirmHtml = `
+          <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto;">
+            <div style="background: #2563eb; padding: 24px 32px;">
+              <h1 style="color: #fff; margin: 0; font-size: 20px;">Thank you, ${esc(form.firstName)}!</h1>
+            </div>
+            <div style="padding: 32px; background: #f7f9fc; border: 1px solid #c8d0e0;">
+              <p style="font-size: 15px; color: #333; line-height: 1.7;">
+                We've received your application for <strong>${esc(job.title)}</strong>${job.dept ? ` in ${esc(job.dept)}` : ''}.
+              </p>
+              <p style="font-size: 15px; color: #333; line-height: 1.7;">
+                A member of our talent team will personally review it and respond within
+                <strong>5 business days</strong>. If your background fits another opening
+                more closely, we may come back to you about that instead.
+              </p>
+              <p style="font-size: 15px; color: #333; line-height: 1.7;">
+                There is nothing further you need to do. If anything changes in the meantime,
+                simply reply to this email.
+              </p>
+              <p style="font-size: 15px; color: #333; margin-top: 24px;">
+                Warm regards,<br />
+                <strong>The Dillon &amp; Bird Talent Team</strong>
+              </p>
+            </div>
+            <div style="padding: 16px 32px; background: #fff; border: 1px solid #c8d0e0; border-top: none; font-size: 12px; color: #aaa;">
+              Dillon &amp; Bird · UAE · <a href="https://dillonbird.com" style="color: #aaa;">dillonbird.com</a>
+            </div>
+          </div>`;
+
+        await Promise.allSettled([
+          sendEmail(
+            [form.email],
+            `We received your application — ${job.title}`,
+            confirmHtml,
+            turnstileToken
+          ),
+          sendEmail(
+            TEAM_RECIPIENTS,
+            `New Application — ${job.title} — ${applicant}`,
+            teamHtml,
+            turnstileToken
+          ),
+        ]);
+      } catch (emailErr) {
+        console.error('Application saved but notification email failed:', emailErr);
+      }
 
       router.push(`/success?from=careers&role=${encodeURIComponent(job.title)}`);
 
@@ -509,7 +656,16 @@ export default function ApplyForm() {
                   onClick={() => cvRef.current?.click()}
                 >
                   <input ref={cvRef} type="file" accept=".pdf,.doc,.docx" className={styles.fileInput}
-                    onChange={e => { const f = e.target.files?.[0]; if (f) set('cvFile', f); }} />
+                    onChange={e => {
+                      const f = e.target.files?.[0];
+                      if (!f) return;
+                      if (f.size > MAX_CV_BYTES) {
+                        setErrors(er => ({ ...er, cvFile: `File is ${fmtSize(f.size)}. Maximum is 10 MB.` }));
+                        e.target.value = '';
+                        return;
+                      }
+                      set('cvFile', f);
+                    }} />
                   <svg width="44" height="44" viewBox="0 0 44 44" fill="none" stroke="currentColor" strokeWidth="1.4">
                     <path d="M26 4H10a3 3 0 00-3 3v30a3 3 0 003 3h24a3 3 0 003-3V16L26 4z"/>
                     <path d="M26 4v12h12M22 21v10M17 26l5-5 5 5"/>
@@ -543,7 +699,17 @@ export default function ApplyForm() {
               {!form.portfolioFile ? (
                 <div className={styles.dropZone} style={{ padding: '32px 36px' }} onClick={() => pfRef.current?.click()}>
                   <input ref={pfRef} type="file" accept=".pdf,.ppt,.pptx,.doc,.docx,.zip" className={styles.fileInput}
-                    onChange={e => { const f = e.target.files?.[0]; if (f) set('portfolioFile', f); }} />
+                    onChange={e => {
+                      const f = e.target.files?.[0];
+                      if (!f) return;
+                      if (f.size > MAX_PORTFOLIO_BYTES) {
+                        setErrors(er => ({ ...er, portfolioFile: `File is ${fmtSize(f.size)}. Maximum is 25 MB.` }));
+                        e.target.value = '';
+                        return;
+                      }
+                      setErrors(er => { const n = { ...er }; delete n.portfolioFile; return n; });
+                      set('portfolioFile', f);
+                    }} />
                   <svg width="38" height="38" viewBox="0 0 40 40" fill="none" stroke="currentColor" strokeWidth="1.4">
                     <rect x="4" y="8" width="32" height="26" rx="2"/>
                     <path d="M4 16h32M14 8V5M26 8V5M20 22v7M16 26l4-4 4 4"/>
@@ -570,13 +736,14 @@ export default function ApplyForm() {
                   <button className={styles.fileRemove} onClick={() => set('portfolioFile', null)}>✕ Remove</button>
                 </div>
               )}
+              {errors.portfolioFile && <p className={styles.errMsg}>{errors.portfolioFile}</p>}
             </Section>
 
             <Section title="Declarations">
               {[
                 {
                   key: 'consent1' as const,
-                  text: <>I consent to Dillon &amp; Bird processing my personal data and CV for recruitment purposes in accordance with their <a href="#" className={styles.link}>Privacy Policy</a>. My data will be retained for 12 months.</>,
+                  text: <>I consent to Dillon &amp; Bird processing my personal data and CV for recruitment purposes in accordance with their <a href="/privacy-policy" target="_blank" rel="noopener noreferrer" className={styles.link}>Privacy Policy</a>. My data will be retained for 12 months.</>,
                 },
                 {
                   key: 'consent2' as const,
@@ -636,6 +803,16 @@ export default function ApplyForm() {
                 <p className={styles.reviewWarn}>
                   ⚠ Some items are incomplete. You can still submit, or go back to complete them.
                 </p>
+              )}
+            </Section>
+
+            <Section title="Security Check">
+              <TurnstileWidget
+                onVerify={token => { setTurnstileToken(token); setTurnstileError(false); }}
+                onExpire={() => setTurnstileToken('')}
+              />
+              {turnstileError && (
+                <p className={styles.errMsg}>Please complete the security check before submitting.</p>
               )}
             </Section>
 

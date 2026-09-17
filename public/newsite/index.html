@@ -1,0 +1,1901 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="robots" content="noindex,nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dillon &amp; Bird Partners — Strategy, structuring and growth across the GCC</title>
+<meta name="description" content="Dillon &amp; Bird Partners is a UAE-based consulting firm advising founders and enterprises on business strategy, market entry, structuring, insolvency and scalable growth across the GCC.">
+<link rel="icon" href="assets/img/favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<meta name="theme-color" content="#0115E9">
+<link rel="canonical" href="https://dillonbird.com/newsite/">
+
+<!-- how the page looks when shared on WhatsApp, LinkedIn or Slack -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Dillon &amp; Bird Partners">
+<meta property="og:title" content="Dillon &amp; Bird Partners — strategy, structuring and growth across the GCC">
+<meta property="og:description" content="A UAE-based consulting and corporate services firm advising founders and enterprises on setup, finance, restructuring and technology.">
+<meta property="og:url" content="https://dillonbird.com/newsite/">
+<meta property="og:image" content="https://dillonbird.com/newsite/assets/img/partnering-street.jpg">
+<meta name="twitter:card" content="summary_large_image">
+
+<!-- tells Google what kind of business this is -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Dillon and Bird Consulting Partners",
+  "url": "https://dillonbird.com/",
+  "logo": "https://dillonbird.com/newsite/assets/img/dillon-bird-logo.svg",
+  "telephone": "+971585570593",
+  "email": "consulting@dillonbird.com",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "944, 9th Floor, Burjuman Towers, Burjuman",
+    "addressLocality": "Dubai",
+    "addressCountry": "AE"
+  },
+  "areaServed": ["AE", "SA", "QA", "KW", "OM", "BH"],
+  "sameAs": [
+    "https://www.linkedin.com/company/dillon-bird/",
+    "https://www.instagram.com/dillonbirduae/"
+  ]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   DILLON & BIRD — single file site
+   Swap the SVG "image plates" for real photos where marked:
+   ============================================================ */
+
+:root{
+  --blue:#4D6DF3;
+  --brand:#0115E9;   /* exact blue from the logo file */
+  --blue-deep:#3A56D4;
+  --blue-soft:#EEF2FE;
+  --ink:#10131A;
+  --body:#5B6472;
+  --line:#E6E9F0;
+  --smoke:#F6F8FC;
+  --night:#1B1E25;
+  --radius:10px;
+  --shell:1280px;
+  --pad:clamp(20px,5vw,64px);
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:'Nunito',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  color:var(--body);
+  background:#fff;
+  font-size:17px;
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3,h4{color:var(--ink);font-weight:800;letter-spacing:-.02em;line-height:1.08;margin:0}
+h1{font-size:clamp(2.1rem,4.4vw,3.6rem)}
+h2{font-size:clamp(2rem,3.6vw,2.9rem)}
+h3{font-size:1.3rem;line-height:1.3}
+p{margin:0 0 1rem}
+a{color:inherit;text-decoration:none}
+img,svg{max-width:100%;display:block}
+:focus-visible{outline:3px solid var(--blue);outline-offset:3px;border-radius:4px}
+
+.shell{max-width:var(--shell);margin:0 auto;padding-inline:var(--pad)}
+.lede{max-width:56ch}
+
+/* ---------- buttons ---------- */
+.btn{
+  display:inline-flex;align-items:center;gap:.6rem;
+  background:var(--blue);color:#fff;font-weight:700;font-size:1.02rem;
+  padding:.95rem 1.9rem;border-radius:var(--radius);border:0;cursor:pointer;
+  transition:background .18s ease, transform .18s ease;
+}
+.btn:hover{background:var(--blue-deep)}
+.btn:active{transform:translateY(1px)}
+.btn--ghost{background:transparent;color:var(--ink);border:2px solid var(--line)}
+.btn--ghost:hover{background:var(--smoke);color:var(--ink)}
+
+/* the blue tab that runs beside images across the brand */
+.tab{width:22px;height:96px;background:var(--blue);border-radius:3px}
+
+/* ---------- floating header ---------- */
+.head{position:fixed;top:0;left:0;right:0;z-index:80;pointer-events:none}
+.head__bar{max-width:1560px;margin:0 auto;padding:18px var(--pad);display:flex;align-items:center;justify-content:space-between;gap:1rem}
+.pill{
+  pointer-events:auto;background:#fff;border-radius:16px;display:flex;align-items:center;gap:.4rem;
+  padding:8px 18px 8px 8px;box-shadow:0 8px 26px rgba(16,19,26,.12);
+}
+.pill--right{padding:10px 22px;gap:.9rem}
+.logo{display:flex;align-items:center;color:var(--brand);padding-right:.4rem}
+.logo__svg{height:42px;width:auto;display:block}
+.foot .logo__svg{height:40px}
+.icon-btn{
+  width:46px;height:46px;border:0;border-radius:12px;background:var(--smoke);cursor:pointer;
+  display:grid;place-items:center;color:var(--ink);transition:background .18s ease;
+}
+.icon-btn:hover{background:var(--blue-soft);color:var(--blue-deep)}
+.icon-btn--plain{background:none;width:34px;height:34px}
+.icon-btn--plain:hover{background:none;color:var(--blue)}
+.flag{display:block;width:26px;line-height:0;border-radius:3px;overflow:hidden;box-shadow:0 0 0 1px rgba(16,19,26,.08)}
+.flag svg{width:100%;height:auto;display:block}
+.head__tel{color:var(--ink);font-weight:700;white-space:nowrap}
+.head__tel:hover{color:var(--blue)}
+
+/* ---------- full-screen menu ---------- */
+.menu{
+  position:fixed;inset:0;z-index:90;background:#fff;display:flex;flex-direction:column;
+  opacity:0;visibility:hidden;transform:translateY(-10px);
+  transition:opacity .22s ease,transform .22s ease,visibility .22s;
+}
+.menu.is-open{opacity:1;visibility:visible;transform:none}
+body.menu-locked{overflow:hidden}
+.menu__top{
+  display:flex;align-items:center;gap:1.4rem;padding:16px var(--pad);border-bottom:1px solid var(--line);
+}
+.menu__search{flex:1;max-width:760px;display:flex;align-items:center;gap:.8rem;border:1px solid var(--line);border-radius:14px;padding:.7rem 1.1rem}
+.menu__search input{flex:1;border:0;outline:0;font:inherit;font-size:1.02rem;background:none;color:var(--ink)}
+.menu__search input::placeholder{color:#9AA3B2}
+.menu__body{flex:1;display:grid;grid-template-columns:minmax(300px,32%) 1fr;overflow:hidden}
+.rail{overflow-y:auto;border-right:1px solid var(--line);padding:8px 0 40px}
+.rail__group{border-bottom:1px solid var(--line);padding:18px var(--pad) 18px clamp(20px,3vw,44px)}
+.rail__group:last-child{border-bottom:0}
+.rail__head{font-size:1.45rem;font-weight:700;color:var(--ink);letter-spacing:-.02em;display:block;margin:0 0 .2rem}
+a.rail__head:hover{color:var(--blue)}
+.rail__sub{
+  display:block;width:100%;text-align:left;border:0;background:none;cursor:pointer;font:inherit;
+  font-size:1.08rem;color:var(--body);padding:.7rem 1.1rem;border-radius:12px;margin-top:.3rem;
+  transition:background .16s ease,color .16s ease;
+}
+.rail__sub:hover{color:var(--ink);background:var(--smoke)}
+.rail__sub.is-active{background:var(--smoke);color:var(--ink);font-weight:700}
+.pane{overflow-y:auto;padding:30px clamp(24px,4vw,56px) 60px}
+.pane__card{display:none}
+.pane__card.is-on{display:block}
+.pane__card h3{font-size:1.45rem;font-weight:700;margin-bottom:.4rem}
+.pane__card > p{max-width:70ch;padding-bottom:22px;border-bottom:1px solid var(--line);margin-bottom:24px}
+.pane__links{list-style:none;margin:0;padding:0;columns:2;column-gap:40px}
+.pane__links li{break-inside:avoid;margin-bottom:.2rem}
+.pane__links a{display:block;padding:.65rem .9rem;border-radius:10px;color:var(--ink);font-size:1.05rem}
+.pane__links a:hover{background:var(--blue-soft);color:var(--blue-deep)}
+.pane__foot{margin-top:34px;padding-top:22px;border-top:1px solid var(--line);font-size:.98rem}
+.pane__foot a{color:var(--blue);font-weight:700}
+.no-hit{color:var(--body)}
+
+/* ---------- hero ---------- */
+.hero{position:relative;min-height:min(100svh,880px);display:flex;align-items:center;overflow:hidden;background:var(--night)}
+.hero__art{position:absolute;inset:0;overflow:hidden}
+.hero__sky{position:absolute;inset:0;background:linear-gradient(#2A2F39 0%,#3A3F49 42%,#585E69 74%,#6C7079 100%)}
+.cloud{position:absolute;border-radius:50%;background:rgba(255,255,255,.14);filter:blur(34px);animation:drift linear infinite}
+.cloud.c1{width:46vw;height:12vw;top:8%;left:-30%;animation-duration:78s}
+.cloud.c2{width:34vw;height:8vw;top:22%;left:-40%;opacity:.7;animation-duration:104s;animation-delay:-30s}
+.cloud.c3{width:58vw;height:14vw;top:2%;left:-60%;opacity:.5;animation-duration:132s;animation-delay:-60s}
+@keyframes drift{to{transform:translateX(190vw)}}
+
+.skyline{position:absolute;bottom:0;left:50%;width:180%;transform:translateX(-50%);opacity:.95}
+.skyline--far{opacity:.42;animation:sway 46s ease-in-out infinite alternate}
+.skyline--mid{opacity:.72;animation:sway 34s ease-in-out infinite alternate-reverse}
+.skyline--near{animation:sway 26s ease-in-out infinite alternate}
+@keyframes sway{from{transform:translateX(-51%) scale(1)}to{transform:translateX(-49%) scale(1.035)}}
+.hero__veil{position:absolute;inset:0;background:linear-gradient(100deg,rgba(9,11,16,.88) 0%,rgba(9,11,16,.68) 42%,rgba(9,11,16,.38) 78%,rgba(9,11,16,.24) 100%)}
+
+/* optional hero video — sits on top of the animation and only shows once it plays */
+.hero__video{
+  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+  opacity:0;transition:opacity .9s ease;filter:none;
+}
+.hero__video.is-on{opacity:1}
+
+.hero__in{position:relative;z-index:2;padding-block:clamp(88px,14vh,150px);width:100%}
+.hero__col{max-width:min(940px,70%);text-align:left}
+.hero__kicker{color:#8FA6FF;font-weight:700;margin-bottom:1.4rem}
+.hero h1{color:#fff;max-width:20ch}
+.hero__line{display:block;overflow:hidden}
+.hero__line > span{display:block;transform:translateY(110%);animation:rise .9s cubic-bezier(.16,.84,.44,1) forwards}
+.hero__line:nth-child(2) > span{animation-delay:.09s}
+.hero__line:nth-child(3) > span{animation-delay:.18s}
+@keyframes rise{to{transform:translateY(0)}}
+.hero__rule{color:#fff;font-weight:700;font-size:clamp(1rem,1.6vw,1.15rem);margin:2rem 0 1rem}
+.hero p.hero__sub{color:rgba(255,255,255,.82);max-width:46ch}
+.hero .btn{margin-top:1.4rem}
+.hero__scroll{
+  position:absolute;left:var(--pad);bottom:34px;z-index:2;color:rgba(255,255,255,.6);
+  font-size:.85rem;font-weight:600;display:flex;align-items:center;gap:.6rem;
+}
+.hero__scroll i{display:block;width:1px;height:34px;background:linear-gradient(rgba(255,255,255,.7),transparent);animation:pulse 2.6s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:.25}50%{opacity:1}}
+
+/* ---------- sections ---------- */
+section{padding-block:clamp(72px,9vw,128px)}
+section[id],div[id]{scroll-margin-top:110px}
+.split{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(40px,6vw,96px);align-items:center}
+.split--flip .split__art{order:2}
+.plate{position:relative;display:flex;gap:18px;align-items:flex-start}
+.plate__frame{flex:1;border-radius:4px;overflow:hidden;background:var(--smoke)}
+.eyebrow-note{font-size:.9rem;color:#9AA3B2}
+
+/* ---------- expertise carousel ---------- */
+.rail-head{display:flex;align-items:flex-end;justify-content:space-between;gap:2rem;margin-bottom:2.6rem}
+.rail-nav{display:flex;gap:.6rem}
+.rail-nav button{
+  width:54px;height:46px;border:1px solid var(--line);background:#fff;border-radius:8px;cursor:pointer;
+  font-size:1.1rem;color:var(--ink);transition:border-color .18s ease,color .18s ease,background .18s ease,transform .18s ease;
+}
+.rail-nav button:hover:not([disabled]){border-color:var(--blue);color:var(--blue);background:var(--blue-soft)}
+.rail-nav button:active:not([disabled]){transform:scale(.94)}
+.rail-nav button[disabled]{opacity:.3;cursor:default}
+
+.rail{
+  display:grid;grid-auto-flow:column;grid-auto-columns:minmax(262px,1fr);gap:22px;
+  overflow-x:auto;scroll-snap-type:x proximity;scroll-behavior:smooth;
+  padding-bottom:10px;cursor:grab;scrollbar-width:none;
+  -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 18px,#000 calc(100% - 46px),transparent 100%);
+          mask-image:linear-gradient(90deg,transparent 0,#000 18px,#000 calc(100% - 46px),transparent 100%);
+}
+.rail::-webkit-scrollbar{height:0}
+.rail.is-dragging{cursor:grabbing;scroll-behavior:auto;scroll-snap-type:none}
+.rail.is-dragging .card{pointer-events:none}
+
+.card{
+  position:relative;aspect-ratio:3/3.9;border-radius:8px;overflow:hidden;scroll-snap-align:start;
+  display:flex;align-items:flex-end;color:#fff;isolation:isolate;
+  transition:transform .35s cubic-bezier(.2,.7,.3,1),box-shadow .35s ease;
+}
+.card:hover{transform:translateY(-6px);box-shadow:0 22px 44px rgba(16,19,26,.18)}
+.card__bg{
+  position:absolute;inset:0;z-index:-2;width:100%;height:100%;object-fit:cover;
+  transition:transform .6s cubic-bezier(.2,.7,.3,1);
+}
+.card:hover .card__bg{transform:scale(1.07)}
+.card::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(10,12,18,.12) 30%,rgba(10,12,18,.9) 100%)}
+.card__txt{padding:24px 22px 26px;width:100%}
+.card__icon{width:26px;height:26px;margin-bottom:14px;opacity:.9;transition:transform .35s ease}
+.card:hover .card__icon{transform:translateY(-2px) scale(1.06)}
+.card h3{color:#fff;font-size:1.16rem;margin-bottom:.4rem}
+.card p{
+  color:rgba(255,255,255,.82);font-size:.95rem;margin:0;
+}
+@media (hover:hover){
+  .card p{opacity:0;max-height:0;transform:translateY(6px);overflow:hidden;
+          transition:opacity .3s ease,max-height .35s ease,transform .35s ease}
+  .card:hover p,.card:focus-within p{opacity:1;max-height:120px;transform:none}
+}
+.card__mark{position:absolute;left:0;bottom:0;width:0;height:4px;background:var(--blue);z-index:1;transition:width .35s ease}
+.card:hover .card__mark,.card:focus-within .card__mark{width:100%}
+
+.rail__bar{height:3px;background:#E3E8F1;border-radius:99px;margin-top:26px;overflow:hidden}
+.rail__bar span{display:block;height:100%;width:12%;background:var(--blue);border-radius:99px;transition:width .15s linear,transform .15s linear}
+.rail__hint{font-size:.9rem;color:#9AA3B2;margin:.9rem 0 0}
+
+/* card artwork — replace any .card__bg span with <img class="card__bg" src="..." alt=""> */
+.art-s1{background:linear-gradient(160deg,#2E3644,#12151D)}
+.art-s2{background:linear-gradient(160deg,#3A4458,#1A2030)}
+.art-s3{background:radial-gradient(circle at 30% 25%,#41506E,#151A25 72%)}
+.art-s4{background:linear-gradient(200deg,#4A5568,#20262F)}
+.art-s5{background:radial-gradient(circle at 75% 20%,#3C5BD8,#131A31 74%)}
+.art-s6{background:linear-gradient(150deg,#59637A,#242A36)}
+.art-s7{background:linear-gradient(180deg,#2A3140,#4A5568)}
+
+/* ---------- numbers ---------- */
+.band{background:var(--smoke)}
+.figs{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem}
+.fig strong{display:block;font-size:clamp(2.4rem,4vw,3.4rem);color:var(--ink);font-weight:800;letter-spacing:-.03em;line-height:1}
+.fig span{display:block;margin-top:.5rem;font-size:.98rem;max-width:24ch}
+
+/* ---------- work / proof ---------- */
+.proof{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:3rem}
+.proof__item{border:1px solid var(--line);border-radius:8px;padding:30px;background:#fff}
+.proof__item h3{font-size:1.12rem;margin-bottom:.7rem}
+.proof__item p{font-size:.98rem;margin:0}
+.proof__item .tagline{color:var(--blue);font-weight:700;font-size:.92rem;margin-bottom:1rem}
+
+/* ---------- contact ---------- */
+.contact{background:var(--night);color:rgba(255,255,255,.8)}
+.contact h2{color:#fff}
+.contact__grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,6vw,90px);align-items:start}
+.field{display:block;margin-bottom:1.1rem}
+.field span{display:block;font-weight:700;color:#fff;margin-bottom:.4rem;font-size:.95rem}
+.field input,.field textarea,.field select{
+  width:100%;padding:.85rem 1rem;border-radius:8px;border:1px solid rgba(255,255,255,.18);
+  background:rgba(255,255,255,.06);color:#fff;font:inherit;font-size:1rem;
+}
+.field textarea{min-height:120px;resize:vertical}
+.field input::placeholder,.field textarea::placeholder{color:rgba(255,255,255,.4)}
+.contact__facts{display:grid;gap:1.6rem;margin-top:2.4rem}
+.contact__facts div strong{display:block;color:#fff}
+.form-note{font-size:.92rem;color:rgba(255,255,255,.6);margin-top:.6rem}
+
+
+/* ---------- insights grid (staggered cards) ---------- */
+.insights__head{margin-bottom:clamp(32px,4vw,52px)}
+.insights__head p{font-size:.78rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--ink);margin-bottom:.9rem}
+.posts{display:grid;grid-template-columns:repeat(4,1fr);gap:26px;align-items:start}
+.posts__col{display:grid;gap:26px}
+.posts__col:nth-child(1){margin-top:64px}
+.posts__col:nth-child(3){margin-top:44px}
+.post{position:relative;display:block;overflow:hidden;border-radius:3px;isolation:isolate}
+.post__img{aspect-ratio:3/4;width:100%;object-fit:cover;display:block}
+.post--tall .post__img{aspect-ratio:3/4.4}
+.post__tag{
+  position:absolute;top:14px;left:14px;z-index:2;background:rgba(16,19,26,.66);color:#fff;
+  font-size:.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  padding:.45rem .85rem;border-radius:999px;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);
+}
+.post__box{
+  position:absolute;left:14px;right:14px;bottom:14px;z-index:2;padding:16px 18px;border-radius:3px;
+  background:rgba(240,243,248,.84);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);
+  transition:background .2s ease;
+}
+.post:hover .post__box{background:#fff}
+.post__meta{display:block;font-size:.7rem;letter-spacing:.07em;text-transform:uppercase;color:#59616F;margin-bottom:.45rem}
+.post__meta b{color:var(--ink);font-weight:800}
+.post__title{display:block;font-size:clamp(1.05rem,1.2vw,1.2rem);font-weight:600;color:var(--ink);line-height:1.28;letter-spacing:-.01em}
+.post:hover .post__title{color:var(--blue-deep)}
+.insights__more{margin-top:clamp(40px,5vw,64px)}
+
+/* placeholder artwork — swap each .post__img for <img src="your-photo.jpg" class="post__img" alt=""> */
+.art{background-size:cover;background-position:center}
+.art-1{background:radial-gradient(circle at 30% 30%,#3C4A66,#11151E 70%)}
+.art-2{background:linear-gradient(150deg,#C7CEDB,#8E97A8)}
+.art-3{background:radial-gradient(circle at 70% 20%,#4D6DF3,#101A3C 72%)}
+.art-4{background:linear-gradient(200deg,#7D8798,#39404E)}
+.art-5{background:linear-gradient(160deg,#9AA6B8,#5C6674)}
+.art-6{background:radial-gradient(circle at 20% 80%,#5C7CFF,#1B2540 70%)}
+.art-7{background:linear-gradient(180deg,#2B313C,#59616F)}
+.art-8{background:linear-gradient(140deg,#DDE2EC,#A7B0C0)}
+
+/* ---------- footer (statement + links + assist, BCG-style) ---------- */
+.foot{background:var(--smoke);padding:clamp(64px,8vw,110px) 0 40px;color:var(--body)}
+.foot__top{display:grid;grid-template-columns:1.25fr .85fr .9fr;gap:clamp(32px,5vw,72px);align-items:start}
+.foot__statement{font-size:clamp(1.8rem,3vw,2.5rem);font-weight:700;color:var(--ink);letter-spacing:-.02em;line-height:1.16;max-width:16ch;margin:0}
+.foot__links{display:grid;grid-template-columns:1fr 1fr;gap:1.4rem 2rem}
+.foot__links a{font-size:1.15rem;color:var(--ink)}
+.foot__links a:hover{color:var(--blue)}
+.foot__assist h3{font-size:clamp(1.35rem,2vw,1.7rem);margin-bottom:1rem}
+.foot__assist p{max-width:42ch}
+.foot__assist .btn{margin-top:.6rem}
+.btn svg{width:18px;height:12px}
+
+.foot__mid{
+  display:flex;align-items:center;justify-content:space-between;gap:1.6rem 2.4rem;flex-wrap:wrap;
+  margin-top:clamp(56px,8vw,110px);padding-top:32px;border-top:1px solid #DDE2EC;
+}
+.foot__legal{display:flex;gap:1.6rem;flex-wrap:wrap}
+.foot__legal a{font-weight:700;font-size:.95rem;color:var(--ink);text-decoration:underline;text-underline-offset:4px}
+.foot__legal a:hover{color:var(--blue)}
+.follow{display:flex;align-items:center;gap:1rem}
+.follow span{font-weight:700;font-size:.92rem;color:var(--ink)}
+.follow a{color:var(--ink)}
+.follow a:hover{color:var(--blue)}
+.foot__fine{margin-top:34px;font-size:.92rem;line-height:1.7;max-width:110ch}
+.foot__fine p{margin-bottom:.9rem}
+.foot__fine p:last-child{margin-bottom:0}
+
+/* ---------- whatsapp ---------- */
+.wa{
+  position:fixed;right:24px;bottom:24px;z-index:70;width:60px;height:60px;border-radius:50%;
+  background:#25D366;display:grid;place-items:center;box-shadow:0 10px 26px rgba(37,211,102,.38);
+}
+.wa:hover{transform:scale(1.05)}
+.wa svg{width:32px;height:32px;fill:#fff}
+
+/* ---------- reveal ---------- */
+.rv{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+.rv.in{opacity:1;transform:none}
+
+/* ---------- responsive ---------- */
+@media (max-width:1000px){
+  .menu__body{grid-template-columns:1fr;overflow-y:auto}
+  .rail{border-right:0;border-bottom:1px solid var(--line);overflow:visible;padding-bottom:8px}
+  .pane{padding:24px var(--pad) 60px;overflow:visible}
+  .pane__links{columns:1}
+  .head__tel{display:none}
+  .menu__top{gap:.8rem;flex-wrap:wrap}
+  .menu__search{order:3;flex-basis:100%;max-width:none}
+  .hero__col{max-width:none}
+  .split,.contact__grid{grid-template-columns:1fr}
+  .split--flip .split__art{order:0}
+  .figs{grid-template-columns:1fr 1fr;gap:2.4rem}
+  .proof{grid-template-columns:1fr}
+  .posts{grid-template-columns:1fr 1fr}
+  .posts__col:nth-child(1),.posts__col:nth-child(3){margin-top:0}
+  .posts__col:nth-child(2){margin-top:40px}
+  .foot__top{grid-template-columns:1fr;gap:40px}
+  .foot__statement{max-width:22ch}
+  .foot__mid{align-items:flex-start;flex-direction:column;gap:1.4rem}
+}
+@media (max-width:560px){
+  body{font-size:16px}
+  .posts{grid-template-columns:1fr}
+  .posts__col:nth-child(2){margin-top:0}
+  .foot__links{grid-template-columns:1fr}
+  .foot__legal{gap:1rem}
+  .wa{width:54px;height:54px;right:16px;bottom:16px}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+  .hero__line > span{transform:none}
+  .rv{opacity:1;transform:none}
+}
+
+/* ============================================================
+   MODERN PASS — spacing, depth, motion and mobile ease
+   ============================================================ */
+:root{
+  --r-sm:10px; --r:14px; --r-lg:20px;
+  --shadow-s:0 2px 8px rgba(16,19,26,.06);
+  --shadow-m:0 12px 30px rgba(16,19,26,.10);
+  --shadow-l:0 28px 60px rgba(16,19,26,.16);
+}
+body{font-size:17.5px;line-height:1.7;letter-spacing:-.003em}
+h1,h2,h3{text-wrap:balance}
+p{text-wrap:pretty}
+
+/* reading progress */
+.progress{position:fixed;top:0;left:0;height:3px;width:0;background:var(--blue);z-index:100;transition:width .1s linear}
+
+/* buttons: softer shape, real feedback */
+.btn{border-radius:999px;padding:1rem 2rem;box-shadow:0 8px 20px rgba(77,109,243,.28);transition:transform .2s cubic-bezier(.2,.7,.3,1),box-shadow .2s ease,background .2s ease}
+.btn:hover{transform:translateY(-2px);box-shadow:0 14px 28px rgba(77,109,243,.34)}
+.btn:active{transform:translateY(0)}
+.btn--quiet{background:#fff;color:var(--ink);box-shadow:var(--shadow-s)}
+.btn--quiet:hover{background:var(--smoke);color:var(--blue-deep)}
+
+/* header: add a booking action, keep it light */
+.pill{border-radius:var(--r-lg);box-shadow:var(--shadow-m)}
+.pill--right{padding:8px 8px 8px 20px}
+.head__cta{
+  display:inline-flex;align-items:center;background:var(--blue);color:#fff;font-weight:700;
+  padding:.7rem 1.3rem;border-radius:999px;white-space:nowrap;transition:background .2s ease,transform .2s ease;
+}
+.head__cta:hover{background:var(--blue-deep);transform:translateY(-1px)}
+
+/* cards and surfaces */
+.card{border-radius:var(--r)}
+.proof__item{border-radius:var(--r);box-shadow:var(--shadow-s);border-color:#EDF0F6;transition:transform .3s ease,box-shadow .3s ease}
+.proof__item:hover{transform:translateY(-4px);box-shadow:var(--shadow-m)}
+.plate__frame{border-radius:var(--r);box-shadow:var(--shadow-m)}
+.post{border-radius:var(--r);transition:transform .35s cubic-bezier(.2,.7,.3,1)}
+.post:hover{transform:translateY(-5px)}
+.post__box{border-radius:var(--r-sm)}
+.rail-nav button{border-radius:999px;width:50px;height:50px}
+
+/* how it works */
+.steps{background:#fff}
+.steps__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(24px,3vw,44px);margin-top:2.6rem;counter-reset:step}
+.step{position:relative;padding:30px 28px;border-radius:var(--r);background:var(--smoke)}
+.step::before{
+  counter-increment:step;content:counter(step);display:grid;place-items:center;
+  width:38px;height:38px;border-radius:999px;background:var(--blue);color:#fff;font-weight:800;font-size:1rem;margin-bottom:16px;
+}
+.step h3{font-size:1.15rem;margin-bottom:.5rem}
+.step p{margin:0;font-size:1rem}
+
+/* forms that feel easy */
+.field input,.field textarea,.field select{border-radius:var(--r-sm);padding:1rem 1.1rem;transition:border-color .2s ease,background .2s ease}
+.field input:focus,.field textarea:focus,.field select:focus{outline:none;border-color:var(--blue);background:rgba(255,255,255,.1)}
+.field select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23fff' stroke-width='1.6' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 1.1rem center}
+
+/* floating actions */
+.wa{border-radius:999px;box-shadow:0 14px 30px rgba(37,211,102,.4);transition:transform .2s ease}
+.wa:hover{transform:translateY(-3px) scale(1.04)}
+.totop{
+  position:fixed;right:24px;bottom:96px;z-index:70;width:48px;height:48px;border-radius:999px;border:0;cursor:pointer;
+  background:#fff;color:var(--ink);box-shadow:var(--shadow-m);display:grid;place-items:center;
+  opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .25s ease,transform .25s ease,visibility .25s;
+}
+.totop.is-on{opacity:1;visibility:visible;transform:none}
+.totop:hover{color:var(--blue)}
+
+/* mobile action bar — one tap to call or message */
+.mobile-bar{display:none}
+@media (max-width:1000px){
+  .mobile-bar{
+    display:grid;grid-template-columns:1fr 1fr;gap:10px;position:fixed;left:0;right:0;bottom:0;z-index:75;
+    padding:10px 14px calc(10px + env(safe-area-inset-bottom));background:rgba(255,255,255,.92);
+    -webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-top:1px solid var(--line);
+  }
+  .mobile-bar a{
+    display:flex;align-items:center;justify-content:center;gap:.5rem;padding:.95rem;border-radius:999px;
+    font-weight:700;font-size:1rem;
+  }
+  .mobile-bar .m-call{background:var(--blue);color:#fff}
+  .mobile-bar .m-wa{background:#25D366;color:#fff}
+  .wa,.totop{display:none}
+  body{padding-bottom:78px}
+  .head__cta{display:none}
+  .steps__grid{grid-template-columns:1fr}
+  .card{aspect-ratio:3/3.6}
+  .btn{width:auto}
+}
+@media (max-width:560px){
+  .pill--right{padding:8px 14px}
+  .head__tel{display:inline;font-size:.95rem}
+  .foot__statement{font-size:1.6rem}
+}
+
+/* ============================================================
+   BIGGER IMAGERY — wider page, larger plates, larger cards
+   ============================================================ */
+:root{--shell:1400px}
+
+/* section images: give the picture the larger half and more height */
+.split{grid-template-columns:1.3fr .82fr;gap:clamp(32px,4.5vw,72px)}
+.plate{gap:22px}
+.tab{width:26px;height:150px}
+.plate__frame{aspect-ratio:4/3.05;position:relative}
+.plate__frame > svg,.plate__frame > img{
+  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;
+}
+
+/* service slider: wider, taller cards */
+.rail{grid-auto-columns:minmax(330px,1fr);gap:26px}
+.card{aspect-ratio:3/3.7}
+.card__txt{padding:28px 26px 30px}
+.card h3{font-size:1.28rem}
+.card p{font-size:1rem}
+.card__icon{width:30px;height:30px}
+
+/* insight cards: taller pictures, roomier text box */
+.posts{gap:30px}
+.post__img{aspect-ratio:3/4.05}
+.post--tall .post__img{aspect-ratio:3/4.75}
+.post__box{left:16px;right:16px;bottom:16px;padding:18px 20px}
+.post__title{font-size:clamp(1.12rem,1.25vw,1.3rem)}
+
+@media (max-width:1000px){
+  .split{grid-template-columns:1fr}
+  .plate__frame{aspect-ratio:4/2.9}
+  .tab{height:110px}
+  .rail{grid-auto-columns:minmax(288px,1fr)}
+  .card{aspect-ratio:3/3.6}
+}
+@media (max-width:560px){
+  .plate__frame{aspect-ratio:4/3.2}
+  .tab{width:18px;height:84px}
+  .rail{grid-auto-columns:minmax(252px,1fr)}
+  .post__img,.post--tall .post__img{aspect-ratio:3/3.6}
+}
+
+/* Who we are: square corners, no accent bar, crisp edge */
+#about .plate{gap:0}
+#about .plate__frame,#relationships .plate__frame{border-radius:0;box-shadow:none;aspect-ratio:3/2}
+#about .plate__frame img{image-rendering:auto}
+
+/* no blue rules or accent bars anywhere */
+.tab{display:none}
+.progress{display:none}
+.card__mark{display:none}
+.rail__bar span{background:var(--ink)}
+.plate{gap:0}
+
+/* ============================================================
+   PARTNERING — editorial layout
+   ============================================================ */
+.feature__meta{font-size:.9rem;font-weight:700;color:#8A93A3;letter-spacing:.02em;margin-bottom:1.1rem}
+.feature__meta span{padding:0 .3rem}
+.feature__title{font-size:clamp(2.1rem,4vw,3.4rem);max-width:19ch;line-height:1.08;margin-bottom:1.3rem}
+.feature__lede{font-size:clamp(1.05rem,1.3vw,1.2rem);max-width:62ch;color:var(--body)}
+.feature__media{margin:clamp(32px,4vw,56px) 0 0}
+.feature__media img{width:100%;height:auto;display:block;border-radius:var(--r-lg);box-shadow:var(--shadow-m)}
+.feature__media figcaption{margin-top:1rem;font-size:.95rem;color:#8A93A3;max-width:70ch}
+.feature__points{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(24px,3vw,48px);
+  margin:clamp(36px,4vw,56px) 0 2.4rem;padding-top:32px;border-top:1px solid #DDE2EC;
+}
+.feature__points h3{font-size:1.1rem;margin-bottom:.5rem}
+.feature__points p{font-size:1rem;margin:0}
+@media (max-width:1000px){
+  .feature__points{grid-template-columns:1fr;gap:26px}
+  .feature__media img{border-radius:var(--r)}
+}
+
+/* ============================================================
+   MENU ON MOBILE — drill-down, big tap targets, quick contact
+   ============================================================ */
+.pane__back{display:none}
+.menu__foot{display:none}
+
+@media (max-width:1000px){
+  .menu{height:100svh}
+  .menu__top{
+    position:sticky;top:0;z-index:3;background:#fff;display:grid;
+    grid-template-columns:auto 1fr;gap:10px 14px;align-items:center;
+    padding:12px var(--pad);
+  }
+  .menu__top .pill{padding:0;box-shadow:none}
+  .menu__top .head__tel{display:none}
+  .menu__search{order:3;grid-column:1 / -1;max-width:none;padding:.8rem 1rem;border-radius:12px}
+  .menu__search input{font-size:16px}          /* stops iOS zooming in on focus */
+
+  .menu__body{display:block;flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain}
+  .rail{display:block;border:0;padding:4px 0 24px}
+  .rail__group{padding:6px var(--pad) 10px}
+  .rail__head{font-size:1.3rem;padding:.9rem 0;min-height:56px;display:flex;align-items:center}
+  .rail__sub{
+    display:flex;align-items:center;justify-content:space-between;gap:1rem;
+    width:100%;min-height:56px;padding:.9rem 0;font-size:1.06rem;border-radius:0;
+    border-top:1px solid var(--line);margin:0;
+  }
+  .rail__sub::after{
+    content:"";width:9px;height:9px;flex:none;
+    border-right:2px solid #A8B0BE;border-top:2px solid #A8B0BE;transform:rotate(45deg);
+  }
+  .rail__sub.is-active{background:none;font-weight:600}
+
+  /* drill-down: the rail hands over to one full-screen panel */
+  .pane{display:none;padding:8px var(--pad) 28px}
+  .menu.is-drilled .rail{display:none}
+  .menu.is-drilled .pane{display:block}
+  .pane__back{
+    display:inline-flex;align-items:center;gap:.6rem;background:none;border:0;cursor:pointer;
+    font:inherit;font-weight:700;color:var(--blue);padding:1rem 0;min-height:52px;
+  }
+  .pane__card h3{font-size:1.35rem}
+  .pane__card > p{padding-bottom:16px;margin-bottom:12px}
+  .pane__links a{padding:.95rem 0;min-height:52px;display:flex;align-items:center;font-size:1.06rem;border-bottom:1px solid var(--line)}
+  .pane__links a:hover{background:none}
+  .pane__links li:last-child a{border-bottom:0}
+
+  .menu__foot{
+    display:grid;grid-template-columns:1fr auto;gap:10px;
+    padding:12px var(--pad) calc(12px + env(safe-area-inset-bottom));
+    border-top:1px solid var(--line);background:#fff;
+  }
+  .menu__foot a{
+    display:flex;align-items:center;justify-content:center;padding:1rem;border-radius:999px;
+    font-weight:700;font-size:1rem;color:#fff;
+  }
+  .menu__foot .m-call{background:var(--blue)}
+  .menu__foot .m-wa{background:#25D366;padding-inline:1.6rem}
+}
+.post__img{object-fit:cover}
+
+/* ============================================================
+   MOBILE PASS — every section, top to bottom
+   ============================================================ */
+html,body{overflow-x:hidden}
+
+@media (max-width:1000px){
+  section{padding-block:clamp(56px,10vw,84px)}
+  h2{font-size:clamp(1.75rem,5.6vw,2.3rem)}
+  .lede{max-width:none}
+
+  /* header: keep the two pills light so they never collide */
+  .head__bar{padding:12px var(--pad)}
+  .pill{border-radius:16px;box-shadow:0 6px 18px rgba(16,19,26,.12)}
+  .pill--right{padding:8px 14px}
+  .icon-btn{width:42px;height:42px}
+  .logo__svg{height:32px}
+
+  /* hero: shorter, and clear of the bottom action bar */
+  .hero{min-height:88svh}
+  .hero__in{padding-block:clamp(96px,18vh,150px) clamp(88px,14vh,120px)}
+  .hero h1{max-width:none}
+  .hero__rule{margin:1.4rem 0 .8rem;font-size:1rem}
+  .hero__sub{max-width:none}
+  .hero .btn{width:100%;justify-content:center;margin-top:1.6rem}
+  .hero__scroll{display:none}
+
+  /* who we are / relationships */
+  .split{gap:28px}
+  .split__art{margin-inline:calc(var(--pad) * -1)}     /* photo runs edge to edge */
+  #about .plate__frame,#relationships .plate__frame{aspect-ratio:4/3}
+
+  /* how it works */
+  .step{padding:24px 22px}
+  .step::before{width:34px;height:34px;margin-bottom:12px}
+
+  /* services rail: swipe with a peek of the next card */
+  .rail-head{flex-direction:column;align-items:flex-start;gap:1.2rem;margin-bottom:1.8rem}
+  .rail-nav{display:none}
+  .rail{
+    grid-auto-columns:80%;gap:16px;scroll-snap-type:x mandatory;
+    margin-inline:calc(var(--pad) * -1);padding-inline:var(--pad);
+    -webkit-mask-image:none;mask-image:none;
+  }
+  .card{aspect-ratio:3/3.9;scroll-snap-align:center}
+  .card p{opacity:1;max-height:none;transform:none}        /* no hover on touch, so always show */
+  .rail__bar{margin-top:20px}
+  .rail__hint{font-size:.85rem}
+
+  /* numbers */
+  .figs{grid-template-columns:1fr 1fr;gap:1.8rem 1.4rem}
+  .fig strong{font-size:2.2rem}
+  .fig span{font-size:.92rem;max-width:none}
+
+  /* partnering feature */
+  .feature__title{max-width:none}
+  .feature__media{margin-inline:calc(var(--pad) * -1)}
+  .feature__media img{border-radius:0}
+  .feature__media figcaption{padding-inline:var(--pad);font-size:.9rem}
+  .feature__points{gap:20px;padding-top:24px}
+  .feature .btn{width:100%;justify-content:center}
+
+  /* insights: swipe instead of an endless column */
+  .posts{
+    grid-auto-flow:column;grid-template-columns:none;grid-auto-columns:78%;
+    overflow-x:auto;scroll-snap-type:x mandatory;gap:16px;
+    margin-inline:calc(var(--pad) * -1);padding:0 var(--pad) 8px;scrollbar-width:none;
+  }
+  .posts::-webkit-scrollbar{height:0}
+  .posts__col{gap:16px;margin-top:0!important;scroll-snap-align:center}
+  .post__img,.post--tall .post__img{aspect-ratio:3/3.5}
+  .insights__more .btn{width:100%;justify-content:center}
+
+  /* contact */
+  .contact__grid{gap:32px}
+  .field input,.field textarea,.field select{font-size:16px}   /* stops iOS zooming */
+  .contact .btn{width:100%;justify-content:center}
+  .contact__facts{gap:1.2rem}
+
+  /* footer */
+  .foot{padding-top:56px}
+  .foot__links a{padding:.35rem 0;display:inline-block}
+  .foot__mid{gap:1.2rem}
+  .foot__fine{font-size:.86rem}
+}
+
+@media (max-width:560px){
+  .head__tel{display:none}                 /* the bottom bar already has Call */
+  .pill--right{padding:8px 12px}
+  .rail{grid-auto-columns:86%}
+  .posts{grid-auto-columns:86%}
+  .figs{gap:1.6rem 1rem}
+  .fig strong{font-size:2rem}
+  .steps__grid{gap:14px}
+  .foot__statement{font-size:1.5rem;max-width:none}
+}
+
+/* ============================================================
+   NAVIGATION & SCROLL FEEL
+   ============================================================ */
+html{scroll-padding-top:104px}
+.skip{
+  position:fixed;top:-100px;left:16px;z-index:120;background:var(--ink);color:#fff;
+  padding:.8rem 1.2rem;border-radius:10px;font-weight:700;transition:top .2s ease;
+}
+.skip:focus{top:16px}
+
+/* header slides away as you read down, returns the moment you scroll up */
+.head{transition:transform .32s cubic-bezier(.2,.7,.3,1)}
+.head.is-hidden{transform:translateY(-140%)}
+
+/* back to top, with a ring that fills as you move down the page */
+.totop{position:fixed;display:grid;place-items:center}
+.totop__ring{position:absolute;inset:0;width:100%;height:100%}
+.totop__ring circle{transition:stroke-dashoffset .12s linear}
+.totop__arrow{position:relative}
+
+/* reveals: one calm rise, staggered within a group */
+.js [data-reveal]{opacity:0;transform:translateY(22px)}
+.js [data-reveal].in{opacity:1;transform:none;transition:opacity .7s cubic-bezier(.2,.7,.3,1),transform .7s cubic-bezier(.2,.7,.3,1)}
+
+/* keeps long pages smooth by skipping work on what is off screen */
+.steps,.band,#insights,.contact{contain-intrinsic-size:auto 900px}
+
+@media (prefers-reduced-motion:reduce){
+  .js [data-reveal]{opacity:1;transform:none}
+  .head.is-hidden{transform:none}
+}
+
+/* ============================================================
+   FINISHING EFFECTS
+   ============================================================ */
+
+/* headline words rise behind a mask, one after another */
+.js .w{display:inline-block;overflow:hidden;vertical-align:top}
+.js .w > i{display:inline-block;font-style:normal;transform:translateY(112%);transition:transform .8s cubic-bezier(.2,.75,.25,1)}
+.js .reveal-words.in .w > i{transform:none}
+
+/* service cards tilt very slightly toward the cursor */
+.rail{perspective:1200px}
+.card{transform-style:preserve-3d;will-change:transform}
+
+
+
+@media (prefers-reduced-motion:reduce){
+  .js .w > i{transform:none}
+}
+
+/* roomier pill so the bigger lockup sits comfortably */
+.pill{padding:10px 22px 10px 10px}
+.menu__top .pill{padding:0}
+@media (max-width:1000px){ .pill{padding:8px 16px 8px 8px} }
+
+/* hero headline: two long lines, as large as they can be and still fit */
+.hero__col{max-width:min(1320px,94%)}
+.hero h1{font-size:clamp(1.9rem,4.1vw,4rem);max-width:none;letter-spacing:-.025em}
+@media (max-width:1000px){
+  .hero h1{font-size:clamp(1.85rem,6.6vw,2.6rem)}
+  .hero__col{max-width:none}
+}
+
+/* ============================================================
+   COOKIE BAR & PREFERENCES
+   ============================================================ */
+.cookie-bar{
+  position:fixed;left:16px;right:16px;bottom:16px;z-index:95;background:#fff;border:1px solid var(--line);
+  border-radius:var(--r-lg);box-shadow:var(--shadow-l);padding:20px 22px;max-width:760px;margin-inline:auto;
+  animation:ckIn .45s cubic-bezier(.2,.75,.25,1) both;
+}
+@keyframes ckIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+.cookie-bar__in{display:flex;align-items:center;gap:1.4rem;flex-wrap:wrap}
+.cookie-bar p{margin:0;flex:1;min-width:260px;font-size:.98rem}
+.cookie-bar__acts{display:flex;gap:.6rem;flex-wrap:wrap}
+.cookie-bar .btn{padding:.7rem 1.3rem;font-size:.95rem;box-shadow:none}
+
+.cookie-modal[hidden],.cookie-bar[hidden]{display:none!important}
+.cookie-modal{position:fixed;inset:0;z-index:110;display:grid;place-items:center;padding:20px;
+  background:rgba(12,15,22,.55);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px)}
+.cookie-modal__box{
+  background:#fff;border-radius:var(--r-lg);padding:clamp(24px,4vw,38px);max-width:560px;width:100%;
+  max-height:86svh;overflow-y:auto;position:relative;box-shadow:var(--shadow-l);
+  animation:ckIn .35s cubic-bezier(.2,.75,.25,1) both;
+}
+.cookie-modal__box h2{font-size:1.5rem;margin-bottom:.6rem}
+.cookie-modal__x{position:absolute;top:14px;right:16px;border:0;background:none;font-size:1.8rem;line-height:1;
+  color:#9AA3B2;cursor:pointer;padding:6px}
+.cookie-modal__x:hover{color:var(--ink)}
+.switch{display:flex;align-items:center;gap:1rem;padding:16px 0;border-top:1px solid var(--line);cursor:pointer}
+.switch span{flex:1;font-size:.96rem}
+.switch input{position:absolute;opacity:0;pointer-events:none}
+.switch i{
+  flex:none;width:52px;height:30px;border-radius:999px;background:#D8DEE9;position:relative;transition:background .2s ease;
+}
+.switch i::after{content:"";position:absolute;top:3px;left:3px;width:24px;height:24px;border-radius:50%;
+  background:#fff;box-shadow:0 2px 6px rgba(16,19,26,.25);transition:transform .22s cubic-bezier(.2,.75,.25,1)}
+.switch input:checked + i{background:var(--blue)}
+.switch input:checked + i::after{transform:translateX(22px)}
+.switch.is-locked{cursor:default;opacity:.85}
+.switch input:focus-visible + i{outline:3px solid var(--blue);outline-offset:3px}
+.cookie-modal__acts{display:flex;align-items:center;justify-content:space-between;gap:1rem;margin-top:1.6rem;flex-wrap:wrap}
+.cookie-modal__link{color:var(--blue);font-weight:700;text-decoration:underline;text-underline-offset:4px}
+@media (max-width:700px){
+  .cookie-bar{left:10px;right:10px;bottom:84px;padding:18px}
+  .cookie-bar__acts{width:100%}
+  .cookie-bar .btn{flex:1;justify-content:center}
+  .cookie-modal__acts .btn{width:100%;justify-content:center}
+}
+
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.form-note.is-ok{color:#8FE3B0}
+.form-note.is-bad{color:#FFB4B4}
+.btn.is-busy{opacity:.75;pointer-events:none}
+</style>
+</head>
+<body>
+<a class="skip" href="#about">Skip to content</a>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="dbLogo" viewBox="0 0 3136 1238"><g transform="translate(0.000000,1238.000000) scale(0.100000,-0.100000)" fill="currentColor"> <path d="M4300 10850 l0 -1530 73 -36 c311 -156 644 -390 899 -633 54 -51 101 -91 104 -89 2 3 4 421 4 929 0 982 -3 1039 -51 1274 -121 592 -458 1155 -915 1531 -56 46 -105 84 -108 84 -3 0 -6 -688 -6 -1530z M15905 11220 c-446 -61 -552 -614 -156 -815 139 -70 365 -65 501 12 280 158 299 560 35 728 -101 65 -246 93 -380 75z M17080 9160 l0 -1840 389 0 390 0 3 1818 c2 999 1 1827 -1 1840 l-3 22 -389 0 -389 0 0 -1840z M18575 10988 c-3 -7 -4 -834 -3 -1838 l3 -1825 387 -3 388 -2 5 22 c3 13 4 840 3 1838 l-3 1815 -388 3 c-305 2 -389 0 -392 -10z M29325 10829 c-429 -55 -741 -281 -844 -613 -22 -71 -25 -100 -26 -231 0 -143 1 -154 33 -251 41 -125 160 -327 236 -399 6 -6 26 -27 44 -47 l34 -36 -49 -28 c-233 -134 -446 -316 -550 -470 -158 -233 -204 -551 -117 -796 184 -516 878 -797 1644 -667 234 40 528 160 710 290 45 33 83 59 86 59 4 0 53 -45 287 -263 l128 -119 27 30 c15 16 59 67 97 113 66 77 185 215 261 302 19 21 34 44 34 51 0 7 -42 51 -92 97 -146 133 -293 271 -296 280 -2 4 16 41 40 81 57 95 137 270 176 383 42 121 94 314 87 325 -3 4 -38 18 -77 30 -94 27 -279 85 -390 121 -141 45 -156 47 -164 13 -57 -239 -144 -494 -169 -494 -4 0 -75 64 -159 143 -358 336 -419 392 -432 400 -27 16 -13 33 69 82 300 180 471 367 549 601 28 84 33 319 9 414 -80 318 -361 539 -761 596 -105 15 -317 16 -425 3z m380 -557 c106 -48 157 -128 158 -247 1 -148 -90 -259 -332 -404 l-103 -63 -55 54 c-58 57 -150 174 -175 223 -43 84 -43 235 -1 304 45 73 124 129 210 151 71 17 242 7 298 -18z m-396 -1494 c37 -35 202 -189 366 -343 165 -154 319 -298 344 -321 l44 -40 -74 -46 c-175 -106 -317 -143 -559 -143 -205 0 -258 9 -379 67 -281 134 -320 464 -83 698 74 73 233 188 261 189 7 1 43 -27 80 -61z M11573 10789 c-10 -10 -13 -372 -13 -1741 l0 -1728 873 0 c910 0 993 3 1202 46 623 126 1087 488 1293 1010 221 555 152 1223 -171 1681 -281 398 -714 636 -1312 724 -122 18 -1856 25 -1872 8z m1427 -673 c352 -3 399 -9 555 -61 325 -110 555 -359 642 -695 26 -97 28 -119 27 -305 0 -213 -11 -279 -74 -447 -90 -241 -326 -458 -595 -548 -178 -59 -214 -63 -712 -67 l-463 -5 0 1065 c0 585 2 1066 4 1068 2 2 67 3 143 2 76 -2 289 -5 473 -7z M21210 10020 c-36 -5 -85 -13 -110 -19 -25 -6 -58 -13 -75 -16 -77 -17 -226 -72 -319 -119 -381 -194 -627 -518 -714 -941 -24 -117 -23 -430 2 -545 61 -282 168 -484 360 -676 197 -198 432 -325 706 -383 728 -154 1413 134 1705 718 151 302 180 731 71 1056 -156 464 -510 777 -1015 896 -114 27 -146 30 -336 34 -115 2 -239 0 -275 -5z m395 -652 c126 -26 278 -124 363 -235 111 -144 166 -414 128 -631 -56 -321 -252 -522 -553 -567 -359 -54 -661 146 -754 500 -31 115 -31 327 0 440 100 377 426 574 816 493z M24815 10020 c-236 -40 -427 -126 -592 -268 l-63 -54 0 141 c0 138 -1 142 -22 149 -13 4 -182 6 -375 4 l-353 -3 0 -1334 0 -1335 388 2 387 3 6 740 c5 634 8 749 22 806 73 299 262 460 557 476 301 16 488 -107 556 -364 28 -104 34 -278 34 -976 l0 -687 388 2 387 3 3 805 c3 923 -3 1022 -75 1225 -124 345 -357 553 -723 646 -94 23 -427 36 -525 19z M15973 9992 l-373 -2 0 -1335 0 -1335 390 0 390 0 0 1334 c0 1262 -1 1334 -17 1337 -10 2 -186 3 -390 1z M2470 8610 c-680 -71 -1229 -326 -1685 -784 -415 -417 -668 -920 -761 -1512 -33 -216 -32 -604 4 -819 110 -672 463 -1273 996 -1694 534 -422 1249 -635 1901 -565 171 18 254 29 283 38 l22 7 1 512 c1 533 0 599 -7 606 -3 3 -35 -5 -72 -17 -204 -65 -466 -85 -697 -51 -373 55 -716 240 -962 519 -802 908 -365 2331 809 2631 264 67 636 56 868 -26 23 -8 46 -15 51 -15 5 0 9 247 9 560 l0 559 -37 10 c-136 36 -545 59 -723 41z M4300 5283 c0 -3134 -5 -2902 76 -3238 33 -138 74 -262 132 -400 343 -820 1094 -1432 1962 -1599 173 -33 231 -38 484 -43 274 -5 410 8 626 58 1096 255 1903 1124 2077 2239 26 164 26 627 0 785 -124 766 -524 1404 -1152 1837 -133 92 -441 258 -479 258 -6 0 -16 4 -21 9 -11 10 -145 58 -245 89 -116 35 -283 70 -445 94 -117 17 -543 17 -645 0 -41 -7 -117 -20 -167 -28 -161 -26 -434 -108 -579 -174 -195 -90 -276 -134 -419 -229 -55 -36 -106 -67 -112 -69 -10 -3 -13 127 -13 622 0 372 -4 657 -10 703 -26 194 -33 235 -62 353 -118 490 -358 920 -713 1275 -107 107 -268 245 -286 245 -5 0 -9 -1142 -9 -2787z m2896 -998 c927 -124 1548 -990 1368 -1910 -129 -656 -676 -1178 -1333 -1270 -173 -25 -441 -16 -591 19 -507 118 -919 458 -1121 925 -258 600 -139 1278 310 1753 146 156 387 320 563 383 288 105 538 136 804 100z M15640 5284 c-265 -26 -440 -201 -440 -439 0 -183 121 -341 311 -406 93 -31 269 -31 354 1 209 79 317 242 302 454 -7 94 -24 141 -79 214 -88 118 -278 192 -448 176z M20810 5053 c0 -5 0 -287 0 -629 0 -341 -2 -623 -6 -627 -4 -3 -30 15 -59 42 -364 332 -1051 339 -1517 15 -349 -242 -548 -658 -548 -1146 0 -537 250 -982 680 -1211 371 -198 884 -211 1219 -30 79 43 200 136 229 175 27 37 32 17 32 -122 l0 -140 373 2 372 3 0 1835 0 1835 -387 3 c-214 1 -388 -1 -388 -5z m-481 -1629 c301 -76 492 -356 491 -719 -2 -427 -280 -720 -680 -716 -316 3 -544 178 -635 486 -36 122 -39 336 -6 460 66 250 220 414 455 486 102 31 260 32 375 3z M11577 4853 c-16 -4 -17 -93 -15 -1736 l3 -1732 990 -3 c850 -2 1010 0 1130 13 601 68 943 308 1046 735 18 72 18 306 0 390 -62 301 -250 526 -533 639 -32 13 -58 26 -58 30 0 3 21 19 47 35 267 170 420 494 384 816 -43 381 -302 638 -761 755 -226 57 -244 58 -1270 61 -520 1 -953 0 -963 -3z m1833 -637 c252 -58 379 -221 342 -436 -25 -145 -100 -235 -240 -288 -138 -52 -194 -57 -687 -57 l-450 0 -3 403 -2 404 482 -5 c412 -3 494 -7 558 -21z m38 -1387 c308 -33 460 -151 478 -369 20 -249 -107 -397 -382 -444 -72 -13 -193 -16 -629 -16 l-540 -1 -3 408 c-1 224 0 414 3 420 6 17 927 18 1073 2z M18272 4084 c-298 -31 -552 -147 -695 -317 l-42 -51 -5 165 -5 164 -340 5 c-187 3 -353 3 -370 0 l-30 -6 0 -1329 0 -1330 390 0 390 0 5 725 c6 716 6 726 28 799 102 333 341 483 750 469 l97 -3 0 354 0 355 -25 6 c-14 3 -81 1 -148 -6z M15297 4043 c-10 -9 -8 -2635 1 -2651 7 -9 92 -12 393 -10 l384 3 0 1330 0 1330 -386 3 c-212 1 -388 -1 -392 -5z"/> </g></symbol>
+</svg>
+
+<!-- ================= HEADER (BCG-style: hamburger + overlay menu) ================= -->
+<header class="head" id="head">
+  <div class="head__bar">
+    <div class="pill">
+      <button class="icon-btn" id="menuBtn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="menu">
+        <svg width="20" height="14" viewBox="0 0 20 14" aria-hidden="true"><g stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M1 1h18"/><path d="M1 7h18"/><path d="M1 13h18"/></g></svg>
+      </button>
+      <a class="logo" href="#top" aria-label="Dillon and Bird home">
+      <svg class="logo__svg" viewBox="0 0 3136 1238" role="img" aria-label="Dillon &amp; Bird"><use href="#dbLogo"/></svg>
+      </a>
+    </div>
+
+    <div class="pill pill--right">
+      <span class="flag" role="img" aria-label="United Arab Emirates">
+        <svg viewBox="0 0 30 20" aria-hidden="true">
+          <rect width="30" height="20" rx="2.5" fill="#fff"/>
+          <path d="M8 0h22v6.667H8z" fill="#00843D"/>
+          <path d="M8 6.667h22v6.666H8z" fill="#fff"/>
+          <path d="M8 13.333h22V20H8z" fill="#000"/>
+          <path d="M2.5 0H8v20H2.5A2.5 2.5 0 0 1 0 17.5v-15A2.5 2.5 0 0 1 2.5 0Z" fill="#CE1126"/>
+        </svg>
+      </span>
+      <a class="head__tel" href="tel:+971585570593">+971 58 557 0593</a>
+      <a class="head__cta" href="#connect">Book a call</a>
+    </div>
+  </div>
+</header>
+
+<!-- ================= OVERLAY MENU ================= -->
+<div class="menu" id="menu" role="dialog" aria-modal="true" aria-label="Site menu">
+  <div class="menu__top">
+    <div class="pill" style="box-shadow:none;padding-left:0">
+      <button class="icon-btn" id="closeBtn" type="button" aria-label="Close menu">
+        <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><g stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M2 2l14 14"/><path d="M16 2L2 16"/></g></svg>
+      </button>
+      <a class="logo" href="#top"><svg class="logo__svg" viewBox="0 0 3136 1238" role="img" aria-label="Dillon &amp; Bird"><use href="#dbLogo"/></svg></a>
+    </div>
+
+    <div class="menu__search">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="9" cy="9" r="6.2" stroke="currentColor" stroke-width="2"/><path d="M13.6 13.6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      <input id="menuSearch" type="search" placeholder="Type to search" aria-label="Search services and pages" autocomplete="off">
+    </div>
+
+    <a class="head__tel" href="tel:+971585570593">+971 58 557 0593</a>
+  </div>
+
+  <div class="menu__body">
+    <!-- left rail -->
+    <nav class="rail" aria-label="Main">
+      <div class="rail__group">
+        <h3 class="rail__head">Our services</h3>
+        <button class="rail__sub is-active" type="button" data-pane="setup">Set up and structure</button>
+        <button class="rail__sub" type="button" data-pane="finance">Finance and compliance</button>
+        <button class="rail__sub" type="button" data-pane="advisory">Advisory and technology</button>
+      </div>
+
+      <div class="rail__group">
+        <a class="rail__head" href="#work">Client success</a>
+      </div>
+
+      <div class="rail__group">
+        <a class="rail__head" href="#insights">Our insights</a>
+      </div>
+
+      <div class="rail__group">
+        <h3 class="rail__head">Our company</h3>
+        <button class="rail__sub" type="button" data-pane="company">About Dillon &amp; Bird</button>
+      </div>
+
+      <div class="rail__group">
+        <h3 class="rail__head">Join us</h3>
+        <button class="rail__sub" type="button" data-pane="careers">Careers and internships</button>
+      </div>
+
+      <div class="rail__group">
+        <a class="rail__head" href="#connect">Let's connect</a>
+      </div>
+    </nav>
+
+    <!-- right pane -->
+    <div class="pane" id="pane">
+      <button class="pane__back" id="paneBack" type="button">
+        <svg width="16" height="14" viewBox="0 0 16 14" fill="none" aria-hidden="true"><path d="M15 7H1M6 1 1 7l5 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        All sections
+      </button>
+      <div class="pane__card is-on" data-card="setup">
+        <h3>Set up and structure</h3>
+        <p>Getting the entity, licence and ownership right the first time, so you are not unwinding it later.</p>
+        <ul class="pane__links">
+          <li><a href="#expertise">Business setup</a></li>
+          <li><a href="#expertise">Company formation</a></li>
+          <li><a href="#expertise">Corporate services</a></li>
+          <li><a href="#expertise">Partnerships</a></li>
+        </ul>
+        <p class="pane__foot">Not sure which licence or free zone fits? <a href="#connect">Book a 20-minute call</a>.</p>
+      </div>
+
+      <div class="pane__card" data-card="finance">
+        <h3>Finance and compliance</h3>
+        <p>Books, audits, tax filings and banking, handled by people who deal with UAE regulators every week.</p>
+        <ul class="pane__links">
+          <li><a href="#expertise">Accounting &amp; bookkeeping</a></li>
+          <li><a href="#expertise">Audit services</a></li>
+          <li><a href="#expertise">Accounting &amp; financial services</a></li>
+          <li><a href="#expertise">Banking services</a></li>
+          <li><a href="#expertise">Financial planning &amp; investor services</a></li>
+        </ul>
+        <p class="pane__foot">Behind on filings? <a href="#connect">Tell us where you stand</a>.</p>
+      </div>
+
+      <div class="pane__card" data-card="advisory">
+        <h3>Advisory and technology</h3>
+        <p>Strategy, restructuring and the systems to run it, from a team that has led operations inside UAE groups.</p>
+        <ul class="pane__links">
+          <li><a href="#expertise">Management consulting</a></li>
+          <li><a href="#expertise">Insolvency &amp; liquidation</a></li>
+          <li><a href="#expertise">Technology consulting</a></li>
+          <li><a href="#expertise">AI &amp; cloud services</a></li>
+          <li><a href="#expertise">CMO services</a></li>
+        </ul>
+        <p class="pane__foot">Facing a court filing or a closure? <a href="#connect">Talk to a partner</a>.</p>
+      </div>
+
+      <div class="pane__card" data-card="company">
+        <h3>Our company</h3>
+        <p>Who we are, where we work and how we run engagements.</p>
+        <ul class="pane__links">
+          <li><a href="#about">About us</a></li>
+          <li><a href="#about">Leadership</a></li>
+          <li><a href="#work">Client success</a></li>
+          <li><a href="#insights">Our insights</a></li>
+          <li><a href="#connect">Our office in Dubai</a></li>
+        </ul>
+      </div>
+
+      <div class="pane__card" data-card="careers">
+        <h3>Join us</h3>
+        <p>We hire consultants, accountants and legal support in Dubai, and take a small number of interns each year.</p>
+        <ul class="pane__links">
+          <li><a href="#careers">Open roles</a></li>
+          <li><a href="#careers">Internships</a></li>
+          <li><a href="#careers">Life at Dillon &amp; Bird</a></li>
+        </ul>
+        <p class="pane__foot">Send your CV to <a href="mailto:consulting@dillonbird.com">consulting@dillonbird.com</a>.</p>
+      </div>
+
+      <div class="pane__card" data-card="results">
+        <h3>Search results</h3>
+        <p id="resultCount">Type to search across our services and pages.</p>
+        <ul class="pane__links" id="resultList"></ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="menu__foot">
+    <a class="m-call" href="tel:+971585570593">Call +971 58 557 0593</a>
+    <a class="m-wa" href="https://wa.me/971585570593" target="_blank" rel="noopener">WhatsApp</a>
+  </div>
+</div>
+
+<!-- ================= HERO ================= -->
+<main id="top">
+<section class="hero">
+  <div class="hero__art" aria-hidden="true">
+    <div class="hero__sky"></div>
+    <div class="cloud c1"></div><div class="cloud c2"></div><div class="cloud c3"></div>
+
+    <!-- far skyline -->
+    <svg class="skyline skyline--far" viewBox="0 0 1600 420" preserveAspectRatio="xMidYMax slice">
+      <g fill="#0E1118">
+        <rect x="40" y="250" width="70" height="170"/><rect x="130" y="290" width="54" height="130"/>
+        <rect x="210" y="215" width="86" height="205"/><rect x="320" y="270" width="62" height="150"/>
+        <rect x="410" y="230" width="74" height="190"/><rect x="510" y="300" width="90" height="120"/>
+        <rect x="630" y="200" width="58" height="220"/><rect x="710" y="262" width="80" height="158"/>
+        <rect x="820" y="236" width="64" height="184"/><rect x="910" y="288" width="96" height="132"/>
+        <rect x="1030" y="222" width="70" height="198"/><rect x="1122" y="272" width="58" height="148"/>
+        <rect x="1206" y="244" width="88" height="176"/><rect x="1318" y="296" width="66" height="124"/>
+        <rect x="1408" y="238" width="78" height="182"/><rect x="1508" y="286" width="60" height="134"/>
+      </g>
+    </svg>
+
+    <!-- mid skyline with the tapering tower -->
+    <svg class="skyline skyline--mid" viewBox="0 0 1600 420" preserveAspectRatio="xMidYMax slice">
+      <g fill="#0A0C12">
+        <rect x="90" y="300" width="96" height="120"/><rect x="206" y="262" width="70" height="158"/>
+        <path d="M300 420V236l46-22 46 22v184z"/><rect x="416" y="292" width="84" height="128"/>
+        <path d="M540 420V214h96v206z"/><rect x="660" y="276" width="62" height="144"/>
+        <path d="M780 420 800 96l6-52 6 52 20 324z"/>
+        <rect x="860" y="258" width="88" height="162"/><path d="M972 420V248l52-30 52 30v172z"/>
+        <rect x="1100" y="292" width="76" height="128"/><rect x="1198" y="252" width="66" height="168"/>
+        <path d="M1290 420V232h92l14 188z"/><rect x="1422" y="284" width="80" height="136"/>
+      </g>
+    </svg>
+
+    <!-- near skyline -->
+    <svg class="skyline skyline--near" viewBox="0 0 1600 420" preserveAspectRatio="xMidYMax slice">
+      <g fill="#05060A">
+        <rect x="0" y="344" width="150" height="76"/><rect x="168" y="318" width="104" height="102"/>
+        <path d="M300 420V300q56-18 112 0v120z"/><rect x="440" y="336" width="130" height="84"/>
+        <rect x="596" y="306" width="92" height="114"/><path d="M716 420V288l70-26 70 26v132z"/>
+        <rect x="880" y="330" width="118" height="90"/><rect x="1022" y="300" width="86" height="120"/>
+        <path d="M1136 420V316q60-22 120 0v104z"/><rect x="1284" y="338" width="136" height="82"/>
+        <rect x="1444" y="310" width="156" height="110"/>
+      </g>
+    </svg>
+    <!-- Hero video: assets/video/hero.mp4 — muted, looping, autoplay.
+         The animated skyline behind it shows if the file is missing. -->
+    <video class="hero__video" id="heroVideo" src="assets/video/hero.mp4" muted loop playsinline preload="auto"
+           poster="assets/img/hero-poster.jpg"></video>
+
+    <div class="hero__veil"></div>
+  </div>
+
+  <div class="shell hero__in">
+   <div class="hero__col">
+    <p class="hero__kicker">Dillon &amp; Bird</p>
+    <h1>
+      <span class="hero__line"><span>Driving unprecedented growth and innovation</span></span>
+      <span class="hero__line"><span>across the GCC.</span></span>
+    </h1>
+    <p class="hero__rule">Strategic partnership | Sustainable value | Future-forward solutions.</p>
+    <p class="hero__sub">Dillon &amp; Bird: your dedicated strategic partner in the GCC. We blend finance, tech and marketing to unlock your growth.</p>
+    <a class="btn" href="#connect">Let's grow</a>
+   </div>
+  </div>
+
+  <div class="hero__scroll" aria-hidden="true"><i></i> Scroll</div>
+</section>
+
+<!-- ================= WHO WE ARE ================= -->
+<section id="about">
+  <div class="shell split rv">
+    <div class="split__art">
+      <div class="plate">
+        <div class="plate__frame">
+          <img src="assets/img/about-team.jpg" alt="A full room at a Dillon &amp; Bird session">
+        </div>
+      </div>
+    </div>
+    <div>
+      <h2>Who we are</h2>
+      <p class="lede" style="margin-top:1.4rem">We are the architects of progress for GCC businesses — from agile startups to legacy family enterprises. Through strategic foresight and operational excellence, we deliver enduring value and sustainable growth in a fast-moving economy.</p>
+      <p class="lede">Our partners have led IT, finance and operations inside large UAE groups before building this firm. That means practical answers about licensing, restructuring, banking and hiring — not theory.</p>
+      <a class="btn" href="#work" style="margin-top:.8rem">Our story</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ================= HOW IT WORKS ================= -->
+<section class="steps">
+  <div class="shell rv">
+    <h2>Working with us takes three steps</h2>
+    <p class="lede" style="margin-top:1rem">No long proposals before anyone has spoken to you.</p>
+    <div class="steps__grid">
+      <div class="step">
+        <h3>Tell us what you need</h3>
+        <p>A 20-minute call with a partner. No charge and no pitch deck.</p>
+      </div>
+      <div class="step">
+        <h3>Get a scope and a fee</h3>
+        <p>In writing within two working days, at a fixed price wherever the work allows it.</p>
+      </div>
+      <div class="step">
+        <h3>We do the work</h3>
+        <p>One partner stays on your file from the first call to the last filing.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= EXPERTISE ================= -->
+<section id="expertise" class="band expertise">
+  <div class="shell">
+    <div class="rail-head rv">
+      <div>
+        <h2>Our expertise</h2>
+        <p class="lede" style="margin:1rem 0 0">Fourteen services, one team. Most clients start with one and stay for the rest.</p>
+      </div>
+      <div class="rail-nav">
+        <button id="prev" aria-label="Previous services">&#8592;</button>
+        <button id="next" aria-label="Next services">&#8594;</button>
+      </div>
+    </div>
+
+    <div class="rail" id="rail" tabindex="0" aria-label="Our services, scroll sideways">
+      <article class="card">
+        <img class="card__bg" src="assets/img/services/business-setup.jpg" alt="" loading="lazy">
+        <div class="card__txt">
+          <svg class="card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h18v12H3zM8 8V5h8v3M3 13h18"/></svg>
+          <h3>Business setup</h3>
+          <p>End-to-end setup across the UAE and the wider GCC.</p>
+        </div>
+      </article>
+      <article class="card">
+        <img class="card__bg" src="assets/img/services/company-formation.jpg" alt="" loading="lazy">
+        <div class="card__txt">
+          <svg class="card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 7a4 4 0 1 1-2.8 6.8L4 21H3v-3l7.2-7.2A4 4 0 0 1 14 7zM16 9h.01"/></svg>
+          <h3>Company formation</h3>
+          <p>Registration and licensing, mainland or free zone.</p>
+        </div>
+      </article>
+      <article class="card">
+        <img class="card__bg" src="assets/img/services/corporate-services.jpg" alt="" loading="lazy">
+        <div class="card__txt">
+          <svg class="card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 11l3 3 6-6M21 12a9 9 0 1 1-4.2-7.6"/></svg>
+          <h3>Corporate services</h3>
+          <p>Compliance and administration handled for you.</p>
+        </div>
+      </article>
+      <article class="card">
+        <img class="card__bg" src="assets/img/services/accounting-and-bookkeeping.jpg" alt="" loading="lazy">
+        <div class="card__txt">
+          <svg class="card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4.5A2.5 2.5 0 0 1 6.5 2H20v18H6.5A2.5 2.5 0 0 0 4 22.5zM8 7h8M8 11h6"/></svg>
+          <h3>Accounting &amp; bookkeeping</h3>
+          <p>Monthly books kept clean and filing-ready.</p>
+        </div>
+      </article>
+      <article class="card">
+        <img class="card__bg" src="assets/img/services/audit-services.jpg" alt="" loading="lazy">
+        <div class="card__txt">
+          <svg class="card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3h14v18H5zM8 7h8M8 11h2M12 11h2M16 11h.01M8 15h2M12 15h2M16 15h.01M8 19h6"/></svg>
+          <h3>Audit services</h3>
+          <p>Statutory audit and independent financial review.</p>
+        </div>
+      </article>
+      <article class="card">
+        <img class="card__bg" src="assets/img/services/accounting-and-financial-services.jpg" alt="" loading="lazy">
+        <div class="card__txt">
+          <svg class="card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 17l6-6 4 4 8-8M15 7h6v6"/></svg>
+          <h3>Accounting &amp; financial services</h3>
+          <p>VAT, corporate tax and management reporting.</p>
+        </div>
+      </article>
+      <article class="card">
+        <img class="card__bg" src="assets/img/services/banking-services.jpg" alt="" loading="lazy">
+        <div class="card__txt">
+          <svg class="card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10h18L12 4 3 10zM5 10v8M9.5 10v8M14.5 10v8M19 10v8M3 20h18"/></svg>
+          <h3>Banking services</h3>
+          <p>Corporate account opening and bank relationships.</p>
+        </div>
+      </article>
+      <article class="card">
+        <img class="card__bg" src="assets/img/services/financial-planning-and-investor-services.jpg" alt="" loading="lazy">
+        <div class="card__txt">
+          <svg class="card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>
+          <h3>Financial planning &amp; investor services</h3>
+          <p>Forecasts, valuations and investor-ready documents.</p>
+        </div>
+      </article>
+      <article class="card">
+        <img class="card__bg" src="assets/img/services/management-consulting.jpg" alt="" loading="lazy">
+        <div class="card__txt">
+          <svg class="card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18zM15.5 8.5l-2 5-5 2 2-5z"/></svg>
+          <h3>Management consulting</h3>
+          <p>Strategic planning and operational excellence.</p>
+        </div>
+      </article>
+      <article class="card">
+        <img class="card__bg" src="assets/img/services/insolvency-and-liquidation.jpg" alt="" loading="lazy">
+        <div class="card__txt">
+          <svg class="card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v18M7 21h10M6 7l-3 6h6zM18 7l-3 6h6zM4 7h16"/></svg>
+          <h3>Insolvency &amp; liquidation</h3>
+          <p>Restructuring, court filings and orderly closure.</p>
+        </div>
+      </article>
+      <article class="card">
+        <img class="card__bg" src="assets/img/services/partnerships.jpg" alt="" loading="lazy">
+        <div class="card__txt">
+          <svg class="card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 12l3-3 3 3 3-3 3 3M3 12l4 5h10l4-5M8 17v3M16 17v3"/></svg>
+          <h3>Partnerships</h3>
+          <p>Joint ventures, agency deals and local partners.</p>
+        </div>
+      </article>
+      <article class="card">
+        <img class="card__bg" src="assets/img/services/cmo-services.jpg" alt="" loading="lazy">
+        <div class="card__txt">
+          <svg class="card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11v2a1 1 0 0 0 1 1h3l6 4V6L7 10H4a1 1 0 0 0-1 1zM17 9a4 4 0 0 1 0 6M20 6a8 8 0 0 1 0 12"/></svg>
+          <h3>CMO services</h3>
+          <p>A senior marketing function on retainer.</p>
+        </div>
+      </article>
+      <article class="card">
+        <img class="card__bg" src="assets/img/services/technology-consulting.jpg" alt="" loading="lazy">
+        <div class="card__txt">
+          <svg class="card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10H7zM9 3v4M15 3v4M9 17v4M15 17v4M3 9h4M3 15h4M17 9h4M17 15h4"/></svg>
+          <h3>Technology consulting</h3>
+          <p>Systems that match how the business actually runs.</p>
+        </div>
+      </article>
+      <article class="card">
+        <img class="card__bg" src="assets/img/services/ai-and-cloud-services.jpg" alt="" loading="lazy">
+        <div class="card__txt">
+          <svg class="card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 18a4 4 0 0 1 .8-7.9A5.5 5.5 0 0 1 18 10a3.9 3.9 0 0 1-1 8zM12 12v5M9.5 14.5 12 12l2.5 2.5"/></svg>
+          <h3>AI &amp; cloud services</h3>
+          <p>Hosting, migration and AI that cuts manual work.</p>
+        </div>
+      </article>
+    </div>
+
+    <div class="rail__bar" aria-hidden="true"><span id="railBar"></span></div>
+    <p class="rail__hint">Drag, scroll or use the arrows &mdash; 14 services</p>
+  </div>
+</section>
+
+<!-- ================= NUMBERS ================= -->
+<section>
+  <div class="shell figs rv">
+    <div class="fig"><strong data-count="16">16</strong><span>Years of UAE operating and leadership experience</span></div>
+    <div class="fig"><strong data-count="12">12</strong><span>Service lines under one accountable team</span></div>
+    <div class="fig"><strong data-count="7">7</strong><span>GCC markets we structure and register entities in</span></div>
+    <div class="fig"><strong data-count="48">48</strong><span>Hours to a written scope and fee after our first call</span></div>
+  </div>
+</section>
+
+
+
+<!-- ================= PARTNERING ================= -->
+<section id="work" class="band feature">
+  <div class="shell rv">
+    <p class="feature__meta">Client work <span>&middot;</span> Across the GCC</p>
+    <h2 class="feature__title">Partnering for success with founders and established groups</h2>
+    <p class="feature__lede">We work with visionary founders and family businesses across the Gulf, turning ambition into something that scales and lasts. Engagements usually start with one service and grow into a long relationship.</p>
+
+    <figure class="feature__media">
+      <img src="assets/img/partnering-street.jpg" alt="Pedestrians crossing a busy retail street">
+      <figcaption>Footfall, licences, staff, suppliers: the parts of a business that decide whether growth holds.</figcaption>
+    </figure>
+
+    <div class="feature__points">
+      <div>
+        <h3>We start small</h3>
+        <p>One licence, one filing, one problem you need solved this month.</p>
+      </div>
+      <div>
+        <h3>We stay close</h3>
+        <p>The same partner runs your file, so nothing is re-explained to a new face.</p>
+      </div>
+      <div>
+        <h3>We hold the line</h3>
+        <p>When a matter turns into a dispute or a closure, we are still the ones handling it.</p>
+      </div>
+    </div>
+
+    <a class="btn" href="#connect">See our work</a>
+  </div>
+</section>
+
+<!-- ================= RELATIONSHIPS ================= -->
+<section id="relationships">
+  <div class="shell split rv">
+    <div class="split__art">
+      <div class="plate">
+        <div class="plate__frame">
+          <img src="assets/img/lasting-relationships.jpg" alt="A handshake at the end of a client meeting">
+        </div>
+      </div>
+    </div>
+    <div>
+      <h2>Building lasting relationships</h2>
+      <p class="lede" style="margin-top:1.4rem">We support your long-term success with sustainable strategies, reliable partnerships and continuous value at every stage of your business journey. Our approach is built on trust, foresight and a steady focus on your growth.</p>
+      <p class="lede">One partner stays on your file from the first call to the last filing. You will always know who is doing the work.</p>
+      <a class="btn" href="#connect" style="margin-top:.8rem">Build with us</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+
+<!-- ================= INSIGHTS ================= -->
+<section id="insights">
+  <div class="shell">
+    <div class="insights__head">
+      <p>From our desk</p>
+      <h2>Our latest thinking on doing business in the Gulf</h2>
+    </div>
+
+    <div class="posts">
+      <div class="posts__col">
+        <a class="post post--tall" href="#connect">
+          <span class="post__tag">Corporate tax</span>
+          <img class="post__img" src="assets/img/insights/corporate-tax.jpg" alt="Tax paperwork and coins on a desk" loading="lazy">
+          <span class="post__box">
+            <span class="post__meta"><b>Article</b> &nbsp;12 September 2026</span>
+            <span class="post__title">UAE corporate tax: what a 9% rate really costs a small group</span>
+          </span>
+        </a>
+        <a class="post" href="#connect">
+          <span class="post__tag">Governance</span>
+          <img class="post__img" src="assets/img/insights/family-business-governance.jpg" alt="Office tower facade with people walking past" loading="lazy">
+          <span class="post__box">
+            <span class="post__meta"><b>Interview</b> &nbsp;2 August 2026</span>
+            <span class="post__title">Bringing the second generation into a family business</span>
+          </span>
+        </a>
+      </div>
+      <div class="posts__col">
+        <a class="post" href="#connect">
+          <span class="post__tag">Company formation</span>
+          <img class="post__img" src="assets/img/insights/mainland-or-free-zone.jpg" alt="A business meeting in a hotel lounge" loading="lazy">
+          <span class="post__box">
+            <span class="post__meta"><b>Guide</b> &nbsp;28 August 2026</span>
+            <span class="post__title">Mainland or free zone: how to choose without regretting it later</span>
+          </span>
+        </a>
+        <a class="post post--tall" href="#connect">
+          <span class="post__tag">AI and cloud</span>
+          <img class="post__img" src="assets/img/insights/ai-for-smes.jpg" alt="A humanoid robot at a technology exhibition" loading="lazy">
+          <span class="post__box">
+            <span class="post__meta"><b>Article</b> &nbsp;19 July 2026</span>
+            <span class="post__title">Where AI actually saves a Dubai SME money</span>
+          </span>
+        </a>
+      </div>
+      <div class="posts__col">
+        <a class="post post--tall" href="#connect">
+          <span class="post__tag">Insolvency</span>
+          <img class="post__img" src="assets/img/insights/insolvency.jpg" alt="A difficult meeting with legal advisers" loading="lazy">
+          <span class="post__box">
+            <span class="post__meta"><b>Update</b> &nbsp;5 September 2026</span>
+            <span class="post__title">Federal Decree-Law 51/2023: directors’ duties when cash runs short</span>
+          </span>
+        </a>
+        <a class="post" href="#connect">
+          <span class="post__tag">Banking</span>
+          <img class="post__img" src="assets/img/insights/bank-account-opening.jpg" alt="A bank headquarters tower in Dubai" loading="lazy">
+          <span class="post__box">
+            <span class="post__meta"><b>Guide</b> &nbsp;14 June 2026</span>
+            <span class="post__title">Opening a corporate bank account: what banks ask for in 2026</span>
+          </span>
+        </a>
+      </div>
+      <div class="posts__col">
+        <a class="post" href="#connect">
+          <span class="post__tag">Labour law</span>
+          <img class="post__img" src="assets/img/insights/labour-law.jpg" alt="Scales of justice on a desk" loading="lazy">
+          <span class="post__box">
+            <span class="post__meta"><b>Article</b> &nbsp;21 August 2026</span>
+            <span class="post__title">End-of-service and unlimited contracts under Federal Decree-Law 33/2021</span>
+          </span>
+        </a>
+        <a class="post post--tall" href="#connect">
+          <span class="post__tag">Market entry</span>
+          <img class="post__img" src="assets/img/insights/gcc-market-entry.jpg" alt="Traffic passing towers on Sheikh Zayed Road" loading="lazy">
+          <span class="post__box">
+            <span class="post__meta"><b>Article</b> &nbsp;30 May 2026</span>
+            <span class="post__title">Testing the GCC market before you commit to an entity</span>
+          </span>
+        </a>
+      </div>
+    </div>
+
+    <div class="insights__more">
+      <a class="btn" href="#connect">Ask us about any of this</a>
+    </div>
+  </div>
+</section>
+
+<div id="careers"></div>
+<section id="connect" class="contact">
+  <div class="shell contact__grid">
+    <div>
+      <h2>Let's connect</h2>
+      <p style="margin-top:1.4rem;max-width:46ch">Tell us what you are trying to do. We will come back within one working day with a clear view of what it takes, what it costs and how long it runs.</p>
+      <div class="contact__facts">
+        <div><strong>Office</strong> 944, 9th Floor, Burjuman Towers, Burjuman, Dubai, United Arab Emirates</div>
+        <div><strong>Phone</strong> <a href="tel:+971585570593" style="color:#8FA6FF">+971 58 557 0593</a></div>
+        <div><strong>Email</strong> <a href="mailto:consulting@dillonbird.com" style="color:#8FA6FF">consulting@dillonbird.com</a></div>
+        <div><strong>Careers</strong> We hire consultants, accountants and legal support in Dubai. Send your CV to the same address.</div>
+      </div>
+    </div>
+
+    <form id="enquiry" novalidate>
+      <!-- spam trap: real people never see or fill this -->
+      <div class="hp" aria-hidden="true"><label>Company website<input name="company_website" type="text" tabindex="-1" autocomplete="off"></label></div>
+      <label class="field"><span>Your name</span><input name="name" type="text" placeholder="Full name" autocomplete="name" required></label>
+      <label class="field"><span>Email or WhatsApp</span><input name="contact" type="text" placeholder="you@company.com" autocomplete="email" required></label>
+      <label class="field"><span>What do you need?</span>
+        <select name="topic">
+          <option>Company formation or business setup</option>
+          <option>Accounting, audit or tax</option>
+          <option>Management consulting</option>
+          <option>Insolvency, restructuring or closure</option>
+          <option>Banking and investor services</option>
+          <option>Something else</option>
+        </select>
+      </label>
+      <label class="field"><span>A few lines about it</span><textarea name="message" placeholder="Where you are now and what you want to change."></textarea></label>
+      <button class="btn" type="submit" id="enquirySubmit">Send enquiry</button>
+      <p class="form-note" id="formNote">We reply within one working day. Your details stay with us.</p>
+    </form>
+  </div>
+</section>
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="foot">
+  <div class="shell">
+
+    <div class="foot__top">
+      <h2 class="foot__statement">Strategic partnership. Sustainable value. Future-forward solutions.</h2>
+
+      <nav class="foot__links" aria-label="Footer">
+        <a href="#expertise">Services</a>
+        <a href="#about">About</a>
+        <a href="#work">Client success</a>
+        <a href="#insights">Insights</a>
+        <a href="#careers">Careers</a>
+        <a href="#connect">Subscribe</a>
+      </nav>
+
+      <div class="foot__assist">
+        <h3>How can we assist you?</h3>
+        <p>Tell us what you are trying to do. A partner reads every enquiry and replies within one working day.</p>
+        <a class="btn" href="#connect">Contact us
+          <svg viewBox="0 0 18 12" fill="none" aria-hidden="true"><path d="M1 6h15M11 1l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="foot__mid">
+      <a class="logo" href="#top"><svg class="logo__svg" viewBox="0 0 3136 1238" role="img" aria-label="Dillon &amp; Bird"><use href="#dbLogo"/></svg></a>
+
+      <div class="foot__legal">
+        <a href="privacy-policy.html">Privacy policy</a>
+        <a href="terms-and-conditions.html">Terms &amp; conditions</a>
+        <a href="cookie-policy.html">Cookie policy</a>
+        <a href="#cookie-preferences" data-cookie-prefs>Cookie preferences</a>
+      </div>
+
+      <div class="follow">
+        <span>Follow us</span>
+        <a href="https://www.linkedin.com/company/dillon-bird/" target="_blank" rel="noopener" aria-label="Dillon &amp; Bird on LinkedIn"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5A2.5 2.5 0 1 0 5 8.5a2.5 2.5 0 0 0-.02-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.4c0-1.29-.02-2.95-1.8-2.95-1.8 0-2.08 1.4-2.08 2.85V21H9z"/></svg></a>
+        <a href="https://www.instagram.com/dillonbirduae/" target="_blank" rel="noopener" aria-label="Dillon &amp; Bird on Instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><rect x="2.8" y="2.8" width="18.4" height="18.4" rx="5.2"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.2" fill="currentColor" stroke="none"/></svg></a>
+        <a href="https://wa.me/971585570593" target="_blank" rel="noopener" aria-label="WhatsApp"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.2-1.8-.9-2-1-.3-.1-.5-.2-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.5-.6c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.2-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.5.3-.7.3-1.4.2-1.5 0-.2-.2-.2-.5-.4zM12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2z"/></svg></a>
+      </div>
+    </div>
+
+    <div class="foot__fine">
+      <p>Dillon and Bird Consulting Partners is a UAE-registered consulting and corporate services firm advising founders and enterprises on business strategy, market entry, structuring, insolvency and scalable growth across the GCC. Office: 944, 9th Floor, Burjuman Towers, Burjuman, Dubai, United Arab Emirates. Phone: <a href="tel:+971585570593" style="color:var(--blue);font-weight:700">+971 58 557 0593</a>. Email: <a href="mailto:consulting@dillonbird.com" style="color:var(--blue);font-weight:700">consulting@dillonbird.com</a>.</p>
+      <p>Information on this site is general and does not take account of your specific circumstances. Engagements are governed by a signed letter of engagement.</p>
+      <p>&copy; 2026 Dillon and Bird Consulting Partners. All rights reserved.</p>
+    </div>
+
+  </div>
+</footer>
+
+<button class="totop" id="toTop" type="button" aria-label="Back to top">
+  <svg class="totop__ring" viewBox="0 0 48 48" aria-hidden="true">
+    <circle cx="24" cy="24" r="22" fill="none" stroke="#E3E8F1" stroke-width="2"/>
+    <circle id="toTopRing" cx="24" cy="24" r="22" fill="none" stroke="var(--ink)" stroke-width="2"
+            stroke-linecap="round" stroke-dasharray="138.2" stroke-dashoffset="138.2"
+            transform="rotate(-90 24 24)"/>
+  </svg>
+  <svg class="totop__arrow" width="16" height="16" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M9 15V3M3.5 8.5 9 3l5.5 5.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+</button>
+
+<nav class="mobile-bar" aria-label="Quick contact">
+  <a class="m-call" href="tel:+971585570593">
+    <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.2.4 2.4.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .7-.2 1l-2.3 2.2z"/></svg>
+    Call us
+  </a>
+  <a class="m-wa" href="https://wa.me/971585570593" target="_blank" rel="noopener">
+    <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.2-1.8-.9-2-1-.3-.1-.5-.2-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.5-.6c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.2-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.5.3-.7.3-1.4.2-1.5 0-.2-.2-.2-.5-.4zM12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2z"/></svg>
+    WhatsApp
+  </a>
+</nav>
+
+<a class="wa" href="https://wa.me/971585570593" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.2-1.8-.9-2-1-.3-.1-.5-.2-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.5-.6c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.2-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.5.3-.7.3-1.4.2-1.5 0-.2-.2-.2-.5-.4zM12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2z"/></svg>
+</a>
+
+
+
+<script>
+(function(){
+  /* ---- hero video ---- */
+  (function(){
+    var vid  = document.getElementById('heroVideo');
+    var data = document.getElementById('heroClip');
+    if(!vid || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    if(data && !vid.src){
+      try{
+        var bin = atob(data.textContent.trim()), n = bin.length, bytes = new Uint8Array(n);
+        for(var i = 0; i < n; i++) bytes[i] = bin.charCodeAt(i);
+        vid.src = URL.createObjectURL(new Blob([bytes], {type:'video/mp4'}));
+      }catch(e){ return; }                 /* falls back to the animated skyline */
+    }
+
+    function show(){ vid.classList.add('is-on'); }
+    vid.addEventListener('playing', show);
+    vid.addEventListener('canplay', function(){ show(); attempt(); });
+
+    function attempt(){
+      var pr = vid.play();
+      if(pr && pr.catch) pr.catch(function(){});   /* blocked: wait for a tap */
+    }
+    attempt();
+
+    ['pointerdown','touchstart','keydown','scroll'].forEach(function(ev){
+      window.addEventListener(ev, function once(){ attempt(); window.removeEventListener(ev, once); }, {passive:true});
+    });
+  })();
+
+  /* reading progress + back to top */
+  var prog = document.getElementById('progress'), toTop = document.getElementById('toTop');
+  function onScroll(){
+    var max = document.documentElement.scrollHeight - window.innerHeight;
+    var y = window.scrollY;
+    if(prog) prog.style.width = (max > 0 ? (y / max) * 100 : 0) + '%';
+    if(toTop) toTop.classList.toggle('is-on', y > window.innerHeight * .9);
+  }
+  window.addEventListener('scroll', onScroll, {passive:true}); onScroll();
+  if(toTop) toTop.addEventListener('click', function(){ scrollToY(0, 700); });
+
+  var menu = document.getElementById('menu');
+  var head = document.getElementById('head');
+  var menuBtn = document.getElementById('menuBtn');
+  var closeBtn = document.getElementById('closeBtn');
+  var search = document.getElementById('menuSearch');
+  var subs = Array.prototype.slice.call(document.querySelectorAll('.rail__sub'));
+  var cards = Array.prototype.slice.call(document.querySelectorAll('.pane__card'));
+  var pane = document.getElementById('pane');
+  var lastFocus = null;
+
+  function showCard(name){
+    cards.forEach(function(c){ c.classList.toggle('is-on', c.dataset.card === name); });
+    subs.forEach(function(b){ b.classList.toggle('is-active', b.dataset.pane === name); });
+    pane.scrollTop = 0;
+  }
+  function openMenu(focusSearch){
+    lastFocus = document.activeElement;
+    menu.classList.add('is-open');
+    document.body.classList.add('menu-locked');
+    menuBtn.setAttribute('aria-expanded','true');
+    setTimeout(function(){ (focusSearch ? search : closeBtn).focus(); }, 120);
+  }
+  function closeMenu(){
+    menu.classList.remove('is-open');
+    menu.classList.remove('is-drilled');
+    document.body.classList.remove('menu-locked');
+    menuBtn.setAttribute('aria-expanded','false');
+    if(lastFocus) lastFocus.focus();
+  }
+
+  menuBtn.addEventListener('click', function(){ openMenu(false); });
+  closeBtn.addEventListener('click', closeMenu);
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape' && menu.classList.contains('is-open')) closeMenu(); });
+
+  /* left rail: click, and hover on desktop, swaps the right pane */
+  var wide = window.matchMedia('(min-width:1001px)');
+  var back = document.getElementById('paneBack');
+  if(back) back.addEventListener('click', function(){
+    menu.classList.remove('is-drilled');
+    document.querySelector('.rail').scrollTop = 0;
+  });
+  wide.addEventListener('change', function(){ if(wide.matches) menu.classList.remove('is-drilled'); });
+
+  subs.forEach(function(b){
+    b.addEventListener('click', function(){
+      showCard(b.dataset.pane);
+      if(!wide.matches){
+        menu.classList.add('is-drilled');
+        document.querySelector('.menu__body').scrollTop = 0;
+      }
+    });
+    b.addEventListener('mouseenter', function(){ if(wide.matches) showCard(b.dataset.pane); });
+    b.addEventListener('focus', function(){ if(wide.matches) showCard(b.dataset.pane); });
+  });
+
+  /* any link inside the menu closes it */
+  menu.querySelectorAll('a[href^="#"]').forEach(function(a){ a.addEventListener('click', closeMenu); });
+
+  /* search across every link in the menu */
+  var index = [];
+  cards.forEach(function(c){
+    if(c.dataset.card === 'results') return;
+    c.querySelectorAll('.pane__links a').forEach(function(a){
+      index.push({label:a.textContent.trim(), href:a.getAttribute('href'), group:c.querySelector('h3').textContent});
+    });
+  });
+  var list = document.getElementById('resultList');
+  var count = document.getElementById('resultCount');
+
+  search.addEventListener('input', function(){
+    var q = search.value.trim().toLowerCase();
+    if(!q){ showCard('setup'); list.innerHTML=''; return; }
+    var hits = index.filter(function(i){ return (i.label + ' ' + i.group).toLowerCase().indexOf(q) > -1; });
+    list.innerHTML = hits.map(function(h){
+      return '<li><a href="' + h.href + '">' + h.label + '</a></li>';
+    }).join('');
+    count.textContent = hits.length ? hits.length + ' match' + (hits.length > 1 ? 'es' : '') + ' for "' + search.value.trim() + '"'
+                                    : 'Nothing matches that. Try "audit", "setup" or "cloud".';
+    showCard('results');
+    if(!wide.matches) menu.classList.add('is-drilled');
+    list.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', closeMenu); });
+  });
+
+  /* services carousel: arrows, drag, keyboard, progress bar */
+  var rail = document.getElementById('rail'),
+      prev = document.getElementById('prev'),
+      next = document.getElementById('next'),
+      bar  = document.getElementById('railBar');
+
+  function step(){
+    var c = rail.querySelector('.card');
+    var w = c ? c.getBoundingClientRect().width + 22 : 300;
+    return Math.max(w, Math.floor(rail.clientWidth / w) * w);   /* move a full screen of cards */
+  }
+  function sync(){
+    var max = rail.scrollWidth - rail.clientWidth;
+    prev.disabled = rail.scrollLeft < 8;
+    next.disabled = rail.scrollLeft > max - 8;
+    if(bar){
+      var visible = Math.max(rail.clientWidth / rail.scrollWidth, .08);
+      bar.style.width = (visible * 100) + '%';
+      bar.style.transform = 'translateX(' + (max > 0 ? (rail.scrollLeft / max) * ((1 / visible) - 1) * 100 : 0) + '%)';
+    }
+  }
+  prev.addEventListener('click', function(){ rail.scrollBy({left:-step(), behavior:'smooth'}); });
+  next.addEventListener('click', function(){ rail.scrollBy({left: step(), behavior:'smooth'}); });
+  rail.addEventListener('scroll', sync, {passive:true});
+  window.addEventListener('resize', sync);
+  sync();
+
+  /* arrow keys when the rail has focus */
+  rail.addEventListener('keydown', function(e){
+    if(e.key === 'ArrowRight'){ e.preventDefault(); rail.scrollBy({left: step(), behavior:'smooth'}); }
+    if(e.key === 'ArrowLeft'){ e.preventDefault(); rail.scrollBy({left:-step(), behavior:'smooth'}); }
+  });
+
+  /* click and drag, the way a map or a photo strip behaves */
+  var down = false, startX = 0, startScroll = 0, moved = 0;
+  rail.addEventListener('pointerdown', function(e){
+    if(e.pointerType === 'touch') return;          /* let phones scroll natively */
+    down = true; moved = 0;
+    startX = e.clientX; startScroll = rail.scrollLeft;
+    rail.classList.add('is-dragging');
+    rail.setPointerCapture(e.pointerId);
+  });
+  rail.addEventListener('pointermove', function(e){
+    if(!down) return;
+    var dx = e.clientX - startX;
+    moved = Math.abs(dx);
+    rail.scrollLeft = startScroll - dx;
+  });
+  function release(e){
+    if(!down) return;
+    down = false;
+    rail.classList.remove('is-dragging');
+    try{ rail.releasePointerCapture(e.pointerId); }catch(err){}
+  }
+  rail.addEventListener('pointerup', release);
+  rail.addEventListener('pointercancel', release);
+  rail.addEventListener('click', function(e){ if(moved > 6) e.preventDefault(); }, true);
+
+  /* trackpad and mouse wheel scroll the rail sideways when it is under the cursor */
+  rail.addEventListener('wheel', function(e){
+    if(Math.abs(e.deltaX) > Math.abs(e.deltaY)) return;         /* already horizontal */
+    var max = rail.scrollWidth - rail.clientWidth;
+    if((e.deltaY > 0 && rail.scrollLeft < max) || (e.deltaY < 0 && rail.scrollLeft > 0)){
+      e.preventDefault();
+      rail.scrollLeft += e.deltaY;
+    }
+  }, {passive:false});
+
+  /* one reveal on scroll + number count */
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(!e.isIntersecting) return;
+      e.target.classList.add('in');
+      e.target.querySelectorAll('[data-count]').forEach(function(el){
+        var end = +el.dataset.count, t0 = null;
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches){ el.textContent = end; return; }
+        requestAnimationFrame(function tick(t){
+          if(!t0) t0 = t;
+          var p = Math.min((t - t0)/900, 1);
+          el.textContent = Math.round(end * (1 - Math.pow(1 - p, 3)));
+          if(p < 1) requestAnimationFrame(tick);
+        });
+      });
+      io.unobserve(e.target);
+    });
+  }, {threshold:.18});
+  document.querySelectorAll('.rv').forEach(function(el){ io.observe(el); });
+
+  /* ---------- enquiry form ---------- */
+  /* =========================================================
+     WHERE ENQUIRIES GO — set ONE of these two, then save.
+     1) Your own script:   'enquiry.php'  (shared hosting)
+        or  'https://your-server.com/api/enquiry'  (Node)
+     2) Web3Forms (no server): leave ENQUIRY_ENDPOINT as
+        'https://api.web3forms.com/submit' and paste your key.
+     Leave both blank and the form falls back to opening an
+     email draft, as it did before.
+     ========================================================= */
+  var ENQUIRY_ENDPOINT = '';            /* e.g. 'enquiry.php' */
+  var WEB3FORMS_KEY    = '';            /* only for Web3Forms */
+
+  var form = document.getElementById('enquiry');
+  if(form){
+    var note = document.getElementById('formNote');
+    var submitBtn = document.getElementById('enquirySubmit');
+
+    function say(msg, kind){
+      note.textContent = msg;
+      note.className = 'form-note' + (kind ? ' is-' + kind : '');
+    }
+    function validEmailOrPhone(v){
+      return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v) || /^[+\d][\d\s\-()]{7,}$/.test(v);
+    }
+
+    form.addEventListener('submit', function(ev){
+      ev.preventDefault();
+      var f = ev.target;
+
+      if(f.company_website && f.company_website.value) return;        /* bot */
+      if(!f.name.value.trim()){ say('Add your name, then send again.', 'bad'); f.name.focus(); return; }
+      if(!validEmailOrPhone(f.contact.value.trim())){
+        say('Add an email address or a phone number we can reply to.', 'bad'); f.contact.focus(); return;
+      }
+
+      var payload = {
+        name: f.name.value.trim(),
+        contact: f.contact.value.trim(),
+        topic: f.topic.value,
+        message: f.message.value.trim(),
+        page: location.href,
+        sent_at: new Date().toISOString()
+      };
+
+      /* no endpoint set yet: open an email draft so nothing is lost */
+      if(!ENQUIRY_ENDPOINT){
+        var body = 'Name: ' + payload.name + '\nContact: ' + payload.contact +
+                   '\nTopic: ' + payload.topic + '\n\n' + payload.message;
+        window.location.href = 'mailto:praveen@dillonbird.com?subject=' +
+          encodeURIComponent('Website enquiry: ' + payload.topic) + '&body=' + encodeURIComponent(body);
+        say('Opening your email app with the details filled in.');
+        return;
+      }
+
+      if(WEB3FORMS_KEY){
+        payload.access_key = WEB3FORMS_KEY;
+        payload.subject = 'Website enquiry: ' + payload.topic;
+        payload.from_name = 'Dillon & Bird website';
+      }
+
+      submitBtn.classList.add('is-busy');
+      say('Sending your enquiry...');
+
+      fetch(ENQUIRY_ENDPOINT, {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
+        body: JSON.stringify(payload)
+      })
+      .then(function(r){ return r.json().catch(function(){ return {success: r.ok}; }); })
+      .then(function(res){
+        submitBtn.classList.remove('is-busy');
+        if(res.success || res.ok){
+          form.reset();
+          say('Thank you. Your enquiry is with us and a partner will reply within one working day.', 'ok');
+        }else{
+          say('That did not send. Please call +971 58 557 0593 or email praveen@dillonbird.com.', 'bad');
+        }
+      })
+      .catch(function(){
+        submitBtn.classList.remove('is-busy');
+        say('That did not send. Please call +971 58 557 0593 or email praveen@dillonbird.com.', 'bad');
+      });
+    });
+  }
+
+})();
+</script>
+
+<!-- ================= COOKIES ================= -->
+<div class="cookie-bar" id="cookieBar" role="dialog" aria-live="polite" aria-label="Cookie choice" hidden>
+  <div class="cookie-bar__in">
+    <p>We use essential cookies to run this site, and optional ones to see which pages people read. Nothing optional is set until you say yes.</p>
+    <div class="cookie-bar__acts">
+      <button class="btn btn--quiet" type="button" id="cookieCustom">Choose</button>
+      <button class="btn btn--quiet" type="button" id="cookieReject">Essential only</button>
+      <button class="btn" type="button" id="cookieAccept">Accept all</button>
+    </div>
+  </div>
+</div>
+
+<div class="cookie-modal" id="cookiePrefs" role="dialog" aria-modal="true" aria-labelledby="cookiePrefsTitle" hidden>
+  <div class="cookie-modal__box">
+    <button class="cookie-modal__x" type="button" id="cookieClose" aria-label="Close">&times;</button>
+    <h2 id="cookiePrefsTitle">Cookie preferences</h2>
+    <p>Choose what this site may store on your device. You can come back and change this whenever you like.</p>
+
+    <label class="switch is-locked">
+      <span><strong>Essential</strong><br>Keeps the site working and remembers this choice. Always on.</span>
+      <input type="checkbox" checked disabled>
+      <i></i>
+    </label>
+
+    <label class="switch">
+      <span><strong>Analytics</strong><br>Counts visits so we know which services and articles people read.</span>
+      <input type="checkbox" id="ckAnalytics">
+      <i></i>
+    </label>
+
+    <label class="switch">
+      <span><strong>Marketing</strong><br>Measures whether a campaign brought someone to the site.</span>
+      <input type="checkbox" id="ckMarketing">
+      <i></i>
+    </label>
+
+    <div class="cookie-modal__acts">
+      <a class="cookie-modal__link" href="cookie-policy.html">Read the cookie policy</a>
+      <button class="btn" type="button" id="cookieSave">Save preferences</button>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,8 +1,8 @@
 ---
-title: "UAE Bankruptcy, Insolvency and Restructuring: What Every Business Owner Needs to Know"
+title: "UAE Bankruptcy and Insolvency: A Guide for Business Owners and Individuals"
 seoTitle: "UAE Bankruptcy & Insolvency Guide | Dillon & Bird"
 date: "2026-09-15"
-excerpt: "Financial pressure does not have to end a business. The warning signs, the restructuring options, and why acting early leaves you more choices."
+excerpt: "How UAE insolvency works for companies and for individuals, which law applies to which debt, the restructuring options, and why acting early matters."
 category: "Banking & Finance"
 categorySlug: "banking-finance"
 author: "Dinesh, Managing Partner"
@@ -19,6 +19,14 @@ faq:
     answer: "Persistent cash shortages, borrowing to service existing borrowing, suppliers tightening credit terms, missed or renegotiated bank repayments, heavy customer concentration, margins falling while revenue rises, unresolved statutory obligations, continuous injections of personal funds, and unreliable financial reporting. The most serious sign is management going quiet with banks, suppliers and advisors because the situation feels overwhelming."
   - question: "Is restructuring better than liquidation?"
     answer: "It depends on whether the underlying business is viable. If a company has real customers, a workable model and competent people but too much short-term debt, the business may not be the problem and the capital structure may be. Restructuring can preserve that value. If the business itself no longer generates enough to service its obligations under any realistic scenario, restructuring delays an outcome rather than preventing it, and an orderly wind-down usually protects more value."
+  - question: "Does the UAE bankruptcy law cover personal debts?"
+    answer: "No. Federal Decree-Law No. 51 of 2023 is a business framework covering companies under the Commercial Companies Law, natural persons with the capacity of a trader, and licensed civil companies. It does not apply to personal debts incurred for family or everyday purposes. Ordinary consumer debt such as a personal loan or credit card balance falls under a separate regime for natural persons."
+  - question: "What law covers personal insolvency in the UAE?"
+    answer: "Federal Decree-Law No. 19 of 2019 on Insolvency, which applies to natural persons who are not traders, such as salaried employees and individuals outside a commercial licence. It provides a court-supervised route for someone in existing or anticipated financial difficulty, under which an expert can be appointed to agree a plan with creditors to settle liabilities, typically over a period of up to three years."
+  - question: "Does insolvency cancel a person's debts?"
+    answer: "No. Insolvency is a legal process for dealing with obligations in a structured way, not a mechanism that writes them off. What actually happens depends on the procedure followed, the debts involved and the court's decisions. Anyone told that a filing will simply erase what they owe is being given a version of the process that does not match how it works."
+  - question: "If my company fails, does my personal guarantee disappear?"
+    answer: "No. Company liability and personal liability are separate legal questions. A facility taken in the company's name but personally guaranteed by an owner or director survives the company's restructuring or failure, and the guarantor's position has to be assessed on its own terms. When reviewing exposure under pressure, list what the company owes and what its directors have personally underwritten as two separate exercises."
   - question: "When should a business owner seek professional advice?"
     answer: "Earlier than most do. There is a significant difference between 'we are starting to feel financial pressure' and 'we have missed several payments, creditors are demanding settlement and there is no cash left'. The first situation usually has several available strategies. The second may have very few. Each month of delay tends to remove options rather than create them."
 ---
@@ -76,6 +84,38 @@ The federal framework applies to companies governed by the Commercial Companies 
 Several categories sit outside it or are treated differently: certain government-owned entities, banks and financial institutions regulated by the Central Bank, insurance companies, and free zone entities operating under their own insolvency regimes. DIFC and ADGM entities in particular have separate, common-law based regimes administered through their own courts.
 
 So before reading any general guidance, including this article, establish which regime actually governs your entity. Advice built on the wrong framework is worse than no advice.
+
+## If the Debt Is Personal, a Different Law Applies
+
+This catches people out often enough to deserve its own section.
+
+Decree-Law 51/2023 is a business framework. It does not reach ordinary personal debts incurred for family or everyday purposes. So a salaried employee struggling with a personal loan and three credit cards is not in the bankruptcy regime at all, whatever an article about "UAE bankruptcy" might suggest.
+
+The relevant law there is **Federal Decree-Law No. 19 of 2019 on Insolvency**, which deals with natural persons who are not traders. It provides a court-supervised route for someone in existing or anticipated financial difficulty: an expert can be appointed to work with the debtor and creditors on a plan to settle liabilities, typically over a period of up to **three years**.
+
+The intent behind it matters. The framework was built to let a financially distressed individual reorganise their affairs and keep working rather than simply be pursued through collection. It is not a mechanism that cancels debt, and the consequences in any particular case depend on the procedure followed and the court's decisions.
+
+The practical test is your status and the nature of the debt. A trader, a licensed professional or a company falls under 51/2023. A private individual with consumer debt falls under 19/2019. Getting this wrong at the outset wastes months.
+
+## Personal Debt: Get the Picture Before You Negotiate
+
+Where the problem is personal rather than corporate, the first move is the same as it is for a company: establish the actual position before speaking to anyone.
+
+Write down every lender, the outstanding principal, the monthly instalment, the charges, any arrears, how many payments have been missed, and whether legal or enforcement proceedings have started. Then set your monthly income against essential living costs. What remains is your genuine repayment capacity, and it is the number every restructuring conversation turns on.
+
+With multiple lenders this matters more, not less. Each bank has its own agreement, schedule, collection process and settlement policy, and negotiating with them one at a time without knowing your total exposure tends to produce commitments you cannot keep.
+
+A few things worth saying plainly. Do not stop paying on the theory that arrears improve your settlement position; that advice circulates and it is not reliable. Do not borrow to service borrowing. Keep records of every communication. And do not ignore court or enforcement documents, which are a different matter from a collection call and need prompt advice.
+
+Cheque-related matters deserve particular care, because the legal treatment has changed materially in recent years and a great deal of what is published online is out of date.
+
+## Personal Guarantees Are a Separate Question
+
+For an owner-managed business this is the exposure that surprises people most.
+
+A facility may sit in the company's name while the owner or a director has signed a personal guarantee behind it. If the company then restructures or fails, that guarantee does not dissolve with it. Company liability and personal liability are distinct legal questions, and they have to be assessed separately.
+
+So when a business is under pressure, the honest review covers both: what the company owes, and what its directors and shareholders have personally underwritten. The second list is frequently longer than anyone remembers.
 
 ## The Warning Signs That Get Ignored
 

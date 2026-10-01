@@ -71,7 +71,7 @@ The governing law is **Federal Decree-Law No. 51 of 2023 on Financial Restructur
 
 Its **executive regulations were issued as Cabinet Resolution No. 94 of 2024**, published on 16 September 2024. They established a bankruptcy register, designated the Central Bank and the Securities and Commodities Authority as supervisory entities, and set the debt thresholds for initiating proceedings.
 
-What matters commercially is that the framework is not simply a mechanism for closing companies. It provides for consensual out-of-court restructuring, preventive settlement, formal financial restructuring, and bankruptcy and liquidation where nothing else is viable.
+What matters commercially is that the framework is not simply a mechanism for closing companies. It provides for consensual out-of-court restructuring, preventive settlement, formal financial restructuring, and bankruptcy and liquidation where nothing else is viable. We set out how each of those procedures works, and the deadlines attached to them, in [UAE bankruptcy proceedings explained](/blog/uae-bankruptcy-proceedings-explained).
 
 Business owners often believe the only two options are pay everything now or close the company. The reality is more nuanced than that, and the mechanisms that sit between those two poles are the ones most worth understanding early.
 

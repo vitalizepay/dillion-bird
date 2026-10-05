@@ -69,11 +69,11 @@ This is the recurring pattern. The organising work has to happen regardless. The
 
 A workable structure, which is deliberately unsophisticated:
 
-- **01 Contract** — master agreement, amendments, purchase orders
-- **02 Financial** — invoices, receipts, bank records, payment demands
-- **03 Communications** — email, message exports, letters, meeting records
-- **04 Project** — technical documents, drawings, photographs, delivery records
-- **05 Legal** — notices, responses, court documents, correspondence with counsel
+- **01 Contract** - master agreement, amendments, purchase orders
+- **02 Financial** - invoices, receipts, bank records, payment demands
+- **03 Communications** - email, message exports, letters, meeting records
+- **04 Project** - technical documents, drawings, photographs, delivery records
+- **05 Legal** - notices, responses, court documents, correspondence with counsel
 
 Alongside it, a chronology table: date, event, supporting evidence, business impact. Then a short case pack covering the parties, a factual summary, financial exposure, the evidence list, open questions, missing documents, and the specific points needing legal assessment.
 

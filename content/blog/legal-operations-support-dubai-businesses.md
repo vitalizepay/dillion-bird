@@ -5,7 +5,7 @@ date: "2026-10-08"
 excerpt: "What UAE law says about digital evidence, how to organise a dispute file, and where technology helps your legal team work faster and cheaper."
 category: "AI & Cloud"
 categorySlug: "ai-and-cloud"
-author: "Senthilnathan, Senior Cloud & AI Consultant"
+author: "Dillon & Bird"
 faq:
   - question: "Are WhatsApp messages and emails valid evidence in the UAE?"
     answer: "They can be. Federal Decree-Law No. 35 of 2022 on Evidence in Civil and Commercial Transactions includes a dedicated chapter on electronic evidence. Article 53 provides that electronic documents carry the same legal effect as written ones where their origin and integrity can be verified, and Article 54 allows reliance on electronic messages including emails where the sender's identity and the recipient's receipt can be established. The condition matters as much as the rule: a screenshot with no verifiable origin is weaker than a properly preserved export."
@@ -119,4 +119,4 @@ If you are facing a dispute and the evidence is scattered across systems, [get i
 
 ---
 
-*Senthilnathan is Senior Cloud & AI Consultant at Dillon & Bird. This article is general information on business technology and information management. It is not legal advice, and Dillon & Bird does not provide regulated legal services. Legal requirements vary by facts, jurisdiction and applicable law; engage an appropriately licensed UAE advocate or legal consultant for any specific matter.*
+*This article is general information on business technology and information management. It is not legal advice, and Dillon & Bird does not provide regulated legal services. Legal requirements vary by facts, jurisdiction and applicable law; engage an appropriately licensed UAE advocate or legal consultant for any specific matter.*

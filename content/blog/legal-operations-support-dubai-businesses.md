@@ -1,7 +1,7 @@
 ---
 title: "Legal Disputes in Dubai: Organising Your Evidence Before You Brief a Lawyer"
 seoTitle: "Legal Case Support for Dubai Businesses | Dillon & Bird"
-date: "2026-10-08"
+date: "2026-10-02"
 excerpt: "What UAE law says about digital evidence, how to organise a dispute file, and where technology helps your legal team work faster and cheaper."
 category: "AI & Cloud"
 categorySlug: "ai-and-cloud"

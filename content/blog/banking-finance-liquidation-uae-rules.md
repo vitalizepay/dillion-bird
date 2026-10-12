@@ -1,7 +1,7 @@
 ---
 title: "Banking, Finance & Corporate Liquidation in the UAE: A Practical Guide for Business Owners"
 date: "2026-07-15"
-excerpt: "How UAE banking relationships, debt financing and corporate liquidation actually work in practice - and what business owners need to get right under Federal Decree-Law 9/2016, DIFC and ADGM insolvency frameworks."
+excerpt: "How UAE banking relationships, debt financing and corporate liquidation actually work in practice - and what business owners need to get right under Federal Decree-Law 51/2023, DIFC and ADGM insolvency frameworks."
 category: "Banking & Finance"
 categorySlug: "banking-finance"
 author: "Dillon & Bird"
@@ -9,7 +9,7 @@ author: "Dillon & Bird"
 
 Every business in the UAE eventually has to navigate two sides of the same coin: how to raise, manage and restructure finance while the business is growing - and, for a smaller but significant number, how to close it down properly when it isn't. Both sides are governed by rules that are frequently misunderstood, and both carry real financial and personal exposure for owners and directors who get them wrong.
 
-This guide walks through how corporate banking and debt financing actually work in the UAE, what triggers financial distress conversations with your bank, and how the UAE's liquidation and insolvency framework - from voluntary wind-downs to court-supervised proceedings under Federal Decree-Law No. 9 of 2016 - is structured across mainland, free zone, DIFC and ADGM jurisdictions.
+This guide walks through how corporate banking and debt financing actually work in the UAE, what triggers financial distress conversations with your bank, and how the UAE's liquidation and insolvency framework - from voluntary wind-downs to court-supervised proceedings under Federal Decree-Law No. 51 of 2023 - is structured across mainland, free zone, DIFC and ADGM jurisdictions.
 
 ## The UAE Banking & Finance Landscape
 
@@ -37,7 +37,7 @@ Financial stress rarely arrives suddenly. It shows up first as tightening liquid
 
 ## The UAE Liquidation & Insolvency Framework
 
-Corporate liquidation and insolvency in the UAE sit within a legal framework that has matured significantly over the past decade, principally under **Federal Decree-Law No. 9 of 2016** (the UAE Bankruptcy Law), together with subsequent amendments including **Law No. 19 of 2019**. Together these establish the mechanisms for preventive composition, restructuring, and both voluntary and court-supervised liquidation of UAE companies.
+Corporate liquidation and insolvency in the UAE sit within a legal framework that has been substantially rewritten. The governing legislation is now **Federal Decree-Law No. 51 of 2023** on Financial Restructuring and Bankruptcy, which came into force on **1 May 2024** and repealed the earlier Federal Decree-Law No. 9 of 2016. Its executive regulations were issued as **Cabinet Resolution No. 94 of 2024**. Together these establish preventive settlement, restructuring, and both voluntary and court-supervised liquidation, supported by a dedicated bankruptcy court. A great deal of material still online cites the repealed 2016 law, so it is worth checking the date on anything you read. We cover the current procedures in detail in our [guide to UAE bankruptcy proceedings](/blog/uae-bankruptcy-proceedings-explained).
 
 It's worth being precise about the distinction between the routes, because the right choice materially changes cost, timeline and outcome:
 
@@ -88,7 +88,7 @@ It depends heavily on jurisdiction and complexity. A straightforward voluntary l
 Yes, but the outstanding facilities need to be addressed as part of the process - either settled, restructured, or formally provided for through the liquidation - rather than simply left unresolved. Banks are typically among the creditors formally notified during liquidation, and an unresolved facility is one of the most common reasons a deregistration gets delayed.
 
 **What's the difference between liquidation and bankruptcy under UAE law?**
-In everyday usage the terms get used interchangeably, but under Federal Decree-Law No. 9 of 2016, liquidation (voluntary or court-supervised) is the process of formally winding down and deregistering a company, while the Bankruptcy Law also provides for preventive composition and restructuring routes aimed at rescuing a viable business before liquidation becomes the only option. Which framework applies depends on whether the business is still viable.
+In everyday usage the terms get used interchangeably, but under Federal Decree-Law No. 51 of 2023, liquidation (voluntary or court-supervised) is the process of formally winding down and deregistering a company, while the law also provides preventive settlement and restructuring routes aimed at rescuing a viable business before liquidation becomes the only option. Which framework applies depends on whether the business is still viable.
 
 **What happens to employees during a liquidation?**
 Employee obligations - end-of-service settlements, WPS clearance, and visa cancellations - have to be properly closed out as part of the process. This runs in parallel with the creditor and regulatory workstream, not as an afterthought once the company is otherwise wound down.

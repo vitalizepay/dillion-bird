@@ -16,7 +16,7 @@ faq:
   - question: "Does UAE cybercrime law affect ordinary businesses?"
     answer: "Yes. Federal Decree-Law No. 34 of 2021 on Countering Rumours and Cybercrimes covers conduct involving information technology systems, with penalties reported in the range of AED 100,000 to AED 4 million depending on the offence. Any business running systems, holding data or using digital communications is within scope. Unauthorised access, misuse of systems and improper handling of electronic information are the areas most relevant to normal commercial operations."
   - question: "Do AML obligations apply to businesses that are not banks?"
-    answer: "They can. The UAE framework under Federal Decree-Law No. 20 of 2018, as amended, extends beyond financial institutions to certain designated non-financial businesses and professions. Obligations where they apply can include customer due diligence, identifying beneficial owners, risk assessment, transaction monitoring, record keeping, suspicious transaction reporting and staff training. The practical step is establishing whether your activity falls within a regulated category rather than assuming it does not."
+    answer: "They can. The governing law is now Federal Decree-Law No. 10 of 2025, which repealed Federal Decree-Law No. 20 of 2018 and took effect on 14 October 2025, with Cabinet Resolution No. 134 of 2025 as its executive regulation from 14 December 2025. It extends beyond financial institutions to certain designated non-financial businesses and professions. Obligations where they apply can include customer due diligence, identifying beneficial owners, risk assessment, transaction monitoring, record keeping, suspicious transaction reporting and staff training. The practical step is establishing whether your activity falls within a regulated category rather than assuming it does not."
   - question: "Do all UAE companies follow the same business laws?"
     answer: "No, and this is a frequent source of wrong advice. The applicable framework depends on the emirate, whether the entity is mainland or free zone, the sector and its regulator, and whether it sits within a specialised jurisdiction. DIFC and ADGM in particular operate their own legal and regulatory regimes in significant areas. The first question in any matter is where the business is incorporated, licensed and actually conducting the relevant activity."
   - question: "Can Dillon & Bird represent a company in a criminal case?"
@@ -75,7 +75,9 @@ One specific instruction: once a dispute or complaint arises, do not delete, mod
 
 ### Anti-Money Laundering
 
-The UAE framework under **Federal Decree-Law No. 20 of 2018**, as amended and significantly reinforced in 2024, is not confined to banks.
+The governing law changed recently, and a great deal of published guidance has not caught up. **Federal Decree-Law No. 10 of 2025** repealed Federal Decree-Law No. 20 of 2018 and took effect on **14 October 2025**, with **Cabinet Resolution No. 134 of 2025** as its executive regulation from 14 December 2025. The new regime broadens scope, adding proliferation financing, treating tax evasion as a predicate offence and expressly covering virtual asset service providers.
+
+It is not confined to banks.
 
 Certain designated non-financial businesses and professions fall within it. Where obligations apply they can include customer due diligence, beneficial owner identification, risk assessment, transaction monitoring, record keeping, suspicious transaction reporting, internal controls and staff training.
 

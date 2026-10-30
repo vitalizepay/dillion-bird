@@ -16,14 +16,11 @@
 
 .rightImage {
   position: absolute;
-  /* Oversized on purpose: the parallax drifts this down ~110px, so the media
-     has to extend past the hero on both edges or it would expose a gap. */
-  inset: -8vh 0 0;
+  inset: 0;
   width: 100%;
-  height: 116vh;
+  height: 100%;
   overflow: hidden;
   z-index: 1;
-  will-change: transform;
 }
 
 /* dark overlay */
@@ -71,40 +68,6 @@
   object-fit: cover;
   z-index: 2;
 }
-/* ============ ENTRANCE ANIMATION (CSS, not JS) ============
-   Ported from the landing-page prototype. Driven in CSS so the hero copy
-   still renders if JavaScript fails, and so the static export never ships
-   the headline with opacity:0 baked into the markup. */
-
-@keyframes heroRise {
-  from { opacity: 0; transform: translateY(26px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes heroRiseBlur {
-  from { opacity: 0; transform: translateY(44px); filter: blur(10px); }
-  to   { opacity: 1; transform: translateY(0); filter: blur(0); }
-}
-
-/* wrapper exists so the button can animate without stretching in the flex column */
-.ctaWrap { align-self: flex-start; }
-
-.brand       { animation: heroRise 0.75s ease both 0.15s; }
-.heading     { animation: heroRiseBlur 0.95s cubic-bezier(0.22, 1, 0.36, 1) both 0.32s; }
-.strategic   { animation: heroRise 0.85s ease both 0.50s; }
-.description { animation: heroRise 0.80s ease both 0.64s; }
-.ctaWrap     { animation: heroRise 0.70s ease both 0.78s; }
-
-@media (prefers-reduced-motion: reduce) {
-  .brand,
-  .heading,
-  .strategic,
-  .description,
-  .ctaWrap {
-    animation: none;
-  }
-}
-
 /* ================= CONTENT ================= */
 
 .leftContent {
@@ -300,11 +263,8 @@
     max-width: 320px;
   }
 
-  .ctaWrap {
-    align-self: center;
-  }
-
   .cta {
+    align-self: center;
     padding: 13px 26px;
   }
 

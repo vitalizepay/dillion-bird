@@ -5,6 +5,7 @@ import RetailRelated from './components/RetailRelated/RetailRelated';
 import RetailCTA from './components/RetailCTA/RetailCTA';
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/clientsuccess/retail-gcc-expansion' },
   title: 'Retail GCC Expansion | Dillon & Bird Client Success',
   description: 'UAE retailer scales into Saudi Arabia and Kuwait with a franchise-ready model — a Dillon & Bird client success story.',
 };

@@ -5,6 +5,7 @@ import BuildWithUsPartners from "./components/BuildWithUsPartners/BuildWithUsPar
 import BuildWithUsCTA from "./components/BuildWithUsCTA/BuildWithUsCTA";
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/buildwithus' },
   title: 'Build With Us | Dillon & Bird',
   description: 'Partner with Dillon & Bird to build something extraordinary. From retained advisory to project-based mandates — we embed ourselves in your business and deliver results across the UAE and GCC.',
 };

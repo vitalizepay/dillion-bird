@@ -6,6 +6,7 @@ import AccountingFinancialServices from './components/AccountingFinancialService
 import AccountingFinancialServicesWhatItMeans from './components/AccountingFinancialServicesWhatItMeans/AccountingFinancialServicesWhatItMeans';
 
 export const metadata = {
+  alternates: { canonical: '/accountingfinancialservices' },
   title: 'Accounting & Financial Services | Dillon & Bird',
   description: 'Audit-ready, reliable financials that build trust and drive growth in the GCC.',
 };

@@ -6,6 +6,7 @@ import TechnologyConsultingExpertise from './components/TechnologyConsultingExpe
 import TechnologyConsultingWhatItMeans from './components/TechnologyConsultingWhatItMeans/TechnologyConsultingWhatItMeans';
 
 export const metadata = {
+  alternates: { canonical: '/technologyconsulting' },
   title: 'Technology Consulting | Dillon & Bird',
   description: 'Empowering your business with smart, scalable tech solutions that drive efficiency and innovation.',
 };

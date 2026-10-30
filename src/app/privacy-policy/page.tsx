@@ -1,6 +1,7 @@
 import PrivacyPolicyContent from '@/components/PrivacyPolicyContent/PrivacyPolicyContent';
 
 export const metadata = {
+  alternates: { canonical: '/privacy-policy' },
   title: 'Privacy Policy | Dillon & Bird',
   description: 'Privacy Policy for Dillon & Bird Consulting Partners',
 };

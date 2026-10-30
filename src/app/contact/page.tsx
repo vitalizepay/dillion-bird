@@ -4,6 +4,7 @@ import ContactForm from './components/ContactForm/ContactForm';
 import FAQ from './components/FAQ/FAQ';
 
 export const metadata = {
+  alternates: { canonical: '/contact' },
   title: 'Contact Us | Dillon & Bird',
   description: 'Get in touch with Dillon & Bird. Reach out today — your next big move starts here.',
 };

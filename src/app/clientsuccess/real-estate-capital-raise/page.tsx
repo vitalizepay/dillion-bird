@@ -5,6 +5,7 @@ import RealEstateRelated from './components/RealEstateRelated/RealEstateRelated'
 import RealEstateCTA from './components/RealEstateCTA/RealEstateCTA';
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/clientsuccess/real-estate-capital-raise' },
     title: 'Real Estate Capital Raise | Dillon & Bird Client Success',
     description: 'Boutique developer secures AED 45M institutional backing for mixed-use scheme in Ras Al Khaimah — a Dillon & Bird client success story.',
   };

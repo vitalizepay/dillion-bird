@@ -5,6 +5,7 @@ import HealthcareRelated from './components/HealthcareRelated/HealthcareRelated'
 import HealthcareCTA from './components/HealthcareCTA/HealthcareCTA';
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/clientsuccess/healthcare-compliance' },
   title: 'Healthcare Tax Compliance | Dillon & Bird Client Success',
   description: 'Healthcare group achieves full UAE Corporate Tax compliance before Year 1 deadline — a Dillon & Bird client success story.',
 };

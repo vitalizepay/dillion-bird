@@ -1,6 +1,7 @@
 import TechnologyStartupCaseStudy from "./components/TechnologyStartupCaseStudy/TechnologyStartupCaseStudy";
 
 export const metadata = {
+  alternates: { canonical: '/casestudies/technologystartup' },
   title: 'Technology Startup Case Study | Dillon & Bird',
   description: 'Technology Startup - Abu Dhabi Global Market (ADGM), UAE',
 };

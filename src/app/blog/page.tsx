@@ -4,6 +4,7 @@ import { getAllPosts } from '../../../lib/blog';
 import styles from './Blog.module.css';
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/blog' },
   title: 'Blog | Dillon & Bird',
   description: 'Expert insights on business strategy, market entry, finance and growth across the GCC — from the Dillon & Bird team.',
   keywords: ['Dillon & Bird Blog', 'GCC Business Insights', 'UAE Market Entry', 'GCC Strategy Blog'],

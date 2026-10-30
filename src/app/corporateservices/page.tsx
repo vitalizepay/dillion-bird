@@ -6,6 +6,7 @@ import CorporateServicesEncompass from './components/CorporateServicesEncompass/
 import CorporateServicesWhatItMeans from './components/CorporateServicesWhatItMeans/CorporateServicesWhatItMeans';
 
 export const metadata = {
+  alternates: { canonical: '/corporateservices' },
   title: 'Corporate Services | Dillon & Bird',
   description: 'Streamline your operations with our end-to-end corporate services tailored for growth in the GCC.',
 };

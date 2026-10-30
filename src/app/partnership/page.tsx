@@ -6,6 +6,7 @@ import PartnershipApproach from './components/PartnershipApproach/PartnershipApp
 import PartnershipWhatItMeans from './components/PartnershipWhatItMeans/PartnershipWhatItMeans';
 
 export const metadata = {
+  alternates: { canonical: '/partnership' },
   title: 'Partnerships | Dillon & Bird',
   description: 'Lets build lasting partnerships that drive meaningful growth across the GCC.',
 };

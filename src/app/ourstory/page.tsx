@@ -6,6 +6,7 @@ import OurStoryTeam from "./components/OurStoryTeam/OurStoryTeam";
 import OurStoryCTA from "./components/OurStoryCTA/OurStoryCTA";
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/ourstory' },
   title: 'Our Story | Dillon & Bird',
   description: 'Founded in Dubai in 2009, Dillon & Bird has grown into the GCC\'s most trusted integrated strategy partner. Discover the journey, values, and team behind 200+ business transformations across six markets.',
 };

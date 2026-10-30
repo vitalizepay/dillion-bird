@@ -11,9 +11,9 @@ export default function CTASection() {
 
       {/* Content */}
       <div className={styles.content}>
-        <h1 className={styles.heading}>
+        <h2 className={styles.heading}>
           Let's Shape the Future of Your Business in the GCC
-        </h1>
+        </h2>
 
         <p className={styles.description}>
           <span>

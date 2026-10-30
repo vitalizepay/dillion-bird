@@ -9,6 +9,7 @@ import OurPeople from './components/OurPeople/OurPeople';
 
 
 export const metadata = {
+  alternates: { canonical: '/about' },
   title: 'About Us | Dillon & Bird',
   description: 'Driving the future of business in the GCC with bold strategy, smart tech, and trusted expertise. Learn about our legacy and commitment to your success.',
   keywords: ['About Dillon & Bird', 'GCC Business Consulting', 'Strategic Partners UAE', 'Business Growth GCC'],

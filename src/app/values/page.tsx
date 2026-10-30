@@ -8,6 +8,7 @@ import ValuesRegion from './components/ValuesRegion/ValuesRegion';
 import ValuesCTA from './components/ValuesCTA/ValuesCTA';
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/values' },
   title: "Values | Dillon & Bird",
   description: "Ready to grow? Dillon & Bird partners with ambitious businesses across the UAE and GCC to unlock sustainable, scalable growth through embedded advisory, strategic frameworks, and measurable results.",
 };

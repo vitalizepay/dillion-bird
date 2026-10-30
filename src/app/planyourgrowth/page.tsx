@@ -6,6 +6,7 @@ import PlanYourGrowthCTA from "./components/PlanYourGrowthCTA/PlanYourGrowthCTA"
 
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/planyourgrowth' },
   title: "Plan Your Growth | Dillon & Bird",
   description: "Ready to grow? Dillon & Bird partners with ambitious businesses across the UAE and GCC to unlock sustainable, scalable growth through embedded advisory, strategic frameworks, and measurable results.",
 };

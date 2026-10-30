@@ -5,6 +5,7 @@ import KsaRelated from './components/KsaRelated/KsaRelated';
 import KsaCTA from './components/KsaCTA/KsaCTA';
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/clientsuccess/ksa-manufacturing-vision' },
   title: 'KSA Vision 2030 Expansion | Dillon & Bird Client Success',
   description: 'UAE manufacturer wins SAR 28M in KSA Vision 2030 grants and builds a Saudi operation from zero — a Dillon & Bird client success story.',
 };

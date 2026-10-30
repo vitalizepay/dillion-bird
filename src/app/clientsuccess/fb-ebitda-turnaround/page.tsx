@@ -5,6 +5,7 @@ import FbRelated from './components/FbRelated/FbRelated';
 import FbCTA from './components/FbCTA/FbCTA';
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/clientsuccess/fb-ebitda-turnaround' },
   title: 'F&B EBITDA Turnaround | Dillon & Bird Client Success',
   description: 'Multi-brand F&B group achieves 29% EBITDA improvement through data-driven portfolio optimisation — a Dillon & Bird client success story.',
 };

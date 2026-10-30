@@ -5,6 +5,7 @@ import LogisticsRelated from './components/LogisticsRelated/LogisticsRelated';
 import LogisticsCTA from './components/LogisticsCTA/LogisticsCTA';
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/clientsuccess/logistics-ai-automation' },
   title: 'Logistics AI Automation | Dillon & Bird Client Success',
   description: 'Freight operator cuts manual overhead by 50% with AI-led workflow automation — a Dillon & Bird client success story.',
 };

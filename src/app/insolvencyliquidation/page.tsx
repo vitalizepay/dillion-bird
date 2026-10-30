@@ -10,6 +10,7 @@ import InsolvencyCrossLinks from "./components/InsolvencyCrossLinks/InsolvencyCr
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/insolvencyliquidation' },
     title: 'Insolvency Liquidation | Dillon & Bird',
     description:
       'UAE-licensed insolvency advisors guiding businesses and individuals through voluntary liquidation, court-supervised wind-downs, debt restructuring and creditor negotiations — with full confidentiality and a clear path forward.',

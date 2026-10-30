@@ -1,6 +1,7 @@
 import TermsContent from '@/components/TermsContent/TermsContent';
 
 export const metadata = {
+  alternates: { canonical: '/terms' },
   title: 'Terms & Conditions | Dillon & Bird',
   description: 'Terms and Conditions for Dillon & Bird Consulting Partners',
 };

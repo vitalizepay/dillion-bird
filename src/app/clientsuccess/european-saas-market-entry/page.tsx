@@ -5,6 +5,7 @@ import CaseRelated from './components/CaseRelated/CaseRelated';
 import CaseCTA from './components/CaseCTA/CaseCTA';
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/clientsuccess/european-saas-market-entry' },
   title: 'SaaS UAE Market Entry | Dillon & Bird Client Success',
   description: 'European SaaS firm enters UAE market in 14 days without a local partner — a Dillon & Bird client success story.',
 };

@@ -8,6 +8,7 @@ import TechIndustries from './components/TechIndustries/TechIndustries';
 import TechCTA from './components/TechCTA/TechCTA';
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/aiandcloud' },
   title: 'Technology Consulting | Dillon & Bird',
   description: 'AI, Cloud, OpenShift & On-Prem consulting for modern enterprises across the GCC. Dillon & Bird delivers measurable technology outcomes.',
 };

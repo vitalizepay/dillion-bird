@@ -5,6 +5,7 @@ import GrowResults from "./components/GrowResults/GrowResults";
 import GrowCTA from "./components/GrowCTA/GrowCTA";
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/letsgrow' },
   title: "Let's Grow | Dillon & Bird",
   description: "Ready to grow? Dillon & Bird partners with ambitious businesses across the UAE and GCC to unlock sustainable, scalable growth through embedded advisory, strategic frameworks, and measurable results.",
 };

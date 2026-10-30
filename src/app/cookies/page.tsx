@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import styles from './page.module.css';
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/cookies' },
   title: 'Cookie Policy | Dillon & Bird',
   description: 'Learn how Dillon & Bird uses cookies and similar technologies on our website.',
 };

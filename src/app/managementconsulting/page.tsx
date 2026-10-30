@@ -7,6 +7,7 @@ import ManagementWhatItMeans from './components/ManagementWhatItMeans/Management
 
 
 export const metadata = {
+  alternates: { canonical: '/managementconsulting' },
   title: 'Management Consulting | Dillon & Bird',
   description: 'Transform your business with expert management consulting solutions across the GCC.',
 };

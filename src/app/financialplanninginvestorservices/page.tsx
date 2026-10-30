@@ -6,6 +6,7 @@ import FinancialPlanningInvestorServices from './components/FinancialPlanningInv
 import FinancialPlanningInvestorWhatItMeans from './components/FinancialPlanningInvestorWhatItMeans/FinancialPlanningInvestorWhatItMeans'
 
 export const metadata = {
+  alternates: { canonical: '/financialplanninginvestorservices' },
   title: 'Financial Planning & Investor Services | Dillon & Bird',
   description: 'Secure your future and attract investors with smart, strategic financial planning and advisory.',
 };

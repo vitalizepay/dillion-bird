@@ -5,6 +5,7 @@ import DifcRelated from './components/DifcRelated/DifcRelated';
 import DifcCTA from './components/DifcCTA/DifcCTA';
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/clientsuccess/difc-consultancy-setup' },
   title: 'DIFC Consultancy Setup | Dillon & Bird Client Success',
   description: 'Independent consultancy established, banked, and trading in DIFC within nine working days — a Dillon & Bird client success story.',
 };

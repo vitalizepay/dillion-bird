@@ -11,6 +11,7 @@ import CMOCTA from './components/CMOCTA/CMOCTA';
 
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/cmolanding' },
   title: 'Fractional CMO Services in UAE | Dillon & Bird',
   description:
     'Embed a senior Fractional Chief Marketing Officer into your GCC business. Enterprise-grade marketing strategy, digital execution, MarTech and go-to-market leadership — at a fraction of the full-time cost.',

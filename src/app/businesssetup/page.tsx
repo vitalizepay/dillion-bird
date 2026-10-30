@@ -7,6 +7,7 @@ import CompanyFormationCaseStudies from './components/CompanyFormationCaseStudie
 import CompanyFormationWhatItMeans from './components/CompanyFormationWhatItMeans/CompanyFormationWhatItMeans';
 
 export const metadata = {
+  alternates: { canonical: '/businesssetup' },
   title: 'Business Site | Dillon & Bird',
   description: 'Fast, compliant company formation to launch your business seamlessly in the GCC.',
 };

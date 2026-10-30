@@ -7,6 +7,7 @@ import ClientSuccessProcess from './components/ClientSuccessProcess/ClientSucces
 import ClientSuccessCTA from './components/ClientSuccessCTA/ClientSuccessCTA';
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/clientsuccess' },
     title: 'Client Success | Dillon & Bird Client Success',
     description: 'Proven results across the GCC. Explore how Dillon & Bird has delivered measurable, lasting impact for businesses across the region.',
 };

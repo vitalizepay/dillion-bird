@@ -9,9 +9,8 @@ const SUPABASE_FUNCTION_URL = process.env.NEXT_PUBLIC_SUPABASE_URL + '/functions
 
 /* Team inbox for new applications, matching the other site forms */
 const TEAM_RECIPIENTS = [
-  'dinesh@dillonbird.com',
   'praveen@dillonbird.com',
-  'senthil@dillonbird.com',
+  'dinesh@dillonbird.com',
 ];
 
 /* CV download links in the team email stay valid for 7 days */

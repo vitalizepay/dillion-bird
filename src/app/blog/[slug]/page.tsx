@@ -4,6 +4,13 @@ import { notFound } from 'next/navigation';
 import { getAllPosts, getPostBySlug } from '../../../../lib/blog';
 import styles from './BlogPost.module.css';
 
+// Verified public profiles, used as schema.org sameAs so search and AI engines
+// can tie an author to a real person rather than guessing from a first name.
+const AUTHOR_PROFILES: Record<string, string> = {
+  Dinesh: 'https://www.linkedin.com/in/dinesh-prasanna-r-827249111/',
+  Senthilnathan: 'https://www.linkedin.com/in/senthilnathane',
+};
+
 export const dynamicParams = false;
 
 export async function generateStaticParams() {
@@ -53,7 +60,13 @@ export default async function BlogPost(
         dateModified: post.date,
         author: isOrgAuthor
           ? { '@type': 'Organization', name: 'Dillon & Bird' }
-          : { '@type': 'Person', name: authorName },
+          : {
+              '@type': 'Person',
+              name: authorName,
+              ...(AUTHOR_PROFILES[authorName]
+                ? { sameAs: [AUTHOR_PROFILES[authorName]], worksFor: { '@type': 'Organization', name: 'Dillon & Bird' } }
+                : {}),
+            },
         publisher: {
           '@type': 'Organization',
           name: 'Dillon & Bird',

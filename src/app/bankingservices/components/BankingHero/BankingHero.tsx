@@ -136,7 +136,7 @@ export default function BankingHero() {
         turnstileToken
       ),
       sendEmail(
-        ['dinesh@dillonbird.com', 'praveen@dillonbird.com', 'senthil@dillonbird.com'],
+        ['dinesh@dillonbird.com', 'praveen@dillonbird.com'],
         `New Banking Advisory Enquiry — ${form.firstName} ${form.lastName}`,
         detailsHtml,
         turnstileToken

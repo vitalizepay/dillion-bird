@@ -194,7 +194,7 @@ export default function ContactForm() {
           turnstileToken
         ),
         sendEmail(
-          ['dinesh@dillonbird.com', 'praveen@dillonbird.com', 'senthil@dillonbird.com'],
+          ['dinesh@dillonbird.com', 'praveen@dillonbird.com'],
           `New Contact Enquiry — ${formData.firstName} ${formData.lastName}`,
           detailsHtml,
           turnstileToken

@@ -135,7 +135,7 @@ export default function InsolvencyHero() {
         turnstileToken
       ),
       sendEmail(
-        ['dinesh@dillonbird.com', 'praveen@dillonbird.com', 'senthil@dillonbird.com'],
+        ['dinesh@dillonbird.com', 'praveen@dillonbird.com'],
         `New Insolvency Enquiry — ${form.firstName} ${form.lastName}`,
         detailsHtml,
         turnstileToken

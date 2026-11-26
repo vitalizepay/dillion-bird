@@ -146,7 +146,7 @@ export default function CFHero() {
         turnstileToken
       ),
       sendEmail(
-        ['dinesh@dillonbird.com', 'praveen@dillonbird.com', 'senthil@dillonbird.com'],
+        ['dinesh@dillonbird.com', 'praveen@dillonbird.com'],
         `New Company Formation Enquiry — ${form.firstName} ${form.lastName}`,
         detailsHtml,
         turnstileToken

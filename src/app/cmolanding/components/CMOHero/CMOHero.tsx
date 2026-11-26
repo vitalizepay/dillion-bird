@@ -154,7 +154,7 @@ export default function CMOHero() {
         turnstileToken
       ),
       sendEmail(
-        ['dinesh@dillonbird.com', 'praveen@dillonbird.com', 'senthil@dillonbird.com'],
+        ['dinesh@dillonbird.com', 'praveen@dillonbird.com'],
         `New CMO Enquiry — ${form.firstName} ${form.lastName}`,
         detailsHtml,
         turnstileToken

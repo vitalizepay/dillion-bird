@@ -142,7 +142,7 @@ export default function TechHero() {
         turnstileToken
       ),
       sendEmail(
-        ['dinesh@dillonbird.com', 'praveen@dillonbird.com', 'senthil@dillonbird.com'],
+        ['dinesh@dillonbird.com', 'praveen@dillonbird.com'],
         `New AI & Cloud Consulting Enquiry — ${form.firstName} ${form.lastName}`,
         detailsHtml,
         turnstileToken

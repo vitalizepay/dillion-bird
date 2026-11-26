@@ -132,7 +132,7 @@ export default function AuditHero() {
         turnstileToken
       ),
       sendEmail(
-        ['dinesh@dillonbird.com', 'praveen@dillonbird.com', 'senthil@dillonbird.com'],
+        ['dinesh@dillonbird.com', 'praveen@dillonbird.com'],
         `New Audit Enquiry — ${form.firstName} ${form.lastName}`,
         detailsHtml,
         turnstileToken

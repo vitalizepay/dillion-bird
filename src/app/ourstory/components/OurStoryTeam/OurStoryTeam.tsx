@@ -17,13 +17,6 @@ const team = [
     bio: 'Former CFO and strategy lead for three regional unicorns. Expert in financial structuring, growth capital, and operational transformation across family businesses.',
     image: '/team-dinesh.jpg',
   },
-  {
-    initials: 'S',
-    name: 'Senthinathan',
-    role: 'Senior Cloud and AI Consultant',
-    bio: 'Native GCC advisor with deep roots across UAE, Saudi Arabia, and Kuwait. Leads our regional market entry and government relations practice areas.',
-    image: '/team-senthil.jpeg',
-  },
 ];
 
 export default function OurStoryTeam() {
